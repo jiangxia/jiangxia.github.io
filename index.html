@@ -291,7 +291,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/11/05/flex弹性盒布局/" itemprop="url">flex弹性盒布局</a></h1>
+                <a class="post-title-link" href="/2017/11/05/flex弹性盒布局/" itemprop="url">flex盒布局</a></h1>
         
 
         <div class="post-meta">
@@ -361,101 +361,14 @@
 
       
         
-          
-            <h1 id="Flex-弹性盒布局"><a href="#Flex-弹性盒布局" class="headerlink" title="Flex 弹性盒布局"></a>Flex 弹性盒布局</h1><p>CSS3弹性盒布局的理解：</p>
-<p>web应用有不同设备尺寸和分辨率，这时需要响应式界面设计来满足复杂的布局需求，Flex弹性盒模型的优势在于开发人员只是声明布局应该具有的行为，而不需要给出具体的实现方式，浏览器负责完成实际布局。</p>
-<p>当布局涉及到不定宽度，分布对齐的场景时，就要优先考虑弹性盒布局。</p>
-<h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p><img src="http://note.youdao.com/yws/api/personal/file/WEB8c67c7d55d8b61a2923abf1d8c42b68f?method=download&amp;shareKey=7cef6da7710b9db6b95d0a0e6019865a" alt="flex思维导图"></p>
-<h2 id="容器的属性"><a href="#容器的属性" class="headerlink" title="容器的属性"></a>容器的属性</h2><p>主轴的方向</p>
-<pre><code>flex-direction: row | row-reverse | column | column-reverse;
-row（默认值）：主轴为水平方向，起点在左端。
-row-reverse：主轴为水平方向，起点在右端。
-column：主轴为垂直方向，起点在上沿。
-column-reverse：主轴为垂直方向，起点在下沿。
-</code></pre><p>换行属性</p>
-<pre><code>flex-wrap: nowrap | wrap | wrap-reverse;
-nowrap（默认）：不换行。
-wrap：换行，第一行在上方。
-wrap-reverse：换行，第一行在下方。
-</code></pre><p>简写：方向 + 换行 </p>
-<pre><code>flex-flow: &lt;flex-direction&gt; || &lt;flex-wrap&gt;;
-</code></pre><p>主轴对齐方式</p>
-<pre><code>justify-content: flex-start | flex-end | center | space-between | space-around;
-flex-start（默认值）：左对齐
-flex-end：右对齐
-center： 居中
-space-between：两端对齐，项目之间的间隔都相等。
-space-around：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。
-</code></pre><p>交叉轴对齐方式</p>
-<pre><code>align-items: flex-start | flex-end | center | baseline | stretch;
-flex-start：交叉轴的起点对齐。
-flex-end：交叉轴的终点对齐。
-center：交叉轴的中点对齐。
-baseline: 项目的第一行文字的基线对齐。
-stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。
-</code></pre><p>多根轴线对齐方式</p>
-<pre><code>align-content: flex-start | flex-end | center | space-between | space-around | stretch;
-flex-start：与交叉轴的起点对齐。
-flex-end：与交叉轴的终点对齐。
-center：与交叉轴的中点对齐。
-space-between：与交叉轴两端对齐，轴线之间的间隔平均分布。
-space-around：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。
-stretch（默认值）：轴线占满整个交叉轴。
-</code></pre><h2 id="项目的属性"><a href="#项目的属性" class="headerlink" title="项目的属性"></a>项目的属性</h2><p>排列顺序，数值越小，排列越靠前，默认为0。</p>
-<pre><code>order: &lt;integer&gt;;
-</code></pre><p>项目的放大比例,默认为0，即如果存在剩余空间，也不放大。</p>
-<pre><code>flex-grow: &lt;number&gt;; /* default 0 */
-</code></pre><p>项目的缩小比例,默认为1，即如果空间不足，该项目将缩小。</p>
-<pre><code>flex-shrink: &lt;number&gt;; /* default 1 */
-</code></pre><p>项目占据的空间,默认值为auto，即项目的本来大小</p>
-<pre><code>flex-basis: &lt;length&gt; | auto; /* default auto */
-</code></pre><p>简写：flex-grow, flex-shrink 和 flex-basis</p>
-<pre><code>flex: none | [ &lt;&apos;flex-grow&apos;&gt; &lt;&apos;flex-shrink&apos;&gt;? || &lt;&apos;flex-basis&apos;&gt; ]
-</code></pre><p>独立的对齐方式<br>    align-self: auto | flex-start | flex-end | center | baseline | stretch;</p>
-<h2 id="关于项目属性flex的理解："><a href="#关于项目属性flex的理解：" class="headerlink" title="关于项目属性flex的理解："></a>关于项目属性flex的理解：</h2><table>
-<thead>
-<tr>
-<th>简写形式</th>
-<th>完整形式</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>默认值</td>
-<td>flex : 0 1 auto;</td>
-</tr>
-<tr>
-<td>flex : 1</td>
-<td>flex : 1 1 0%;</td>
-</tr>
-<tr>
-<td>flex: auto</td>
-<td>flex : 1 1 auto;</td>
-</tr>
-<tr>
-<td>flex : none</td>
-<td>flex: 0 0 auto;</td>
-</tr>
-<tr>
-<td>flex : 0%</td>
-<td>flex : 1 1 0%;</td>
-</tr>
-<tr>
-<td>flex : 2 3</td>
-<td>flex : 2 3 0%;</td>
-</tr>
-<tr>
-<td>flex : 2 3px</td>
-<td>flex : 2 1 3px;</td>
-</tr>
-</tbody>
-</table>
-<p>注意：重点理解flex:1跟flex:auto的区别，本质上是flex-basis的理解。</p>
-<p>flexbox在分配剩余空间时，需要计算剩余空间的大小，这依赖于flex-basis。</p>
-<p>flex:1时flex-basis是0%，也就是元素就算设置了width也不会起作用，基准宽度为0，元素的最终宽度是分配了剩余宽度后得到的尺寸。</p>
-<p>flex:auto时，flex-basis是auto，基准宽度为元素设置的width，最终宽度等于基准宽度+剩余宽度分配后的宽度。</p>
-
-          
+          <p>知识结构图<br><img src="/images/flex.png" alt="flex思维导图"><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/05/flex弹性盒布局/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
