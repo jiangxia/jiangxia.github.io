@@ -1,0 +1,908 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="博客," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="课程思维导图">
+<meta name="keywords" content="博客">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GitHub Page+Hexo搭建博客">
+<meta property="og:url" content="http://yoursite.com/2017/11/05/GitHub-Page-Hexo搭建博客/index.html">
+<meta property="og:site_name" content="黄明易">
+<meta property="og:description" content="课程思维导图">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/images/blog.png">
+<meta property="og:image" content="http://yoursite.com/images/newRepository.png">
+<meta property="og:updated_time" content="2017-11-05T05:03:39.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GitHub Page+Hexo搭建博客">
+<meta name="twitter:description" content="课程思维导图">
+<meta name="twitter:image" content="http://yoursite.com/images/blog.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/11/05/GitHub-Page-Hexo搭建博客/"/>
+
+
+
+
+
+  <title>GitHub Page+Hexo搭建博客 | 黄明易</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">黄明易</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/05/GitHub-Page-Hexo搭建博客/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiangxia">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="黄明易">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">GitHub Page+Hexo搭建博客</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-05T10:29:42+08:00">
+                2017-11-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/博客/" itemprop="url" rel="index">
+                    <span itemprop="name">博客</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="课程思维导图"><a href="#课程思维导图" class="headerlink" title="课程思维导图"></a>课程思维导图</h1><p><img src="/images/blog.png" alt="课程思维导图"><br> <a id="more"></a></p>
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>玩博客，最常见有三种方式：<br>一是在平台写，缺点是限制多。<br>二是自己购买域名，自己搭建后台，创建一个完完整整属于自己的博客，优点是有成就感，但缺点也很突出，那就是过不了多久就会疲倦，因为维护起来实在天麻烦了。<br>三是基于一些免费云空间搭建静态博客，整个系统可以用git托管，使用Markdown自由写作，一条指令完成页面生成与部署，这是最适用于普通用户的方式。</p>
+<p>至于为什么选择Hexo，是因为他有诸如使用简单，主题美观，依赖少等特点。</p>
+<h1 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h1><p>Hexo依赖于Node，所以需要先安装Node。Node的安装此处不作介绍，可以自行百度。<br>值得一提的是，<br>Node.js默认是通过npm进行包管理的，但npm在国内速度非常慢，建议大家使用淘宝npm镜像，方法如下：</p>
+<pre><code>npm install -g cnpm --registry=https://registry.npm.taobao.org
+</code></pre><p>安装好Node.js环境后，就可以通过node的npm包管理工具安装Hexo，执行以下指令</p>
+<pre><code>cnpm install -g hexo
+</code></pre><p>成功安装Hexo后，在自己的工作目录下，创建一个blog目录，在此目录下管理自己的博客源码，进入blog目录，执行以下指令完成Hexo项目环境</p>
+<p>hexo初始化</p>
+<pre><code>hexo init
+</code></pre><p>安装依赖包</p>
+<pre><code>cnpm install
+</code></pre><p>生成静态页面与启动本地服务</p>
+<pre><code>hexo s -g
+</code></pre><p>打开浏览器，输入 <a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a> ，看到以下页面说明hexo环境安装成功。</p>
+<h1 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h1><p>这里以github为例来搭建博客网站的部署环境。</p>
+<h2 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h2><p><img src="/images/newRepository.png" alt="创建仓库"><br>注意仓库名称格式，一定要以yourname.github.io，标红的yourname一定要与你账户的username相同，这个仓库名称就是以后访问你博客站点的默认域名，且一个用户只能创建一个Github Pages环境。</p>
+<h2 id="部署公钥"><a href="#部署公钥" class="headerlink" title="部署公钥"></a>部署公钥</h2><p>Hexo部署时，采用git协议，为避免暴露账户密码，最好使用证书认证，所以我们需要在Github部署公钥。如果你已经部署了公钥，可跳过此步骤。</p>
+<p>进入账号的Personal setting页面，选择SSH and GPG keys，进入密钥配置页面。填入本机公钥，点击Add SSH key。</p>
+<p>输入以下指令，测试密钥连接</p>
+<pre><code>ssh -T git@github.com
+</code></pre><p>如果返回Hi yourname! You’ve successfully authenticated, but GitHub does not provide shell access.则说明公钥部署成功。</p>
+<p>关于SSH密钥对的创建，可自行百度。</p>
+<h2 id="发布站点"><a href="#发布站点" class="headerlink" title="发布站点"></a>发布站点</h2><p>首先，打开blog目录下的_config.yml，找到deploy段，配置成这样</p>
+<pre><code>deploy:
+  type: git
+  repository: git@github.com:yourname/yourname.github.io.git
+  branch: master
+</code></pre><p>注意将代码里面的yourname换成你账号的username。</p>
+<p>设置git身份信息</p>
+<pre><code>git config --global user.name &quot;你的用户名&quot;
+git config --global user.email &quot;你的邮箱&quot;
+</code></pre><p>执行以下指令进行部署</p>
+<pre><code>hexo d -g
+</code></pre><p>如果提示没找到git，请先执行以下指令</p>
+<pre><code>cnpm install hexo-deployer-git --save
+</code></pre><p>再次部署后，浏览器打开 <a href="https://yourname.github.io" target="_blank" rel="external">https://yourname.github.io</a> 就可以看到刚才本地预览页面。</p>
+<h2 id="源码管理"><a href="#源码管理" class="headerlink" title="源码管理"></a>源码管理</h2><h3 id="git"><a href="#git" class="headerlink" title="git"></a>git</h3><p>进入blog目录，加入到git版本管控</p>
+<pre><code>git init
+</code></pre><p>将代码进行提交</p>
+<pre><code>git add .
+git commit -m &apos;博客站点项目创建&apos;
+</code></pre><p>这样，我们就把源码提交到了本地仓库。</p>
+<h3 id="托管"><a href="#托管" class="headerlink" title="托管"></a>托管</h3><p>GitHub添加远程仓库。</p>
+<pre><code>git remote add origin git@github.com:yourname/yourname.github.io.git
+</code></pre><p>创建hexo分支</p>
+<pre><code>git checkout -b hexo
+</code></pre><p>将hexo源码推送到远程仓库的hexo分支下</p>
+<pre><code>git push origin hexo
+</code></pre><h1 id="NexT主题配置"><a href="#NexT主题配置" class="headerlink" title="NexT主题配置"></a>NexT主题配置</h1><p>目前最受欢迎的Hexo主题是NexT，接下来介绍NexT主题的配置，其他主题同理。</p>
+<h2 id="安装与启用"><a href="#安装与启用" class="headerlink" title="安装与启用"></a>安装与启用</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>官方提供了两种安装方法：</p>
+<p>克隆最新版本</p>
+<pre><code>cd your-hexo-site
+git clone https://github.com/iissnan/hexo-theme-next themes/next
+</code></pre><p>下载稳定版本<br>前往 NexT下载页 选择最新的发布版本下载，然后将下载的压缩包解压至站点的 themes 目录下，并将解压后的文件更改为 next</p>
+<h3 id="启用"><a href="#启用" class="headerlink" title="启用"></a>启用</h3><p>在 Hexo 项目源码目录下，有两个主要的配置文件，其名称都是 _config.yml 。 其中，一份位于站点根目录下，主要包含 Hexo 本身的配置；另一份位于主题目录下，这份配置由主题作者提供，主要用于主题相关的配置。为了描述方便，在以下说明中，将前者称为站点配置文件， 后者称为主题配置文件。</p>
+<p>与所有Hexo主题一样，把主题源码导入themes目录后，打开站点配置文件， 找到 theme 字段，并将其值更改为 next 就完成了主题的切换。</p>
+<pre><code>theme: next
+</code></pre><p>切换主题后，最好清理下缓存</p>
+<pre><code>hexo clean
+</code></pre><p>重新生成静态页面并开启本地服务</p>
+<pre><code>hexo s -g
+</code></pre><p>使用浏览器访问 <a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a> 看到下面内容证明主题启用成功</p>
+<h2 id="主题配置"><a href="#主题配置" class="headerlink" title="主题配置"></a>主题配置</h2><h3 id="选择-Scheme"><a href="#选择-Scheme" class="headerlink" title="选择 Scheme"></a>选择 Scheme</h3><p>借助Scheme，NexT提供了多种不同的外观，目前NexT支持以下三种：</p>
+<pre><code>Muse - 默认 Scheme，这是 NexT 最初的版本，黑白主调，大量留白
+Mist - Muse 的紧凑版本，整洁有序的单栏外观
+Pisces - 双栏 Scheme，小家碧玉似的清新
+</code></pre><p>更改主题配置文件，找到 scheme ，你会看到有三行 scheme 的配置，将你需用启用的 scheme 前面注释 # 即可。你可以分别选择预览下效果，选择一个你最喜欢的。</p>
+<h3 id="设置菜单"><a href="#设置菜单" class="headerlink" title="设置菜单"></a>设置菜单</h3><p>进入主题配置文件，找到 menu 字段，菜单内容的设置格式是：item name: link 。其中 item name 是一个名称，这个名称并不直接显示在页面上，她将用于匹配图标以及翻译。</p>
+<pre><code># 菜单示例配置
+menu:
+  home: /
+  archives: /archives
+  #about: /about
+  #categories: /categories
+  tags: /tags
+  #commonweal: /404.html
+</code></pre><p>设置的菜单的名称并不直接用于界面上的展示。 Hexo 在生成的时候将使用 这个名称查找对应的语言翻译，并提取显示文本。这些翻译文本放置在 NexT 主题目录下的 languages/{language}.yml （{language} 为你所使用的语言）。</p>
+<p>以简体中文为例，若你需要添加一个菜单项，比如 something 。那么就需要修改简体中文对应的翻译文件 languages/zh-Hans.yml ，在 menu 字段下添加一项：</p>
+<pre><code>menu:
+  home: 首页
+  archives: 归档
+  categories: 分类
+  tags: 标签
+  about: 关于
+  search: 搜索
+  commonweal: 公益404
+  something: 有料
+</code></pre><p>设定菜单项的图标，对应的字段是 menu_icons。 此设定格式是 item name: icon name ，其中 item name 与上一步所配置的菜单名字对应，icon name 是 Font Awesome 图标的 名字。而 enable 可用于控制是否显示图标，你可以设置成 false 来去掉图标。</p>
+<pre><code># 菜单图标配置示例
+menu_icons:
+  enable: true
+  # Icon Mapping.
+  home: home
+  about: user
+  categories: th
+  tags: tags
+  archives: archive
+  commonweal: heartbeat
+</code></pre><h3 id="侧栏设置"><a href="#侧栏设置" class="headerlink" title="侧栏设置"></a>侧栏设置</h3><p>可以通过修改 主题配置文件 中的 sidebar 字段来控制侧栏的行为。侧栏的设置包括两个部分，其一是侧栏的位置， 其二是侧栏显示的时机。默认情况下，侧栏仅在文章页面（拥有目录列表）时才显示，并放置于右侧位置。</p>
+<p>设置侧栏的位置，修改 sidebar.position 的值，支持的选项有：</p>
+<pre><code>left - 靠左放置
+right - 靠右放置
+</code></pre><p>设置侧栏显示的时机，修改 sidebar.display 的值，支持的选项有：</p>
+<pre><code>post - 默认行为，在文章页面（拥有目录列表）时显示
+always - 在所有页面中都显示
+hide - 在所有页面中都隐藏（可以手动展开）
+remove - 完全移除
+</code></pre><h3 id="头像设置"><a href="#头像设置" class="headerlink" title="头像设置"></a>头像设置</h3><p>在站点配置文件，新增字段 avatar ，值设置成头像的链接地址。</p>
+<pre><code># 将头像放置主题目录下的 source/uploads/ （新建uploads目录若不存在） 配置为：
+avatar: /uploads/avatar.png
+# 放置在 source/images/ 目录下, 配置为：
+avatar: /images/avatar.png
+# 完整的互联网 URI
+avatar: http://example.com/avatar.png
+</code></pre><h1 id="博客日常操作"><a href="#博客日常操作" class="headerlink" title="博客日常操作"></a>博客日常操作</h1><h2 id="新增页面"><a href="#新增页面" class="headerlink" title="新增页面"></a>新增页面</h2><h3 id="添加「标签」页面"><a href="#添加「标签」页面" class="headerlink" title="添加「标签」页面"></a>添加「标签」页面</h3><p>新建页面</p>
+<pre><code>hexo new page tags
+</code></pre><p>修改站点目录下 source/tags 的 index.md 文件如下：</p>
+<pre><code>---
+title: tags
+type: &quot;tags&quot;
+comments: false
+---
+</code></pre><p>修改主题配置文件，取消 #tags: /tags 这行注释，内容如下</p>
+<pre><code># 菜单示例配置
+menu:
+  home: /
+  archives: /archives
+  #about: /about
+  #categories: /categories
+  tags: /tags
+  #commonweal: /404.html
+</code></pre><p>新建测试文章，在新文章的头部添加tags信息，如下：</p>
+<pre><code>---
+title: 测试文章
+tags:
+  - Testing
+  - Another Tag
+---
+</code></pre><p>启动本地服务，就可以看到标签菜单，点击可进入标签页，看到 测试文章 证明标签页面添加成功。</p>
+<h3 id="添加「分类」页面"><a href="#添加「分类」页面" class="headerlink" title="添加「分类」页面"></a>添加「分类」页面</h3><p>新建页面</p>
+<pre><code>hexo new page categories
+</code></pre><p>修改站点目录下 source/categories 的 index.md 文如下：</p>
+<pre><code>---
+title: categories
+type: &quot;categories&quot;
+comments: false
+---
+</code></pre><p>修改主题配置文件，取消 #categories: /categories 这行注释，内容如下</p>
+<pre><code># 菜单示例配置
+menu:
+  home: /
+  archives: /archives
+  #about: /about
+  categories: /categories
+  tags: /tags
+  #commonweal: /404.html
+</code></pre><p>在刚才测试的文章里面添加</p>
+<pre><code>---
+title: 测试文章
+tags:
+  - Testing
+  - Another Tag
+categories: Testing
+---
+</code></pre><p>启动本地服务，就可以看到分类菜单，点击可进入分类页，看到 测试文章 证明分类页面添加成功。</p>
+<h3 id="添加「关于」页面"><a href="#添加「关于」页面" class="headerlink" title="添加「关于」页面"></a>添加「关于」页面</h3><p>新建页面</p>
+<pre><code>hexo new page about
+</code></pre><p>修改主题配置文件，取消 #about: /about 这行注释，内容如下</p>
+<pre><code># 菜单示例配置
+menu:
+  home: /
+  archives: /archives
+  about: /about
+  categories: /categories
+  tags: /tags
+  #commonweal: /404.html
+</code></pre><p>编辑站点目录下 source/about 的 index.md 文件内容，内容将显示在关于页面。</p>
+<p>启动本地服务，就可以看到关于菜单，点击可进入关于页，显示内容即是 source/about/index.md 对应内容。</p>
+<h2 id="新增文章"><a href="#新增文章" class="headerlink" title="新增文章"></a>新增文章</h2><pre><code>hexo new&quot;postName&quot; #新建文章
+</code></pre><h2 id="本地测试"><a href="#本地测试" class="headerlink" title="本地测试"></a>本地测试</h2><p>重新生成静态页面并开启本地服务，便可以在本地测试效果</p>
+<pre><code>hexo s -g
+</code></pre><h2 id="部署代码"><a href="#部署代码" class="headerlink" title="部署代码"></a>部署代码</h2><p>生成静态页面至public目录</p>
+<pre><code>hexo generate 
+</code></pre><p>将本地代码部署到GitHub</p>
+<pre><code>hexo d -g
+</code></pre>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/博客/" rel="tag"># 博客</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Jiangxia" />
+          <p class="site-author-name" itemprop="name">Jiangxia</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/jiangxia" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#课程思维导图"><span class="nav-number">1.</span> <span class="nav-text">课程思维导图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-number">2.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装Hexo"><span class="nav-number">3.</span> <span class="nav-text">安装Hexo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#部署"><span class="nav-number">4.</span> <span class="nav-text">部署</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建仓库"><span class="nav-number">4.1.</span> <span class="nav-text">创建仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署公钥"><span class="nav-number">4.2.</span> <span class="nav-text">部署公钥</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#发布站点"><span class="nav-number">4.3.</span> <span class="nav-text">发布站点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#源码管理"><span class="nav-number">4.4.</span> <span class="nav-text">源码管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#git"><span class="nav-number">4.4.1.</span> <span class="nav-text">git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#托管"><span class="nav-number">4.4.2.</span> <span class="nav-text">托管</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NexT主题配置"><span class="nav-number">5.</span> <span class="nav-text">NexT主题配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装与启用"><span class="nav-number">5.1.</span> <span class="nav-text">安装与启用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">5.1.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启用"><span class="nav-number">5.1.2.</span> <span class="nav-text">启用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主题配置"><span class="nav-number">5.2.</span> <span class="nav-text">主题配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#选择-Scheme"><span class="nav-number">5.2.1.</span> <span class="nav-text">选择 Scheme</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置菜单"><span class="nav-number">5.2.2.</span> <span class="nav-text">设置菜单</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#侧栏设置"><span class="nav-number">5.2.3.</span> <span class="nav-text">侧栏设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#头像设置"><span class="nav-number">5.2.4.</span> <span class="nav-text">头像设置</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#博客日常操作"><span class="nav-number">6.</span> <span class="nav-text">博客日常操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#新增页面"><span class="nav-number">6.1.</span> <span class="nav-text">新增页面</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加「标签」页面"><span class="nav-number">6.1.1.</span> <span class="nav-text">添加「标签」页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加「分类」页面"><span class="nav-number">6.1.2.</span> <span class="nav-text">添加「分类」页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加「关于」页面"><span class="nav-number">6.1.3.</span> <span class="nav-text">添加「关于」页面</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新增文章"><span class="nav-number">6.2.</span> <span class="nav-text">新增文章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地测试"><span class="nav-number">6.3.</span> <span class="nav-text">本地测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署代码"><span class="nav-number">6.4.</span> <span class="nav-text">部署代码</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jiangxia</span>
+</div>
+
+
+<div class="powered-by">
+  个人专属
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
