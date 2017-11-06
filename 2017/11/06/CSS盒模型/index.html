@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="前端,JavaScript," />
+  <meta name="keywords" content="前端,CSS," />
 
 
 
@@ -91,19 +91,19 @@
 
 
 <meta name="description" content="课程思维导图">
-<meta name="keywords" content="前端,JavaScript">
+<meta name="keywords" content="前端,CSS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript原型链与继承">
-<meta property="og:url" content="http://yoursite.com/2017/11/05/JavaScript原型链与继承/index.html">
+<meta property="og:title" content="CSS盒模型">
+<meta property="og:url" content="http://yoursite.com/2017/11/06/CSS盒模型/index.html">
 <meta property="og:site_name" content="黄明易">
 <meta property="og:description" content="课程思维导图">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/images/JS原型.png">
-<meta property="og:updated_time" content="2017-11-06T12:17:34.000Z">
+<meta property="og:image" content="http://yoursite.com/images/CSS盒模型.png">
+<meta property="og:updated_time" content="2017-11-06T12:56:13.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript原型链与继承">
+<meta name="twitter:title" content="CSS盒模型">
 <meta name="twitter:description" content="课程思维导图">
-<meta name="twitter:image" content="http://yoursite.com/images/JS原型.png">
+<meta name="twitter:image" content="http://yoursite.com/images/CSS盒模型.png">
 
 
 
@@ -131,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/11/05/JavaScript原型链与继承/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/11/06/CSS盒模型/"/>
 
 
 
 
 
-  <title>JavaScript原型链与继承 | 黄明易</title>
+  <title>CSS盒模型 | 黄明易</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -277,7 +277,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/05/JavaScript原型链与继承/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/06/CSS盒模型/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiangxia">
@@ -294,7 +294,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">JavaScript原型链与继承</h1>
+          <h1 class="post-title" itemprop="name headline">CSS盒模型</h1>
         
 
         <div class="post-meta">
@@ -306,8 +306,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-05T14:47:27+08:00">
-                2017-11-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-06T20:37:24+08:00">
+                2017-11-06
               </time>
             
 
@@ -340,8 +340,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
+                  <a href="/categories/前端/CSS/" itemprop="url" rel="index">
+                    <span itemprop="name">CSS</span>
                   </a>
                 </span>
 
@@ -374,28 +374,45 @@
       
 
       
-        <h1 id="课程思维导图"><a href="#课程思维导图" class="headerlink" title="课程思维导图"></a>课程思维导图</h1><p><img src="/images/JS原型.png" alt="JS原型"><br> <a id="more"></a></p>
-<h1 id="原型链与继承"><a href="#原型链与继承" class="headerlink" title="原型链与继承"></a>原型链与继承</h1><p>javascript中的继承是通过原型链来体现的。</p>
-<p>每个对象都有一个<strong>proto</strong>属性，指向构造函数的prototype。</p>
-<p>访问一个对象的属性时，先在基本属性中查找，如果没有，再沿着<strong>proto</strong>这条链向上找，这就是原型链。</p>
-<p>注：我们可以通过hasOwnProperty方法来判断一个属性是否从原型链中继承而来。</p>
-<h1 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h1><p>instanceof是原型链继承中的重要环节，对instanceof的理解有利于理解原型链继承的机制。</p>
-<p>以A instanceof B为例</p>
-<ul>
-<li>instanceof的普通的用法，检测B.prototype是否存在于参数A的原型链上。</li>
-<li>继承中判断实例是否属于它的父类</li>
+        <h1 id="课程思维导图"><a href="#课程思维导图" class="headerlink" title="课程思维导图"></a>课程思维导图</h1><p><img src="/images/CSS盒模型.png" alt="CSS盒模型"><br> <a id="more"></a></p>
+<h1 id="CSS盒模型"><a href="#CSS盒模型" class="headerlink" title="CSS盒模型"></a>CSS盒模型</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>盒子模型包括：content、padding、margin、border</p>
+<h2 id="标准模型和IE模型的区别"><a href="#标准模型和IE模型的区别" class="headerlink" title="标准模型和IE模型的区别"></a>标准模型和IE模型的区别</h2><ul>
+<li>标准模型的宽高为content的宽高</li>
+<li>IE模型的宽高包括border</li>
 </ul>
-<p>简单理解就是沿着A的<strong>proto</strong>跟B的prototype寻找，如果能找到同一引用，返回true，否则返回false。</p>
-<p>实际开发中，关于instanceof的案例会比较复杂。需要掌握基本的原理：</p>
-<p>由于函数也是对象，对象是函数创建的，所以有：</p>
-<pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">fn.__proto__ === <span class="built_in">Function</span>.prototype</div><div class="line"><span class="built_in">Object</span>.__proto__ === <span class="built_in">Function</span>.prototype</div></pre></td></tr></table></figure>
-</code></pre><p>Function是自身创建的，所以有：</p>
-<pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Function</span>.__proto__ === <span class="built_in">Function</span>.prototype</div></pre></td></tr></table></figure>
-</code></pre><p>Function.prototype也是对象，所以有：</p>
-<pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Function</span>.prototype.__proto__ === <span class="built_in">Object</span>.prototype</div></pre></td></tr></table></figure>
-</code></pre><p>复杂情况</p>
-<pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;&#125;</div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span> <span class="keyword">instanceof</span> <span class="built_in">Object</span>);     <span class="comment">//true</span></div><div class="line"></div><div class="line"><span class="comment">//第一个Object的原型链：Object=&gt;Object.__proto__ =&gt; Function.prototype=&gt;Function.prototype.__proto__=&gt;Object.prototype</span></div><div class="line"><span class="comment">//第二个Object的原型：Object=&gt; Object.prototype</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Function</span> <span class="keyword">instanceof</span> <span class="built_in">Function</span>); <span class="comment">//true</span></div><div class="line"><span class="comment">//第一个Function的原型链：Function=&gt;Function.__proto__ =&gt; Function.prototype</span></div><div class="line"><span class="comment">//第二个Function的原型：Function=&gt;Function.prototype</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Function</span> <span class="keyword">instanceof</span> <span class="built_in">Object</span>);   <span class="comment">//true</span></div><div class="line"><span class="comment">//Function=&gt;</span></div><div class="line"><span class="comment">//Function.__proto__=&gt;Function.prototype=&gt;Function.prototype.__proto__=&gt;Object.prototype</span></div><div class="line"><span class="comment">//Object =&gt; Object.prototype</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(Person <span class="keyword">instanceof</span> <span class="built_in">Function</span>);      <span class="comment">//true</span></div><div class="line"><span class="comment">//Person=&gt;Person.__proto__=&gt;Function.prototype</span></div><div class="line"><span class="comment">//Function=&gt;Function.prototype</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">String</span> <span class="keyword">instanceof</span> <span class="built_in">String</span>);   <span class="comment">//false</span></div><div class="line"><span class="comment">//第一个String的原型链：String=&gt;</span></div><div class="line"><span class="comment">//String.__proto__=&gt;Function.prototype=&gt;Function.prototype.__proto__=&gt;Object.prototype</span></div><div class="line"><span class="comment">//第二个String的原型链：String=&gt;String.prototype</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Boolean</span> <span class="keyword">instanceof</span> <span class="built_in">Boolean</span>); <span class="comment">//false</span></div><div class="line"><span class="comment">//第一个Boolean的原型链：</span></div><div class="line"><span class="built_in">Boolean</span>=&gt;<span class="built_in">Boolean</span>.__proto__=&gt;<span class="built_in">Function</span>.prototype=&gt;<span class="built_in">Function</span>.prototype.__proto__=&gt;<span class="built_in">Object</span>.prototype</div><div class="line"><span class="comment">//第二个Boolean的原型链：Boolean=&gt;Boolean.prototype</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(Person <span class="keyword">instanceof</span> Person); <span class="comment">//false</span></div><div class="line"><span class="comment">//第一个Person的原型链：</span></div><div class="line">Person=&gt;Person.__proto__=&gt;<span class="built_in">Function</span>.prototype=&gt;<span class="built_in">Function</span>.prototype.__proto__=&gt;<span class="built_in">Object</span>.prototype</div><div class="line"><span class="comment">//第二个Person的原型链：Person=&gt;Person.prototype</span></div></pre></td></tr></table></figure>
-</code></pre>
+<h2 id="CSS如何设置这两种模型"><a href="#CSS如何设置这两种模型" class="headerlink" title="CSS如何设置这两种模型"></a>CSS如何设置这两种模型</h2><ul>
+<li>标准模型：box-sizing：content-box </li>
+<li>IE模型：box-sizing：border-box</li>
+</ul>
+<h2 id="JS如何设置-获取盒模型对应的宽高"><a href="#JS如何设置-获取盒模型对应的宽高" class="headerlink" title="JS如何设置/获取盒模型对应的宽高"></a>JS如何设置/获取盒模型对应的宽高</h2><ul>
+<li>dom.style.width/height：内联样式的宽高</li>
+<li>dom.currentStyle.width/height：渲染后的最终宽高（IE）</li>
+<li>window.getComputedStyle(dom).width/height：DOM标准，不支持IE</li>
+<li>dom.getBoundingClientRect().width/height：计算元素的绝对位置（视窗左顶点为起点，含left/right/height/width）</li>
+</ul>
+<h2 id="BFC"><a href="#BFC" class="headerlink" title="BFC"></a>BFC</h2><p>最常见的常见就是解决边距重叠。</p>
+<ul>
+<li>定义：BFC就是用来格式化块级盒子，即块级格式化上下文，同样管理inline类型的盒子还有IFC</li>
+<li>原理（渲染规则）：<ul>
+<li>BFC元素的垂直方向边距会发生重叠</li>
+<li>BFC的区域不会与浮动元素重叠（可清除浮动）</li>
+<li>BFC是独立容器，不与外部元素相互影响</li>
+<li>计算BFC高度的时候，浮动元素参与计算</li>
+</ul>
+</li>
+<li>如何创建BFC：<ul>
+<li>float不为none</li>
+<li>position不为static/relative</li>
+<li>display的值为inline-block、table-cell、table-caption</li>
+<li>overflow的值不为visible</li>
+</ul>
+</li>
+<li>BFC的使用场景<ul>
+<li>BFC元素为float时，也会参与高度计算</li>
+</ul>
+</li>
+</ul>
+
       
     </div>
 
@@ -426,7 +443,7 @@
           
             <a href="/tags/前端/" rel="tag"># 前端</a>
           
-            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+            <a href="/tags/CSS/" rel="tag"># CSS</a>
           
         </div>
       
@@ -439,8 +456,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/05/GitHub-Page-Hexo搭建博客/" rel="next" title="GitHub Page+Hexo搭建博客">
-                <i class="fa fa-chevron-left"></i> GitHub Page+Hexo搭建博客
+              <a href="/2017/11/06/UI库/" rel="next" title="UI库">
+                <i class="fa fa-chevron-left"></i> UI库
               </a>
             
           </div>
@@ -448,10 +465,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/11/05/flex弹性盒布局/" rel="prev" title="flex弹性盒布局">
-                flex弹性盒布局 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -591,7 +604,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#课程思维导图"><span class="nav-number">1.</span> <span class="nav-text">课程思维导图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#原型链与继承"><span class="nav-number">2.</span> <span class="nav-text">原型链与继承</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#instanceof"><span class="nav-number">3.</span> <span class="nav-text">instanceof</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#课程思维导图"><span class="nav-number">1.</span> <span class="nav-text">课程思维导图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS盒模型"><span class="nav-number">2.</span> <span class="nav-text">CSS盒模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本概念"><span class="nav-number">2.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标准模型和IE模型的区别"><span class="nav-number">2.2.</span> <span class="nav-text">标准模型和IE模型的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS如何设置这两种模型"><span class="nav-number">2.3.</span> <span class="nav-text">CSS如何设置这两种模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS如何设置-获取盒模型对应的宽高"><span class="nav-number">2.4.</span> <span class="nav-text">JS如何设置/获取盒模型对应的宽高</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BFC"><span class="nav-number">2.5.</span> <span class="nav-text">BFC</span></a></li></ol></li></ol></div>
             
 
           </div>
