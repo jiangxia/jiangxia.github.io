@@ -99,7 +99,7 @@
 <meta property="og:description" content="课程思维导图">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/images/flex.png">
-<meta property="og:updated_time" content="2017-11-05T13:31:27.000Z">
+<meta property="og:updated_time" content="2017-11-06T12:12:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="flex弹性盒布局">
 <meta name="twitter:description" content="课程思维导图">
@@ -379,52 +379,30 @@
 <p>web应用有不同设备尺寸和分辨率，这时需要响应式界面设计来满足复杂的布局需求，Flex弹性盒模型的优势在于开发人员只是声明布局应该具有的行为，而不需要给出具体的实现方式，浏览器负责完成实际布局。</p>
 <p>当布局涉及到不定宽度，分布对齐的场景时，就要优先考虑弹性盒布局。</p>
 <h2 id="容器的属性"><a href="#容器的属性" class="headerlink" title="容器的属性"></a>容器的属性</h2><p>主轴的方向</p>
-<pre><code>flex-direction: row | row-reverse | column | column-reverse;
-row（默认值）：主轴为水平方向，起点在左端。
-row-reverse：主轴为水平方向，起点在右端。
-column：主轴为垂直方向，起点在上沿。
-column-reverse：主轴为垂直方向，起点在下沿。
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">flex-direction: row | row-reverse | column | column-reverse;</div><div class="line">row（默认值）：主轴为水平方向，起点在左端。</div><div class="line">row-reverse：主轴为水平方向，起点在右端。</div><div class="line">column：主轴为垂直方向，起点在上沿。</div><div class="line">column-reverse：主轴为垂直方向，起点在下沿。</div></pre></td></tr></table></figure>
 </code></pre><p>换行属性</p>
-<pre><code>flex-wrap: nowrap | wrap | wrap-reverse;
-nowrap（默认）：不换行。
-wrap：换行，第一行在上方。
-wrap-reverse：换行，第一行在下方。
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">flex-wrap: nowrap | wrap | wrap-reverse;</div><div class="line">nowrap（默认）：不换行。</div><div class="line">wrap：换行，第一行在上方。</div><div class="line">wrap-reverse：换行，第一行在下方。</div></pre></td></tr></table></figure>
 </code></pre><p>简写：方向 + 换行 </p>
-<pre><code>flex-flow: &lt;flex-direction&gt; || &lt;flex-wrap&gt;;
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">flex-flow: &lt;flex-direction&gt; || &lt;flex-wrap&gt;;</div></pre></td></tr></table></figure>
 </code></pre><p>主轴对齐方式</p>
-<pre><code>justify-content: flex-start | flex-end | center | space-between | space-around;
-flex-start（默认值）：左对齐
-flex-end：右对齐
-center： 居中
-space-between：两端对齐，项目之间的间隔都相等。
-space-around：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">justify-content: flex-start | flex-end | center | space-between | space-around;</div><div class="line">flex-start（默认值）：左对齐</div><div class="line">flex-end：右对齐</div><div class="line">center： 居中</div><div class="line">space-between：两端对齐，项目之间的间隔都相等。</div><div class="line">space-around：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。</div></pre></td></tr></table></figure>
 </code></pre><p>交叉轴对齐方式</p>
-<pre><code>align-items: flex-start | flex-end | center | baseline | stretch;
-flex-start：交叉轴的起点对齐。
-flex-end：交叉轴的终点对齐。
-center：交叉轴的中点对齐。
-baseline: 项目的第一行文字的基线对齐。
-stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">align-items: flex-start | flex-end | center | baseline | stretch;</div><div class="line">flex-start：交叉轴的起点对齐。</div><div class="line">flex-end：交叉轴的终点对齐。</div><div class="line">center：交叉轴的中点对齐。</div><div class="line">baseline: 项目的第一行文字的基线对齐。</div><div class="line">stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。</div></pre></td></tr></table></figure>
 </code></pre><p>多根轴线对齐方式</p>
-<pre><code>align-content: flex-start | flex-end | center | space-between | space-around | stretch;
-flex-start：与交叉轴的起点对齐。
-flex-end：与交叉轴的终点对齐。
-center：与交叉轴的中点对齐。
-space-between：与交叉轴两端对齐，轴线之间的间隔平均分布。
-space-around：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。
-stretch（默认值）：轴线占满整个交叉轴。
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">align-content: flex-start | flex-end | center | space-between | space-around | stretch;</div><div class="line">flex-start：与交叉轴的起点对齐。</div><div class="line">flex-end：与交叉轴的终点对齐。</div><div class="line">center：与交叉轴的中点对齐。</div><div class="line">space-between：与交叉轴两端对齐，轴线之间的间隔平均分布。</div><div class="line">space-around：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。</div><div class="line">stretch（默认值）：轴线占满整个交叉轴。</div></pre></td></tr></table></figure>
 </code></pre><h2 id="项目的属性"><a href="#项目的属性" class="headerlink" title="项目的属性"></a>项目的属性</h2><p>排列顺序，数值越小，排列越靠前，默认为0。</p>
-<pre><code>order: &lt;integer&gt;;
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">order: &lt;integer&gt;;</div></pre></td></tr></table></figure>
 </code></pre><p>项目的放大比例,默认为0，即如果存在剩余空间，也不放大。</p>
-<pre><code>flex-grow: &lt;number&gt;; /* default 0 */
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">flex-grow: &lt;number&gt;; /* default 0 */</div></pre></td></tr></table></figure>
 </code></pre><p>项目的缩小比例,默认为1，即如果空间不足，该项目将缩小。</p>
-<pre><code>flex-shrink: &lt;number&gt;; /* default 1 */
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">flex-shrink: &lt;number&gt;; /* default 1 */</div></pre></td></tr></table></figure>
 </code></pre><p>项目占据的空间,默认值为auto，即项目的本来大小</p>
-<pre><code>flex-basis: &lt;length&gt; | auto; /* default auto */
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">flex-basis: &lt;length&gt; | auto; /* default auto */</div></pre></td></tr></table></figure>
 </code></pre><p>简写：flex-grow, flex-shrink 和 flex-basis</p>
-<pre><code>flex: none | [ &lt;&apos;flex-grow&apos;&gt; &lt;&apos;flex-shrink&apos;&gt;? || &lt;&apos;flex-basis&apos;&gt; ]
-</code></pre><p>独立的对齐方式<br>    align-self: auto | flex-start | flex-end | center | baseline | stretch;</p>
-<h2 id="关于项目属性flex的理解："><a href="#关于项目属性flex的理解：" class="headerlink" title="关于项目属性flex的理解："></a>关于项目属性flex的理解：</h2><table>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">flex: none | [ &lt;&apos;flex-grow&apos;&gt; &lt;&apos;flex-shrink&apos;&gt;? || &lt;&apos;flex-basis&apos;&gt; ]</div></pre></td></tr></table></figure>
+</code></pre><p>独立的对齐方式</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">align-self: auto | flex-start | flex-end | center | baseline | stretch;</div></pre></td></tr></table></figure>
+</code></pre><h2 id="关于项目属性flex的理解："><a href="#关于项目属性flex的理解：" class="headerlink" title="关于项目属性flex的理解："></a>关于项目属性flex的理解：</h2><table>
 <thead>
 <tr>
 <th>简写形式</th>
@@ -594,7 +572,7 @@ stretch（默认值）：轴线占满整个交叉轴。
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -605,7 +583,7 @@ stretch（默认值）：轴线占满整个交叉轴。
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -616,7 +594,7 @@ stretch（默认值）：轴线占满整个交叉轴。
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
