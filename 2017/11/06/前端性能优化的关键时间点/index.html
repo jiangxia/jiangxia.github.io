@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="前端,CSS," />
+  <meta name="keywords" content="前端,优化," />
 
 
 
@@ -91,19 +91,19 @@
 
 
 <meta name="description" content="课程思维导图">
-<meta name="keywords" content="前端,CSS">
+<meta name="keywords" content="前端,优化">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS盒模型">
-<meta property="og:url" content="http://yoursite.com/2017/11/06/CSS盒模型/index.html">
+<meta property="og:title" content="前端性能优化的关键时间点">
+<meta property="og:url" content="http://yoursite.com/2017/11/06/前端性能优化的关键时间点/index.html">
 <meta property="og:site_name" content="黄明易">
 <meta property="og:description" content="课程思维导图">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/images/CSS盒模型.png">
-<meta property="og:updated_time" content="2017-11-06T13:02:01.000Z">
+<meta property="og:image" content="http://yoursite.com/images/前端性能优化的关键时间点.png">
+<meta property="og:updated_time" content="2017-11-06T13:11:06.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSS盒模型">
+<meta name="twitter:title" content="前端性能优化的关键时间点">
 <meta name="twitter:description" content="课程思维导图">
-<meta name="twitter:image" content="http://yoursite.com/images/CSS盒模型.png">
+<meta name="twitter:image" content="http://yoursite.com/images/前端性能优化的关键时间点.png">
 
 
 
@@ -131,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/11/06/CSS盒模型/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/11/06/前端性能优化的关键时间点/"/>
 
 
 
 
 
-  <title>CSS盒模型 | 黄明易</title>
+  <title>前端性能优化的关键时间点 | 黄明易</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -277,7 +277,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/06/CSS盒模型/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/06/前端性能优化的关键时间点/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiangxia">
@@ -294,7 +294,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">CSS盒模型</h1>
+          <h1 class="post-title" itemprop="name headline">前端性能优化的关键时间点</h1>
         
 
         <div class="post-meta">
@@ -306,7 +306,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-06T20:37:24+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-06T21:08:57+08:00">
                 2017-11-06
               </time>
             
@@ -340,8 +340,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端/CSS/" itemprop="url" rel="index">
-                    <span itemprop="name">CSS</span>
+                  <a href="/categories/前端/优化/" itemprop="url" rel="index">
+                    <span itemprop="name">优化</span>
                   </a>
                 </span>
 
@@ -374,38 +374,44 @@
       
 
       
-        <h1 id="课程思维导图"><a href="#课程思维导图" class="headerlink" title="课程思维导图"></a>课程思维导图</h1><p><img src="/images/CSS盒模型.png" alt="CSS盒模型"><br> <a id="more"></a></p>
-<h1 id="CSS盒模型"><a href="#CSS盒模型" class="headerlink" title="CSS盒模型"></a>CSS盒模型</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>盒子模型包括：content、padding、margin、border</p>
-<h2 id="标准模型和IE模型的区别"><a href="#标准模型和IE模型的区别" class="headerlink" title="标准模型和IE模型的区别"></a>标准模型和IE模型的区别</h2><ul>
-<li>标准模型的宽高为content的宽高</li>
-<li>IE模型的宽高包括border</li>
+        <h1 id="课程思维导图"><a href="#课程思维导图" class="headerlink" title="课程思维导图"></a>课程思维导图</h1><p><img src="/images/前端性能优化的关键时间点.png" alt="前端性能优化的关键时间点"><br> <a id="more"></a></p>
+<h1 id="开始渲染时间"><a href="#开始渲染时间" class="headerlink" title="开始渲染时间"></a>开始渲染时间</h1><h2 id="是什么？"><a href="#是什么？" class="headerlink" title="是什么？"></a>是什么？</h2><p>该时间点表示浏览器开始绘制页面，在此之前页面都是白屏，所以也称为白屏时间。</p>
+<h2 id="如何获取？"><a href="#如何获取？" class="headerlink" title="如何获取？"></a>如何获取？</h2><ul>
+<li>Chrome可通过chrome.loadTimes().firstPaintTime获取</li>
+<li>IE9+可以通过performance.timing.msFirstPaint获取</li>
+<li>在不支持的浏览器中可以根据上面公式通过获取头部资源加载完的时刻模拟获取近似值<h2 id="优化建议："><a href="#优化建议：" class="headerlink" title="优化建议："></a>优化建议：</h2></li>
+<li>优化服务器响应时间，服务器端尽早输出</li>
+<li>减少html文件大小</li>
+<li>减少头部资源,脚本尽量放在body 中</li>
 </ul>
-<h2 id="CSS如何设置这两种模型"><a href="#CSS如何设置这两种模型" class="headerlink" title="CSS如何设置这两种模型"></a>CSS如何设置这两种模型</h2><ul>
-<li>标准模型：box-sizing：content-box </li>
-<li>IE模型：box-sizing：border-box</li>
-</ul>
-<h2 id="JS如何设置-获取盒模型对应的宽高"><a href="#JS如何设置-获取盒模型对应的宽高" class="headerlink" title="JS如何设置/获取盒模型对应的宽高"></a>JS如何设置/获取盒模型对应的宽高</h2><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">dom.style.width/height：内联样式的宽高</div><div class="line">dom.currentStyle.width/height：渲染后的最终宽高（IE）</div><div class="line">window.getComputedStyle(dom).width/height：DOM标准，不支持IE</div><div class="line">dom.getBoundingClientRect().width/height：计算元素的绝对位置（视窗左顶点为起点，含left/right/height/width）</div></pre></td></tr></table></figure>
-</code></pre><h2 id="BFC"><a href="#BFC" class="headerlink" title="BFC"></a>BFC</h2><p>最常见的常见就是解决边距重叠。</p>
-<ul>
-<li>定义：BFC就是用来格式化块级盒子，即块级格式化上下文，同样管理inline类型的盒子还有IFC</li>
-<li>原理（渲染规则）：<ul>
-<li>BFC元素的垂直方向边距会发生重叠</li>
-<li>BFC的区域不会与浮动元素重叠（可清除浮动）</li>
-<li>BFC是独立容器，不与外部元素相互影响</li>
-<li>计算BFC高度的时候，浮动元素参与计算</li>
+<h1 id="DOM-Ready"><a href="#DOM-Ready" class="headerlink" title="DOM Ready"></a>DOM Ready</h1><h2 id="是什么？-1"><a href="#是什么？-1" class="headerlink" title="是什么？"></a>是什么？</h2><p>该时间点表示dom解析已经完成，资源还没有加载完成, 这个时候用户与页面的交互已经可用了。</p>
+<h2 id="如何获取？-1"><a href="#如何获取？-1" class="headerlink" title="如何获取？"></a>如何获取？</h2><ul>
+<li>高级浏览器通过DOMContentLoaded事件获取。</li>
+<li>低级浏览器：<ul>
+<li>低版本webkit内核浏览器可以通过轮询document.readyState来实现</li>
+<li>ie中可通过setTimeout不断调用documentElement的doScroll方法，直到其可用来实现</li>
 </ul>
 </li>
-<li>如何创建BFC：<ul>
-<li>float不为none</li>
-<li>position不为static/relative</li>
-<li>display的值为inline-block、table-cell、table-caption</li>
-<li>overflow的值不为visible</li>
 </ul>
-</li>
-<li>BFC的使用场景<ul>
-<li>BFC元素为float时，也会参与高度计算</li>
+<p>可以参考jQuery的实现</p>
+<h2 id="优化建议：-1"><a href="#优化建议：-1" class="headerlink" title="优化建议："></a>优化建议：</h2><ul>
+<li>减少dom结构的复杂度，节点尽可能少，嵌套不要太深</li>
+<li>优化关键呈现路径</li>
 </ul>
-</li>
+<h1 id="首屏时间"><a href="#首屏时间" class="headerlink" title="首屏时间"></a>首屏时间</h1><h2 id="是什么？-2"><a href="#是什么？-2" class="headerlink" title="是什么？"></a>是什么？</h2><p>该时间点表示用户看到第一屏页面的时间，这个时间点很重要但是很难获取，一般都只能通过模拟获取一个近似时间。</p>
+<h2 id="如何获取？-2"><a href="#如何获取？-2" class="headerlink" title="如何获取？"></a>如何获取？</h2><ul>
+<li>不断获取屏幕截图，当截图不再变化时，可以视为首屏时间。可参考webPagetest的Speed Index算法；</li>
+<li>一般影响首屏的主要因素是图片的加载，通过页面加载完后判断图片是否在首屏内，找出加载最慢的一张即可视为首屏时间。<h2 id="优化建议：-2"><a href="#优化建议：-2" class="headerlink" title="优化建议："></a>优化建议：</h2></li>
+<li>页面首屏的显示尽量不要依赖于js代码，js尽量放到domReady后执行或加载</li>
+<li>首屏外的图片延迟加载</li>
+<li>首屏结构尽量简单，首屏外的css可延迟加载</li>
+</ul>
+<h1 id="onload"><a href="#onload" class="headerlink" title="onload"></a>onload</h1><h2 id="是什么？-3"><a href="#是什么？-3" class="headerlink" title="是什么？"></a>是什么？</h2><p>原始文档和所有引用的内容已经加载完成，用户最明显的感觉就是浏览器上loading状态结束。</p>
+<h2 id="如何获取？-3"><a href="#如何获取？-3" class="headerlink" title="如何获取？"></a>如何获取？</h2><p>该时间点是window.onload事件触发的时间</p>
+<h2 id="优化建议：-3"><a href="#优化建议：-3" class="headerlink" title="优化建议："></a>优化建议：</h2><ul>
+<li>减少资源的请求数和文件大小</li>
+<li>将非初始化脚本放到onLoad之后执行</li>
+<li>无需同步的脚本异步加载</li>
 </ul>
 
       
@@ -438,7 +444,7 @@
           
             <a href="/tags/前端/" rel="tag"># 前端</a>
           
-            <a href="/tags/CSS/" rel="tag"># CSS</a>
+            <a href="/tags/优化/" rel="tag"># 优化</a>
           
         </div>
       
@@ -451,8 +457,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/06/UI库/" rel="next" title="UI库">
-                <i class="fa fa-chevron-left"></i> UI库
+              <a href="/2017/11/06/CSS居中布局/" rel="next" title="CSS居中布局">
+                <i class="fa fa-chevron-left"></i> CSS居中布局
               </a>
             
           </div>
@@ -460,10 +466,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/11/06/CSS居中布局/" rel="prev" title="CSS居中布局">
-                CSS居中布局 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -603,7 +605,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#课程思维导图"><span class="nav-number">1.</span> <span class="nav-text">课程思维导图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS盒模型"><span class="nav-number">2.</span> <span class="nav-text">CSS盒模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本概念"><span class="nav-number">2.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标准模型和IE模型的区别"><span class="nav-number">2.2.</span> <span class="nav-text">标准模型和IE模型的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS如何设置这两种模型"><span class="nav-number">2.3.</span> <span class="nav-text">CSS如何设置这两种模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS如何设置-获取盒模型对应的宽高"><span class="nav-number">2.4.</span> <span class="nav-text">JS如何设置/获取盒模型对应的宽高</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BFC"><span class="nav-number">2.5.</span> <span class="nav-text">BFC</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#课程思维导图"><span class="nav-number">1.</span> <span class="nav-text">课程思维导图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开始渲染时间"><span class="nav-number">2.</span> <span class="nav-text">开始渲染时间</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#是什么？"><span class="nav-number">2.1.</span> <span class="nav-text">是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何获取？"><span class="nav-number">2.2.</span> <span class="nav-text">如何获取？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化建议："><span class="nav-number">2.3.</span> <span class="nav-text">优化建议：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DOM-Ready"><span class="nav-number">3.</span> <span class="nav-text">DOM Ready</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#是什么？-1"><span class="nav-number">3.1.</span> <span class="nav-text">是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何获取？-1"><span class="nav-number">3.2.</span> <span class="nav-text">如何获取？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化建议：-1"><span class="nav-number">3.3.</span> <span class="nav-text">优化建议：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#首屏时间"><span class="nav-number">4.</span> <span class="nav-text">首屏时间</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#是什么？-2"><span class="nav-number">4.1.</span> <span class="nav-text">是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何获取？-2"><span class="nav-number">4.2.</span> <span class="nav-text">如何获取？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化建议：-2"><span class="nav-number">4.3.</span> <span class="nav-text">优化建议：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#onload"><span class="nav-number">5.</span> <span class="nav-text">onload</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#是什么？-3"><span class="nav-number">5.1.</span> <span class="nav-text">是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何获取？-3"><span class="nav-number">5.2.</span> <span class="nav-text">如何获取？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化建议：-3"><span class="nav-number">5.3.</span> <span class="nav-text">优化建议：</span></a></li></ol></li></ol></div>
             
 
           </div>

@@ -99,7 +99,7 @@
 <meta property="og:description" content="课程思维导图">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/images/JS原型.png">
-<meta property="og:updated_time" content="2017-11-06T12:17:34.000Z">
+<meta property="og:updated_time" content="2017-11-06T13:01:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript原型链与继承">
 <meta name="twitter:description" content="课程思维导图">
@@ -388,11 +388,12 @@
 <p>简单理解就是沿着A的<strong>proto</strong>跟B的prototype寻找，如果能找到同一引用，返回true，否则返回false。</p>
 <p>实际开发中，关于instanceof的案例会比较复杂。需要掌握基本的原理：</p>
 <p>由于函数也是对象，对象是函数创建的，所以有：</p>
-<pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">fn.__proto__ === <span class="built_in">Function</span>.prototype</div><div class="line"><span class="built_in">Object</span>.__proto__ === <span class="built_in">Function</span>.prototype</div></pre></td></tr></table></figure>
+<pre><code>fn.__proto__ === Function.prototype
+Object.__proto__ === Function.prototype
 </code></pre><p>Function是自身创建的，所以有：</p>
-<pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Function</span>.__proto__ === <span class="built_in">Function</span>.prototype</div></pre></td></tr></table></figure>
+<pre><code>Function.__proto__ === Function.prototype
 </code></pre><p>Function.prototype也是对象，所以有：</p>
-<pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Function</span>.prototype.__proto__ === <span class="built_in">Object</span>.prototype</div></pre></td></tr></table></figure>
+<pre><code>Function.prototype.__proto__ === Object.prototype
 </code></pre><p>复杂情况</p>
 <pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;&#125;</div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span> <span class="keyword">instanceof</span> <span class="built_in">Object</span>);     <span class="comment">//true</span></div><div class="line"></div><div class="line"><span class="comment">//第一个Object的原型链：Object=&gt;Object.__proto__ =&gt; Function.prototype=&gt;Function.prototype.__proto__=&gt;Object.prototype</span></div><div class="line"><span class="comment">//第二个Object的原型：Object=&gt; Object.prototype</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Function</span> <span class="keyword">instanceof</span> <span class="built_in">Function</span>); <span class="comment">//true</span></div><div class="line"><span class="comment">//第一个Function的原型链：Function=&gt;Function.__proto__ =&gt; Function.prototype</span></div><div class="line"><span class="comment">//第二个Function的原型：Function=&gt;Function.prototype</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Function</span> <span class="keyword">instanceof</span> <span class="built_in">Object</span>);   <span class="comment">//true</span></div><div class="line"><span class="comment">//Function=&gt;</span></div><div class="line"><span class="comment">//Function.__proto__=&gt;Function.prototype=&gt;Function.prototype.__proto__=&gt;Object.prototype</span></div><div class="line"><span class="comment">//Object =&gt; Object.prototype</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(Person <span class="keyword">instanceof</span> <span class="built_in">Function</span>);      <span class="comment">//true</span></div><div class="line"><span class="comment">//Person=&gt;Person.__proto__=&gt;Function.prototype</span></div><div class="line"><span class="comment">//Function=&gt;Function.prototype</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">String</span> <span class="keyword">instanceof</span> <span class="built_in">String</span>);   <span class="comment">//false</span></div><div class="line"><span class="comment">//第一个String的原型链：String=&gt;</span></div><div class="line"><span class="comment">//String.__proto__=&gt;Function.prototype=&gt;Function.prototype.__proto__=&gt;Object.prototype</span></div><div class="line"><span class="comment">//第二个String的原型链：String=&gt;String.prototype</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Boolean</span> <span class="keyword">instanceof</span> <span class="built_in">Boolean</span>); <span class="comment">//false</span></div><div class="line"><span class="comment">//第一个Boolean的原型链：</span></div><div class="line"><span class="built_in">Boolean</span>=&gt;<span class="built_in">Boolean</span>.__proto__=&gt;<span class="built_in">Function</span>.prototype=&gt;<span class="built_in">Function</span>.prototype.__proto__=&gt;<span class="built_in">Object</span>.prototype</div><div class="line"><span class="comment">//第二个Boolean的原型链：Boolean=&gt;Boolean.prototype</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(Person <span class="keyword">instanceof</span> Person); <span class="comment">//false</span></div><div class="line"><span class="comment">//第一个Person的原型链：</span></div><div class="line">Person=&gt;Person.__proto__=&gt;<span class="built_in">Function</span>.prototype=&gt;<span class="built_in">Function</span>.prototype.__proto__=&gt;<span class="built_in">Object</span>.prototype</div><div class="line"><span class="comment">//第二个Person的原型链：Person=&gt;Person.prototype</span></div></pre></td></tr></table></figure>
 </code></pre>
@@ -523,7 +524,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -534,7 +535,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -545,7 +546,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
