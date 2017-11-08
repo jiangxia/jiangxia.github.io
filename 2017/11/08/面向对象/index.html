@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="前端,优化," />
+  <meta name="keywords" content="前端,JavaScript," />
 
 
 
@@ -91,19 +91,19 @@
 
 
 <meta name="description" content="课程思维导图">
-<meta name="keywords" content="前端,优化">
+<meta name="keywords" content="前端,JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="前端性能优化的关键时间点">
-<meta property="og:url" content="http://yoursite.com/2017/11/06/前端性能优化的关键时间点/index.html">
+<meta property="og:title" content="面向对象">
+<meta property="og:url" content="http://yoursite.com/2017/11/08/面向对象/index.html">
 <meta property="og:site_name" content="黄明易">
 <meta property="og:description" content="课程思维导图">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/images/前端性能优化的关键时间点.png">
-<meta property="og:updated_time" content="2017-11-06T13:11:06.000Z">
+<meta property="og:image" content="http://yoursite.com/images/面向对象.png">
+<meta property="og:updated_time" content="2017-11-08T13:18:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端性能优化的关键时间点">
+<meta name="twitter:title" content="面向对象">
 <meta name="twitter:description" content="课程思维导图">
-<meta name="twitter:image" content="http://yoursite.com/images/前端性能优化的关键时间点.png">
+<meta name="twitter:image" content="http://yoursite.com/images/面向对象.png">
 
 
 
@@ -131,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/11/06/前端性能优化的关键时间点/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/11/08/面向对象/"/>
 
 
 
 
 
-  <title>前端性能优化的关键时间点 | 黄明易</title>
+  <title>面向对象 | 黄明易</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -277,7 +277,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/06/前端性能优化的关键时间点/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/08/面向对象/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiangxia">
@@ -294,7 +294,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">前端性能优化的关键时间点</h1>
+          <h1 class="post-title" itemprop="name headline">面向对象</h1>
         
 
         <div class="post-meta">
@@ -306,8 +306,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-06T21:08:57+08:00">
-                2017-11-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-08T20:27:06+08:00">
+                2017-11-08
               </time>
             
 
@@ -340,8 +340,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端/优化/" itemprop="url" rel="index">
-                    <span itemprop="name">优化</span>
+                  <a href="/categories/前端/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
                   </a>
                 </span>
 
@@ -374,46 +374,10 @@
       
 
       
-        <h1 id="课程思维导图"><a href="#课程思维导图" class="headerlink" title="课程思维导图"></a>课程思维导图</h1><p><img src="/images/前端性能优化的关键时间点.png" alt="前端性能优化的关键时间点"><br> <a id="more"></a></p>
-<h1 id="开始渲染时间"><a href="#开始渲染时间" class="headerlink" title="开始渲染时间"></a>开始渲染时间</h1><h2 id="是什么？"><a href="#是什么？" class="headerlink" title="是什么？"></a>是什么？</h2><p>该时间点表示浏览器开始绘制页面，在此之前页面都是白屏，所以也称为白屏时间。</p>
-<h2 id="如何获取？"><a href="#如何获取？" class="headerlink" title="如何获取？"></a>如何获取？</h2><ul>
-<li>Chrome可通过chrome.loadTimes().firstPaintTime获取</li>
-<li>IE9+可以通过performance.timing.msFirstPaint获取</li>
-<li>在不支持的浏览器中可以根据上面公式通过获取头部资源加载完的时刻模拟获取近似值<h2 id="优化建议："><a href="#优化建议：" class="headerlink" title="优化建议："></a>优化建议：</h2></li>
-<li>优化服务器响应时间，服务器端尽早输出</li>
-<li>减少html文件大小</li>
-<li>减少头部资源,脚本尽量放在body 中</li>
-</ul>
-<h1 id="DOM-Ready"><a href="#DOM-Ready" class="headerlink" title="DOM Ready"></a>DOM Ready</h1><h2 id="是什么？-1"><a href="#是什么？-1" class="headerlink" title="是什么？"></a>是什么？</h2><p>该时间点表示dom解析已经完成，资源还没有加载完成, 这个时候用户与页面的交互已经可用了。</p>
-<h2 id="如何获取？-1"><a href="#如何获取？-1" class="headerlink" title="如何获取？"></a>如何获取？</h2><ul>
-<li>高级浏览器通过DOMContentLoaded事件获取。</li>
-<li>低级浏览器：<ul>
-<li>低版本webkit内核浏览器可以通过轮询document.readyState来实现</li>
-<li>ie中可通过setTimeout不断调用documentElement的doScroll方法，直到其可用来实现</li>
-</ul>
-</li>
-</ul>
-<p>可以参考jQuery的实现</p>
-<h2 id="优化建议：-1"><a href="#优化建议：-1" class="headerlink" title="优化建议："></a>优化建议：</h2><ul>
-<li>减少dom结构的复杂度，节点尽可能少，嵌套不要太深</li>
-<li>优化关键呈现路径</li>
-</ul>
-<h1 id="首屏时间"><a href="#首屏时间" class="headerlink" title="首屏时间"></a>首屏时间</h1><h2 id="是什么？-2"><a href="#是什么？-2" class="headerlink" title="是什么？"></a>是什么？</h2><p>该时间点表示用户看到第一屏页面的时间，这个时间点很重要但是很难获取，一般都只能通过模拟获取一个近似时间。</p>
-<h2 id="如何获取？-2"><a href="#如何获取？-2" class="headerlink" title="如何获取？"></a>如何获取？</h2><ul>
-<li>不断获取屏幕截图，当截图不再变化时，可以视为首屏时间。可参考webPagetest的Speed Index算法；</li>
-<li>一般影响首屏的主要因素是图片的加载，通过页面加载完后判断图片是否在首屏内，找出加载最慢的一张即可视为首屏时间。<h2 id="优化建议：-2"><a href="#优化建议：-2" class="headerlink" title="优化建议："></a>优化建议：</h2></li>
-<li>页面首屏的显示尽量不要依赖于js代码，js尽量放到domReady后执行或加载</li>
-<li>首屏外的图片延迟加载</li>
-<li>首屏结构尽量简单，首屏外的css可延迟加载</li>
-</ul>
-<h1 id="onload"><a href="#onload" class="headerlink" title="onload"></a>onload</h1><h2 id="是什么？-3"><a href="#是什么？-3" class="headerlink" title="是什么？"></a>是什么？</h2><p>原始文档和所有引用的内容已经加载完成，用户最明显的感觉就是浏览器上loading状态结束。</p>
-<h2 id="如何获取？-3"><a href="#如何获取？-3" class="headerlink" title="如何获取？"></a>如何获取？</h2><p>该时间点是window.onload事件触发的时间</p>
-<h2 id="优化建议：-3"><a href="#优化建议：-3" class="headerlink" title="优化建议："></a>优化建议：</h2><ul>
-<li>减少资源的请求数和文件大小</li>
-<li>将非初始化脚本放到onLoad之后执行</li>
-<li>无需同步的脚本异步加载</li>
-</ul>
-
+        <h1 id="课程思维导图"><a href="#课程思维导图" class="headerlink" title="课程思维导图"></a>课程思维导图</h1><p><img src="/images/面向对象.png" alt="面向对象.png"><br> <a id="more"></a></p>
+<h1 id="类的声明"><a href="#类的声明" class="headerlink" title="类的声明"></a>类的声明</h1><pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 构造函数法</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Animal</span>(<span class="params"></span>) </span>&#123;<span class="keyword">this</span>.name = <span class="string">"name"</span>&#125;;</div><div class="line"></div><div class="line"><span class="comment">// ES6类</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</div><div class="line">    <span class="keyword">constructor</span> () &#123;</div><div class="line">        <span class="keyword">this</span>.name = <span class="string">"name"</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 类的实例化</span></div><div class="line"><span class="keyword">new</span> Animal</div></pre></td></tr></table></figure>
+</code></pre><h1 id="继承（本质是原型链）"><a href="#继承（本质是原型链）" class="headerlink" title="继承（本质是原型链）"></a>继承（本质是原型链）</h1><pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * 借助构造函数实现继承</span></div><div class="line"><span class="comment"> * 原理：改变父类构造函数运行时的this指向，从而实现了继承</span></div><div class="line"><span class="comment"> * 不足：只实现部分继承，父类原型对象上的属性/方法子类取不到。</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent1</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.name=<span class="string">"parent1"</span></div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child1</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    Parent.call(<span class="keyword">this</span>);</div><div class="line">    <span class="keyword">this</span>.type = <span class="string">"child1"</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * 借助原型链实现继承</span></div><div class="line"><span class="comment"> * 原理：原理：new Child2 =&gt; new Child2.__proto__ === Child2.prototype =&gt; new Parent2() =&gt; new Parent2().__proto__ === Parent2.prototype，所以实现了Child2实例继承自Parent2的原型对象。</span></div><div class="line"><span class="comment"> * 不足：多个实例共用一个父类的实例对象，修改其中一个实例上的引用对象，会对其他实例造成影响。</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent2</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = <span class="string">"parent2"</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child2</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = <span class="string">"child2"</span>;</div><div class="line">&#125;</div><div class="line">Child2.prototype = <span class="keyword">new</span> Parent2();</div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * 组合方式</span></div><div class="line"><span class="comment"> * 优点：弥补了原型链继承的缺点，实例修改父类上的引用对象时，不会对其他实际造成影响</span></div><div class="line"><span class="comment"> * 不足：父级构造函数执行两次，子类构造函数指向父类构造函数</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent3</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = <span class="string">"parent3"</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child3</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    Parent3.call(<span class="keyword">this</span>);</div><div class="line">&#125;</div><div class="line">Child3.prototype = <span class="keyword">new</span> Parent3();</div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * 组合方式优化</span></div><div class="line"><span class="comment"> * 不足：子类构造函数仍旧指向父类构造函数</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent4</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = <span class="string">"parent4"</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child4</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    Parent4.call(<span class="keyword">this</span>);</div><div class="line">&#125;</div><div class="line">Child4.prototype = Parent4.prototype;</div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * 组合继承方式的完美方案</span></div><div class="line"><span class="comment"> * 优点：Object.create()生成中间对象，隔离了子/父类原型对象，使之不会互相影响。</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent5</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = <span class="string">"parent5"</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child5</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    Parent5.call(<span class="keyword">this</span>);</div><div class="line">&#125;</div><div class="line">Child5.prototype = <span class="built_in">Object</span>.create(Parent5.prototype);</div><div class="line">Child5.prototype.constructor = Child5;</div></pre></td></tr></table></figure>
+</code></pre>
       
     </div>
 
@@ -444,7 +408,7 @@
           
             <a href="/tags/前端/" rel="tag"># 前端</a>
           
-            <a href="/tags/优化/" rel="tag"># 优化</a>
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
           
         </div>
       
@@ -457,8 +421,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/06/CSS居中布局/" rel="next" title="CSS居中布局">
-                <i class="fa fa-chevron-left"></i> CSS居中布局
+              <a href="/2017/11/08/原型链/" rel="next" title="原型链">
+                <i class="fa fa-chevron-left"></i> 原型链
               </a>
             
           </div>
@@ -466,10 +430,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/11/07/DOM/" rel="prev" title="DOM">
-                DOM <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -609,7 +569,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#课程思维导图"><span class="nav-number">1.</span> <span class="nav-text">课程思维导图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开始渲染时间"><span class="nav-number">2.</span> <span class="nav-text">开始渲染时间</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#是什么？"><span class="nav-number">2.1.</span> <span class="nav-text">是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何获取？"><span class="nav-number">2.2.</span> <span class="nav-text">如何获取？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化建议："><span class="nav-number">2.3.</span> <span class="nav-text">优化建议：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DOM-Ready"><span class="nav-number">3.</span> <span class="nav-text">DOM Ready</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#是什么？-1"><span class="nav-number">3.1.</span> <span class="nav-text">是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何获取？-1"><span class="nav-number">3.2.</span> <span class="nav-text">如何获取？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化建议：-1"><span class="nav-number">3.3.</span> <span class="nav-text">优化建议：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#首屏时间"><span class="nav-number">4.</span> <span class="nav-text">首屏时间</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#是什么？-2"><span class="nav-number">4.1.</span> <span class="nav-text">是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何获取？-2"><span class="nav-number">4.2.</span> <span class="nav-text">如何获取？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化建议：-2"><span class="nav-number">4.3.</span> <span class="nav-text">优化建议：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#onload"><span class="nav-number">5.</span> <span class="nav-text">onload</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#是什么？-3"><span class="nav-number">5.1.</span> <span class="nav-text">是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何获取？-3"><span class="nav-number">5.2.</span> <span class="nav-text">如何获取？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化建议：-3"><span class="nav-number">5.3.</span> <span class="nav-text">优化建议：</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#课程思维导图"><span class="nav-number">1.</span> <span class="nav-text">课程思维导图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#类的声明"><span class="nav-number">2.</span> <span class="nav-text">类的声明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#继承（本质是原型链）"><span class="nav-number">3.</span> <span class="nav-text">继承（本质是原型链）</span></a></li></ol></div>
             
 
           </div>
