@@ -99,7 +99,13 @@
 <meta property="og:description" content="课程思维导图">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/images/CSS盒模型.png">
-<meta property="og:updated_time" content="2017-11-06T13:02:01.000Z">
+<meta property="og:image" content="http://yoursite.com/images/BFC_float重叠.png">
+<meta property="og:image" content="http://yoursite.com/images/BFC_float_不重叠.png">
+<meta property="og:image" content="http://yoursite.com/images/BFC_float_高度塌陷.png">
+<meta property="og:image" content="http://yoursite.com/images/BFC_float_高度不塌陷.png">
+<meta property="og:image" content="http://yoursite.com/images/BFC_边距重叠.png">
+<meta property="og:image" content="http://yoursite.com/images/BFC_边距不重叠.png">
+<meta property="og:updated_time" content="2017-11-11T09:50:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS盒模型">
 <meta name="twitter:description" content="课程思维导图">
@@ -375,38 +381,59 @@
 
       
         <h1 id="课程思维导图"><a href="#课程思维导图" class="headerlink" title="课程思维导图"></a>课程思维导图</h1><p><img src="/images/CSS盒模型.png" alt="CSS盒模型"><br> <a id="more"></a></p>
-<h1 id="CSS盒模型"><a href="#CSS盒模型" class="headerlink" title="CSS盒模型"></a>CSS盒模型</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>盒子模型包括：content、padding、margin、border</p>
-<h2 id="标准模型和IE模型的区别"><a href="#标准模型和IE模型的区别" class="headerlink" title="标准模型和IE模型的区别"></a>标准模型和IE模型的区别</h2><ul>
+<h1 id="Q：CSS盒模型是什么？"><a href="#Q：CSS盒模型是什么？" class="headerlink" title="Q：CSS盒模型是什么？"></a>Q：CSS盒模型是什么？</h1><p>盒子模型包括：content、padding、margin、border</p>
+<h1 id="Q：标准模型和IE模型的区别？"><a href="#Q：标准模型和IE模型的区别？" class="headerlink" title="Q：标准模型和IE模型的区别？"></a>Q：标准模型和IE模型的区别？</h1><ol>
 <li>标准模型的宽高为content的宽高</li>
 <li>IE模型的宽高包括border</li>
-</ul>
-<h2 id="CSS如何设置这两种模型"><a href="#CSS如何设置这两种模型" class="headerlink" title="CSS如何设置这两种模型"></a>CSS如何设置这两种模型</h2><ul>
+</ol>
+<h1 id="Q：CSS如何设置这两种模型？"><a href="#Q：CSS如何设置这两种模型？" class="headerlink" title="Q：CSS如何设置这两种模型？"></a>Q：CSS如何设置这两种模型？</h1><ol>
 <li>标准模型：box-sizing：content-box </li>
 <li>IE模型：box-sizing：border-box</li>
-</ul>
-<h2 id="JS如何设置-获取盒模型对应的宽高"><a href="#JS如何设置-获取盒模型对应的宽高" class="headerlink" title="JS如何设置/获取盒模型对应的宽高"></a>JS如何设置/获取盒模型对应的宽高</h2><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">dom.style.width/height：内联样式的宽高</div><div class="line">dom.currentStyle.width/height：渲染后的最终宽高（IE）</div><div class="line">window.getComputedStyle(dom).width/height：DOM标准，不支持IE</div><div class="line">dom.getBoundingClientRect().width/height：计算元素的绝对位置（视窗左顶点为起点，含left/right/height/width）</div></pre></td></tr></table></figure>
-</code></pre><h2 id="BFC"><a href="#BFC" class="headerlink" title="BFC"></a>BFC</h2><p>最常见的常见就是解决边距重叠。</p>
-<ul>
-<li>定义：BFC就是用来格式化块级盒子，即块级格式化上下文，同样管理inline类型的盒子还有IFC</li>
-<li>原理（渲染规则）：<ul>
-<li>BFC元素的垂直方向边距会发生重叠</li>
-<li>BFC的区域不会与浮动元素重叠（可清除浮动）</li>
-<li>BFC是独立容器，不与外部元素相互影响</li>
-<li>计算BFC高度的时候，浮动元素参与计算</li>
-</ul>
-</li>
-<li>如何创建BFC：<ul>
+</ol>
+<h1 id="Q：JS如何设置-获取盒模型对应的宽高"><a href="#Q：JS如何设置-获取盒模型对应的宽高" class="headerlink" title="Q：JS如何设置/获取盒模型对应的宽高"></a>Q：JS如何设置/获取盒模型对应的宽高</h1><pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">dom.style.width/height：内联样式的宽高</div><div class="line">dom.currentStyle.width/height：渲染后的最终宽高（IE）</div><div class="line"><span class="built_in">window</span>.getComputedStyle(dom).width/height：DOM标准，不支持IE</div><div class="line">dom.getBoundingClientRect().width/height：计算元素的绝对位置（视窗左顶点为起点，含left/right/height/width）</div></pre></td></tr></table></figure>
+</code></pre><h1 id="Q：BFC是什么，讲一下原理？"><a href="#Q：BFC是什么，讲一下原理？" class="headerlink" title="Q：BFC是什么，讲一下原理？"></a>Q：BFC是什么，讲一下原理？</h1><p>块级格式化上下文</p>
+<h1 id="Q：BFC布局规则是？"><a href="#Q：BFC布局规则是？" class="headerlink" title="Q：BFC布局规则是？"></a>Q：BFC布局规则是？</h1><ol>
+<li>内部的Box会在垂直方向，一个接一个地放置。</li>
+<li>Box垂直方向的距离由margin决定。属于同一个BFC的两个相邻Box的margin会发生重叠</li>
+<li>BFC的区域不会与float box重叠。</li>
+<li>BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。反之也如此。</li>
+<li>计算BFC的高度时，浮动元素也参与计算</li>
+</ol>
+<h1 id="Q：哪些元素会生成BFC"><a href="#Q：哪些元素会生成BFC" class="headerlink" title="Q：哪些元素会生成BFC?"></a>Q：哪些元素会生成BFC?</h1><ol>
 <li>float不为none</li>
 <li>position不为static/relative</li>
 <li>display的值为inline-block、table-cell、table-caption</li>
 <li>overflow的值不为visible</li>
-</ul>
-</li>
-<li>BFC的使用场景<ul>
-<li>BFC元素为float时，也会参与高度计算</li>
-</ul>
-</li>
-</ul>
+<li>根元素</li>
+</ol>
+<h1 id="Q：BFC的使用场景有哪些？"><a href="#Q：BFC的使用场景有哪些？" class="headerlink" title="Q：BFC的使用场景有哪些？"></a>Q：BFC的使用场景有哪些？</h1><h2 id="一、自适应两栏布局"><a href="#一、自适应两栏布局" class="headerlink" title="一、自适应两栏布局"></a>一、自适应两栏布局</h2><pre><code><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="undefined">    body &#123;</span></div><div class="line"><span class="undefined">        width: 300px;</span></div><div class="line"><span class="undefined">        position: relative;</span></div><div class="line"><span class="undefined">    &#125;</span></div><div class="line"><span class="undefined"> </span></div><div class="line"><span class="undefined">    .aside &#123;</span></div><div class="line"><span class="undefined">        width: 100px;</span></div><div class="line"><span class="undefined">        height: 150px;</span></div><div class="line"><span class="undefined">        float: left;</span></div><div class="line"><span class="undefined">        background: #f66;</span></div><div class="line"><span class="undefined">    &#125;</span></div><div class="line"><span class="undefined"> </span></div><div class="line"><span class="undefined">    .main &#123;</span></div><div class="line"><span class="undefined">        height: 200px;</span></div><div class="line"><span class="undefined">        background: #fcc;</span></div><div class="line"><span class="undefined">    &#125;</span></div><div class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"aside"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"main"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure>
+</code></pre><p><img src="/images/BFC_float重叠.png" alt="BFC_float重叠"><br>根据BFC布局规则第三条：</p>
+<blockquote>
+<p>BFC的区域不会与float box重叠。</p>
+</blockquote>
+<p>我们可以通过通过触发main生成BFC， 来实现自适应两栏布局。</p>
+<pre><code><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.main</span> &#123;</div><div class="line">    <span class="attribute">overflow</span>: hidden;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</code></pre><p>当触发main生成BFC后，这个新的BFC不会与浮动的aside重叠。因此会根据包含块的宽度，和aside的宽度，自动变窄。效果如下：<br><img src="/images/BFC_float_不重叠.png" alt="BFC_float_不重叠"></p>
+<h2 id="二、清除内部浮动"><a href="#二、清除内部浮动" class="headerlink" title="二、清除内部浮动"></a>二、清除内部浮动</h2><pre><code><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="css">    <span class="selector-class">.par</span> &#123;</span></div><div class="line"><span class="css">        <span class="selector-tag">border</span>: 5<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-id">#fcc</span>;</span></div><div class="line"><span class="undefined">        width: 300px;</span></div><div class="line"><span class="undefined">    &#125;</span></div><div class="line"><span class="undefined"> </span></div><div class="line"><span class="css">    <span class="selector-class">.child</span> &#123;</span></div><div class="line"><span class="css">        <span class="selector-tag">border</span>: 5<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-id">#f66</span>;</span></div><div class="line"><span class="css">        <span class="selector-tag">width</span><span class="selector-pseudo">:100px</span>;</span></div><div class="line"><span class="undefined">        height: 100px;</span></div><div class="line"><span class="undefined">        float: left;</span></div><div class="line"><span class="undefined">    &#125;</span></div><div class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"par"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"child"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"child"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure>
+</code></pre><p><img src="/images/BFC_float_高度塌陷.png" alt="BFC_float_高度塌陷"><br>根据BFC布局规则第五条：</p>
+<blockquote>
+<p>计算BFC的高度时，浮动元素也参与计算</p>
+</blockquote>
+<p>为达到清除内部浮动，我们可以触发par生成BFC，那么par在计算高度时，par内部的浮动元素child也会参与计算。</p>
+<pre><code><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.par</span> &#123;</div><div class="line">    <span class="attribute">overflow</span>: hidden;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</code></pre><p><img src="/images/BFC_float_高度不塌陷.png" alt="BFC_float_高度不塌陷"></p>
+<h2 id="三、防止垂直-margin-重叠"><a href="#三、防止垂直-margin-重叠" class="headerlink" title="三、防止垂直 margin 重叠"></a>三、防止垂直 margin 重叠</h2><pre><code><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="undefined">    p &#123;</span></div><div class="line"><span class="css">        <span class="selector-tag">color</span>: <span class="selector-id">#f55</span>;</span></div><div class="line"><span class="css">        <span class="selector-tag">background</span>: <span class="selector-id">#fcc</span>;</span></div><div class="line"><span class="undefined">        width: 200px;</span></div><div class="line"><span class="undefined">        line-height: 100px;</span></div><div class="line"><span class="css">        <span class="selector-tag">text-align</span><span class="selector-pseudo">:center</span>;</span></div><div class="line"><span class="undefined">        margin: 100px;</span></div><div class="line"><span class="undefined">    &#125;</span></div><div class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>Haha<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>Hehe<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure>
+</code></pre><p><img src="/images/BFC_边距重叠.png" alt="BFC_边距重叠"><br>根据BFC布局规则第一条：</p>
+<blockquote>
+<p>Box垂直方向的距离由margin决定。属于同一个BFC的两个相邻Box的margin会发生重叠</p>
+</blockquote>
+<p>我们可以在p外面包裹一层容器，并触发该容器生成一个BFC。那么两个P便不属于同一个BFC，就不会发生margin重叠了。</p>
+<pre><code><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="css">    <span class="selector-class">.wrap</span> &#123;</span></div><div class="line"><span class="undefined">        overflow: hidden;</span></div><div class="line"><span class="undefined">    &#125;</span></div><div class="line"><span class="undefined">    p &#123;</span></div><div class="line"><span class="css">        <span class="selector-tag">color</span>: <span class="selector-id">#f55</span>;</span></div><div class="line"><span class="css">        <span class="selector-tag">background</span>: <span class="selector-id">#fcc</span>;</span></div><div class="line"><span class="undefined">        width: 200px;</span></div><div class="line"><span class="undefined">        line-height: 100px;</span></div><div class="line"><span class="css">        <span class="selector-tag">text-align</span><span class="selector-pseudo">:center</span>;</span></div><div class="line"><span class="undefined">        margin: 100px;</span></div><div class="line"><span class="undefined">    &#125;</span></div><div class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>Haha<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrap"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>Hehe<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure>
+</code></pre><p><img src="/images/BFC_边距不重叠.png" alt="BFC_边距不重叠"></p>
+<p>其实以上的几个例子都体现了BFC布局规则第五条：</p>
+<blockquote>
+<p>BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。反之也如此。</p>
+</blockquote>
 
       
     </div>
@@ -461,8 +488,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/11/06/CSS居中布局/" rel="prev" title="CSS居中布局">
-                CSS居中布局 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/11/06/前端性能优化的关键时间点/" rel="prev" title="前端性能优化的关键时间点">
+                前端性能优化的关键时间点 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -535,7 +562,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -603,7 +630,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#课程思维导图"><span class="nav-number">1.</span> <span class="nav-text">课程思维导图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS盒模型"><span class="nav-number">2.</span> <span class="nav-text">CSS盒模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本概念"><span class="nav-number">2.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标准模型和IE模型的区别"><span class="nav-number">2.2.</span> <span class="nav-text">标准模型和IE模型的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS如何设置这两种模型"><span class="nav-number">2.3.</span> <span class="nav-text">CSS如何设置这两种模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS如何设置-获取盒模型对应的宽高"><span class="nav-number">2.4.</span> <span class="nav-text">JS如何设置/获取盒模型对应的宽高</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BFC"><span class="nav-number">2.5.</span> <span class="nav-text">BFC</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#课程思维导图"><span class="nav-number">1.</span> <span class="nav-text">课程思维导图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：CSS盒模型是什么？"><span class="nav-number">2.</span> <span class="nav-text">Q：CSS盒模型是什么？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：标准模型和IE模型的区别？"><span class="nav-number">3.</span> <span class="nav-text">Q：标准模型和IE模型的区别？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：CSS如何设置这两种模型？"><span class="nav-number">4.</span> <span class="nav-text">Q：CSS如何设置这两种模型？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：JS如何设置-获取盒模型对应的宽高"><span class="nav-number">5.</span> <span class="nav-text">Q：JS如何设置/获取盒模型对应的宽高</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：BFC是什么，讲一下原理？"><span class="nav-number">6.</span> <span class="nav-text">Q：BFC是什么，讲一下原理？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：BFC布局规则是？"><span class="nav-number">7.</span> <span class="nav-text">Q：BFC布局规则是？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：哪些元素会生成BFC"><span class="nav-number">8.</span> <span class="nav-text">Q：哪些元素会生成BFC?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：BFC的使用场景有哪些？"><span class="nav-number">9.</span> <span class="nav-text">Q：BFC的使用场景有哪些？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、自适应两栏布局"><span class="nav-number">9.1.</span> <span class="nav-text">一、自适应两栏布局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、清除内部浮动"><span class="nav-number">9.2.</span> <span class="nav-text">二、清除内部浮动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、防止垂直-margin-重叠"><span class="nav-number">9.3.</span> <span class="nav-text">三、防止垂直 margin 重叠</span></a></li></ol></li></ol></div>
             
 
           </div>

@@ -99,7 +99,7 @@
 <meta property="og:description" content="课程思维导图">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/images/安全类.png">
-<meta property="og:updated_time" content="2017-11-09T12:27:57.000Z">
+<meta property="og:updated_time" content="2017-11-11T07:43:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="安全类">
 <meta name="twitter:description" content="课程思维导图">
@@ -375,30 +375,46 @@
 
       
         <h1 id="课程思维导图"><a href="#课程思维导图" class="headerlink" title="课程思维导图"></a>课程思维导图</h1><p><img src="/images/安全类.png" alt="安全类.png"><br> <a id="more"></a></p>
-<h1 id="CSRF"><a href="#CSRF" class="headerlink" title="CSRF"></a>CSRF</h1><p>基本概念：跨站请求伪造.</p>
-<p>攻击原理：</p>
-<ol>
-<li>F是网站A的用户，且已登录，网站A对用户F进行身份认证后下发了cookie，保存在F浏览器中</li>
-<li>F访问网站B，网站B存在引诱点击（往往是个链接，指向网站A的API接口，通常是GET类型），然后访问了A网站，浏览器会自动上传cookie</li>
+<h1 id="Q：常见的攻击方式有哪些？"><a href="#Q：常见的攻击方式有哪些？" class="headerlink" title="Q：常见的攻击方式有哪些？"></a>Q：常见的攻击方式有哪些？</h1><ol>
+<li>CSRF：跨站请求伪造</li>
+<li>XSS：跨站脚本攻击</li>
+</ol>
+<h1 id="Q：CSRF的原理及防御措施？"><a href="#Q：CSRF的原理及防御措施？" class="headerlink" title="Q：CSRF的原理及防御措施？"></a>Q：CSRF的原理及防御措施？</h1><ol>
+<li>攻击原理：<ol>
+<li>F是网站A的用户，且已登录，网站A对用户F进行身份认证后下发了cookie，保存在F浏览器中。</li>
+<li>F访问网站B，网站B存在引诱点击（往往是个链接，指向网站A的API接口，通常是GET类型），然后访问了A网站，浏览器会自动上传cookie。</li>
 <li>网站A对传来的cookie进行确认，是合法用户，则执行接口的动作</li>
 </ol>
-<p>两个前提：</p>
-<ol>
+</li>
+<li>前提：<ol>
 <li>网站A某个接口存在漏洞</li>
 <li>用户在网站A已登录</li>
 </ol>
-<p>防御措施：</p>
-<ol>
+</li>
+<li>防御措施：<ol>
 <li>Token验证：用户访问网站时，服务器会自动向本地存储token，访问接口时，需要回传token，否则无法通过验证</li>
 <li>Referer验证：服务器判断页面来源是否为站点下的页面，如果不是，则拦截</li>
 <li>隐藏令牌：与token类似，使用方式上的差别，更加隐蔽(比如放在http头部)</li>
 </ol>
-<h1 id="XSS"><a href="#XSS" class="headerlink" title="XSS"></a>XSS</h1><p>攻击原理：向页面的合法渠道注入脚本（在脚本里执行想做的事情，不一定要登录）</p>
-<p>攻击方式：</p>
-<ol>
+</li>
+</ol>
+<h1 id="Q：XSS的原理及防御措施？"><a href="#Q：XSS的原理及防御措施？" class="headerlink" title="Q：XSS的原理及防御措施？"></a>Q：XSS的原理及防御措施？</h1><ol>
+<li>攻击原理：向页面的合法渠道注入脚本（在脚本里执行想做的事情，不一定要登录）</li>
+<li>攻击方式：<ol>
 <li>反射型：发出请求时，XSS代码出现在URL中，作为输入传给服务器，服务器解析后响应，XSS代码随响应内容传回浏览器，最后浏览器执行XSS代码，比如插入广告、执行恶性代码（img onerror）、引诱用户点击（按钮点击）</li>
 <li>存储型：提交的代码会存储在服务器端（数据库、内存、文件系统等），下次请求目标页面时不用再提交XSS代码。</li>
-<li>防御措施（让插入的脚本不可执行）<br>编码：对用户输入的数据进行HTML Entity（转义）编码<br>过滤：移除用户上传的DOM属性，如onerror等、移出用户上传的Style节点、Script节点、iframe节点等<br>校正：避免直接对HTML Entity解码，使用DOM Parse转换，校正不配对的DOM标签</li>
+</ol>
+</li>
+<li>防御措施（让插入的脚本不可执行）<ol>
+<li>编码：对用户输入的内容进行HTML Entity转义，例如&lt;/ body&gt;，如果不转义，直接输出到页面上时，DOM结构就被破坏了。同时还要避免直接进行HTML Entity解码，否则，编码跟过滤就失去了意义。</li>
+<li>过滤：<ol>
+<li>移除用户上传的DOM属性，如onerror等跟事件相关的属性</li>
+<li>移除用户上传的Style节点、Script节点、iframe节点、frame节点等</li>
+</ol>
+</li>
+<li>校正：使用DOM Parse转换（类似的第三方库有domParse），校正不配对的DOM标签，防止用户输入的内容破坏掉我们页面的DOM结构。</li>
+</ol>
+</li>
 </ol>
 
       
@@ -453,6 +469,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/10/浏览器渲染机制/" rel="prev" title="渲染机制">
+                渲染机制 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -524,7 +544,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -592,7 +612,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#课程思维导图"><span class="nav-number">1.</span> <span class="nav-text">课程思维导图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CSRF"><span class="nav-number">2.</span> <span class="nav-text">CSRF</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#XSS"><span class="nav-number">3.</span> <span class="nav-text">XSS</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#课程思维导图"><span class="nav-number">1.</span> <span class="nav-text">课程思维导图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：常见的攻击方式有哪些？"><span class="nav-number">2.</span> <span class="nav-text">Q：常见的攻击方式有哪些？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：CSRF的原理及防御措施？"><span class="nav-number">3.</span> <span class="nav-text">Q：CSRF的原理及防御措施？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：XSS的原理及防御措施？"><span class="nav-number">4.</span> <span class="nav-text">Q：XSS的原理及防御措施？</span></a></li></ol></div>
             
 
           </div>

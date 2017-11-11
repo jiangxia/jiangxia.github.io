@@ -99,7 +99,7 @@
 <meta property="og:description" content="课程思维导图">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/images/前端性能优化的关键时间点.png">
-<meta property="og:updated_time" content="2017-11-06T13:11:06.000Z">
+<meta property="og:updated_time" content="2017-11-11T03:11:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端性能优化的关键时间点">
 <meta name="twitter:description" content="课程思维导图">
@@ -375,44 +375,53 @@
 
       
         <h1 id="课程思维导图"><a href="#课程思维导图" class="headerlink" title="课程思维导图"></a>课程思维导图</h1><p><img src="/images/前端性能优化的关键时间点.png" alt="前端性能优化的关键时间点"><br> <a id="more"></a></p>
-<h1 id="开始渲染时间"><a href="#开始渲染时间" class="headerlink" title="开始渲染时间"></a>开始渲染时间</h1><h2 id="是什么？"><a href="#是什么？" class="headerlink" title="是什么？"></a>是什么？</h2><p>该时间点表示浏览器开始绘制页面，在此之前页面都是白屏，所以也称为白屏时间。</p>
-<h2 id="如何获取？"><a href="#如何获取？" class="headerlink" title="如何获取？"></a>如何获取？</h2><ul>
+<h1 id="Q：前端性能优化的关键时间点有哪些，分别是什么？"><a href="#Q：前端性能优化的关键时间点有哪些，分别是什么？" class="headerlink" title="Q：前端性能优化的关键时间点有哪些，分别是什么？"></a>Q：前端性能优化的关键时间点有哪些，分别是什么？</h1><ol>
+<li>开始渲染时间：浏览器开始绘制页面，在此之前页面都是白屏，所以也称为白屏时间。</li>
+<li>DOM Ready：dom解析已经完成，资源还没有加载完成, 这个时候用户与页面的交互已经可用了</li>
+<li>首屏时间：用户看到第一屏页面的时间</li>
+<li>onload：原始文档和所有引用的内容已经加载完成，用户最明显的感觉就是浏览器上loading状态结束。</li>
+</ol>
+<h1 id="Q：开始渲染时间如何获取？如何优化？"><a href="#Q：开始渲染时间如何获取？如何优化？" class="headerlink" title="Q：开始渲染时间如何获取？如何优化？"></a>Q：开始渲染时间如何获取？如何优化？</h1><p>获取方式：</p>
+<ol>
 <li>Chrome可通过chrome.loadTimes().firstPaintTime获取</li>
 <li>IE9+可以通过performance.timing.msFirstPaint获取</li>
-<li>在不支持的浏览器中可以根据上面公式通过获取头部资源加载完的时刻模拟获取近似值<h2 id="优化建议："><a href="#优化建议：" class="headerlink" title="优化建议："></a>优化建议：</h2></li>
+<li>在不支持的浏览器中可以根据上面公式通过获取头部资源加载完的时刻模拟获取近似值</li>
+</ol>
+<p>优化建议：</p>
+<ol>
 <li>优化服务器响应时间，服务器端尽早输出</li>
 <li>减少html文件大小</li>
 <li>减少头部资源,脚本尽量放在body 中</li>
-</ul>
-<h1 id="DOM-Ready"><a href="#DOM-Ready" class="headerlink" title="DOM Ready"></a>DOM Ready</h1><h2 id="是什么？-1"><a href="#是什么？-1" class="headerlink" title="是什么？"></a>是什么？</h2><p>该时间点表示dom解析已经完成，资源还没有加载完成, 这个时候用户与页面的交互已经可用了。</p>
-<h2 id="如何获取？-1"><a href="#如何获取？-1" class="headerlink" title="如何获取？"></a>如何获取？</h2><ul>
+</ol>
+<h1 id="Q：DOM-Ready时间如何获取？如何优化？"><a href="#Q：DOM-Ready时间如何获取？如何优化？" class="headerlink" title="Q：DOM Ready时间如何获取？如何优化？"></a>Q：DOM Ready时间如何获取？如何优化？</h1><p>获取方式：</p>
+<ol>
 <li>高级浏览器通过DOMContentLoaded事件获取。</li>
-<li>低级浏览器：<ul>
 <li>低版本webkit内核浏览器可以通过轮询document.readyState来实现</li>
-<li>ie中可通过setTimeout不断调用documentElement的doScroll方法，直到其可用来实现</li>
-</ul>
-</li>
-</ul>
-<p>可以参考jQuery的实现</p>
-<h2 id="优化建议：-1"><a href="#优化建议：-1" class="headerlink" title="优化建议："></a>优化建议：</h2><ul>
+<li>ie中可通过setTimeout不断调用documentElement的doScroll方法，直到其可用来实现<br>(可以参考jQuery的实现)</li>
+</ol>
+<p>优化建议：</p>
+<ol>
 <li>减少dom结构的复杂度，节点尽可能少，嵌套不要太深</li>
 <li>优化关键呈现路径</li>
-</ul>
-<h1 id="首屏时间"><a href="#首屏时间" class="headerlink" title="首屏时间"></a>首屏时间</h1><h2 id="是什么？-2"><a href="#是什么？-2" class="headerlink" title="是什么？"></a>是什么？</h2><p>该时间点表示用户看到第一屏页面的时间，这个时间点很重要但是很难获取，一般都只能通过模拟获取一个近似时间。</p>
-<h2 id="如何获取？-2"><a href="#如何获取？-2" class="headerlink" title="如何获取？"></a>如何获取？</h2><ul>
-<li>不断获取屏幕截图，当截图不再变化时，可以视为首屏时间。可参考webPagetest的Speed Index算法；</li>
-<li>一般影响首屏的主要因素是图片的加载，通过页面加载完后判断图片是否在首屏内，找出加载最慢的一张即可视为首屏时间。<h2 id="优化建议：-2"><a href="#优化建议：-2" class="headerlink" title="优化建议："></a>优化建议：</h2></li>
+</ol>
+<h1 id="Q：首屏时间如何获取？如何优化？"><a href="#Q：首屏时间如何获取？如何优化？" class="headerlink" title="Q：首屏时间如何获取？如何优化？"></a>Q：首屏时间如何获取？如何优化？</h1><p>获取方式：<br>这个时间点很重要但是很难获取，一般都只能通过模拟获取一个近似时间。</p>
+<ol>
+<li>不断获取屏幕截图，当截图不再变化时，可以视为首屏时间。</li>
+<li>一般影响首屏的主要因素是图片的加载，通过页面加载完后判断图片是否在首屏内，找出加载最慢的一张即可视为首屏时间。</li>
+</ol>
+<p>优化建议：</p>
+<ol>
 <li>页面首屏的显示尽量不要依赖于js代码，js尽量放到domReady后执行或加载</li>
 <li>首屏外的图片延迟加载</li>
 <li>首屏结构尽量简单，首屏外的css可延迟加载</li>
-</ul>
-<h1 id="onload"><a href="#onload" class="headerlink" title="onload"></a>onload</h1><h2 id="是什么？-3"><a href="#是什么？-3" class="headerlink" title="是什么？"></a>是什么？</h2><p>原始文档和所有引用的内容已经加载完成，用户最明显的感觉就是浏览器上loading状态结束。</p>
-<h2 id="如何获取？-3"><a href="#如何获取？-3" class="headerlink" title="如何获取？"></a>如何获取？</h2><p>该时间点是window.onload事件触发的时间</p>
-<h2 id="优化建议：-3"><a href="#优化建议：-3" class="headerlink" title="优化建议："></a>优化建议：</h2><ul>
+</ol>
+<h1 id="Q：onload时间如何获取？如何优化？"><a href="#Q：onload时间如何获取？如何优化？" class="headerlink" title="Q：onload时间如何获取？如何优化？"></a>Q：onload时间如何获取？如何优化？</h1><p>获取方式：<br>该时间点是window.onload事件触发的时间</p>
+<p>优化建议：</p>
+<ol>
 <li>减少资源的请求数和文件大小</li>
 <li>将非初始化脚本放到onLoad之后执行</li>
 <li>无需同步的脚本异步加载</li>
-</ul>
+</ol>
 
       
     </div>
@@ -457,8 +466,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/06/CSS居中布局/" rel="next" title="CSS居中布局">
-                <i class="fa fa-chevron-left"></i> CSS居中布局
+              <a href="/2017/11/06/CSS盒模型/" rel="next" title="CSS盒模型">
+                <i class="fa fa-chevron-left"></i> CSS盒模型
               </a>
             
           </div>
@@ -541,7 +550,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -609,7 +618,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#课程思维导图"><span class="nav-number">1.</span> <span class="nav-text">课程思维导图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开始渲染时间"><span class="nav-number">2.</span> <span class="nav-text">开始渲染时间</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#是什么？"><span class="nav-number">2.1.</span> <span class="nav-text">是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何获取？"><span class="nav-number">2.2.</span> <span class="nav-text">如何获取？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化建议："><span class="nav-number">2.3.</span> <span class="nav-text">优化建议：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DOM-Ready"><span class="nav-number">3.</span> <span class="nav-text">DOM Ready</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#是什么？-1"><span class="nav-number">3.1.</span> <span class="nav-text">是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何获取？-1"><span class="nav-number">3.2.</span> <span class="nav-text">如何获取？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化建议：-1"><span class="nav-number">3.3.</span> <span class="nav-text">优化建议：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#首屏时间"><span class="nav-number">4.</span> <span class="nav-text">首屏时间</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#是什么？-2"><span class="nav-number">4.1.</span> <span class="nav-text">是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何获取？-2"><span class="nav-number">4.2.</span> <span class="nav-text">如何获取？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化建议：-2"><span class="nav-number">4.3.</span> <span class="nav-text">优化建议：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#onload"><span class="nav-number">5.</span> <span class="nav-text">onload</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#是什么？-3"><span class="nav-number">5.1.</span> <span class="nav-text">是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何获取？-3"><span class="nav-number">5.2.</span> <span class="nav-text">如何获取？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化建议：-3"><span class="nav-number">5.3.</span> <span class="nav-text">优化建议：</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#课程思维导图"><span class="nav-number">1.</span> <span class="nav-text">课程思维导图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：前端性能优化的关键时间点有哪些，分别是什么？"><span class="nav-number">2.</span> <span class="nav-text">Q：前端性能优化的关键时间点有哪些，分别是什么？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：开始渲染时间如何获取？如何优化？"><span class="nav-number">3.</span> <span class="nav-text">Q：开始渲染时间如何获取？如何优化？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：DOM-Ready时间如何获取？如何优化？"><span class="nav-number">4.</span> <span class="nav-text">Q：DOM Ready时间如何获取？如何优化？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：首屏时间如何获取？如何优化？"><span class="nav-number">5.</span> <span class="nav-text">Q：首屏时间如何获取？如何优化？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：onload时间如何获取？如何优化？"><span class="nav-number">6.</span> <span class="nav-text">Q：onload时间如何获取？如何优化？</span></a></li></ol></div>
             
 
           </div>

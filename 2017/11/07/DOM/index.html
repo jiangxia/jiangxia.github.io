@@ -99,7 +99,7 @@
 <meta property="og:description" content="课程思维导图">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/images/DOM.png">
-<meta property="og:updated_time" content="2017-11-07T12:08:05.000Z">
+<meta property="og:updated_time" content="2017-11-11T09:56:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DOM">
 <meta name="twitter:description" content="课程思维导图">
@@ -375,26 +375,28 @@
 
       
         <h1 id="课程思维导图"><a href="#课程思维导图" class="headerlink" title="课程思维导图"></a>课程思维导图</h1><p><img src="/images/DOM.png" alt="DOM"><br> <a id="more"></a></p>
-<h1 id="DOM事件的级别"><a href="#DOM事件的级别" class="headerlink" title="DOM事件的级别"></a>DOM事件的级别</h1><ul>
-<li>DOM0：element.onclick = function () {}</li>
-<li>DOM2：element.addEventListener(‘click’, function () {}, false); //false冒泡阶段，true捕获阶段</li>
-<li>DOM3：element.addEventListener(‘keyup’, function () {}, false); //增加了事件类型</li>
-</ul>
-<p>（注：DOM1没注册跟事件相关的东西）</p>
-<p>封装事件监听和解绑的兼容写法</p>
-<pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> myEventUtil = &#123;</div><div class="line">    addEvent : <span class="function"><span class="keyword">function</span> (<span class="params">ele,event,func</span>) </span>&#123;</div><div class="line">        <span class="comment">//用能力检测进行跨浏览器兼容处理</span></div><div class="line">        <span class="keyword">if</span>(ele.addEventListener) &#123;</div><div class="line">            <span class="comment">//false表示冒泡事件模型</span></div><div class="line">            ele.addEventListener(event,func,<span class="literal">false</span>);</div><div class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(ele.attachEvent)&#123;</div><div class="line">            ele.attachEvent(<span class="string">'on'</span>+event,func);</div><div class="line">        &#125;<span class="keyword">else</span>&#123;</div><div class="line">            ele[<span class="string">'on'</span>+event]=func;</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    delEvent : <span class="function"><span class="keyword">function</span> (<span class="params">ele,event,func</span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span>(ele.removeEventListener)&#123;</div><div class="line">            ele.removeEventListener(event,func,<span class="literal">false</span>);</div><div class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(ele.detachEvent)&#123;</div><div class="line">            ele.detachEvent(<span class="string">'on'</span>+event,func);<span class="comment">//IE</span></div><div class="line">        &#125;<span class="keyword">else</span> &#123;</div><div class="line">            ele[<span class="string">'on'</span>+event]=<span class="literal">null</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</code></pre><h1 id="事件模型"><a href="#事件模型" class="headerlink" title="事件模型"></a>事件模型</h1><p>捕获、冒泡</p>
-<h1 id="事件流"><a href="#事件流" class="headerlink" title="事件流"></a>事件流</h1><p>定义：用户与浏览器当前页面的交互过程<br>三个阶段：捕获阶段、目标阶段、冒泡阶段</p>
-<h1 id="DOM事件捕获的具体流程"><a href="#DOM事件捕获的具体流程" class="headerlink" title="DOM事件捕获的具体流程"></a>DOM事件捕获的具体流程</h1><p>window =&gt; document =&gt; html =&gt; body =&gt; … =&gt; 目标元素</p>
-<h1 id="Event-对象的常用应用"><a href="#Event-对象的常用应用" class="headerlink" title="Event 对象的常用应用"></a>Event 对象的常用应用</h1><ul>
+<h1 id="Q：介绍DOM事件级别？"><a href="#Q：介绍DOM事件级别？" class="headerlink" title="Q：介绍DOM事件级别？"></a>Q：介绍DOM事件级别？</h1><pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// DOM0</span></div><div class="line">element.onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;</div><div class="line">------------------------------------------</div><div class="line"><span class="comment">// DOM2</span></div><div class="line">element.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">//false冒泡阶段，true捕获阶段</span></div><div class="line">&#125;, <span class="literal">false</span>); </div><div class="line">------------------------------------------</div><div class="line"><span class="comment">// DOM3(增加了事件类型)</span></div><div class="line">element.addEventListener(<span class="string">'keyup'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line"></div><div class="line">&#125;, <span class="literal">false</span>);</div></pre></td></tr></table></figure>
+</code></pre><blockquote>
+<p>注：DOM1没注册跟事件相关的东西</p>
+</blockquote>
+<h1 id="Q：请封装事件监听和解绑的兼容写法？"><a href="#Q：请封装事件监听和解绑的兼容写法？" class="headerlink" title="Q：请封装事件监听和解绑的兼容写法？"></a>Q：请封装事件监听和解绑的兼容写法？</h1><pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> myEventUtil = &#123;</div><div class="line">    addEvent : <span class="function"><span class="keyword">function</span> (<span class="params">ele,event,func</span>) </span>&#123;</div><div class="line">        <span class="comment">//用能力检测进行跨浏览器兼容处理</span></div><div class="line">        <span class="keyword">if</span>(ele.addEventListener) &#123;</div><div class="line">            <span class="comment">//false表示冒泡事件模型</span></div><div class="line">            ele.addEventListener(event,func,<span class="literal">false</span>);</div><div class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(ele.attachEvent)&#123;</div><div class="line">            ele.attachEvent(<span class="string">'on'</span>+event,func);</div><div class="line">        &#125;<span class="keyword">else</span>&#123;</div><div class="line">            ele[<span class="string">'on'</span>+event]=func;</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    delEvent : <span class="function"><span class="keyword">function</span> (<span class="params">ele,event,func</span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span>(ele.removeEventListener)&#123;</div><div class="line">            ele.removeEventListener(event,func,<span class="literal">false</span>);</div><div class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(ele.detachEvent)&#123;</div><div class="line">            ele.detachEvent(<span class="string">'on'</span>+event,func);<span class="comment">//IE</span></div><div class="line">        &#125;<span class="keyword">else</span> &#123;</div><div class="line">            ele[<span class="string">'on'</span>+event]=<span class="literal">null</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</code></pre><h1 id="Q：介绍下事件模型？"><a href="#Q：介绍下事件模型？" class="headerlink" title="Q：介绍下事件模型？"></a>Q：介绍下事件模型？</h1><p>捕获、冒泡</p>
+<h1 id="Q：介绍下事件流？"><a href="#Q：介绍下事件流？" class="headerlink" title="Q：介绍下事件流？"></a>Q：介绍下事件流？</h1><ol>
+<li>定义：用户与浏览器当前页面的交互过程</li>
+<li>三个阶段：捕获阶段、目标阶段、冒泡阶段</li>
+</ol>
+<h1 id="Q：DOM事件捕获的具体流程是怎样的？"><a href="#Q：DOM事件捕获的具体流程是怎样的？" class="headerlink" title="Q：DOM事件捕获的具体流程是怎样的？"></a>Q：DOM事件捕获的具体流程是怎样的？</h1><p>window =&gt; document =&gt; html =&gt; body =&gt; … =&gt; 目标元素</p>
+<h1 id="Q：Event-对象有哪些常用应用？"><a href="#Q：Event-对象有哪些常用应用？" class="headerlink" title="Q：Event 对象有哪些常用应用？"></a>Q：Event 对象有哪些常用应用？</h1><ol>
 <li>阻止默认事件：event.preventDefault()</li>
 <li>阻止冒泡：event.stopPropagation()</li>
 <li>阻止调用相同事件的其他侦听器(事件响应优先级)：event.stopImmediatePropagation()</li>
 <li>当前绑定事件的元素：event.currentTarget</li>
 <li>当前被点击的元素：event.target</li>
-</ul>
-<h1 id="自定义事件"><a href="#自定义事件" class="headerlink" title="自定义事件"></a>自定义事件</h1><pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> event = <span class="keyword">new</span> Event(<span class="string">'custome'</span>);</div><div class="line">dom.addEventListener(<span class="string">'custome'</span>, funcion () &#123;&#125;);</div><div class="line">dom.dispatchEvent(event);</div></pre></td></tr></table></figure>
-</code></pre><p>Event 与 CustomEvent唯一区别：CustomEvent除了可指定事件名，还可以跟自定义参数,做指定参数</p>
+</ol>
+<h1 id="Q：如何自定义事件？"><a href="#Q：如何自定义事件？" class="headerlink" title="Q：如何自定义事件？"></a>Q：如何自定义事件？</h1><pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> event = <span class="keyword">new</span> Event(<span class="string">'custome'</span>);</div><div class="line">dom.addEventListener(<span class="string">'custome'</span>, funcion () &#123;&#125;);</div><div class="line">dom.dispatchEvent(event);</div></pre></td></tr></table></figure>
+</code></pre><blockquote>
+<p>Event 与 CustomEvent唯一区别：CustomEvent除了可指定事件名，还可以跟自定义参数,做指定参数</p>
+</blockquote>
 
       
     </div>
@@ -523,7 +525,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -591,7 +593,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#课程思维导图"><span class="nav-number">1.</span> <span class="nav-text">课程思维导图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DOM事件的级别"><span class="nav-number">2.</span> <span class="nav-text">DOM事件的级别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#事件模型"><span class="nav-number">3.</span> <span class="nav-text">事件模型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#事件流"><span class="nav-number">4.</span> <span class="nav-text">事件流</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DOM事件捕获的具体流程"><span class="nav-number">5.</span> <span class="nav-text">DOM事件捕获的具体流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Event-对象的常用应用"><span class="nav-number">6.</span> <span class="nav-text">Event 对象的常用应用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自定义事件"><span class="nav-number">7.</span> <span class="nav-text">自定义事件</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#课程思维导图"><span class="nav-number">1.</span> <span class="nav-text">课程思维导图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：介绍DOM事件级别？"><span class="nav-number">2.</span> <span class="nav-text">Q：介绍DOM事件级别？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：请封装事件监听和解绑的兼容写法？"><span class="nav-number">3.</span> <span class="nav-text">Q：请封装事件监听和解绑的兼容写法？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：介绍下事件模型？"><span class="nav-number">4.</span> <span class="nav-text">Q：介绍下事件模型？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：介绍下事件流？"><span class="nav-number">5.</span> <span class="nav-text">Q：介绍下事件流？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：DOM事件捕获的具体流程是怎样的？"><span class="nav-number">6.</span> <span class="nav-text">Q：DOM事件捕获的具体流程是怎样的？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：Event-对象有哪些常用应用？"><span class="nav-number">7.</span> <span class="nav-text">Q：Event 对象有哪些常用应用？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：如何自定义事件？"><span class="nav-number">8.</span> <span class="nav-text">Q：如何自定义事件？</span></a></li></ol></div>
             
 
           </div>
