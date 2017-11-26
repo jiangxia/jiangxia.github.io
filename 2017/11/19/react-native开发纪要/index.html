@@ -1,0 +1,825 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="前端,JavaScript,react-native," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="初始化react native项目12npm install -g react-native-clireact-native init 项目名 （可以使用 --version 0.44.3 知道RN的版本号） react-native项目运行12react-native run-android // 安卓设备上运行react-native run-ios     // IOS设备上运行">
+<meta name="keywords" content="前端,JavaScript,react-native">
+<meta property="og:type" content="article">
+<meta property="og:title" content="react native开发纪要">
+<meta property="og:url" content="http://yoursite.com/2017/11/19/react-native开发纪要/index.html">
+<meta property="og:site_name" content="黄明易">
+<meta property="og:description" content="初始化react native项目12npm install -g react-native-clireact-native init 项目名 （可以使用 --version 0.44.3 知道RN的版本号） react-native项目运行12react-native run-android // 安卓设备上运行react-native run-ios     // IOS设备上运行">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-11-24T09:56:32.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="react native开发纪要">
+<meta name="twitter:description" content="初始化react native项目12npm install -g react-native-clireact-native init 项目名 （可以使用 --version 0.44.3 知道RN的版本号） react-native项目运行12react-native run-android // 安卓设备上运行react-native run-ios     // IOS设备上运行">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/11/19/react-native开发纪要/"/>
+
+
+
+
+
+  <title>react native开发纪要 | 黄明易</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">黄明易</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/19/react-native开发纪要/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiangxia">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="黄明易">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">react native开发纪要</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-19T14:11:25+08:00">
+                2017-11-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/JavaScript/react-native/" itemprop="url" rel="index">
+                    <span itemprop="name">react-native</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="初始化react-native项目"><a href="#初始化react-native项目" class="headerlink" title="初始化react native项目"></a>初始化react native项目</h1><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm install -g react-native-cli</div><div class="line">react-native init 项目名 （可以使用 --version 0.44.3 知道RN的版本号）</div></pre></td></tr></table></figure>
+</code></pre><h1 id="react-native项目运行"><a href="#react-native项目运行" class="headerlink" title="react-native项目运行"></a>react-native项目运行</h1><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">react-native run-android // 安卓设备上运行</div><div class="line">react-native run-ios     // IOS设备上运行</div></pre></td></tr></table></figure>
+</code></pre><a id="more"></a>
+<h1 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h1><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">npm i react-native-easy-toast --save   // toast</div><div class="line">npm i react-native-deprecated-custom-components --save   // navigator</div><div class="line">npm install react-native-tab-navigator --save   //TabNavigator</div></pre></td></tr></table></figure>
+</code></pre><h1 id="如何启用RN热加载？"><a href="#如何启用RN热加载？" class="headerlink" title="如何启用RN热加载？"></a>如何启用RN热加载？</h1><ol>
+<li>在模拟器上，点击command+D打开开发者菜单</li>
+<li>选择Enable Hot Reloading</li>
+</ol>
+<h1 id="如何给image图片着色"><a href="#如何给image图片着色" class="headerlink" title="如何给image图片着色"></a>如何给image图片着色</h1><p>设置tintColor为目标颜色。</p>
+<h1 id="tabNavigator-实现底部导航菜单的流程"><a href="#tabNavigator-实现底部导航菜单的流程" class="headerlink" title="tabNavigator 实现底部导航菜单的流程"></a>tabNavigator 实现底部导航菜单的流程</h1><ol>
+<li>通过npm安装这个插件</li>
+<li>通过“import+组件名字”将组件导入进项目</li>
+<li>通过tabNavigator的TabNavigator来初始化每个选项卡</li>
+<li>细节<ul>
+<li>通过tabNavigator的selected来标识item被选中的状态</li>
+<li>selectedTitleStyle来指定标题被选中时的样式变化</li>
+<li>tintColor为图标进行着色</li>
+<li>通过selectedTab值的改变，来切换到不同的页面</li>
+</ul>
+</li>
+</ol>
+<h1 id="什么是Navigator组件呢？"><a href="#什么是Navigator组件呢？" class="headerlink" title="什么是Navigator组件呢？"></a>什么是Navigator组件呢？</h1><ol>
+<li>Navigator是一个导航组件，</li>
+<li>Navigator可以进入下一个界面，或者返回到上一个界面，</li>
+<li>Navigator可以传递数据给下一个界面，返回数据给上一个界面</li>
+</ol>
+<h1 id="使用react-navigation替代navigator"><a href="#使用react-navigation替代navigator" class="headerlink" title="使用react-navigation替代navigator"></a>使用react-navigation替代navigator</h1><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">从react-native-deprecated-custom-components导入Navigator；</div><div class="line">npm i react-native-deprecated-custom-components --save </div><div class="line">然后：</div><div class="line">import &#123;Navigator&#125; from &apos;react-native-deprecated-custom-components&apos;</div></pre></td></tr></table></figure>
+</code></pre><p>具体使用：</p>
+<ol>
+<li>通过react-navigation的initialRoute属性制定react-navigation默认显示的界面</li>
+<li>通过react-navigation来设置跳转的配置，将navigator传给下一级页面，下一级页面才可以调用navigator的pop、push等方法，</li>
+<li>react-navigation显示的第一个页面，可以通过push方法来跳转到下一级页面，此时可以通过component指定跳转页面的组件名称，可以通过params给下一级页面传递参数，在params里，可以设置回调函数，然后在下一级页面中，通过this.props.onCallBack的形式向上一级页面传递参数。</li>
+</ol>
+<p>注：高版本的RN，以上仍不可用，需要使用：</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm install --save react-navigation</div><div class="line">import &#123; StackNavigator &#125; from &apos;react-navigation&apos;;</div></pre></td></tr></table></figure>
+</code></pre><h1 id="NavigationBar是什么？"><a href="#NavigationBar是什么？" class="headerlink" title="NavigationBar是什么？"></a>NavigationBar是什么？</h1><p>头部导航栏</p>
+<h1 id="NavigationBar的基本组成有什么？"><a href="#NavigationBar的基本组成有什么？" class="headerlink" title="NavigationBar的基本组成有什么？"></a>NavigationBar的基本组成有什么？</h1><p>左侧按钮、右侧按钮、标题</p>
+<h1 id="设置NavigationBar警告：Invalid-props-style-key-‘barStyle’-supplied-to-‘View"><a href="#设置NavigationBar警告：Invalid-props-style-key-‘barStyle’-supplied-to-‘View" class="headerlink" title="设置NavigationBar警告：Invalid props.style key ‘barStyle’ supplied to ‘View,"></a>设置NavigationBar警告：Invalid props.style key ‘barStyle’ supplied to ‘View,</h1><p>NavigationBar中有statusBar时，在给NavigationBar设置背景颜色时，也要设置statusBar的背景颜色</p>
+<h1 id="设置NavigationBar的流程？"><a href="#设置NavigationBar的流程？" class="headerlink" title="设置NavigationBar的流程？"></a>设置NavigationBar的流程？</h1><ol>
+<li>新建一个JS文件，也就是新建一个NavigationBar组件。该组件的作用是自定义NavigationBar，有返回键、右侧按钮、标题，状态栏</li>
+<li>为了使用者在调用组件时符合要求，需要给组件设置类型检查（propTypes）。对于一些没必须的属性，可以设置默认值。</li>
+<li>在render方法中返回组件需要渲染的部分。</li>
+<li>设置样式，需要分别对安卓跟IOS进行设置。</li>
+</ol>
+<h1 id="加载网络图片为什么不显示？"><a href="#加载网络图片为什么不显示？" class="headerlink" title="加载网络图片为什么不显示？"></a>加载网络图片为什么不显示？</h1><p>网络图片需要指定宽高，本地图片可以不需要</p>
+<h1 id="如何使用ListView"><a href="#如何使用ListView" class="headerlink" title="如何使用ListView?"></a>如何使用ListView?</h1><ol>
+<li>导入ListView</li>
+<li>在组件的构造方法中为ListView创建一个数据源ds，然后在state中设置一个数据源，通过克隆方法为DataSource设置一个初始值</li>
+<li>然后在render方法中渲染ListView，并为ListView指定属性<ul>
+<li>通过dataSource关联在state中设置的dataSource</li>
+<li>通过renderRow为ListView的每一行指定显示效果</li>
+<li>通过renderSeparator为行与行之间显示分割线</li>
+<li>通过renderFooter显示页脚</li>
+<li>通过RefreshControl组件为ListView扩展下拉刷新的效果，注意它的refreshing跟onRefresh属性</li>
+</ul>
+</li>
+</ol>
+<h1 id="什么是Fetch？"><a href="#什么是Fetch？" class="headerlink" title="什么是Fetch？"></a>什么是Fetch？</h1><p>Fetch API提供了获取资源（比如通过网络）的接口</p>
+<h1 id="Fetch与XMLHttpRequest比较，优势是？"><a href="#Fetch与XMLHttpRequest比较，优势是？" class="headerlink" title="Fetch与XMLHttpRequest比较，优势是？"></a>Fetch与XMLHttpRequest比较，优势是？</h1><ol>
+<li>XMLHttpRequest不符合职责分离的原则，它将输入输出和事件来跟踪的状态混杂在一个对象里，</li>
+<li>Fetch可以与XMLHttpRequest相媲美，同时又提供了更加强大且灵活的特性。Fetch是全局的，不需要额外的导入。</li>
+</ol>
+<h1 id="APP的启动引导流程是？"><a href="#APP的启动引导流程是？" class="headerlink" title="APP的启动引导流程是？"></a>APP的启动引导流程是？</h1><p>APP启动 =&gt; 启动页（读取配置文件） =&gt; 状态初始化（从服务器获取配置、更新本地数据状态） =&gt; 首页</p>
+<h1 id="APP启动的细节是怎样的？"><a href="#APP启动的细节是怎样的？" class="headerlink" title="APP启动的细节是怎样的？"></a>APP启动的细节是怎样的？</h1><p>APP启动，会先加载React Native引擎， 然后读取index.js，也就是JS部分的入口，然后执行setup.js，完成相关组件及服务的初始化，之后再进入欢迎页（WelcomePage.js），欢迎页会播放轮播图或者显示广告，然后再进入主页（HomePage.js ）</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端/" rel="tag"># 前端</a>
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/react-native/" rel="tag"># react-native</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/19/基金/" rel="next" title="基金">
+                <i class="fa fa-chevron-left"></i> 基金
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Jiangxia" />
+          <p class="site-author-name" itemprop="name">Jiangxia</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/jiangxia" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#初始化react-native项目"><span class="nav-number">1.</span> <span class="nav-text">初始化react native项目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#react-native项目运行"><span class="nav-number">2.</span> <span class="nav-text">react-native项目运行</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装依赖"><span class="nav-number">3.</span> <span class="nav-text">安装依赖</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如何启用RN热加载？"><span class="nav-number">4.</span> <span class="nav-text">如何启用RN热加载？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如何给image图片着色"><span class="nav-number">5.</span> <span class="nav-text">如何给image图片着色</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#tabNavigator-实现底部导航菜单的流程"><span class="nav-number">6.</span> <span class="nav-text">tabNavigator 实现底部导航菜单的流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是Navigator组件呢？"><span class="nav-number">7.</span> <span class="nav-text">什么是Navigator组件呢？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用react-navigation替代navigator"><span class="nav-number">8.</span> <span class="nav-text">使用react-navigation替代navigator</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NavigationBar是什么？"><span class="nav-number">9.</span> <span class="nav-text">NavigationBar是什么？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NavigationBar的基本组成有什么？"><span class="nav-number">10.</span> <span class="nav-text">NavigationBar的基本组成有什么？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设置NavigationBar警告：Invalid-props-style-key-‘barStyle’-supplied-to-‘View"><span class="nav-number">11.</span> <span class="nav-text">设置NavigationBar警告：Invalid props.style key ‘barStyle’ supplied to ‘View,</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设置NavigationBar的流程？"><span class="nav-number">12.</span> <span class="nav-text">设置NavigationBar的流程？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#加载网络图片为什么不显示？"><span class="nav-number">13.</span> <span class="nav-text">加载网络图片为什么不显示？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如何使用ListView"><span class="nav-number">14.</span> <span class="nav-text">如何使用ListView?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是Fetch？"><span class="nav-number">15.</span> <span class="nav-text">什么是Fetch？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Fetch与XMLHttpRequest比较，优势是？"><span class="nav-number">16.</span> <span class="nav-text">Fetch与XMLHttpRequest比较，优势是？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#APP的启动引导流程是？"><span class="nav-number">17.</span> <span class="nav-text">APP的启动引导流程是？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#APP启动的细节是怎样的？"><span class="nav-number">18.</span> <span class="nav-text">APP启动的细节是怎样的？</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jiangxia</span>
+</div>
+
+
+<div class="powered-by">
+  个人专属
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
