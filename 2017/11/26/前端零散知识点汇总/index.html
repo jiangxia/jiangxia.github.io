@@ -90,18 +90,18 @@
 
 
 
-<meta name="description" content="Q：常用的JavaScript调试技巧 debugger console.table将对象输出成表格 用 console.time() 和 console.timeEnd() 测试循环耗时 console.trace获取函数的堆栈轨迹信息 快速找到调试函数：在控制台中使用 debug(funcName)，代码会在停止在进入这里指定的函数时。">
+<meta name="description" content="Q：Node类型简介？DOM1标准定义Node接口，JavaScript实现了Node类型，JavaScript中所有的节点都继承自Node类型，因此所有节点都共享着相同的基本属性和方法。  属性 NodeType：节点类型，用12个数值常量表示 nodeName/nodeValue：这两个属性的值完全取决于节点的类型，在使用这两个值之前，最好是先检测下节点的类型   节点关系 childNode">
 <meta name="keywords" content="前端">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端零散知识点汇总">
 <meta property="og:url" content="http://yoursite.com/2017/11/26/前端零散知识点汇总/index.html">
 <meta property="og:site_name" content="黄明易">
-<meta property="og:description" content="Q：常用的JavaScript调试技巧 debugger console.table将对象输出成表格 用 console.time() 和 console.timeEnd() 测试循环耗时 console.trace获取函数的堆栈轨迹信息 快速找到调试函数：在控制台中使用 debug(funcName)，代码会在停止在进入这里指定的函数时。">
+<meta property="og:description" content="Q：Node类型简介？DOM1标准定义Node接口，JavaScript实现了Node类型，JavaScript中所有的节点都继承自Node类型，因此所有节点都共享着相同的基本属性和方法。  属性 NodeType：节点类型，用12个数值常量表示 nodeName/nodeValue：这两个属性的值完全取决于节点的类型，在使用这两个值之前，最好是先检测下节点的类型   节点关系 childNode">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-26T09:32:57.000Z">
+<meta property="og:updated_time" content="2017-11-26T14:14:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端零散知识点汇总">
-<meta name="twitter:description" content="Q：常用的JavaScript调试技巧 debugger console.table将对象输出成表格 用 console.time() 和 console.timeEnd() 测试循环耗时 console.trace获取函数的堆栈轨迹信息 快速找到调试函数：在控制台中使用 debug(funcName)，代码会在停止在进入这里指定的函数时。">
+<meta name="twitter:description" content="Q：Node类型简介？DOM1标准定义Node接口，JavaScript实现了Node类型，JavaScript中所有的节点都继承自Node类型，因此所有节点都共享着相同的基本属性和方法。  属性 NodeType：节点类型，用12个数值常量表示 nodeName/nodeValue：这两个属性的值完全取决于节点的类型，在使用这两个值之前，最好是先检测下节点的类型   节点关系 childNode">
 
 
 
@@ -361,14 +361,196 @@
       
 
       
-        <a id="more"></a>
-<h1 id="Q：常用的JavaScript调试技巧"><a href="#Q：常用的JavaScript调试技巧" class="headerlink" title="Q：常用的JavaScript调试技巧"></a>Q：常用的JavaScript调试技巧</h1><ol>
-<li>debugger</li>
-<li>console.table将对象输出成表格</li>
-<li>用 console.time() 和 console.timeEnd() 测试循环耗时</li>
-<li>console.trace获取函数的堆栈轨迹信息</li>
-<li>快速找到调试函数：在控制台中使用 debug(funcName)，代码会在停止在进入这里指定的函数时。</li>
+        <h1 id="Q：Node类型简介？"><a href="#Q：Node类型简介？" class="headerlink" title="Q：Node类型简介？"></a>Q：Node类型简介？</h1><p>DOM1标准定义Node接口，JavaScript实现了Node类型，JavaScript中所有的节点都继承自Node类型，因此所有节点都共享着相同的基本属性和方法。</p>
+<ol>
+<li>属性<ul>
+<li>NodeType：节点类型，用12个数值常量表示</li>
+<li>nodeName/nodeValue：这两个属性的值完全取决于节点的类型，在使用这两个值之前，最好是先检测下节点的类型</li>
+</ul>
+</li>
+<li>节点关系<ul>
+<li>childNode：每个节点都有ChildNode属性，保存着一个NodeList对象，NodeList是个类数组对象，用于保存一组有序的节点，DOM结构的变化能够自动反映到NodeList对象中。</li>
+<li>parentNode</li>
+<li>ownerDocument：指向表示整个文档的文档节点</li>
+<li>previousSibling/nextSibling</li>
+<li>firstChild/lastChild</li>
+</ul>
+</li>
+<li>操作节点的方法<ul>
+<li>appendChild</li>
+<li>insertBefore</li>
+<li>replaceChild</li>
+<li>removeChild</li>
+<li>cloneNode：受一个布尔值，true时表示深复制，复制节点及其整个子节点树，false时表示浅复制，只复制节点本身<a id="more"></a>
+</li>
+</ul>
+</li>
 </ol>
+<h1 id="Q：Document类型简介？"><a href="#Q：Document类型简介？" class="headerlink" title="Q：Document类型简介？"></a>Q：Document类型简介？</h1><ol>
+<li>文档的子节点<ul>
+<li>html：获取方式有document.documentElement、document.firstChild、document.childNodes[0]</li>
+<li>body：获取方式有document.body</li>
+</ul>
+</li>
+<li>文档信息<ul>
+<li>title：取得/修改当前页面的标题并反映在浏览器的标题栏中</li>
+<li>URL：只读，包含页面完整的URL</li>
+<li>domain：只包含页面的域名，当页面中包含其他子域的框架或者内嵌框架时，通过设置每个页面的document.domain为相同的值，这些页面就可以互相访问对方包含的JavaScript对象了</li>
+<li>referrer：只读，保存着链接到当前页面的那个页面的URL，如果没有源页面则是空字符串。</li>
+</ul>
+</li>
+<li>查找元素<ul>
+<li>getElementById</li>
+<li>getElementByTagName</li>
+<li>getElementByName</li>
+</ul>
+</li>
+</ol>
+<h1 id="Q：Element类型简介？"><a href="#Q：Element类型简介？" class="headerlink" title="Q：Element类型简介？"></a>Q：Element类型简介？</h1><ol>
+<li>操作<ul>
+<li>getAttribute</li>
+<li>setAttribute</li>
+<li>removeAttribute</li>
+</ul>
+</li>
+<li>创建元素：createElement</li>
+</ol>
+<h1 id="Q：DocumentFragment类型简介？"><a href="#Q：DocumentFragment类型简介？" class="headerlink" title="Q：DocumentFragment类型简介？"></a>Q：DocumentFragment类型简介？</h1><p>文档片段，轻量级的文档，可以包含和控制节点，但不会像完整文档那样占用额外的资源。<br>可以把文档片段理解为仓库，立马保存将来可能会添加到文档中的节点。</p>
+<p>创建：document.createDocumentFragment()</p>
+<p>通过appendChild、insertBefore将文档片段添加到文档中</p>
+<h1 id="Q：常见的DOM操作技术有哪些？"><a href="#Q：常见的DOM操作技术有哪些？" class="headerlink" title="Q：常见的DOM操作技术有哪些？"></a>Q：常见的DOM操作技术有哪些？</h1><p>动态脚本<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 常见是插入外部文件：</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">loadScript</span> (<span class="params">url</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">"script"</span>);</div><div class="line">    script.type = <span class="string">"text/javascript"</span>;</div><div class="line">    script.src = url;</div><div class="line">    <span class="built_in">document</span>.body.appendChild(script);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>动态样式<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 借助link实现：</span></div><div class="line"><span class="comment">// 必须将link元素添加到head而不是body元素中，才能保证在所有浏览器中的行为一致</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">loadStyles</span> (<span class="params">url</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> link = <span class="built_in">document</span>.createElement(<span class="string">"link"</span>);</div><div class="line">    link.rel = <span class="string">"stylesheet"</span>;</div><div class="line">    link.type = <span class="string">'text/css'</span>;</div><div class="line">    link.href = url;</div><div class="line">    <span class="keyword">var</span> head = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'head'</span>)[<span class="number">0</span>];</div><div class="line">    head.appendChild(link);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="DOM扩展了那些选择API？"><a href="#DOM扩展了那些选择API？" class="headerlink" title="DOM扩展了那些选择API？"></a>DOM扩展了那些选择API？</h1><ol>
+<li>querySelector方法：返回与该模式匹配的第一个元素，如没找到返回null</li>
+<li>querySelectorAll方法：返回的是所有匹配匹配的元素，注意返回的其实是NodeList的快照</li>
+<li>matchesSelector方法：如果调用元素与该选择符匹配，返回true。使用这个方法能够方便地检测它是否会被querySelector或querySelectorAll返回</li>
+</ol>
+<h1 id="Q：HTML5对DOM操作带来了哪些便利？"><a href="#Q：HTML5对DOM操作带来了哪些便利？" class="headerlink" title="Q：HTML5对DOM操作带来了哪些便利？"></a>Q：HTML5对DOM操作带来了哪些便利？</h1><p>一、与类相关的扩充：</p>
+<ol>
+<li>getElementByClassName方法</li>
+<li>classList属性<ul>
+<li>add方法：将给定的字符串值添加到列表中，如果值存在，则不添加</li>
+<li>contains方法：列表中是否存在给定的值，如果存在则返回true，否则返回false</li>
+<li>remove方法：从列表中删除给定的字符串</li>
+<li>toggle方法：如果列表中已经存在给定的值，删除它，如果列表中没有给定的值，添加它</li>
+</ul>
+</li>
+</ol>
+<p>二、焦点管理：</p>
+<ol>
+<li>document.activeElement：始终引用DOM中当前获得了焦点的元素，元素获得焦点的方式有页面加载，用户输入，代码中调用focus方法（注意：默认情况下，文档刚刚加载完成时，document.activeElement中保存的是document.body元素。文档加载期间，值为null）</li>
+<li>document.hasFocus：用来确认文档是否获得了焦点</li>
+</ol>
+<p>三、自定义数据属性：dataset属性来访问自定义属性的值</p>
+<h1 id="Q：DOM2跟DOM3的变化有哪些？"><a href="#Q：DOM2跟DOM3的变化有哪些？" class="headerlink" title="Q：DOM2跟DOM3的变化有哪些？"></a>Q：DOM2跟DOM3的变化有哪些？</h1><p>DOM2级和3级的目的是扩展DOM API，以满足操作XML的所有需求，同时提供更好的错误处理及特征检测能力。</p>
+<p>DOM2没有引入新类型，只是增加新方法和新属性来增强已有类型</p>
+<p>DOM3级增强了既有类型，也引入了一些新类型</p>
+<h1 id="Q：说说你对闭包的理解？"><a href="#Q：说说你对闭包的理解？" class="headerlink" title="Q：说说你对闭包的理解？"></a>Q：说说你对闭包的理解？</h1><p>使用闭包主要是为了设计私有的方法和变量。闭包的优点是可以避免全局变量的污染，缺点是闭包会常驻内存，会增大内存使用量，使用不当很容易造成内存泄露。<br>闭包有三个特性:<br>1.函数嵌套函数 2.函数内部可以引用外部的参数和变量 3.参数和变量不会被垃圾回收机制回收</p>
+<h1 id="Q：请你谈谈Cookie的弊端？"><a href="#Q：请你谈谈Cookie的弊端？" class="headerlink" title="Q：请你谈谈Cookie的弊端？"></a>Q：请你谈谈Cookie的弊端？</h1><ol>
+<li>Cookie数量和长度的限制。每个domain最多只能有20条cookie，每个cookie长度不能超过4KB，否则会被截掉。</li>
+<li>安全性问题。</li>
+<li>有些状态不可能保存在客户端。例如，为了防止重复提交表单，我们需要在服务器端保存一个计数器。如果我们把这个计数器保存在客户端，那么它起不到任何作用。</li>
+</ol>
+<h1 id="Q：简介浏览器本地存储？"><a href="#Q：简介浏览器本地存储？" class="headerlink" title="Q：简介浏览器本地存储？"></a>Q：简介浏览器本地存储？</h1><p>html5中的Web Storage包括了两种存储方式：sessionStorage和localStorage。</p>
+<ol>
+<li>sessionStorage：会话期间有效</li>
+<li>localStorage：用于持久化的本地存储，除非主动删除数据，否则数据是永远不会过期的。</li>
+<li>localStorage和sessionStorage都具有相同的操作方法，例如setItem、getItem和removeItem等</li>
+</ol>
+<h1 id="Q：web-storage和cookie的区别"><a href="#Q：web-storage和cookie的区别" class="headerlink" title="Q：web storage和cookie的区别"></a>Q：web storage和cookie的区别</h1><ol>
+<li>Cookie是不可或缺的，作为HTTP规范的一部分存在，用于与服务器的交互，Cookie本身存在一些局限性，比如大小受限，受同源策略限制等。没有兼容性问题</li>
+<li>Web Storage是为了本地“存储”数据而生，没有Cookie使用时的限制，还拥有setItem,getItem,removeItem,clear等方法，不像cookie需要前端开发者自己封装setCookie，getCookie。IE７以上浏览器支持。</li>
+</ol>
+<h1 id="Q：cookie-和session-的区别？"><a href="#Q：cookie-和session-的区别？" class="headerlink" title="Q：cookie 和session 的区别？"></a>Q：cookie 和session 的区别？</h1><ol>
+<li>cookie数据存放在客户的浏览器上，session数据放在服务器上。</li>
+<li>cookie有安全问题。</li>
+<li>session过多会影响服务器性能。</li>
+<li>单个cookie保存的数据不能超过4K，很多浏览器都限制一个站点最多保存20个cookie。</li>
+<li>所以，重要信息存放为SESSION，其他信息如果需要保留，可以放在COOKIE中</li>
+</ol>
+<h1 id="Q：display-none和visibility-hidden的区别？"><a href="#Q：display-none和visibility-hidden的区别？" class="headerlink" title="Q：display:none和visibility:hidden的区别？"></a>Q：display:none和visibility:hidden的区别？</h1><p>display:none  隐藏对应的元素，不占据文档空间。<br>visibility:hidden  隐藏对应的元素，占据文档空间。</p>
+<h1 id="Q：CSS中-link-和-import-的区别是？"><a href="#Q：CSS中-link-和-import-的区别是？" class="headerlink" title="Q：CSS中 link 和@import 的区别是？"></a>Q：CSS中 link 和@import 的区别是？</h1><ol>
+<li>link属于HTML标签，而@import是CSS提供的;</li>
+<li>页面被加载的时，link会同时被加载，而@import引用的CSS会等到页面被加载完再加载;</li>
+<li>import只在IE5以上才能识别，而link是HTML标签，无兼容问题;</li>
+<li>link方式的样式的权重 高于@import的权重.</li>
+</ol>
+<h1 id="Q：position-absolute和float属性的异同"><a href="#Q：position-absolute和float属性的异同" class="headerlink" title="Q：position:absolute和float属性的异同"></a>Q：position:absolute和float属性的异同</h1><p>共同点：对内联元素设置float和absolute属性，可以让元素脱离文档流，并且可以设置其宽高。<br>不同点：float仍会占据位置，position会覆盖文档流中的其他元素。</p>
+<h1 id="Q：CSS-选择符有哪些？哪些属性可以继承？优先级算法如何计算？-CSS3新增伪类有那些？"><a href="#Q：CSS-选择符有哪些？哪些属性可以继承？优先级算法如何计算？-CSS3新增伪类有那些？" class="headerlink" title="Q：CSS 选择符有哪些？哪些属性可以继承？优先级算法如何计算？ CSS3新增伪类有那些？"></a>Q：CSS 选择符有哪些？哪些属性可以继承？优先级算法如何计算？ CSS3新增伪类有那些？</h1><p>一、选择符：</p>
+<ol>
+<li>id选择器（ # myid）</li>
+<li>类选择器（.myclassname）</li>
+<li>标签选择器（div, h1, p）</li>
+<li>相邻选择器（h1 + p）</li>
+<li>子选择器（ul &gt; li）</li>
+<li>后代选择器（li a）</li>
+<li>通配符选择器（ * ）</li>
+<li>属性选择器（a[rel = “external”]）</li>
+<li>伪类选择器（a:hover, li:nth-child）</li>
+</ol>
+<p>二、可继承的样式： font-size font-family color, text-indent;<br>三、不可继承的样式：border padding margin width height ;</p>
+<p>四、优先级：<br>权重：!important &gt;  id &gt; class &gt; tag （important 比 内联优先级高,但内联比 id 要高）<br>优先级就近原则，同权重情况下样式定义最近者为准，载入样式以最后载入的定位为准;</p>
+<p>五、CSS3新增伪类举例：<br>p:first-of-type 选择属于其父元素的首个p元素的每个p元素。<br>p:last-of-type  选择属于其父元素的最后p元素的每个p元素。<br>p:only-of-type  选择属于其父元素唯一的p元素的每个p元素。<br>p:only-child    选择属于其父元素的唯一子元素的每个p元素。<br>p:nth-child(2)  选择属于其父元素的第二个子元素的每个p元素。<br>:enabled  :disabled 控制表单控件的禁用状态。<br>:checked        单选框或复选框被选中。</p>
+<h1 id="Q-position的值，-relative和absolute分别是相对于谁进行定位的？"><a href="#Q-position的值，-relative和absolute分别是相对于谁进行定位的？" class="headerlink" title="Q:position的值， relative和absolute分别是相对于谁进行定位的？"></a>Q:position的值， relative和absolute分别是相对于谁进行定位的？</h1><ol>
+<li>absolute：生成绝对定位的元素， 相对于最近一级的 定位不是 static 的父元素来进行定位。</li>
+<li>fixed：生成绝对定位的元素，相对于浏览器窗口进行定位。</li>
+<li>relative：生成相对定位的元素，相对于其在普通流中的位置进行定位。</li>
+<li>static：默认值。没有定位，元素出现在正常的流中</li>
+</ol>
+<h1 id="Q：CSS3有哪些新特性？"><a href="#Q：CSS3有哪些新特性？" class="headerlink" title="Q：CSS3有哪些新特性？"></a>Q：CSS3有哪些新特性？</h1><ol>
+<li>CSS3实现圆角（border-radius）</li>
+<li>阴影（box-shadow）</li>
+<li>对文字加特效（text-shadow、）</li>
+<li>线性渐变（gradient）</li>
+<li>旋转（transform）</li>
+<li>transform:rotate(9deg) scale(0.85,0.90) translate(0px,-30px) skew(-9deg,0deg);//旋转,缩放,定位,倾斜</li>
+<li>::selection：SS3中唯一引入的伪元素</li>
+<li>媒体查询</li>
+<li>多栏布局</li>
+<li>border-image</li>
+</ol>
+<h1 id="Q：XML和JSON的区别？"><a href="#Q：XML和JSON的区别？" class="headerlink" title="Q：XML和JSON的区别？"></a>Q：XML和JSON的区别？</h1><ol>
+<li>数据体积方面：JSON相对于XML来讲，数据的体积小，传递的速度更快些。</li>
+<li>数据交互方面：JSON与JavaScript的交互更加方便，更容易解析处理，更好的数据交互。</li>
+<li>数据描述方面：JSON对数据的描述性比XML较差。</li>
+<li>传输速度方面：JSON的速度要远远快于XML。</li>
+</ol>
+<h1 id="Q：解释下-CSS-sprites，以及你要如何在页面或网站中使用它。"><a href="#Q：解释下-CSS-sprites，以及你要如何在页面或网站中使用它。" class="headerlink" title="Q：解释下 CSS sprites，以及你要如何在页面或网站中使用它。"></a>Q：解释下 CSS sprites，以及你要如何在页面或网站中使用它。</h1><p>CSS Sprites其实就是把网页中一些背景图片整合到一张图片文件中。<br>使用“background-image”、“background- repeat”、“background-position”的组合进行背景定位</p>
+<h1 id="Q：说说你对语义化的理解？"><a href="#Q：说说你对语义化的理解？" class="headerlink" title="Q：说说你对语义化的理解？"></a>Q：说说你对语义化的理解？</h1><ol>
+<li>去掉或者丢失样式的时候能够让页面呈现出清晰的结构</li>
+<li>有利于SEO</li>
+<li>方便其他设备解析（如屏幕阅读器、盲人阅读器、移动设备）</li>
+<li>便于团队开发和维护，语义化更具可读性</li>
+</ol>
+<h1 id="Q：清除浮动的几种方法："><a href="#Q：清除浮动的几种方法：" class="headerlink" title="Q：清除浮动的几种方法："></a>Q：清除浮动的几种方法：</h1><p>1.额外标签法，&lt; div style=”clear:both;”&gt;&lt;/ div&gt;<br>2，使用after伪类<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="selector-id">#parent</span><span class="selector-pseudo">:after</span>&#123;</div><div class="line">    <span class="attribute">content</span>:<span class="string">"."</span>;</div><div class="line">    <span class="attribute">height</span>:<span class="number">0</span>;</div><div class="line">    <span class="attribute">visibility</span>:hidden;</div><div class="line">    <span class="attribute">display</span>:block;</div><div class="line">    <span class="attribute">clear</span>:both;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<ol>
+<li>使用BFC清除浮动</li>
+</ol>
+<h1 id="Q：html5有哪些新特性、移除了那些元素？如何区分-HTML-和-HTML5？"><a href="#Q：html5有哪些新特性、移除了那些元素？如何区分-HTML-和-HTML5？" class="headerlink" title="Q：html5有哪些新特性、移除了那些元素？如何区分 HTML 和 HTML5？"></a>Q：html5有哪些新特性、移除了那些元素？如何区分 HTML 和 HTML5？</h1><p>一、新增的特性</p>
+<ol>
+<li>拖拽释放(Drag and drop) API</li>
+<li>语义化更好的内容标签（header,nav,footer,aside,article,section）</li>
+<li>音频、视频API(audio,video)</li>
+<li>画布(Canvas) API</li>
+<li>地理(Geolocation) API</li>
+<li>WebStore: localStorage、sessionStorage</li>
+</ol>
+<p>二、移除的元素</p>
+<ol>
+<li>纯表现的元素：basefont，big，center，font, s，strike，tt，u；</li>
+<li>对可用性产生负面影响的元素：frame，frameset，noframes；</li>
+</ol>
+<p>三、如何区分： DOCTYPE声明\新增的结构元素\功能元素</p>
+<h1 id="Q：如何实现浏览器内多个标签页之间的通信"><a href="#Q：如何实现浏览器内多个标签页之间的通信" class="headerlink" title="Q：如何实现浏览器内多个标签页之间的通信?"></a>Q：如何实现浏览器内多个标签页之间的通信?</h1><p>调用localstorge、cookies等本地存储方式</p>
+<h1 id="Q：什么是-“use-strict”-使用它的好处？"><a href="#Q：什么是-“use-strict”-使用它的好处？" class="headerlink" title="Q：什么是 “use strict”; ? 使用它的好处？"></a>Q：什么是 “use strict”; ? 使用它的好处？</h1><p>“严格模式”</p>
+<ol>
+<li>消除Javascript语法的一些不合理、不严谨之处，减少一些怪异行为;</li>
+<li>消除代码运行的一些不安全之处，保证代码运行的安全；</li>
+<li>提高编译器效率，增加运行速度；</li>
+<li>为未来新版本的Javascript做好铺垫。</li>
+</ol>
+<p>注：IE6,7,8,9均不支持严格模式。</p>
+<p>————– 分割线 ————–</p>
 
       
     </div>
@@ -563,7 +745,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：常用的JavaScript调试技巧"><span class="nav-number">1.</span> <span class="nav-text">Q：常用的JavaScript调试技巧</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：Node类型简介？"><span class="nav-number">1.</span> <span class="nav-text">Q：Node类型简介？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：Document类型简介？"><span class="nav-number">2.</span> <span class="nav-text">Q：Document类型简介？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：Element类型简介？"><span class="nav-number">3.</span> <span class="nav-text">Q：Element类型简介？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：DocumentFragment类型简介？"><span class="nav-number">4.</span> <span class="nav-text">Q：DocumentFragment类型简介？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：常见的DOM操作技术有哪些？"><span class="nav-number">5.</span> <span class="nav-text">Q：常见的DOM操作技术有哪些？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DOM扩展了那些选择API？"><span class="nav-number">6.</span> <span class="nav-text">DOM扩展了那些选择API？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：HTML5对DOM操作带来了哪些便利？"><span class="nav-number">7.</span> <span class="nav-text">Q：HTML5对DOM操作带来了哪些便利？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：DOM2跟DOM3的变化有哪些？"><span class="nav-number">8.</span> <span class="nav-text">Q：DOM2跟DOM3的变化有哪些？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：说说你对闭包的理解？"><span class="nav-number">9.</span> <span class="nav-text">Q：说说你对闭包的理解？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：请你谈谈Cookie的弊端？"><span class="nav-number">10.</span> <span class="nav-text">Q：请你谈谈Cookie的弊端？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：简介浏览器本地存储？"><span class="nav-number">11.</span> <span class="nav-text">Q：简介浏览器本地存储？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：web-storage和cookie的区别"><span class="nav-number">12.</span> <span class="nav-text">Q：web storage和cookie的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：cookie-和session-的区别？"><span class="nav-number">13.</span> <span class="nav-text">Q：cookie 和session 的区别？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：display-none和visibility-hidden的区别？"><span class="nav-number">14.</span> <span class="nav-text">Q：display:none和visibility:hidden的区别？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：CSS中-link-和-import-的区别是？"><span class="nav-number">15.</span> <span class="nav-text">Q：CSS中 link 和@import 的区别是？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：position-absolute和float属性的异同"><span class="nav-number">16.</span> <span class="nav-text">Q：position:absolute和float属性的异同</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：CSS-选择符有哪些？哪些属性可以继承？优先级算法如何计算？-CSS3新增伪类有那些？"><span class="nav-number">17.</span> <span class="nav-text">Q：CSS 选择符有哪些？哪些属性可以继承？优先级算法如何计算？ CSS3新增伪类有那些？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q-position的值，-relative和absolute分别是相对于谁进行定位的？"><span class="nav-number">18.</span> <span class="nav-text">Q:position的值， relative和absolute分别是相对于谁进行定位的？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：CSS3有哪些新特性？"><span class="nav-number">19.</span> <span class="nav-text">Q：CSS3有哪些新特性？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：XML和JSON的区别？"><span class="nav-number">20.</span> <span class="nav-text">Q：XML和JSON的区别？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：解释下-CSS-sprites，以及你要如何在页面或网站中使用它。"><span class="nav-number">21.</span> <span class="nav-text">Q：解释下 CSS sprites，以及你要如何在页面或网站中使用它。</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：说说你对语义化的理解？"><span class="nav-number">22.</span> <span class="nav-text">Q：说说你对语义化的理解？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：清除浮动的几种方法："><span class="nav-number">23.</span> <span class="nav-text">Q：清除浮动的几种方法：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：html5有哪些新特性、移除了那些元素？如何区分-HTML-和-HTML5？"><span class="nav-number">24.</span> <span class="nav-text">Q：html5有哪些新特性、移除了那些元素？如何区分 HTML 和 HTML5？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：如何实现浏览器内多个标签页之间的通信"><span class="nav-number">25.</span> <span class="nav-text">Q：如何实现浏览器内多个标签页之间的通信?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：什么是-“use-strict”-使用它的好处？"><span class="nav-number">26.</span> <span class="nav-text">Q：什么是 “use strict”; ? 使用它的好处？</span></a></li></ol></div>
             
 
           </div>

@@ -510,17 +510,34 @@
 
       
         
-          
-            <a id="more"></a>
-<h1 id="Q：常用的JavaScript调试技巧"><a href="#Q：常用的JavaScript调试技巧" class="headerlink" title="Q：常用的JavaScript调试技巧"></a>Q：常用的JavaScript调试技巧</h1><ol>
-<li>debugger</li>
-<li>console.table将对象输出成表格</li>
-<li>用 console.time() 和 console.timeEnd() 测试循环耗时</li>
-<li>console.trace获取函数的堆栈轨迹信息</li>
-<li>快速找到调试函数：在控制台中使用 debug(funcName)，代码会在停止在进入这里指定的函数时。</li>
-</ol>
-
-          
+          <h1 id="Q：Node类型简介？"><a href="#Q：Node类型简介？" class="headerlink" title="Q：Node类型简介？"></a>Q：Node类型简介？</h1><p>DOM1标准定义Node接口，JavaScript实现了Node类型，JavaScript中所有的节点都继承自Node类型，因此所有节点都共享着相同的基本属性和方法。</p>
+<ol>
+<li>属性<ul>
+<li>NodeType：节点类型，用12个数值常量表示</li>
+<li>nodeName/nodeValue：这两个属性的值完全取决于节点的类型，在使用这两个值之前，最好是先检测下节点的类型</li>
+</ul>
+</li>
+<li>节点关系<ul>
+<li>childNode：每个节点都有ChildNode属性，保存着一个NodeList对象，NodeList是个类数组对象，用于保存一组有序的节点，DOM结构的变化能够自动反映到NodeList对象中。</li>
+<li>parentNode</li>
+<li>ownerDocument：指向表示整个文档的文档节点</li>
+<li>previousSibling/nextSibling</li>
+<li>firstChild/lastChild</li>
+</ul>
+</li>
+<li>操作节点的方法<ul>
+<li>appendChild</li>
+<li>insertBefore</li>
+<li>replaceChild</li>
+<li>removeChild</li>
+<li>cloneNode：受一个布尔值，true时表示深复制，复制节点及其整个子节点树，false时表示浅复制，只复制节点本身
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/26/前端零散知识点汇总/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
