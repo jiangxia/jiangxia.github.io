@@ -98,7 +98,7 @@
 <meta property="og:site_name" content="黄明易">
 <meta property="og:description" content="Q：Node类型简介？DOM1标准定义Node接口，JavaScript实现了Node类型，JavaScript中所有的节点都继承自Node类型，因此所有节点都共享着相同的基本属性和方法。  属性 NodeType：节点类型，用12个数值常量表示 nodeName/nodeValue：这两个属性的值完全取决于节点的类型，在使用这两个值之前，最好是先检测下节点的类型   节点关系 childNode">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-26T14:14:35.000Z">
+<meta property="og:updated_time" content="2017-11-26T14:22:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端零散知识点汇总">
 <meta name="twitter:description" content="Q：Node类型简介？DOM1标准定义Node接口，JavaScript实现了Node类型，JavaScript中所有的节点都继承自Node类型，因此所有节点都共享着相同的基本属性和方法。  属性 NodeType：节点类型，用12个数值常量表示 nodeName/nodeValue：这两个属性的值完全取决于节点的类型，在使用这两个值之前，最好是先检测下节点的类型   节点关系 childNode">
@@ -551,6 +551,19 @@
 </ol>
 <p>注：IE6,7,8,9均不支持严格模式。</p>
 <p>————– 分割线 ————–</p>
+<h1 id="Q：一个页面从输入-URL-到页面加载显示完成，这个过程中都发生了什么？"><a href="#Q：一个页面从输入-URL-到页面加载显示完成，这个过程中都发生了什么？" class="headerlink" title="Q：一个页面从输入 URL 到页面加载显示完成，这个过程中都发生了什么？"></a>Q：一个页面从输入 URL 到页面加载显示完成，这个过程中都发生了什么？</h1><ol>
+<li>首先，在浏览器地址栏中输入url</li>
+<li>浏览器先查看浏览器缓存-系统缓存-路由器缓存，如果缓存中有，会直接在屏幕中显示页面内容。若没有，则跳到第三步操作。</li>
+<li>在发送http请求前，需要域名解析(DNS解析)，解析获取相应的IP地址。</li>
+<li>浏览器向服务器发起tcp连接，与浏览器建立tcp三次握手。</li>
+<li>握手成功后，浏览器向服务器发送http请求，请求数据包。P</li>
+<li>服务器处理收到的请求，将数据返回至浏览器</li>
+<li>浏览器收到HTTP响应</li>
+<li>读取页面内容，浏览器渲染，解析html源码</li>
+<li>生成Dom树,解析css样式,js交互</li>
+<li>客户端和服务器交互</li>
+<li>ajax查询</li>
+</ol>
 
       
     </div>
@@ -677,7 +690,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">25</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -688,7 +701,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -699,7 +712,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -745,7 +758,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：Node类型简介？"><span class="nav-number">1.</span> <span class="nav-text">Q：Node类型简介？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：Document类型简介？"><span class="nav-number">2.</span> <span class="nav-text">Q：Document类型简介？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：Element类型简介？"><span class="nav-number">3.</span> <span class="nav-text">Q：Element类型简介？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：DocumentFragment类型简介？"><span class="nav-number">4.</span> <span class="nav-text">Q：DocumentFragment类型简介？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：常见的DOM操作技术有哪些？"><span class="nav-number">5.</span> <span class="nav-text">Q：常见的DOM操作技术有哪些？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DOM扩展了那些选择API？"><span class="nav-number">6.</span> <span class="nav-text">DOM扩展了那些选择API？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：HTML5对DOM操作带来了哪些便利？"><span class="nav-number">7.</span> <span class="nav-text">Q：HTML5对DOM操作带来了哪些便利？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：DOM2跟DOM3的变化有哪些？"><span class="nav-number">8.</span> <span class="nav-text">Q：DOM2跟DOM3的变化有哪些？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：说说你对闭包的理解？"><span class="nav-number">9.</span> <span class="nav-text">Q：说说你对闭包的理解？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：请你谈谈Cookie的弊端？"><span class="nav-number">10.</span> <span class="nav-text">Q：请你谈谈Cookie的弊端？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：简介浏览器本地存储？"><span class="nav-number">11.</span> <span class="nav-text">Q：简介浏览器本地存储？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：web-storage和cookie的区别"><span class="nav-number">12.</span> <span class="nav-text">Q：web storage和cookie的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：cookie-和session-的区别？"><span class="nav-number">13.</span> <span class="nav-text">Q：cookie 和session 的区别？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：display-none和visibility-hidden的区别？"><span class="nav-number">14.</span> <span class="nav-text">Q：display:none和visibility:hidden的区别？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：CSS中-link-和-import-的区别是？"><span class="nav-number">15.</span> <span class="nav-text">Q：CSS中 link 和@import 的区别是？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：position-absolute和float属性的异同"><span class="nav-number">16.</span> <span class="nav-text">Q：position:absolute和float属性的异同</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：CSS-选择符有哪些？哪些属性可以继承？优先级算法如何计算？-CSS3新增伪类有那些？"><span class="nav-number">17.</span> <span class="nav-text">Q：CSS 选择符有哪些？哪些属性可以继承？优先级算法如何计算？ CSS3新增伪类有那些？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q-position的值，-relative和absolute分别是相对于谁进行定位的？"><span class="nav-number">18.</span> <span class="nav-text">Q:position的值， relative和absolute分别是相对于谁进行定位的？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：CSS3有哪些新特性？"><span class="nav-number">19.</span> <span class="nav-text">Q：CSS3有哪些新特性？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：XML和JSON的区别？"><span class="nav-number">20.</span> <span class="nav-text">Q：XML和JSON的区别？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：解释下-CSS-sprites，以及你要如何在页面或网站中使用它。"><span class="nav-number">21.</span> <span class="nav-text">Q：解释下 CSS sprites，以及你要如何在页面或网站中使用它。</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：说说你对语义化的理解？"><span class="nav-number">22.</span> <span class="nav-text">Q：说说你对语义化的理解？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：清除浮动的几种方法："><span class="nav-number">23.</span> <span class="nav-text">Q：清除浮动的几种方法：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：html5有哪些新特性、移除了那些元素？如何区分-HTML-和-HTML5？"><span class="nav-number">24.</span> <span class="nav-text">Q：html5有哪些新特性、移除了那些元素？如何区分 HTML 和 HTML5？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：如何实现浏览器内多个标签页之间的通信"><span class="nav-number">25.</span> <span class="nav-text">Q：如何实现浏览器内多个标签页之间的通信?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：什么是-“use-strict”-使用它的好处？"><span class="nav-number">26.</span> <span class="nav-text">Q：什么是 “use strict”; ? 使用它的好处？</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：Node类型简介？"><span class="nav-number">1.</span> <span class="nav-text">Q：Node类型简介？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：Document类型简介？"><span class="nav-number">2.</span> <span class="nav-text">Q：Document类型简介？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：Element类型简介？"><span class="nav-number">3.</span> <span class="nav-text">Q：Element类型简介？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：DocumentFragment类型简介？"><span class="nav-number">4.</span> <span class="nav-text">Q：DocumentFragment类型简介？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：常见的DOM操作技术有哪些？"><span class="nav-number">5.</span> <span class="nav-text">Q：常见的DOM操作技术有哪些？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DOM扩展了那些选择API？"><span class="nav-number">6.</span> <span class="nav-text">DOM扩展了那些选择API？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：HTML5对DOM操作带来了哪些便利？"><span class="nav-number">7.</span> <span class="nav-text">Q：HTML5对DOM操作带来了哪些便利？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：DOM2跟DOM3的变化有哪些？"><span class="nav-number">8.</span> <span class="nav-text">Q：DOM2跟DOM3的变化有哪些？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：说说你对闭包的理解？"><span class="nav-number">9.</span> <span class="nav-text">Q：说说你对闭包的理解？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：请你谈谈Cookie的弊端？"><span class="nav-number">10.</span> <span class="nav-text">Q：请你谈谈Cookie的弊端？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：简介浏览器本地存储？"><span class="nav-number">11.</span> <span class="nav-text">Q：简介浏览器本地存储？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：web-storage和cookie的区别"><span class="nav-number">12.</span> <span class="nav-text">Q：web storage和cookie的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：cookie-和session-的区别？"><span class="nav-number">13.</span> <span class="nav-text">Q：cookie 和session 的区别？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：display-none和visibility-hidden的区别？"><span class="nav-number">14.</span> <span class="nav-text">Q：display:none和visibility:hidden的区别？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：CSS中-link-和-import-的区别是？"><span class="nav-number">15.</span> <span class="nav-text">Q：CSS中 link 和@import 的区别是？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：position-absolute和float属性的异同"><span class="nav-number">16.</span> <span class="nav-text">Q：position:absolute和float属性的异同</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：CSS-选择符有哪些？哪些属性可以继承？优先级算法如何计算？-CSS3新增伪类有那些？"><span class="nav-number">17.</span> <span class="nav-text">Q：CSS 选择符有哪些？哪些属性可以继承？优先级算法如何计算？ CSS3新增伪类有那些？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q-position的值，-relative和absolute分别是相对于谁进行定位的？"><span class="nav-number">18.</span> <span class="nav-text">Q:position的值， relative和absolute分别是相对于谁进行定位的？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：CSS3有哪些新特性？"><span class="nav-number">19.</span> <span class="nav-text">Q：CSS3有哪些新特性？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：XML和JSON的区别？"><span class="nav-number">20.</span> <span class="nav-text">Q：XML和JSON的区别？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：解释下-CSS-sprites，以及你要如何在页面或网站中使用它。"><span class="nav-number">21.</span> <span class="nav-text">Q：解释下 CSS sprites，以及你要如何在页面或网站中使用它。</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：说说你对语义化的理解？"><span class="nav-number">22.</span> <span class="nav-text">Q：说说你对语义化的理解？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：清除浮动的几种方法："><span class="nav-number">23.</span> <span class="nav-text">Q：清除浮动的几种方法：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：html5有哪些新特性、移除了那些元素？如何区分-HTML-和-HTML5？"><span class="nav-number">24.</span> <span class="nav-text">Q：html5有哪些新特性、移除了那些元素？如何区分 HTML 和 HTML5？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：如何实现浏览器内多个标签页之间的通信"><span class="nav-number">25.</span> <span class="nav-text">Q：如何实现浏览器内多个标签页之间的通信?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：什么是-“use-strict”-使用它的好处？"><span class="nav-number">26.</span> <span class="nav-text">Q：什么是 “use strict”; ? 使用它的好处？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：一个页面从输入-URL-到页面加载显示完成，这个过程中都发生了什么？"><span class="nav-number">27.</span> <span class="nav-text">Q：一个页面从输入 URL 到页面加载显示完成，这个过程中都发生了什么？</span></a></li></ol></div>
             
 
           </div>
