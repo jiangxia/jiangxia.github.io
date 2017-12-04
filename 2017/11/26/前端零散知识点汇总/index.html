@@ -90,18 +90,18 @@
 
 
 
-<meta name="description" content="Q：Node类型简介？DOM1标准定义Node接口，JavaScript实现了Node类型，JavaScript中所有的节点都继承自Node类型，因此所有节点都共享着相同的基本属性和方法。  属性 NodeType：节点类型，用12个数值常量表示 nodeName/nodeValue：这两个属性的值完全取决于节点的类型，在使用这两个值之前，最好是先检测下节点的类型   节点关系 childNode">
+<meta name="description" content="Q：Node类型简介？DOM1标准定义Node接口，JavaScript实现了Node类型，JavaScript中所有的节点都继承自Node类型，因此所有节点都共享着相同的基本属性和方法。 Q：Node类型的节点属性有哪些？ nodeType：节点类型，用12个数值常量表示 nodeName/nodeValue：这两个属性的值完全取决于节点的类型，在使用这两个值之前，最好是先检测下节点的类型  Q">
 <meta name="keywords" content="前端">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端零散知识点汇总">
 <meta property="og:url" content="http://yoursite.com/2017/11/26/前端零散知识点汇总/index.html">
 <meta property="og:site_name" content="黄明易">
-<meta property="og:description" content="Q：Node类型简介？DOM1标准定义Node接口，JavaScript实现了Node类型，JavaScript中所有的节点都继承自Node类型，因此所有节点都共享着相同的基本属性和方法。  属性 NodeType：节点类型，用12个数值常量表示 nodeName/nodeValue：这两个属性的值完全取决于节点的类型，在使用这两个值之前，最好是先检测下节点的类型   节点关系 childNode">
+<meta property="og:description" content="Q：Node类型简介？DOM1标准定义Node接口，JavaScript实现了Node类型，JavaScript中所有的节点都继承自Node类型，因此所有节点都共享着相同的基本属性和方法。 Q：Node类型的节点属性有哪些？ nodeType：节点类型，用12个数值常量表示 nodeName/nodeValue：这两个属性的值完全取决于节点的类型，在使用这两个值之前，最好是先检测下节点的类型  Q">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-26T14:22:53.000Z">
+<meta property="og:updated_time" content="2017-12-04T08:50:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端零散知识点汇总">
-<meta name="twitter:description" content="Q：Node类型简介？DOM1标准定义Node接口，JavaScript实现了Node类型，JavaScript中所有的节点都继承自Node类型，因此所有节点都共享着相同的基本属性和方法。  属性 NodeType：节点类型，用12个数值常量表示 nodeName/nodeValue：这两个属性的值完全取决于节点的类型，在使用这两个值之前，最好是先检测下节点的类型   节点关系 childNode">
+<meta name="twitter:description" content="Q：Node类型简介？DOM1标准定义Node接口，JavaScript实现了Node类型，JavaScript中所有的节点都继承自Node类型，因此所有节点都共享着相同的基本属性和方法。 Q：Node类型的节点属性有哪些？ nodeType：节点类型，用12个数值常量表示 nodeName/nodeValue：这两个属性的值完全取决于节点的类型，在使用这两个值之前，最好是先检测下节点的类型  Q">
 
 
 
@@ -362,71 +362,43 @@
 
       
         <h1 id="Q：Node类型简介？"><a href="#Q：Node类型简介？" class="headerlink" title="Q：Node类型简介？"></a>Q：Node类型简介？</h1><p>DOM1标准定义Node接口，JavaScript实现了Node类型，JavaScript中所有的节点都继承自Node类型，因此所有节点都共享着相同的基本属性和方法。</p>
-<ol>
-<li>属性<ul>
-<li>NodeType：节点类型，用12个数值常量表示</li>
+<h1 id="Q：Node类型的节点属性有哪些？"><a href="#Q：Node类型的节点属性有哪些？" class="headerlink" title="Q：Node类型的节点属性有哪些？"></a>Q：Node类型的节点属性有哪些？</h1><ol>
+<li>nodeType：节点类型，用12个数值常量表示</li>
 <li>nodeName/nodeValue：这两个属性的值完全取决于节点的类型，在使用这两个值之前，最好是先检测下节点的类型</li>
-</ul>
-</li>
-<li>节点关系<ul>
-<li>childNode：每个节点都有ChildNode属性，保存着一个NodeList对象，NodeList是个类数组对象，用于保存一组有序的节点，DOM结构的变化能够自动反映到NodeList对象中。</li>
+</ol>
+<h1 id="Q：Node类型的节点关系有哪些？"><a href="#Q：Node类型的节点关系有哪些？" class="headerlink" title="Q：Node类型的节点关系有哪些？"></a>Q：Node类型的节点关系有哪些？</h1><ol>
+<li>childNode：每个节点都有ChildNode属性，保存着一个NodeList对象，NodeList是个类数组对象，用于保存一组有序的节点，DOM结构的变化能够自动反映到NodeList对象中</li>
 <li>parentNode</li>
 <li>ownerDocument：指向表示整个文档的文档节点</li>
 <li>previousSibling/nextSibling</li>
 <li>firstChild/lastChild</li>
-</ul>
-</li>
-<li>操作节点的方法<ul>
+</ol>
+<h1 id="Q：Node类型有哪些操作节点的方法？"><a href="#Q：Node类型有哪些操作节点的方法？" class="headerlink" title="Q：Node类型有哪些操作节点的方法？"></a>Q：Node类型有哪些操作节点的方法？</h1><ol>
 <li>appendChild</li>
 <li>insertBefore</li>
 <li>replaceChild</li>
 <li>removeChild</li>
 <li>cloneNode：受一个布尔值，true时表示深复制，复制节点及其整个子节点树，false时表示浅复制，只复制节点本身<a id="more"></a>
 </li>
-</ul>
-</li>
 </ol>
-<h1 id="Q：Document类型简介？"><a href="#Q：Document类型简介？" class="headerlink" title="Q：Document类型简介？"></a>Q：Document类型简介？</h1><ol>
-<li>文档的子节点<ul>
-<li>html：获取方式有document.documentElement、document.firstChild、document.childNodes[0]</li>
-<li>body：获取方式有document.body</li>
-</ul>
-</li>
-<li>文档信息<ul>
+<h1 id="Q：常见的Document类型的子节点有哪些？"><a href="#Q：常见的Document类型的子节点有哪些？" class="headerlink" title="Q：常见的Document类型的子节点有哪些？"></a>Q：常见的Document类型的子节点有哪些？</h1><ol>
+<li>html：获取方式有 <code>document.documentElement、document.firstChild、document.childNodes[0]</code></li>
+<li>body：获取方式有 <code>document.body</code></li>
+</ol>
+<h1 id="Q：Document类型的文档信息有哪些？"><a href="#Q：Document类型的文档信息有哪些？" class="headerlink" title="Q：Document类型的文档信息有哪些？"></a>Q：Document类型的文档信息有哪些？</h1><ol>
 <li>title：取得/修改当前页面的标题并反映在浏览器的标题栏中</li>
 <li>URL：只读，包含页面完整的URL</li>
 <li>domain：只包含页面的域名，当页面中包含其他子域的框架或者内嵌框架时，通过设置每个页面的document.domain为相同的值，这些页面就可以互相访问对方包含的JavaScript对象了</li>
 <li>referrer：只读，保存着链接到当前页面的那个页面的URL，如果没有源页面则是空字符串。</li>
-</ul>
-</li>
-<li>查找元素<ul>
-<li>getElementById</li>
-<li>getElementByTagName</li>
-<li>getElementByName</li>
-</ul>
-</li>
 </ol>
-<h1 id="Q：Element类型简介？"><a href="#Q：Element类型简介？" class="headerlink" title="Q：Element类型简介？"></a>Q：Element类型简介？</h1><ol>
-<li>操作<ul>
-<li>getAttribute</li>
-<li>setAttribute</li>
-<li>removeAttribute</li>
-</ul>
-</li>
-<li>创建元素：createElement</li>
-</ol>
-<h1 id="Q：DocumentFragment类型简介？"><a href="#Q：DocumentFragment类型简介？" class="headerlink" title="Q：DocumentFragment类型简介？"></a>Q：DocumentFragment类型简介？</h1><p>文档片段，轻量级的文档，可以包含和控制节点，但不会像完整文档那样占用额外的资源。<br>可以把文档片段理解为仓库，立马保存将来可能会添加到文档中的节点。</p>
-<p>创建：document.createDocumentFragment()</p>
-<p>通过appendChild、insertBefore将文档片段添加到文档中</p>
-<h1 id="Q：常见的DOM操作技术有哪些？"><a href="#Q：常见的DOM操作技术有哪些？" class="headerlink" title="Q：常见的DOM操作技术有哪些？"></a>Q：常见的DOM操作技术有哪些？</h1><p>动态脚本<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 常见是插入外部文件：</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">loadScript</span> (<span class="params">url</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">"script"</span>);</div><div class="line">    script.type = <span class="string">"text/javascript"</span>;</div><div class="line">    script.src = url;</div><div class="line">    <span class="built_in">document</span>.body.appendChild(script);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>动态样式<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 借助link实现：</span></div><div class="line"><span class="comment">// 必须将link元素添加到head而不是body元素中，才能保证在所有浏览器中的行为一致</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">loadStyles</span> (<span class="params">url</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> link = <span class="built_in">document</span>.createElement(<span class="string">"link"</span>);</div><div class="line">    link.rel = <span class="string">"stylesheet"</span>;</div><div class="line">    link.type = <span class="string">'text/css'</span>;</div><div class="line">    link.href = url;</div><div class="line">    <span class="keyword">var</span> head = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'head'</span>)[<span class="number">0</span>];</div><div class="line">    head.appendChild(link);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h1 id="DOM扩展了那些选择API？"><a href="#DOM扩展了那些选择API？" class="headerlink" title="DOM扩展了那些选择API？"></a>DOM扩展了那些选择API？</h1><ol>
+<h1 id="Q：什么是DocumentFragment以及如何创建？"><a href="#Q：什么是DocumentFragment以及如何创建？" class="headerlink" title="Q：什么是DocumentFragment以及如何创建？"></a>Q：什么是DocumentFragment以及如何创建？</h1><p>文档片段，轻量级的文档，可以包含和控制节点，但不会像完整文档那样占用额外的资源。<br>可以把文档片段理解为仓库，立马保存将来可能会添加到文档中的节点。</p>
+<p>创建：<code>document.createDocumentFragment()</code></p>
+<h1 id="Q：DOM扩展了那些选择API？"><a href="#Q：DOM扩展了那些选择API？" class="headerlink" title="Q：DOM扩展了那些选择API？"></a>Q：DOM扩展了那些选择API？</h1><ol>
 <li>querySelector方法：返回与该模式匹配的第一个元素，如没找到返回null</li>
 <li>querySelectorAll方法：返回的是所有匹配匹配的元素，注意返回的其实是NodeList的快照</li>
 <li>matchesSelector方法：如果调用元素与该选择符匹配，返回true。使用这个方法能够方便地检测它是否会被querySelector或querySelectorAll返回</li>
 </ol>
-<h1 id="Q：HTML5对DOM操作带来了哪些便利？"><a href="#Q：HTML5对DOM操作带来了哪些便利？" class="headerlink" title="Q：HTML5对DOM操作带来了哪些便利？"></a>Q：HTML5对DOM操作带来了哪些便利？</h1><p>一、与类相关的扩充：</p>
-<ol>
+<h1 id="Q：HTML5增加了哪些与类相关的扩充？"><a href="#Q：HTML5增加了哪些与类相关的扩充？" class="headerlink" title="Q：HTML5增加了哪些与类相关的扩充？"></a>Q：HTML5增加了哪些与类相关的扩充？</h1><ol>
 <li>getElementByClassName方法</li>
 <li>classList属性<ul>
 <li>add方法：将给定的字符串值添加到列表中，如果值存在，则不添加</li>
@@ -436,20 +408,14 @@
 </ul>
 </li>
 </ol>
-<p>二、焦点管理：</p>
-<ol>
+<h1 id="Q：HTML5对焦点管理提供了哪些扩展？"><a href="#Q：HTML5对焦点管理提供了哪些扩展？" class="headerlink" title="Q：HTML5对焦点管理提供了哪些扩展？"></a>Q：HTML5对焦点管理提供了哪些扩展？</h1><ol>
 <li>document.activeElement：始终引用DOM中当前获得了焦点的元素，元素获得焦点的方式有页面加载，用户输入，代码中调用focus方法（注意：默认情况下，文档刚刚加载完成时，document.activeElement中保存的是document.body元素。文档加载期间，值为null）</li>
 <li>document.hasFocus：用来确认文档是否获得了焦点</li>
 </ol>
-<p>三、自定义数据属性：dataset属性来访问自定义属性的值</p>
-<h1 id="Q：DOM2跟DOM3的变化有哪些？"><a href="#Q：DOM2跟DOM3的变化有哪些？" class="headerlink" title="Q：DOM2跟DOM3的变化有哪些？"></a>Q：DOM2跟DOM3的变化有哪些？</h1><p>DOM2级和3级的目的是扩展DOM API，以满足操作XML的所有需求，同时提供更好的错误处理及特征检测能力。</p>
-<p>DOM2没有引入新类型，只是增加新方法和新属性来增强已有类型</p>
-<p>DOM3级增强了既有类型，也引入了一些新类型</p>
 <h1 id="Q：说说你对闭包的理解？"><a href="#Q：说说你对闭包的理解？" class="headerlink" title="Q：说说你对闭包的理解？"></a>Q：说说你对闭包的理解？</h1><p>使用闭包主要是为了设计私有的方法和变量。闭包的优点是可以避免全局变量的污染，缺点是闭包会常驻内存，会增大内存使用量，使用不当很容易造成内存泄露。<br>闭包有三个特性:<br>1.函数嵌套函数 2.函数内部可以引用外部的参数和变量 3.参数和变量不会被垃圾回收机制回收</p>
 <h1 id="Q：请你谈谈Cookie的弊端？"><a href="#Q：请你谈谈Cookie的弊端？" class="headerlink" title="Q：请你谈谈Cookie的弊端？"></a>Q：请你谈谈Cookie的弊端？</h1><ol>
 <li>Cookie数量和长度的限制。每个domain最多只能有20条cookie，每个cookie长度不能超过4KB，否则会被截掉。</li>
 <li>安全性问题。</li>
-<li>有些状态不可能保存在客户端。例如，为了防止重复提交表单，我们需要在服务器端保存一个计数器。如果我们把这个计数器保存在客户端，那么它起不到任何作用。</li>
 </ol>
 <h1 id="Q：简介浏览器本地存储？"><a href="#Q：简介浏览器本地存储？" class="headerlink" title="Q：简介浏览器本地存储？"></a>Q：简介浏览器本地存储？</h1><p>html5中的Web Storage包括了两种存储方式：sessionStorage和localStorage。</p>
 <ol>
@@ -463,11 +429,10 @@
 </ol>
 <h1 id="Q：cookie-和session-的区别？"><a href="#Q：cookie-和session-的区别？" class="headerlink" title="Q：cookie 和session 的区别？"></a>Q：cookie 和session 的区别？</h1><ol>
 <li>cookie数据存放在客户的浏览器上，session数据放在服务器上。</li>
-<li>cookie有安全问题。</li>
+<li>cookie有安全问题、大小跟数量的限制</li>
 <li>session过多会影响服务器性能。</li>
-<li>单个cookie保存的数据不能超过4K，很多浏览器都限制一个站点最多保存20个cookie。</li>
-<li>所以，重要信息存放为SESSION，其他信息如果需要保留，可以放在COOKIE中</li>
 </ol>
+<p>所以，重要信息存放为SESSION，其他信息如果需要保留，可以放在COOKIE中</p>
 <h1 id="Q：display-none和visibility-hidden的区别？"><a href="#Q：display-none和visibility-hidden的区别？" class="headerlink" title="Q：display:none和visibility:hidden的区别？"></a>Q：display:none和visibility:hidden的区别？</h1><p>display:none  隐藏对应的元素，不占据文档空间。<br>visibility:hidden  隐藏对应的元素，占据文档空间。</p>
 <h1 id="Q：CSS中-link-和-import-的区别是？"><a href="#Q：CSS中-link-和-import-的区别是？" class="headerlink" title="Q：CSS中 link 和@import 的区别是？"></a>Q：CSS中 link 和@import 的区别是？</h1><ol>
 <li>link属于HTML标签，而@import是CSS提供的;</li>
@@ -475,24 +440,62 @@
 <li>import只在IE5以上才能识别，而link是HTML标签，无兼容问题;</li>
 <li>link方式的样式的权重 高于@import的权重.</li>
 </ol>
-<h1 id="Q：position-absolute和float属性的异同"><a href="#Q：position-absolute和float属性的异同" class="headerlink" title="Q：position:absolute和float属性的异同"></a>Q：position:absolute和float属性的异同</h1><p>共同点：对内联元素设置float和absolute属性，可以让元素脱离文档流，并且可以设置其宽高。<br>不同点：float仍会占据位置，position会覆盖文档流中的其他元素。</p>
-<h1 id="Q：CSS-选择符有哪些？哪些属性可以继承？优先级算法如何计算？-CSS3新增伪类有那些？"><a href="#Q：CSS-选择符有哪些？哪些属性可以继承？优先级算法如何计算？-CSS3新增伪类有那些？" class="headerlink" title="Q：CSS 选择符有哪些？哪些属性可以继承？优先级算法如何计算？ CSS3新增伪类有那些？"></a>Q：CSS 选择符有哪些？哪些属性可以继承？优先级算法如何计算？ CSS3新增伪类有那些？</h1><p>一、选择符：</p>
-<ol>
-<li>id选择器（ # myid）</li>
-<li>类选择器（.myclassname）</li>
-<li>标签选择器（div, h1, p）</li>
-<li>相邻选择器（h1 + p）</li>
-<li>子选择器（ul &gt; li）</li>
-<li>后代选择器（li a）</li>
-<li>通配符选择器（ * ）</li>
-<li>属性选择器（a[rel = “external”]）</li>
-<li>伪类选择器（a:hover, li:nth-child）</li>
-</ol>
-<p>二、可继承的样式： font-size font-family color, text-indent;<br>三、不可继承的样式：border padding margin width height ;</p>
-<p>四、优先级：<br>权重：!important &gt;  id &gt; class &gt; tag （important 比 内联优先级高,但内联比 id 要高）<br>优先级就近原则，同权重情况下样式定义最近者为准，载入样式以最后载入的定位为准;</p>
-<p>五、CSS3新增伪类举例：<br>p:first-of-type 选择属于其父元素的首个p元素的每个p元素。<br>p:last-of-type  选择属于其父元素的最后p元素的每个p元素。<br>p:only-of-type  选择属于其父元素唯一的p元素的每个p元素。<br>p:only-child    选择属于其父元素的唯一子元素的每个p元素。<br>p:nth-child(2)  选择属于其父元素的第二个子元素的每个p元素。<br>:enabled  :disabled 控制表单控件的禁用状态。<br>:checked        单选框或复选框被选中。</p>
-<h1 id="Q-position的值，-relative和absolute分别是相对于谁进行定位的？"><a href="#Q-position的值，-relative和absolute分别是相对于谁进行定位的？" class="headerlink" title="Q:position的值， relative和absolute分别是相对于谁进行定位的？"></a>Q:position的值， relative和absolute分别是相对于谁进行定位的？</h1><ol>
-<li>absolute：生成绝对定位的元素， 相对于最近一级的 定位不是 static 的父元素来进行定位。</li>
+<h1 id="Q：CSS3新增伪类有那些？"><a href="#Q：CSS3新增伪类有那些？" class="headerlink" title="Q：CSS3新增伪类有那些？"></a>Q：CSS3新增伪类有那些？</h1><table>
+<thead>
+<tr>
+<th>伪类</th>
+<th>注明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>p:last-of-type</td>
+<td>选择其父元素的最后的一个P元素</td>
+</tr>
+<tr>
+<td>p:last-child</td>
+<td>选择其父元素的最后子元素(一定是P才行)</td>
+</tr>
+<tr>
+<td>p:first-of-type</td>
+<td>选择其父元素的首个P元素</td>
+</tr>
+<tr>
+<td>p:first-child</td>
+<td>选择其父元素的首个p元素(一定是p才行)</td>
+</tr>
+<tr>
+<td>p:only-child</td>
+<td>选择其父元素的只有一个元素(而且这个元素只能是p元素，不能有其他元素)</td>
+</tr>
+<tr>
+<td>p:only-of-type</td>
+<td>选择其父元素的只有一个p元素(不能有第二个P元素，其他元素可以有)　</td>
+</tr>
+<tr>
+<td>p:nth-child(n)</td>
+<td>选择其父元素的第N个 刚好是p的元素</td>
+</tr>
+<tr>
+<td>p:nth-last-child(n)</td>
+<td>从最后一个子元素开始计数</td>
+</tr>
+<tr>
+<td>p:nth-of-type(n)</td>
+<td>选择其父元素的n个元素</td>
+</tr>
+<tr>
+<td>p:nth-last-of-type(n)</td>
+<td>从最后一个子元素开始计数</td>
+</tr>
+<tr>
+<td>:enabled</td>
+<td>用在input上，选择被禁用的表单元素</td>
+</tr>
+</tbody>
+</table>
+<h1 id="Q-position有哪些属性，分别是相对于谁进行定位的？"><a href="#Q-position有哪些属性，分别是相对于谁进行定位的？" class="headerlink" title="Q:position有哪些属性，分别是相对于谁进行定位的？"></a>Q:position有哪些属性，分别是相对于谁进行定位的？</h1><ol>
+<li>absolute：生成绝对定位的元素， 相对于最近一级定位不是 static的父元素来进行定位。</li>
 <li>fixed：生成绝对定位的元素，相对于浏览器窗口进行定位。</li>
 <li>relative：生成相对定位的元素，相对于其在普通流中的位置进行定位。</li>
 <li>static：默认值。没有定位，元素出现在正常的流中</li>
@@ -502,20 +505,11 @@
 <li>阴影（box-shadow）</li>
 <li>对文字加特效（text-shadow、）</li>
 <li>线性渐变（gradient）</li>
-<li>旋转（transform）</li>
-<li>transform:rotate(9deg) scale(0.85,0.90) translate(0px,-30px) skew(-9deg,0deg);//旋转,缩放,定位,倾斜</li>
-<li>::selection：SS3中唯一引入的伪元素</li>
+<li>CSS3动画</li>
 <li>媒体查询</li>
 <li>多栏布局</li>
-<li>border-image</li>
 </ol>
-<h1 id="Q：XML和JSON的区别？"><a href="#Q：XML和JSON的区别？" class="headerlink" title="Q：XML和JSON的区别？"></a>Q：XML和JSON的区别？</h1><ol>
-<li>数据体积方面：JSON相对于XML来讲，数据的体积小，传递的速度更快些。</li>
-<li>数据交互方面：JSON与JavaScript的交互更加方便，更容易解析处理，更好的数据交互。</li>
-<li>数据描述方面：JSON对数据的描述性比XML较差。</li>
-<li>传输速度方面：JSON的速度要远远快于XML。</li>
-</ol>
-<h1 id="Q：解释下-CSS-sprites，以及你要如何在页面或网站中使用它。"><a href="#Q：解释下-CSS-sprites，以及你要如何在页面或网站中使用它。" class="headerlink" title="Q：解释下 CSS sprites，以及你要如何在页面或网站中使用它。"></a>Q：解释下 CSS sprites，以及你要如何在页面或网站中使用它。</h1><p>CSS Sprites其实就是把网页中一些背景图片整合到一张图片文件中。<br>使用“background-image”、“background- repeat”、“background-position”的组合进行背景定位</p>
+<h1 id="Q：XML和JSON的区别？"><a href="#Q：XML和JSON的区别？" class="headerlink" title="Q：XML和JSON的区别？"></a>Q：XML和JSON的区别？</h1><p>JSON相比XML的优势：数据体积小、传输速度快，更容易被解析<br>XML相比JSON的优势：XML对数据的描述更强</p>
 <h1 id="Q：说说你对语义化的理解？"><a href="#Q：说说你对语义化的理解？" class="headerlink" title="Q：说说你对语义化的理解？"></a>Q：说说你对语义化的理解？</h1><ol>
 <li>去掉或者丢失样式的时候能够让页面呈现出清晰的结构</li>
 <li>有利于SEO</li>
@@ -526,8 +520,7 @@
 <ol>
 <li>使用BFC清除浮动</li>
 </ol>
-<h1 id="Q：html5有哪些新特性、移除了那些元素？如何区分-HTML-和-HTML5？"><a href="#Q：html5有哪些新特性、移除了那些元素？如何区分-HTML-和-HTML5？" class="headerlink" title="Q：html5有哪些新特性、移除了那些元素？如何区分 HTML 和 HTML5？"></a>Q：html5有哪些新特性、移除了那些元素？如何区分 HTML 和 HTML5？</h1><p>一、新增的特性</p>
-<ol>
+<h1 id="Q：html5有哪些新特性？"><a href="#Q：html5有哪些新特性？" class="headerlink" title="Q：html5有哪些新特性？"></a>Q：html5有哪些新特性？</h1><ol>
 <li>拖拽释放(Drag and drop) API</li>
 <li>语义化更好的内容标签（header,nav,footer,aside,article,section）</li>
 <li>音频、视频API(audio,video)</li>
@@ -535,13 +528,7 @@
 <li>地理(Geolocation) API</li>
 <li>WebStore: localStorage、sessionStorage</li>
 </ol>
-<p>二、移除的元素</p>
-<ol>
-<li>纯表现的元素：basefont，big，center，font, s，strike，tt，u；</li>
-<li>对可用性产生负面影响的元素：frame，frameset，noframes；</li>
-</ol>
-<p>三、如何区分： DOCTYPE声明\新增的结构元素\功能元素</p>
-<h1 id="Q：如何实现浏览器内多个标签页之间的通信"><a href="#Q：如何实现浏览器内多个标签页之间的通信" class="headerlink" title="Q：如何实现浏览器内多个标签页之间的通信?"></a>Q：如何实现浏览器内多个标签页之间的通信?</h1><p>调用localstorge、cookies等本地存储方式</p>
+<h1 id="Q：如何实现浏览器内多个标签页之间的通信"><a href="#Q：如何实现浏览器内多个标签页之间的通信" class="headerlink" title="Q：如何实现浏览器内多个标签页之间的通信?"></a>Q：如何实现浏览器内多个标签页之间的通信?</h1><p>localstorge、cookies</p>
 <h1 id="Q：什么是-“use-strict”-使用它的好处？"><a href="#Q：什么是-“use-strict”-使用它的好处？" class="headerlink" title="Q：什么是 “use strict”; ? 使用它的好处？"></a>Q：什么是 “use strict”; ? 使用它的好处？</h1><p>“严格模式”</p>
 <ol>
 <li>消除Javascript语法的一些不合理、不严谨之处，减少一些怪异行为;</li>
@@ -550,20 +537,411 @@
 <li>为未来新版本的Javascript做好铺垫。</li>
 </ol>
 <p>注：IE6,7,8,9均不支持严格模式。</p>
-<p>————– 分割线 ————–</p>
 <h1 id="Q：一个页面从输入-URL-到页面加载显示完成，这个过程中都发生了什么？"><a href="#Q：一个页面从输入-URL-到页面加载显示完成，这个过程中都发生了什么？" class="headerlink" title="Q：一个页面从输入 URL 到页面加载显示完成，这个过程中都发生了什么？"></a>Q：一个页面从输入 URL 到页面加载显示完成，这个过程中都发生了什么？</h1><ol>
 <li>首先，在浏览器地址栏中输入url</li>
 <li>浏览器先查看浏览器缓存-系统缓存-路由器缓存，如果缓存中有，会直接在屏幕中显示页面内容。若没有，则跳到第三步操作。</li>
 <li>在发送http请求前，需要域名解析(DNS解析)，解析获取相应的IP地址。</li>
 <li>浏览器向服务器发起tcp连接，与浏览器建立tcp三次握手。</li>
-<li>握手成功后，浏览器向服务器发送http请求，请求数据包。P</li>
+<li>握手成功后，浏览器向服务器发送http请求，请求数据包。</li>
 <li>服务器处理收到的请求，将数据返回至浏览器</li>
 <li>浏览器收到HTTP响应</li>
 <li>读取页面内容，浏览器渲染，解析html源码</li>
 <li>生成Dom树,解析css样式,js交互</li>
-<li>客户端和服务器交互</li>
-<li>ajax查询</li>
 </ol>
+<h1 id="Q：JS的组成是？"><a href="#Q：JS的组成是？" class="headerlink" title="Q：JS的组成是？"></a>Q：JS的组成是？</h1><ol>
+<li>核心语法<ul>
+<li>基本的语法构造（比如操作符、控制结构、语句）</li>
+<li>标准库（就是一系列具有各种功能的对象比如Array、Date、Math等）</li>
+</ul>
+</li>
+<li>宿主环境提供额外的 API</li>
+</ol>
+<h1 id="Q：浏览器为JS提供了哪些额外的API？"><a href="#Q：浏览器为JS提供了哪些额外的API？" class="headerlink" title="Q：浏览器为JS提供了哪些额外的API？"></a>Q：浏览器为JS提供了哪些额外的API？</h1><ol>
+<li>浏览器控制类：操作浏览器</li>
+<li>DOM 类：操作网页的各种元素</li>
+<li>Web 类：实现互联网的各种功能</li>
+</ol>
+<h1 id="Q：JS的复杂性体现在哪？"><a href="#Q：JS的复杂性体现在哪？" class="headerlink" title="Q：JS的复杂性体现在哪？"></a>Q：JS的复杂性体现在哪？</h1><ol>
+<li>涉及大量的外部 API</li>
+<li>设计缺陷。</li>
+</ol>
+<h1 id="Q：Object对象提供了哪些跟对象属性模型相关的静态方法？"><a href="#Q：Object对象提供了哪些跟对象属性模型相关的静态方法？" class="headerlink" title="Q：Object对象提供了哪些跟对象属性模型相关的静态方法？"></a>Q：Object对象提供了哪些跟对象属性模型相关的静态方法？</h1><ol>
+<li>Object.keys()：返回直接定义在某个对象上面的全部属性的名称（不包含不可枚举的属性）</li>
+<li>Object.getOwnPropertyNames()：返回直接定义在某个对象上面的全部属性的名称（包含不可枚举的属性）</li>
+<li>Object.getOwnPropertyDescriptor()：获取某个属性的attributes对象。</li>
+<li>Object.defineProperty()：通过attributes对象，定义某个属性。</li>
+<li>Object.defineProperties()：通过attributes对象，定义多个属性。</li>
+</ol>
+<h1 id="Q：Object对象提供了哪些跟控制对象状态相关的静态方法？"><a href="#Q：Object对象提供了哪些跟控制对象状态相关的静态方法？" class="headerlink" title="Q：Object对象提供了哪些跟控制对象状态相关的静态方法？"></a>Q：Object对象提供了哪些跟控制对象状态相关的静态方法？</h1><ol>
+<li>Object.preventExtensions()：阻止向对象添加新属性。</li>
+<li>Object.isExtensible()：判断是否可向对象添加新属性</li>
+<li>Object.seal()：阻止修改现有属性的特性，并阻止添加新属性</li>
+<li>Object.isSealed()：如果无法在对象中修改现有属性的特性，且无法向对象添加新属性，则返回 true</li>
+<li>Object.freeze()：阻止修改现有属性的特性和值，并阻止添加新属性。</li>
+<li>Object.isFrozen()：如果无法在对象中修改现有属性的特性和值，且无法向对象添加新属性，则返回 true。</li>
+</ol>
+<h1 id="Q：Object对象提供了哪些跟原型链相关的静态方法？"><a href="#Q：Object对象提供了哪些跟原型链相关的静态方法？" class="headerlink" title="Q：Object对象提供了哪些跟原型链相关的静态方法？"></a>Q：Object对象提供了哪些跟原型链相关的静态方法？</h1><ol>
+<li>Object.create()：该方法可以指定原型对象和属性，返回一个新的对象。</li>
+<li>Object.getPrototypeOf()：获取对象的Prototype对象。</li>
+</ol>
+<h1 id="Q：Object对象的实例方法"><a href="#Q：Object对象的实例方法" class="headerlink" title="Q：Object对象的实例方法"></a>Q：Object对象的实例方法</h1><ol>
+<li>valueOf()：返回当前对象对应的值。avaScript自动类型转换时会默认调用这个方法</li>
+<li>toString()：返回当前对象对应的字符串形式。</li>
+<li>toLocaleString()：返回当前对象对应的本地字符串形式。</li>
+<li>hasOwnProperty()：判断某个属性是否为当前对象自身的属性，还是继承自原型对象的属性。</li>
+<li>isPrototypeOf()：判断当前对象是否为另一个对象的原型。<code>prototype.isPrototypeOf(object)</code></li>
+</ol>
+<h1 id="Q：如何确定一个值的类型？"><a href="#Q：如何确定一个值的类型？" class="headerlink" title="Q：如何确定一个值的类型？"></a>Q：如何确定一个值的类型？</h1><ol>
+<li>typeof运算符</li>
+<li>instanceof运算符</li>
+<li>Object.prototype.toString方法</li>
+</ol>
+<h1 id="Q-NaN出现的场景有哪些？"><a href="#Q-NaN出现的场景有哪些？" class="headerlink" title="Q:NaN出现的场景有哪些？"></a>Q:NaN出现的场景有哪些？</h1><ol>
+<li>字符串解析成数字出错</li>
+<li>一些数学函数的运算结果会出现NaN</li>
+<li>0除以0也会得到NaN</li>
+</ol>
+<h1 id="Q：NaN的运算规则是？"><a href="#Q：NaN的运算规则是？" class="headerlink" title="Q：NaN的运算规则是？"></a>Q：NaN的运算规则是？</h1><ol>
+<li>NaN不等于任何值，包括它本身</li>
+<li>NaN与任何数（包括它自己）的运算，得到的都是NaN</li>
+</ol>
+<h1 id="Q：判断NaN的方法是？"><a href="#Q：判断NaN的方法是？" class="headerlink" title="Q：判断NaN的方法是？"></a>Q：判断NaN的方法是？</h1><ol>
+<li>isNaN（注意：只对数值有效，如果传入其他值，会被先转成数值。使用isNaN之前，最好判断一下数据类型）</li>
+<li>利用NaN不等于自身进行判断。</li>
+</ol>
+<h1 id="Q：与数值相关的全局方法有哪些？"><a href="#Q：与数值相关的全局方法有哪些？" class="headerlink" title="Q：与数值相关的全局方法有哪些？"></a>Q：与数值相关的全局方法有哪些？</h1><ol>
+<li>parseInt()：用于将字符串转为整数（返回值只有两种可能，十进制整数或者NaN）</li>
+<li>parseFloat()：用于将一个字符串转为浮点数</li>
+</ol>
+<h1 id="Q：Array实例的方法有哪些？"><a href="#Q：Array实例的方法有哪些？" class="headerlink" title="Q：Array实例的方法有哪些？"></a>Q：Array实例的方法有哪些？</h1><ol>
+<li>valueOf()：返回数组本身。</li>
+<li>toString()：返回数组的字符串形式。</li>
+<li>push()：在数组的末端添加元素</li>
+<li>pop()：删除数组的最后一个元素</li>
+<li>shift()：删除数组的第一个元素，并返回该元素。注意，该方法会改变原数组。</li>
+<li>unshift()：在数组的第一个位置添加元素，并返回添加新元素后的数组长度。注意，该方法会改变原数组。</li>
+<li>join()：以参数作为分隔符，将所有数组成员组成一个字符串返回</li>
+<li>concat()：用于多个数组的合并，返回一个新数组，原数组不变。</li>
+<li>reverse()：颠倒数组中元素的顺序，返回改变后的数组。注意，该方法将改变原数组。</li>
+<li>slice()：提取原数组的一部分，返回一个新数组，原数组不变。<ul>
+<li>它的第一个参数为起始位置（从0开始），第二个参数为终止位置（但该位置的元素本身不包括在内）。如果省略第二个参数，则一直返回到原数组的最后一个成员。</li>
+<li>slice没有参数，实际上等于返回一个原数组的拷贝</li>
+<li>slice方法的参数是负数，则表示倒数计算的位置</li>
+</ul>
+</li>
+<li>splice()：用于删除原数组的一部分成员，并可以在被删除的位置添加入新的数组成员，返回值是被删除的元素。注意，该方法会改变原数组。<ul>
+<li>第一个参数是删除的起始位置，第二个参数是被删除的元素个数。如果后面还有更多的参数，则表示这些就是要被插入数组的新元素</li>
+</ul>
+</li>
+<li>sort()：对数组成员进行排序</li>
+<li>map()：对数组的所有成员依次调用一个函数，根据函数结果返回一个新数组。</li>
+<li>forEach()：与map方法很相似，但是forEach方法一般不返回值，只用来操作数据。如果需要有返回值，一般使用map方法。</li>
+<li>filter()：参数是一个函数，所有数组成员依次执行该函数，返回结果为true的成员组成一个新数组返回。该方法不会改变原数组。</li>
+<li>some()、every()：接受一个函数作为参数，所有数组成员依次执行该函数，返回一个布尔值<ul>
+<li>some，只要有一个数组成员的返回值是true，则整个some方法的返回值就是true，否则false。</li>
+<li>every，所有数组成员的返回值都是true，才返回true，否则false。</li>
+</ul>
+</li>
+<li>reduce()、reduceRight()：依次处理数组的每个成员，最终累计为一个值。reduce是从左到右处理（从第一个成员到最后一个成员），reduceRight则是从右到左（从最后一个成员到第一个成员），其他完全一样。</li>
+<li>indexOf()，lastIndexOf()：indexOf方法返回给定元素在数组中第一次出现的位置，如果没有出现则返回-1。lastIndexOf方法返回给定元素在数组中最后一次出现的位置，如果没有出现则返回-1。</li>
+</ol>
+<h1 id="Q：什么是包装对象？"><a href="#Q：什么是包装对象？" class="headerlink" title="Q：什么是包装对象？"></a>Q：什么是包装对象？</h1><p>通过Number、String、Boolean这三个原生对象可以把原始类型的值包装成对象，使得原始类型的值也可以调用对象方法</p>
+<h1 id="Q：包装对象实例的方法有哪些？"><a href="#Q：包装对象实例的方法有哪些？" class="headerlink" title="Q：包装对象实例的方法有哪些？"></a>Q：包装对象实例的方法有哪些？</h1><ol>
+<li>valueOf()：返回包装对象实例对应的原始类型的值</li>
+<li>toString()：返回实例对应的字符串形式</li>
+</ol>
+<h1 id="Q：原始类型如何自动转换？"><a href="#Q：原始类型如何自动转换？" class="headerlink" title="Q：原始类型如何自动转换？"></a>Q：原始类型如何自动转换？</h1><p>原始类型的值，可以自动当作对象调用，即调用各种对象的方法和参数。这时，JavaScript引擎会自动将原始类型的值转为包装对象，在使用后立刻销毁。</p>
+<h1 id="Q：Number对象实例方法有哪些？"><a href="#Q：Number对象实例方法有哪些？" class="headerlink" title="Q：Number对象实例方法有哪些？"></a>Q：Number对象实例方法有哪些？</h1><ol>
+<li>Number.prototype.toString()：用来将一个数值转为字符串形式。</li>
+<li>Number.prototype.toFixed()：将一个数转为指定位数的小数，返回这个小数对应的字符串。</li>
+</ol>
+<h1 id="Q：String实例对象的方法有哪些？"><a href="#Q：String实例对象的方法有哪些？" class="headerlink" title="Q：String实例对象的方法有哪些？"></a>Q：String实例对象的方法有哪些？</h1><ol>
+<li>charAt方法返回指定位置的字符，参数是从0开始编号的位置。如果参数为负数，或大于等于字符串的长度，charAt返回空字符串。（完全可以用数组下标替代）</li>
+<li>charCodeAt)：返回给定位置字符的Unicode码点</li>
+<li>concat()：用于连接两个字符串，返回一个新字符串，不改变原字符串。</li>
+<li>slice()：用于从原字符串取出子字符串并返回，不改变原字符串。<ul>
+<li>它的第一个参数是子字符串的开始位置，第二个参数是子字符串的结束位置（不含该位置）。</li>
+<li>如果省略第二个参数，则表示子字符串一直到原字符串结束。</li>
+<li>如果参数是负值，表示从结尾开始倒数计算的位置，即该负值加上字符串长度。</li>
+<li>如果第一个参数大于第二个参数，slice方法返回一个空字符串。</li>
+</ul>
+</li>
+<li>substring()：用于从原字符串取出子字符串并返回，不改变原字符串。它与slice作用相同，但有一些奇怪的规则，因此不建议使用这个方法，优先使用slice。</li>
+<li>substr()：用于从原字符串取出子字符串并返回，不改变原字符串。<ul>
+<li>第一个参数是子字符串的开始位置，第二个参数是子字符串的长度。</li>
+<li>如果省略第二个参数，则表示子字符串一直到原字符串的结束。</li>
+<li>如果第一个参数是负数，表示倒数计算的字符位置。如果第二个参数是负数，将被自动转为0，因此会返回空字符串。</li>
+</ul>
+</li>
+<li>indexOf()，lastIndexOf()：用于确定一个字符串在另一个字符串中的位置，都返回一个整数，表示匹配开始的位置。如果返回-1，就表示不匹配。两者的区别在于，indexOf从字符串头部开始匹配，lastIndexOf从尾部开始匹配。它们还可以接受第二个参数，对于indexOf方法，第二个参数表示从该位置开始向后匹配；对于lastIndexOf，第二个参数表示从该位置起向前匹配。</li>
+<li>trim()：用于去除字符串两端的空格，返回一个新字符串，不改变原字符串。</li>
+<li>toLowerCase()，toUpperCase()：toLowerCase方法用于将一个字符串全部转为小写，toUpperCase则是全部转为大写。它们都返回一个新字符串，不改变原字符串。</li>
+<li>match()：用于确定原字符串是否匹配某个子字符串，返回一个数组，成员为匹配的第一个字符串。如果没有找到匹配，则返回null。</li>
+<li>search()：等同于match，但是返回值为匹配的第一个位置。如果没有找到匹配，则返回-1</li>
+<li>replace()：用于替换匹配的子字符串，一般情况下只替换第一个匹配（除非使用带有g修饰符的正则表达式）。</li>
+<li>split()：按照给定规则分割字符串，返回一个由分割出来的子字符串组成的数组。接受第二个参数，限定返回数组的最大成员数。</li>
+</ol>
+<h1 id="Q：常见的Math方法有哪些？"><a href="#Q：常见的Math方法有哪些？" class="headerlink" title="Q：常见的Math方法有哪些？"></a>Q：常见的Math方法有哪些？</h1><ol>
+<li>Math.abs()：绝对值</li>
+<li>Math.ceil()：向上取整</li>
+<li>Math.floor()：向下取整</li>
+<li>Math.max()：最大值</li>
+<li>Math.min()：最小值</li>
+<li>Math.round()：四舍五入</li>
+<li>Math.random()：随机数</li>
+</ol>
+<h1 id="Q：Date对象的静态方法有哪些？"><a href="#Q：Date对象的静态方法有哪些？" class="headerlink" title="Q：Date对象的静态方法有哪些？"></a>Q：Date对象的静态方法有哪些？</h1><ol>
+<li>Date.now()：返回当前距离1970年1月1日 00:00:00 UTC的毫秒数</li>
+<li>Date.parse()：用来解析日期字符串，返回距离1970年1月1日 00:00:00的毫秒数。</li>
+<li>Date.UTC()：默认情况下，Date对象返回的都是当前时区的时间。Date.UTC方法可以返回UTC时间（世界标准时间）。该方法接受年、月、日等变量作为参数，返回当前距离1970年1月1日 00:00:00 UTC的毫秒数。</li>
+</ol>
+<h1 id="Q：Date实例对象的get类方法有哪些？"><a href="#Q：Date实例对象的get类方法有哪些？" class="headerlink" title="Q：Date实例对象的get类方法有哪些？"></a>Q：Date实例对象的get类方法有哪些？</h1><p>获取Date对象的日期和时间。（返回的都是整数，以下方法都有对应的UTC版本，用来返回UTC时间。）</p>
+<ol>
+<li>getTime()：返回距离1970年1月1日00:00:00的毫秒数，等同于valueOf方法。</li>
+<li>getDate()：返回实例对象对应每个月的几号（从1开始）。</li>
+<li>getDay()：返回星期几，星期日为0，星期一为1，以此类推。</li>
+<li>getYear()：返回距离1900的年数。</li>
+<li>getFullYear()：返回四位的年份。</li>
+<li>getMonth()：返回月份（0表示1月，11表示12月）。</li>
+<li>getHours()：返回小时（0-23）。</li>
+<li>getMilliseconds()：返回毫秒（0-999）。</li>
+<li>getMinutes()：返回分钟（0-59）。</li>
+<li>getSeconds()：返回秒（0-59）。</li>
+</ol>
+<h1 id="Q：Date实例对象的set类方法有哪些？"><a href="#Q：Date实例对象的set类方法有哪些？" class="headerlink" title="Q：Date实例对象的set类方法有哪些？"></a>Q：Date实例对象的set类方法有哪些？</h1><p>设置Date对象的日期和时间。（以下方法都有对应的UTC版本）</p>
+<ol>
+<li>setDate(date)：设置实例对象对应的每个月的几号（1-31），返回改变后毫秒时间戳。</li>
+<li>setYear(year): 设置距离1900年的年数。</li>
+<li>setFullYear(year [, month, date])：设置四位年份。</li>
+<li>setHours(hour [, min, sec, ms])：设置小时（0-23）。</li>
+<li>setMilliseconds()：设置毫秒（0-999）。</li>
+<li>setMinutes(min [, sec, ms])：设置分钟（0-59）。</li>
+<li>setMonth(month [, date])：设置月份（0-11）。</li>
+<li>setSeconds(sec [, ms])：设置秒（0-59）。</li>
+<li>setTime(milliseconds)：设置毫秒时间戳。</li>
+</ol>
+<h1 id="Q-正则对象的属性有哪些？"><a href="#Q-正则对象的属性有哪些？" class="headerlink" title="Q: 正则对象的属性有哪些？"></a>Q: 正则对象的属性有哪些？</h1><p>正则对象的属性分成两类。<br>一类是修饰符相关，返回一个布尔值，表示对应的修饰符是否设置。</p>
+<ol>
+<li>ignoreCase：返回一个布尔值，表示是否设置了i修饰符，该属性只读。</li>
+<li>global：返回一个布尔值，表示是否设置了g修饰符，该属性只读。</li>
+<li>multiline：返回一个布尔值，表示是否设置了m修饰符，该属性只读。</li>
+</ol>
+<p>另一类是与修饰符无关的属性，主要是下面两个。</p>
+<ol>
+<li>lastIndex：返回下一次开始搜索的位置。该属性可读写，但是只在设置了g修饰符时有意义。</li>
+<li>source：返回正则表达式的字符串形式（不包括反斜杠），该属性只读。</li>
+</ol>
+<h1 id="Q-正则对象的方法有哪些？"><a href="#Q-正则对象的方法有哪些？" class="headerlink" title="Q: 正则对象的方法有哪些？"></a>Q: 正则对象的方法有哪些？</h1><p>test、exec</p>
+<h1 id="理解正则表达式的test方法？"><a href="#理解正则表达式的test方法？" class="headerlink" title="理解正则表达式的test方法？"></a>理解正则表达式的test方法？</h1><p>返回一个布尔值，表示当前模式是否能匹配参数字符串。</p>
+<ol>
+<li>如果正则表达式带有g修饰符，则每一次test方法都从上一次结束的位置开始向后匹配。</li>
+<li>带有g修饰符时，可以通过正则对象的lastIndex属性指定开始搜索的位置。</li>
+</ol>
+<h1 id="理解正则表达式的exec方法？"><a href="#理解正则表达式的exec方法？" class="headerlink" title="理解正则表达式的exec方法？"></a>理解正则表达式的exec方法？</h1><p>返回匹配结果。如果发现匹配，就返回一个数组，成员是每一个匹配成功的子字符串，否则返回null。</p>
+<ol>
+<li>如果正则表示式包含圆括号（即含有“组匹配”），则返回的数组会包括多个成员。第一个成员是整个匹配成功的结果，后面的成员就是圆括号对应的匹配成功的组。</li>
+<li>exec方法的返回数组还包含以下两个属性：<ul>
+<li>input：整个原字符串。</li>
+<li>index：整个模式匹配成功的开始位置（从0开始计数）</li>
+</ul>
+</li>
+<li>如果正则表达式加上g修饰符，则可以使用多次exec方法，下一次搜索的位置从上一次匹配成功结束的位置开始。</li>
+</ol>
+<h1 id="Q：字符串对象的方法有哪些跟正则对象有关？"><a href="#Q：字符串对象的方法有哪些跟正则对象有关？" class="headerlink" title="Q：字符串对象的方法有哪些跟正则对象有关？"></a>Q：字符串对象的方法有哪些跟正则对象有关？</h1><ol>
+<li>match()：返回一个数组，成员是所有匹配的子字符串。</li>
+<li>search()：按照给定的正则表达式进行搜索，返回一个整数，表示匹配开始的位置。</li>
+<li>replace()：按照给定的正则表达式进行替换，返回替换后的字符串。</li>
+<li>split()：按照给定规则进行字符串分割，返回一个数组，包含分割后的各个成员。</li>
+</ol>
+<h1 id="Q：正则表达式中的字面量字符和元字符分别是什么？"><a href="#Q：正则表达式中的字面量字符和元字符分别是什么？" class="headerlink" title="Q：正则表达式中的字面量字符和元字符分别是什么？"></a>Q：正则表达式中的字面量字符和元字符分别是什么？</h1><ol>
+<li>字面量：如果在正则表达式之中，某个字符只表示它字面的含义，那么它们就叫做“字面量字符”</li>
+<li>元字符：除了字面量字符以外，还有一部分字符有特殊含义，不代表字面的意思。它们叫做元字符</li>
+</ol>
+<h1 id="Q：正则表达式中常见的元字符有哪些？"><a href="#Q：正则表达式中常见的元字符有哪些？" class="headerlink" title="Q：正则表达式中常见的元字符有哪些？"></a>Q：正则表达式中常见的元字符有哪些？</h1><ol>
+<li>点字符（.)：匹配除回车（\r）、换行(\n) 、行分隔符（\u2028）和段分隔符（\u2029）以外的所有字符。</li>
+<li>位置字符：用来提示字符所处的位置，主要有两个字符。<ul>
+<li>^ 表示字符串的开始位置</li>
+<li>$ 表示字符串的结束位置</li>
+</ul>
+</li>
+<li>选择符（|）：在正则表达式中表示“或关系”（OR）</li>
+</ol>
+<h1 id="Q：正则表达式中的转义符是什么？"><a href="#Q：正则表达式中的转义符是什么？" class="headerlink" title="Q：正则表达式中的转义符是什么？"></a>Q：正则表达式中的转义符是什么？</h1><p>转义符：正则表达式中那些有特殊含义的字符，如果要匹配它们本身，就需要在它们前面要加上反斜杠。一共有12个字符：^、.、[、$、(、)、|、*、+、?、{和\</p>
+<h1 id="Q：正则表达式中的字符类是什么？"><a href="#Q：正则表达式中的字符类是什么？" class="headerlink" title="Q：正则表达式中的字符类是什么？"></a>Q：正则表达式中的字符类是什么？</h1><p>字符类（class）表示有一系列字符可供选择，只要匹配其中一个就可以了。所有可供选择的字符都放在方括号内，比如[xyz] 表示x、y、z之中任选一个匹配。</p>
+<ol>
+<li>脱字符（^）：如果方括号内的第一个字符是[^]，则表示除了字符类之中的字符，其他字符都可以匹配。</li>
+<li>连字符（-）：某些情况下，对于连续序列的字符，连字符（-）用来提供简写形式，表示字符的连续范围。</li>
+</ol>
+<h1 id="Q：正则表达式中的预定义模式有什么？"><a href="#Q：正则表达式中的预定义模式有什么？" class="headerlink" title="Q：正则表达式中的预定义模式有什么？"></a>Q：正则表达式中的预定义模式有什么？</h1><p>预定义模式指的是某些常见模式的简写方式。</p>
+<ol>
+<li>\d 匹配0-9之间的任一数字，相当于[0-9]。</li>
+<li>\D 匹配所有0-9以外的字符，相当于[^0-9]。</li>
+<li>\w 匹配任意的字母、数字和下划线，相当于[A-Za-z0-9_]。</li>
+<li>\W 除所有字母、数字和下划线以外的字符，相当于[^A-Za-z0-9_]。</li>
+<li>\s 匹配空格（包括制表符、空格符、断行符等），相等于[\t\r\n\v\f]。</li>
+<li>\S 匹配非空格的字符，相当于[^\t\r\n\v\f]。</li>
+<li>\b 匹配词的边界。</li>
+<li>\B 匹配非词边界，即在词的内部。</li>
+</ol>
+<h1 id="Q：正则表达式的重复类是什么？"><a href="#Q：正则表达式的重复类是什么？" class="headerlink" title="Q：正则表达式的重复类是什么？"></a>Q：正则表达式的重复类是什么？</h1><p>模式的精确匹配次数，使用大括号（{}）表示。{n}表示恰好重复n次，{n,}表示至少重复n次，{n,m}表示重复不少于n次，不多于m次。</p>
+<h1 id="Q：正则表达式的量词符是什么？"><a href="#Q：正则表达式的量词符是什么？" class="headerlink" title="Q：正则表达式的量词符是什么？"></a>Q：正则表达式的量词符是什么？</h1><p>量词符用来设定某个模式出现的次数。</p>
+<ol>
+<li>? 问号表示某个模式出现0次或1次，等同于{0, 1}。</li>
+<li><ul>
+<li>星号表示某个模式出现0次或多次，等同于{0,}。</li>
+</ul>
+</li>
+<li><ul>
+<li>加号表示某个模式出现1次或多次，等同于{1,}。</li>
+</ul>
+</li>
+</ol>
+<h1 id="Q：正则表达式的贪婪模式是什么？"><a href="#Q：正则表达式的贪婪模式是什么？" class="headerlink" title="Q：正则表达式的贪婪模式是什么？"></a>Q：正则表达式的贪婪模式是什么？</h1><p>量词符（? * +），默认情况下都是最大可能匹配，即匹配直到下一个字符不满足匹配规则为止。这被称为贪婪模式。<br>如果想将贪婪模式改为非贪婪模式，可以在量词符后面加一个问号。</p>
+<ol>
+<li>*?：表示某个模式出现0次或多次，匹配时采用非贪婪模式。</li>
+<li>+?：表示某个模式出现1次或多次，匹配时采用非贪婪模式。</li>
+</ol>
+<h1 id="正则表达式的修饰符有哪些？"><a href="#正则表达式的修饰符有哪些？" class="headerlink" title="正则表达式的修饰符有哪些？"></a>正则表达式的修饰符有哪些？</h1><p>修饰符（modifier）表示模式的附加规则，放在正则模式的最尾部。<br>修饰符可以单个使用，也可以多个一起使用。</p>
+<ol>
+<li>g修饰符：表示全局匹配（global），加上它以后，正则对象将匹配全部符合条件的结果，主要用于搜索和替换。</li>
+<li>i修饰符：默认情况下，正则对象区分字母的大小写，加上i修饰符以后表示忽略大小写</li>
+<li>m修饰符：m修饰符表示多行模式（multiline），会修改^和$的行为。默认情况下（即不加m修饰符时），^和$匹配字符串的开始处和结尾处，加上m修饰符以后，^和$还会匹配行首和行尾，即^和$会识别换行符（\n）。</li>
+</ol>
+<h1 id="Q：正则表达式的组匹配是什么？"><a href="#Q：正则表达式的组匹配是什么？" class="headerlink" title="Q：正则表达式的组匹配是什么？"></a>Q：正则表达式的组匹配是什么？</h1><p>正则表达式的括号表示分组匹配，括号中的模式可以用来匹配分组的内容。<br>注意，使用组匹配时，不宜同时使用g修饰符，否则match方法不会捕获分组的内容。</p>
+<p>在正则表达式内部，可以用\n引用括号匹配的内容，n是从1开始的自然数，表示对应顺序的括号。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/(.)b(.)\<span class="number">1</span>b\<span class="number">2</span>/.test(<span class="string">"abcabc"</span>)  <span class="comment">// true</span></div></pre></td></tr></table></figure>
+<h1 id="Q：正则表达式中的非捕获组是什么？"><a href="#Q：正则表达式中的非捕获组是什么？" class="headerlink" title="Q：正则表达式中的非捕获组是什么？"></a>Q：正则表达式中的非捕获组是什么？</h1><p>(?:x)称为非捕获组（Non-capturing group），表示不返回该组匹配的内容，即匹配的结果中不计入这个括号。</p>
+<p>非捕获组的作用请考虑这样一个场景，假定需要匹配foo或者foofoo，正则表达式就应该写成/(foo){1, 2}/，但是这样会占用一个组匹配。这时，就可以使用非捕获组，将正则表达式改为/(?:foo){1, 2}/，它的作用与前一个正则是一样的，但是不会单独输出括号内部的内容。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> m = <span class="string">'abc'</span>.match(<span class="regexp">/(?:.)b(.)/</span>);</div><div class="line">m <span class="comment">// ["abc", "c"]</span></div><div class="line"><span class="comment">// 上面代码中的模式，一共使用了两个括号。其中第一个括号是非捕获组，所以最后返回的结果中没有第一个括号，只有第二个括号匹配的内容。</span></div></pre></td></tr></table></figure>
+<h1 id="Q：正则表达式中的先行断言是什么？"><a href="#Q：正则表达式中的先行断言是什么？" class="headerlink" title="Q：正则表达式中的先行断言是什么？"></a>Q：正则表达式中的先行断言是什么？</h1><p>x(?=y)称为先行断言（Positive look-ahead），x只有在y前面才匹配，y不会被计入返回结果。比如，要匹配后面跟着百分号的数字，可以写成/\d+(?=%)/。</p>
+<p>“先行断言”中，括号里的部分是不会返回的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> m = <span class="string">'abc'</span>.match(<span class="regexp">/b(?=c)/</span>);</div><div class="line">m <span class="comment">// ["b"]</span></div><div class="line"><span class="comment">// 上面的代码使用了先行断言，b在c前面所以被匹配，但是括号对应的c不会被返回。</span></div></pre></td></tr></table></figure>
+<h1 id="Q：正则表达式中的先行否定断言是什么？"><a href="#Q：正则表达式中的先行否定断言是什么？" class="headerlink" title="Q：正则表达式中的先行否定断言是什么？"></a>Q：正则表达式中的先行否定断言是什么？</h1><p>x(?!y)称为先行否定断言（Negative look-ahead），x只有不在y前面才匹配，y不会被计入返回结果。比如，要匹配后面跟的不是百分号的数字，就要写成/\d+(?!%)/。<br>“先行否定断言”中，括号里的部分是不会返回的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">/\d+(?!\.)/.exec(<span class="string">'3.14'</span>) <span class="comment">// ["14"]</span></div><div class="line"><span class="comment">// 上面代码中，正则表达式指定，只有不在小数点前面的数字才会被匹配，因此返回的结果就是14。</span></div><div class="line"><span class="keyword">var</span> m = <span class="string">'abd'</span>.match(<span class="regexp">/b(?!c)/</span>);</div><div class="line">m <span class="comment">// ['b']</span></div><div class="line"><span class="comment">// 上面的代码使用了先行否定断言，b不在c前面所以被匹配，而且括号对应的d不会被返回。</span></div></pre></td></tr></table></figure>
+<h1 id="Q：JSON-stringify-的用法是？"><a href="#Q：JSON-stringify-的用法是？" class="headerlink" title="Q：JSON.stringify()的用法是？"></a>Q：JSON.stringify()的用法是？</h1><p>JSON.stringify()：将一个值转为字符串。该字符串符合 JSON 格式，并且可以被JSON.parse方法还原。</p>
+<ol>
+<li>对于原始类型的字符串，转换结果会带双引号。字符串foo，被转成了””foo””</li>
+<li>如果原始对象中，有一个成员的值是undefined、函数或 XML 对象，这个成员会被过滤。</li>
+<li>如果数组的成员是undefined、函数或 XML 对象，则这些值被转成null。</li>
+<li>正则对象会被转成空对象。</li>
+<li>JSON.stringify方法会忽略对象的不可遍历属性。</li>
+</ol>
+<h1 id="Q：JSON-parse-的用法是？"><a href="#Q：JSON-parse-的用法是？" class="headerlink" title="Q：JSON.parse()的用法是？"></a>Q：JSON.parse()的用法是？</h1><p>JSON.parse方法用于将JSON字符串转化成对象。<br>如果传入的字符串不是有效的JSON格式，JSON.parse方法将报错。<br>JSON.parse方法可以接受一个处理函数，用法与JSON.stringify方法类似。</p>
+<h1 id="Q：属性描述对象是什么？"><a href="#Q：属性描述对象是什么？" class="headerlink" title="Q：属性描述对象是什么？"></a>Q：属性描述对象是什么？</h1><p>JavaScript提供了一个内部数据结构，用来描述一个对象的属性的行为，控制它的行为。这被称为“属性描述对象”。每个属性都有自己对应的属性描述对象，保存该属性的一些元信息。</p>
+<ol>
+<li>value：value存放该属性的属性值，默认为undefined。</li>
+<li>writable：存放一个布尔值，表示属性值（value）是否可改变，默认为true。</li>
+<li>enumerable：存放一个布尔值，表示该属性是否可枚举，默认为true。如果设为false，会使得某些操作（比如for…in循环、Object.keys()）跳过该属性。</li>
+<li>configurable：存放一个布尔值，表示“可配置性”，默认为true。如果设为false，将阻止某些操作改写该属性，比如，无法删除该属性，也不得改变该属性的属性描述对象（value属性除外）。也就是说，configurable属性控制了属性描述对象的可写性。</li>
+<li>get：存放一个函数，表示该属性的取值函数（getter），默认为undefined。</li>
+<li>set：存放一个函数，表示该属性的存值函数（setter），默认为undefined。</li>
+</ol>
+<p>Object.getOwnPropertyDescriptor方法可以读出对象自身属性的属性描述对象。</p>
+<h1 id="Q：理解Object-defineProperty-，Object-defineProperties-？"><a href="#Q：理解Object-defineProperty-，Object-defineProperties-？" class="headerlink" title="Q：理解Object.defineProperty()，Object.defineProperties()？"></a>Q：理解Object.defineProperty()，Object.defineProperties()？</h1><p>Object.defineProperty方法允许通过定义属性描述对象，来定义或修改一个属性，然后返回修改后的对象。它的格式：<code>Object.defineProperty(object, propertyName, attributesObject)</code></p>
+<p>Object.defineProperty方法接受三个参数：</p>
+<ol>
+<li>第一个是属性所在的对象</li>
+<li>第二个是属性名（它应该是一个字符串）</li>
+<li>第三个是属性的描述对象。它的writable、configurable、enumerable这三个属性的默认值都为false。<ul>
+<li>writable属性为false，表示对应的属性的值将不得改写。</li>
+<li>configurable属性为false，将无法删除该属性，也无法修改attributes对象（value属性除外）。</li>
+<li>enumerable属性为false，表示对应的属性不会出现在for…in循环和Object.keys方法中。</li>
+</ul>
+</li>
+</ol>
+<p>如果一次性定义或修改多个属性，可以使用Object.defineProperties方法。<br>需要注意的是，Object.defineProperty方法和Object.defineProperties方法，都有性能损耗，不宜大量使用。</p>
+<h1 id="Q：对象的元属性是什么？"><a href="#Q：对象的元属性是什么？" class="headerlink" title="Q：对象的元属性是什么？"></a>Q：对象的元属性是什么？</h1><p>属性描述对象的属性，被称为“元属性”，因为它可以看作是控制属性的属性。<br>一共有三种：可枚举性、可配置性、可写性</p>
+<h1 id="Q：元属性中的可枚举性（enumerable）是什么？"><a href="#Q：元属性中的可枚举性（enumerable）是什么？" class="headerlink" title="Q：元属性中的可枚举性（enumerable）是什么？"></a>Q：元属性中的可枚举性（enumerable）是什么？</h1><p>如果一个属性的enumerable为false，下面三个操作不会取到该属性。</p>
+<ol>
+<li>for..in循环</li>
+<li>Object.keys方法</li>
+<li>JSON.stringify方法</li>
+</ol>
+<h1 id="Q：元属性中的可配置性（configurable）是什么？"><a href="#Q：元属性中的可配置性（configurable）是什么？" class="headerlink" title="Q：元属性中的可配置性（configurable）是什么？"></a>Q：元属性中的可配置性（configurable）是什么？</h1><p>决定了是否可以修改属性描述对象。也就是说，当configurable为false的时候，value、writable、enumerable和configurable都不能被修改了。</p>
+<p>需要注意的是：</p>
+<ol>
+<li>writable只有在从false改为true会报错，从true改为false则是允许的。</li>
+<li>至于value，只要writable和configurable有一个为true，就允许改动。</li>
+<li>configurable为false时，直接对该属性赋值，不报错，但不会成功。</li>
+</ol>
+<h1 id="Q：元属性中的可写性（writable）是什么？"><a href="#Q：元属性中的可写性（writable）是什么？" class="headerlink" title="Q：元属性中的可写性（writable）是什么？"></a>Q：元属性中的可写性（writable）是什么？</h1><p>决定了属性的值（value）是否可以被改变。</p>
+<h1 id="Q：理解Object-getOwnPropertyNames-？"><a href="#Q：理解Object-getOwnPropertyNames-？" class="headerlink" title="Q：理解Object.getOwnPropertyNames()？"></a>Q：理解Object.getOwnPropertyNames()？</h1><p>Object.getOwnPropertyNames方法返回直接定义在某个对象上面的全部属性的名称，而不管该属性是否可枚举。</p>
+<h1 id="Q：理解Object-prototype-propertyIsEnumerable-？"><a href="#Q：理解Object-prototype-propertyIsEnumerable-？" class="headerlink" title="Q：理解Object.prototype.propertyIsEnumerable()？"></a>Q：理解Object.prototype.propertyIsEnumerable()？</h1><p>对象实例的propertyIsEnumerable方法用来判断一个属性是否可枚举。</p>
+<h1 id="Q：理解存取器（accessor）？"><a href="#Q：理解存取器（accessor）？" class="headerlink" title="Q：理解存取器（accessor）？"></a>Q：理解存取器（accessor）？</h1><p>除了直接定义以外，属性还可以用存取器（accessor）定义。其中，存值函数称为setter，使用set命令；取值函数称为getter，使用get命令。</p>
+<h1 id="Q：理解对象的拷贝？"><a href="#Q：理解对象的拷贝？" class="headerlink" title="Q：理解对象的拷贝？"></a>Q：理解对象的拷贝？</h1><p>有时，我们需要将一个对象的所有属性，拷贝到另一个对象。ES5没有提供这个方法，必须自己实现。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> extend = <span class="function"><span class="keyword">function</span> (<span class="params">to, from</span>) </span>&#123;</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> property <span class="keyword">in</span> <span class="keyword">from</span>) &#123;</div><div class="line">    to[property] = <span class="keyword">from</span>[property];</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">return</span> to;</div><div class="line">&#125;</div><div class="line"></div><div class="line">extend(&#123;&#125;, &#123;</div><div class="line">  a: <span class="number">1</span></div><div class="line">&#125;)</div><div class="line"><span class="comment">// &#123;a: 1&#125;</span></div></pre></td></tr></table></figure></p>
+<p>上面这个方法的问题在于，如果遇到存取器定义的属性，会只拷贝值。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">extend(&#123;&#125;, &#123;</div><div class="line">  get a() &#123; <span class="keyword">return</span> <span class="number">1</span> &#125;</div><div class="line">&#125;)</div><div class="line"><span class="comment">// &#123;a: 1&#125;</span></div></pre></td></tr></table></figure></p>
+<p>为了解决这个问题，我们可以通过Object.defineProperty方法来拷贝属性。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> extend = <span class="function"><span class="keyword">function</span> (<span class="params">to, from</span>) </span>&#123;</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> property <span class="keyword">in</span> <span class="keyword">from</span>) &#123;</div><div class="line">    <span class="built_in">Object</span>.defineProperty(</div><div class="line">      to,</div><div class="line">      property,</div><div class="line">      <span class="built_in">Object</span>.getOwnPropertyDescriptor(<span class="keyword">from</span>, property)</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">return</span> to;</div><div class="line">&#125;</div><div class="line"></div><div class="line">extend(&#123;&#125;, &#123; get a()&#123; <span class="keyword">return</span> <span class="number">1</span> &#125; &#125;)</div><div class="line"><span class="comment">// &#123; get a()&#123; return 1 &#125; &#125;)</span></div></pre></td></tr></table></figure></p>
+<p>这段代码还是有问题，拷贝某些属性时会失效。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">extend(<span class="built_in">document</span>.body.style, &#123;</div><div class="line">  backgroundColor: <span class="string">"red"</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>上面代码的目的是，设置document.body.style.backgroundColor属性为red，但是实际上网页的背景色并不会变红。但是，如果用第一种简单拷贝的方法，反而能够达到目的。这提示我们，可以把两种方法结合起来，对于简单属性，就直接拷贝，对于那些通过属性描述对象设置的属性，则使用Object.defineProperty方法拷贝。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> extend = <span class="function"><span class="keyword">function</span> (<span class="params">to, from</span>) </span>&#123;</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> property <span class="keyword">in</span> <span class="keyword">from</span>) &#123;</div><div class="line">    <span class="keyword">var</span> descriptor = <span class="built_in">Object</span>.getOwnPropertyDescriptor(<span class="keyword">from</span>, property);</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (descriptor &amp;&amp; ( !descriptor.writable</div><div class="line">      || !descriptor.configurable</div><div class="line">      || !descriptor.enumerable</div><div class="line">      || descriptor.get</div><div class="line">      || descriptor.set)) &#123;</div><div class="line">      <span class="built_in">Object</span>.defineProperty(to, property, descriptor);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      to[property] = <span class="keyword">from</span>[property];</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>上面的这段代码，可以很好地拷贝对象所有可遍历（enumerable）的属性。</p>
+<h1 id="Q：new-命令的原理？"><a href="#Q：new-命令的原理？" class="headerlink" title="Q：new 命令的原理？"></a>Q：new 命令的原理？</h1><ol>
+<li>创建一个空对象，作为将要返回的对象实例</li>
+<li>将这个空对象的原型，指向构造函数的prototype属性</li>
+<li>将这个空对象赋值给函数内部的this关键字</li>
+<li>开始执行构造函数内部的代码</li>
+</ol>
+<h1 id="Q：如何判断函数调用的时候，是否使用new命令？"><a href="#Q：如何判断函数调用的时候，是否使用new命令？" class="headerlink" title="Q：如何判断函数调用的时候，是否使用new命令？"></a>Q：如何判断函数调用的时候，是否使用new命令？</h1><p>函数内部可以使用new.target属性。如果当前函数是new命令调用，new.target指向当前函数，否则为undefined。</p>
+<h1 id="Q：this的使用场景有哪些？"><a href="#Q：this的使用场景有哪些？" class="headerlink" title="Q：this的使用场景有哪些？"></a>Q：this的使用场景有哪些？</h1><ol>
+<li>全局环境：在全局环境使用this，它指的就是顶层对象window</li>
+<li>构造函数：构造函数中的this，指的是实例对象。</li>
+<li>对象的方法：当 A 对象的方法被赋予 B 对象，该方法中的this就从指向 A 对象变成了指向 B 对象。</li>
+</ol>
+<h1 id="Q：function-prototype-bind-的理解？"><a href="#Q：function-prototype-bind-的理解？" class="headerlink" title="Q：function.prototype.bind()的理解？"></a>Q：function.prototype.bind()的理解？</h1><p>bind方法用于将函数体内的this绑定到某个对象，然后返回一个新函数。<br>注意点:</p>
+<ol>
+<li>每一次返回一个新函数</li>
+<li>结合回调函数使用</li>
+</ol>
+<h1 id="Q：function-prototype-bind-的作用？"><a href="#Q：function-prototype-bind-的作用？" class="headerlink" title="Q：function.prototype.bind()的作用？"></a>Q：function.prototype.bind()的作用？</h1><p>bind方法用于将函数体内的this绑定到某个对象，然后返回一个新函数。<br>对于那些不支持bind方法的老式浏览器，可以自行定义bind方法。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(!(<span class="string">'bind'</span> <span class="keyword">in</span> <span class="built_in">Function</span>.prototype))&#123;</div><div class="line">  <span class="built_in">Function</span>.prototype.bind = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> fn = <span class="keyword">this</span>;</div><div class="line">    <span class="keyword">var</span> context = <span class="built_in">arguments</span>[<span class="number">0</span>];</div><div class="line">    <span class="keyword">var</span> args = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>, <span class="number">1</span>);</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">      <span class="keyword">return</span> fn.apply(context, args);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>注意点:</p>
+<ol>
+<li>每一次返回一个新函数</li>
+<li>结合回调函数使用</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">obj.print = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.times.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">n</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</div><div class="line">  &#125;.bind(<span class="keyword">this</span>));</div><div class="line">&#125;;</div><div class="line"></div><div class="line">obj.print()</div><div class="line"><span class="comment">// 张三</span></div><div class="line"><span class="comment">// 张三</span></div><div class="line"><span class="comment">// 张三</span></div></pre></td></tr></table></figure>
+<ol>
+<li>结合call方法使用<br>利用bind方法，可以改写一些JavaScript原生方法的使用形式，以数组的slice方法为例。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].slice(<span class="number">0</span>, <span class="number">1</span>)<span class="comment">// [1]</span></div><div class="line"><span class="comment">// 等同于</span></div><div class="line"><span class="built_in">Array</span>.prototype.slice.call([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], <span class="number">0</span>, <span class="number">1</span>)<span class="comment">// [1]</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>上面的代码中，数组的slice方法从[1, 2, 3]里面，按照指定位置和长度切分出另一个数组。这样做的本质是在[1, 2, 3]上面调用Array.prototype.slice方法，因此可以用call方法表达这个过程，得到同样的结果。</p>
+<p>call方法实质上是调用Function.prototype.call方法，因此上面的表达式可以用bind方法改写。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> slice = <span class="built_in">Function</span>.prototype.call.bind(<span class="built_in">Array</span>.prototype.slice);</div><div class="line">slice([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], <span class="number">0</span>, <span class="number">1</span>) <span class="comment">// [1]</span></div></pre></td></tr></table></figure></p>
+<p>可以看到，利用bind方法，将[1, 2, 3].slice(0, 1)变成了slice([1, 2, 3], 0, 1)的形式。</p>
+<p>如果再进一步，将Function.prototype.call方法绑定到Function.prototype.bind对象，就意味着bind的调用形式也可以被改写。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.v);</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> o = &#123; <span class="attr">v</span>: <span class="number">123</span> &#125;;</div><div class="line"><span class="keyword">var</span> bind = <span class="built_in">Function</span>.prototype.call.bind(<span class="built_in">Function</span>.prototype.bind);</div><div class="line">bind(f, o)() <span class="comment">// 123</span></div></pre></td></tr></table></figure></p>
+<p>上面代码表示，将Function.prototype.call方法绑定Function.prototype.bind以后，bind方法的使用形式从f.bind(o)，变成了bind(f, o)。</p>
+<h1 id="Q：prototype-属性的作用是什么？"><a href="#Q：prototype-属性的作用是什么？" class="headerlink" title="Q：prototype 属性的作用是什么？"></a>Q：prototype 属性的作用是什么？</h1><p>JavaScript 的每个对象都继承另一个对象，后者称为“原型”（prototype）对象。一方面，任何一个对象，都可以充当其他对象的原型；另一方面，由于原型对象也是对象，所以它也有自己的原型。null也可以充当原型，区别在于它没有自己的原型对象。<br>JavaScript 继承机制的设计就是，原型的所有属性和方法，都能被子对象共享。</p>
+<h1 id="Q：理解原型链？"><a href="#Q：理解原型链？" class="headerlink" title="Q：理解原型链？"></a>Q：理解原型链？</h1><p>对象的属性和方法，有可能定义在自身，也有可能定义在它的原型对象。由于原型本身也是对象，又有自己的原型，所以形成了一条原型链（prototype chain）。<br>所有对象的原型最终都可以上溯到Object.prototype，而Object.prototype对象就是null，而null对象没有自己的原型。</p>
+<p>“原型链”的作用是，读取对象的某个属性时，JavaScript 引擎先寻找对象本身的属性，如果找不到，就到它的原型去找，如果还是找不到，就到原型的原型去找。如果直到最顶层的Object.prototype还是找不到，则返回undefined。</p>
+<h1 id="Q：理解constructor-属性？"><a href="#Q：理解constructor-属性？" class="headerlink" title="Q：理解constructor 属性？"></a>Q：理解constructor 属性？</h1><p>prototype对象有一个constructor属性，默认指向prototype对象所在的构造函数。<br>由于constructor属性定义在prototype对象上面，意味着可以被所有实例对象继承。<br>constructor属性的作用，是分辨原型对象到底属于哪个构造函数。</p>
+<p>有了constructor属性，就可以从实例新建另一个实例。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Constr</span>(<span class="params"></span>) </span>&#123;&#125;</div><div class="line"><span class="keyword">var</span> x = <span class="keyword">new</span> Constr();</div><div class="line"></div><div class="line"><span class="keyword">var</span> y = <span class="keyword">new</span> x.constructor();</div><div class="line">y <span class="keyword">instanceof</span> Constr <span class="comment">// true</span></div></pre></td></tr></table></figure></p>
+<p>这使得在实例方法中，调用自身的构造函数成为可能。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Constr.prototype.createCopy = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">this</span>.constructor();</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>constructor属性表示原型对象与构造函数之间的关联关系，如果修改了原型对象，一般会同时修改constructor属性，防止引用的时候出错。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.name = name;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Person.prototype.constructor === Person <span class="comment">// true</span></div><div class="line"></div><div class="line">Person.prototype.copy = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">this</span>.constructor(<span class="keyword">this</span>.name);</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>此外，通过name属性，可以从实例得到构造函数的名称。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>) </span>&#123;&#125;</div><div class="line"><span class="keyword">var</span> f = <span class="keyword">new</span> Foo();</div><div class="line">f.constructor.name <span class="comment">// "Foo"</span></div></pre></td></tr></table></figure></p>
+<h1 id="Q：理解instanceof-运算符？"><a href="#Q：理解instanceof-运算符？" class="headerlink" title="Q：理解instanceof 运算符？"></a>Q：理解instanceof 运算符？</h1><p>instanceof运算符返回一个布尔值，表示某个对象是否为指定的构造函数的实例。</p>
+<p>instanceof运算符的左边是实例对象，右边是构造函数。它会检查右边构建函数的原型对象（prototype），是否在左边对象的原型链上。因此，下面两种写法是等价的。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">v <span class="keyword">instanceof</span> Vehicle</div><div class="line"><span class="comment">// 等同于</span></div><div class="line">Vehicle.prototype.isPrototypeOf(v)</div></pre></td></tr></table></figure></p>
+<p>instanceof的原理是检查原型链，对于那些不存在原型链的对象，就无法判断。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Object</span>.create(<span class="literal">null</span>) <span class="keyword">instanceof</span> <span class="built_in">Object</span> <span class="comment">// false</span></div></pre></td></tr></table></figure></p>
+<p>除了上面这种继承null的特殊情况，JavaScript 之中，只要是对象，就有对应的构造函数。因此，instanceof运算符的一个用处，是判断值的类型。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> x = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</div><div class="line"><span class="keyword">var</span> y = &#123;&#125;;</div><div class="line">x <span class="keyword">instanceof</span> <span class="built_in">Array</span> <span class="comment">// true</span></div><div class="line">y <span class="keyword">instanceof</span> <span class="built_in">Object</span> <span class="comment">// true</span></div></pre></td></tr></table></figure></p>
+<h1 id="Q：理解Object-create-？"><a href="#Q：理解Object-create-？" class="headerlink" title="Q：理解Object.create()？"></a>Q：理解Object.create()？</h1><p>接受一个对象作为参数，然后以它为原型，返回一个实例对象。该实例完全继承继承原型对象的属性。<br>如果老式浏览器不支持Object.create方法，可以就用这段代码自己部署。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">Object</span>.create !== <span class="string">'function'</span>) &#123;</div><div class="line">  <span class="built_in">Object</span>.create = <span class="function"><span class="keyword">function</span> (<span class="params">obj</span>) </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>) </span>&#123;&#125;</div><div class="line">    F.prototype = obj;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> F();</div><div class="line">  &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>除了对象的原型，Object.create方法还可以接受第二个参数。该参数是一个属性描述对象，它所描述的对象属性，会添加到实例对象，作为该对象自身的属性。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = <span class="built_in">Object</span>.create(&#123;&#125;, &#123;</div><div class="line">  p1: &#123;</div><div class="line">    value: <span class="number">123</span>,</div><div class="line">    enumerable: <span class="literal">true</span>,</div><div class="line">    configurable: <span class="literal">true</span>,</div><div class="line">    writable: <span class="literal">true</span>,</div><div class="line">  &#125;,</div><div class="line">  p2: &#123;</div><div class="line">    value: <span class="string">'abc'</span>,</div><div class="line">    enumerable: <span class="literal">true</span>,</div><div class="line">    configurable: <span class="literal">true</span>,</div><div class="line">    writable: <span class="literal">true</span>,</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// 等同于</span></div><div class="line"><span class="keyword">var</span> obj = <span class="built_in">Object</span>.create(&#123;&#125;);</div><div class="line">obj.p1 = <span class="number">123</span>;</div><div class="line">obj.p2 = <span class="string">'abc'</span>;</div></pre></td></tr></table></figure></p>
+<h1 id="Q；获取原型对象方法的比较？"><a href="#Q；获取原型对象方法的比较？" class="headerlink" title="Q；获取原型对象方法的比较？"></a>Q；获取原型对象方法的比较？</h1><p>获取实例对象obj的原型对象，有三种方法。</p>
+<ol>
+<li>obj.<strong>proto</strong></li>
+<li>obj.constructor.prototype</li>
+<li>Object.getPrototypeOf(obj)</li>
+</ol>
+<p>上面三种方法之中，前两种都不是很可靠。最新的ES6标准规定，<strong>proto</strong>属性只有浏览器才需要部署，其他环境可以不部署。而obj.constructor.prototype在手动改变原型对象时，可能会失效。<br>所以，推荐使用第三种Object.getPrototypeOf方法，获取原型对象。</p>
+<h1 id="Q：理解Object-getOwnPropertyNames-？-1"><a href="#Q：理解Object-getOwnPropertyNames-？-1" class="headerlink" title="Q：理解Object.getOwnPropertyNames()？"></a>Q：理解Object.getOwnPropertyNames()？</h1><p>Object.getOwnPropertyNames方法返回一个数组，成员是对象本身的所有属性的键名，不包含继承的属性键名。<br>只获取那些可以枚举的属性，使用Object.keys方法。</p>
+<h1 id="Q：理解Object-prototype-hasOwnProperty-？"><a href="#Q：理解Object-prototype-hasOwnProperty-？" class="headerlink" title="Q：理解Object.prototype.hasOwnProperty()？"></a>Q：理解Object.prototype.hasOwnProperty()？</h1><p>对象实例的hasOwnProperty方法返回一个布尔值，用于判断某个属性定义在对象自身，还是定义在原型链上。<br>hasOwnProperty方法是JavaScript之中唯一一个处理对象属性时，不会遍历原型链的方法。</p>
+<h1 id="Q：in-运算符和-for…in-循环？"><a href="#Q：in-运算符和-for…in-循环？" class="headerlink" title="Q：in 运算符和 for…in 循环？"></a>Q：in 运算符和 for…in 循环？</h1><p>in运算符返回一个布尔值，表示一个对象是否具有某个属性。它不区分该属性是对象自身的属性，还是继承的属性。</p>
+<p>in运算符常用于检查一个属性是否存在。</p>
+<p>获得对象的所有可枚举属性（不管是自身的还是继承的），可以使用for…in循环。</p>
+<h1 id="Q：对象的拷贝？"><a href="#Q：对象的拷贝？" class="headerlink" title="Q：对象的拷贝？"></a>Q：对象的拷贝？</h1><p>如果要拷贝一个对象，需要做到下面两件事情。</p>
+<ol>
+<li>确保拷贝后的对象，与原对象具有同样的prototype原型对象。</li>
+<li>确保拷贝后的对象，与原对象具有同样的属性。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">copyObject</span>(<span class="params">orig</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> copy = <span class="built_in">Object</span>.create(<span class="built_in">Object</span>.getPrototypeOf(orig));</div><div class="line">  copyOwnPropertiesFrom(copy, orig);</div><div class="line">  <span class="keyword">return</span> copy;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">copyOwnPropertiesFrom</span>(<span class="params">target, source</span>) </span>&#123;</div><div class="line">  <span class="built_in">Object</span></div><div class="line">  .getOwnPropertyNames(source)</div><div class="line">  .forEach(<span class="function"><span class="keyword">function</span>(<span class="params">propKey</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> desc = <span class="built_in">Object</span>.getOwnPropertyDescriptor(source, propKey);</div><div class="line">    <span class="built_in">Object</span>.defineProperty(target, propKey, desc);</div><div class="line">  &#125;);</div><div class="line">  <span class="keyword">return</span> target;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="Q：JS如何实现多重继承？"><a href="#Q：JS如何实现多重继承？" class="headerlink" title="Q：JS如何实现多重继承？"></a>Q：JS如何实现多重继承？</h1><p>JavaScript 不提供多重继承功能，即不允许一个对象同时继承多个对象。但是，可以通过变通方法，实现这个功能。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">M1</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.hello = <span class="string">'hello'</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">M2</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.world = <span class="string">'world'</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">S</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  M1.call(<span class="keyword">this</span>);</div><div class="line">  M2.call(<span class="keyword">this</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 继承 M1</span></div><div class="line">S.prototype = <span class="built_in">Object</span>.create(M1.prototype);</div><div class="line"><span class="comment">// 继承链上加入 M2</span></div><div class="line"><span class="built_in">Object</span>.assign(S.prototype, M2.prototype);</div><div class="line"></div><div class="line"><span class="comment">// 指定构造函数</span></div><div class="line">S.prototype.constructor = S;</div><div class="line"></div><div class="line"><span class="keyword">var</span> s = <span class="keyword">new</span> S();</div><div class="line">s.hello <span class="comment">// 'hello：'</span></div><div class="line">s.world <span class="comment">// 'world'</span></div></pre></td></tr></table></figure></p>
+<p>上面代码中，子类S同时继承了父类M1和M2。这种模式又称为 Mixin（混入）。</p>
+<h1 id="Q：setTimeout-f-0"><a href="#Q：setTimeout-f-0" class="headerlink" title="Q：setTimeout(f, 0)"></a>Q：setTimeout(f, 0)</h1><p>setTimeout(f, 0)将第二个参数设为0，作用是让f在现有的任务（脚本的同步任务和“消息队列”指定的任务）一结束就立刻执行。也就是说，setTimeout(f, 0)的作用是，尽可能早地执行指定的任务。而并不是会立刻就执行这个任务。</p>
 
       
     </div>
@@ -690,7 +1068,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -701,7 +1079,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -712,7 +1090,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -758,7 +1136,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：Node类型简介？"><span class="nav-number">1.</span> <span class="nav-text">Q：Node类型简介？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：Document类型简介？"><span class="nav-number">2.</span> <span class="nav-text">Q：Document类型简介？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：Element类型简介？"><span class="nav-number">3.</span> <span class="nav-text">Q：Element类型简介？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：DocumentFragment类型简介？"><span class="nav-number">4.</span> <span class="nav-text">Q：DocumentFragment类型简介？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：常见的DOM操作技术有哪些？"><span class="nav-number">5.</span> <span class="nav-text">Q：常见的DOM操作技术有哪些？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DOM扩展了那些选择API？"><span class="nav-number">6.</span> <span class="nav-text">DOM扩展了那些选择API？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：HTML5对DOM操作带来了哪些便利？"><span class="nav-number">7.</span> <span class="nav-text">Q：HTML5对DOM操作带来了哪些便利？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：DOM2跟DOM3的变化有哪些？"><span class="nav-number">8.</span> <span class="nav-text">Q：DOM2跟DOM3的变化有哪些？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：说说你对闭包的理解？"><span class="nav-number">9.</span> <span class="nav-text">Q：说说你对闭包的理解？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：请你谈谈Cookie的弊端？"><span class="nav-number">10.</span> <span class="nav-text">Q：请你谈谈Cookie的弊端？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：简介浏览器本地存储？"><span class="nav-number">11.</span> <span class="nav-text">Q：简介浏览器本地存储？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：web-storage和cookie的区别"><span class="nav-number">12.</span> <span class="nav-text">Q：web storage和cookie的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：cookie-和session-的区别？"><span class="nav-number">13.</span> <span class="nav-text">Q：cookie 和session 的区别？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：display-none和visibility-hidden的区别？"><span class="nav-number">14.</span> <span class="nav-text">Q：display:none和visibility:hidden的区别？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：CSS中-link-和-import-的区别是？"><span class="nav-number">15.</span> <span class="nav-text">Q：CSS中 link 和@import 的区别是？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：position-absolute和float属性的异同"><span class="nav-number">16.</span> <span class="nav-text">Q：position:absolute和float属性的异同</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：CSS-选择符有哪些？哪些属性可以继承？优先级算法如何计算？-CSS3新增伪类有那些？"><span class="nav-number">17.</span> <span class="nav-text">Q：CSS 选择符有哪些？哪些属性可以继承？优先级算法如何计算？ CSS3新增伪类有那些？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q-position的值，-relative和absolute分别是相对于谁进行定位的？"><span class="nav-number">18.</span> <span class="nav-text">Q:position的值， relative和absolute分别是相对于谁进行定位的？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：CSS3有哪些新特性？"><span class="nav-number">19.</span> <span class="nav-text">Q：CSS3有哪些新特性？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：XML和JSON的区别？"><span class="nav-number">20.</span> <span class="nav-text">Q：XML和JSON的区别？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：解释下-CSS-sprites，以及你要如何在页面或网站中使用它。"><span class="nav-number">21.</span> <span class="nav-text">Q：解释下 CSS sprites，以及你要如何在页面或网站中使用它。</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：说说你对语义化的理解？"><span class="nav-number">22.</span> <span class="nav-text">Q：说说你对语义化的理解？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：清除浮动的几种方法："><span class="nav-number">23.</span> <span class="nav-text">Q：清除浮动的几种方法：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：html5有哪些新特性、移除了那些元素？如何区分-HTML-和-HTML5？"><span class="nav-number">24.</span> <span class="nav-text">Q：html5有哪些新特性、移除了那些元素？如何区分 HTML 和 HTML5？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：如何实现浏览器内多个标签页之间的通信"><span class="nav-number">25.</span> <span class="nav-text">Q：如何实现浏览器内多个标签页之间的通信?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：什么是-“use-strict”-使用它的好处？"><span class="nav-number">26.</span> <span class="nav-text">Q：什么是 “use strict”; ? 使用它的好处？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：一个页面从输入-URL-到页面加载显示完成，这个过程中都发生了什么？"><span class="nav-number">27.</span> <span class="nav-text">Q：一个页面从输入 URL 到页面加载显示完成，这个过程中都发生了什么？</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：Node类型简介？"><span class="nav-number">1.</span> <span class="nav-text">Q：Node类型简介？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：Node类型的节点属性有哪些？"><span class="nav-number">2.</span> <span class="nav-text">Q：Node类型的节点属性有哪些？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：Node类型的节点关系有哪些？"><span class="nav-number">3.</span> <span class="nav-text">Q：Node类型的节点关系有哪些？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：Node类型有哪些操作节点的方法？"><span class="nav-number">4.</span> <span class="nav-text">Q：Node类型有哪些操作节点的方法？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：常见的Document类型的子节点有哪些？"><span class="nav-number">5.</span> <span class="nav-text">Q：常见的Document类型的子节点有哪些？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：Document类型的文档信息有哪些？"><span class="nav-number">6.</span> <span class="nav-text">Q：Document类型的文档信息有哪些？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：什么是DocumentFragment以及如何创建？"><span class="nav-number">7.</span> <span class="nav-text">Q：什么是DocumentFragment以及如何创建？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：DOM扩展了那些选择API？"><span class="nav-number">8.</span> <span class="nav-text">Q：DOM扩展了那些选择API？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：HTML5增加了哪些与类相关的扩充？"><span class="nav-number">9.</span> <span class="nav-text">Q：HTML5增加了哪些与类相关的扩充？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：HTML5对焦点管理提供了哪些扩展？"><span class="nav-number">10.</span> <span class="nav-text">Q：HTML5对焦点管理提供了哪些扩展？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：说说你对闭包的理解？"><span class="nav-number">11.</span> <span class="nav-text">Q：说说你对闭包的理解？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：请你谈谈Cookie的弊端？"><span class="nav-number">12.</span> <span class="nav-text">Q：请你谈谈Cookie的弊端？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：简介浏览器本地存储？"><span class="nav-number">13.</span> <span class="nav-text">Q：简介浏览器本地存储？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：web-storage和cookie的区别"><span class="nav-number">14.</span> <span class="nav-text">Q：web storage和cookie的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：cookie-和session-的区别？"><span class="nav-number">15.</span> <span class="nav-text">Q：cookie 和session 的区别？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：display-none和visibility-hidden的区别？"><span class="nav-number">16.</span> <span class="nav-text">Q：display:none和visibility:hidden的区别？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：CSS中-link-和-import-的区别是？"><span class="nav-number">17.</span> <span class="nav-text">Q：CSS中 link 和@import 的区别是？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：CSS3新增伪类有那些？"><span class="nav-number">18.</span> <span class="nav-text">Q：CSS3新增伪类有那些？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q-position有哪些属性，分别是相对于谁进行定位的？"><span class="nav-number">19.</span> <span class="nav-text">Q:position有哪些属性，分别是相对于谁进行定位的？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：CSS3有哪些新特性？"><span class="nav-number">20.</span> <span class="nav-text">Q：CSS3有哪些新特性？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：XML和JSON的区别？"><span class="nav-number">21.</span> <span class="nav-text">Q：XML和JSON的区别？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：说说你对语义化的理解？"><span class="nav-number">22.</span> <span class="nav-text">Q：说说你对语义化的理解？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：清除浮动的几种方法："><span class="nav-number">23.</span> <span class="nav-text">Q：清除浮动的几种方法：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：html5有哪些新特性？"><span class="nav-number">24.</span> <span class="nav-text">Q：html5有哪些新特性？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：如何实现浏览器内多个标签页之间的通信"><span class="nav-number">25.</span> <span class="nav-text">Q：如何实现浏览器内多个标签页之间的通信?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：什么是-“use-strict”-使用它的好处？"><span class="nav-number">26.</span> <span class="nav-text">Q：什么是 “use strict”; ? 使用它的好处？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：一个页面从输入-URL-到页面加载显示完成，这个过程中都发生了什么？"><span class="nav-number">27.</span> <span class="nav-text">Q：一个页面从输入 URL 到页面加载显示完成，这个过程中都发生了什么？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：JS的组成是？"><span class="nav-number">28.</span> <span class="nav-text">Q：JS的组成是？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：浏览器为JS提供了哪些额外的API？"><span class="nav-number">29.</span> <span class="nav-text">Q：浏览器为JS提供了哪些额外的API？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：JS的复杂性体现在哪？"><span class="nav-number">30.</span> <span class="nav-text">Q：JS的复杂性体现在哪？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：Object对象提供了哪些跟对象属性模型相关的静态方法？"><span class="nav-number">31.</span> <span class="nav-text">Q：Object对象提供了哪些跟对象属性模型相关的静态方法？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：Object对象提供了哪些跟控制对象状态相关的静态方法？"><span class="nav-number">32.</span> <span class="nav-text">Q：Object对象提供了哪些跟控制对象状态相关的静态方法？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：Object对象提供了哪些跟原型链相关的静态方法？"><span class="nav-number">33.</span> <span class="nav-text">Q：Object对象提供了哪些跟原型链相关的静态方法？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：Object对象的实例方法"><span class="nav-number">34.</span> <span class="nav-text">Q：Object对象的实例方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：如何确定一个值的类型？"><span class="nav-number">35.</span> <span class="nav-text">Q：如何确定一个值的类型？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q-NaN出现的场景有哪些？"><span class="nav-number">36.</span> <span class="nav-text">Q:NaN出现的场景有哪些？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：NaN的运算规则是？"><span class="nav-number">37.</span> <span class="nav-text">Q：NaN的运算规则是？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：判断NaN的方法是？"><span class="nav-number">38.</span> <span class="nav-text">Q：判断NaN的方法是？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：与数值相关的全局方法有哪些？"><span class="nav-number">39.</span> <span class="nav-text">Q：与数值相关的全局方法有哪些？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：Array实例的方法有哪些？"><span class="nav-number">40.</span> <span class="nav-text">Q：Array实例的方法有哪些？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：什么是包装对象？"><span class="nav-number">41.</span> <span class="nav-text">Q：什么是包装对象？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：包装对象实例的方法有哪些？"><span class="nav-number">42.</span> <span class="nav-text">Q：包装对象实例的方法有哪些？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：原始类型如何自动转换？"><span class="nav-number">43.</span> <span class="nav-text">Q：原始类型如何自动转换？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：Number对象实例方法有哪些？"><span class="nav-number">44.</span> <span class="nav-text">Q：Number对象实例方法有哪些？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：String实例对象的方法有哪些？"><span class="nav-number">45.</span> <span class="nav-text">Q：String实例对象的方法有哪些？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：常见的Math方法有哪些？"><span class="nav-number">46.</span> <span class="nav-text">Q：常见的Math方法有哪些？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：Date对象的静态方法有哪些？"><span class="nav-number">47.</span> <span class="nav-text">Q：Date对象的静态方法有哪些？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：Date实例对象的get类方法有哪些？"><span class="nav-number">48.</span> <span class="nav-text">Q：Date实例对象的get类方法有哪些？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：Date实例对象的set类方法有哪些？"><span class="nav-number">49.</span> <span class="nav-text">Q：Date实例对象的set类方法有哪些？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q-正则对象的属性有哪些？"><span class="nav-number">50.</span> <span class="nav-text">Q: 正则对象的属性有哪些？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q-正则对象的方法有哪些？"><span class="nav-number">51.</span> <span class="nav-text">Q: 正则对象的方法有哪些？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#理解正则表达式的test方法？"><span class="nav-number">52.</span> <span class="nav-text">理解正则表达式的test方法？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#理解正则表达式的exec方法？"><span class="nav-number">53.</span> <span class="nav-text">理解正则表达式的exec方法？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：字符串对象的方法有哪些跟正则对象有关？"><span class="nav-number">54.</span> <span class="nav-text">Q：字符串对象的方法有哪些跟正则对象有关？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：正则表达式中的字面量字符和元字符分别是什么？"><span class="nav-number">55.</span> <span class="nav-text">Q：正则表达式中的字面量字符和元字符分别是什么？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：正则表达式中常见的元字符有哪些？"><span class="nav-number">56.</span> <span class="nav-text">Q：正则表达式中常见的元字符有哪些？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：正则表达式中的转义符是什么？"><span class="nav-number">57.</span> <span class="nav-text">Q：正则表达式中的转义符是什么？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：正则表达式中的字符类是什么？"><span class="nav-number">58.</span> <span class="nav-text">Q：正则表达式中的字符类是什么？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：正则表达式中的预定义模式有什么？"><span class="nav-number">59.</span> <span class="nav-text">Q：正则表达式中的预定义模式有什么？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：正则表达式的重复类是什么？"><span class="nav-number">60.</span> <span class="nav-text">Q：正则表达式的重复类是什么？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：正则表达式的量词符是什么？"><span class="nav-number">61.</span> <span class="nav-text">Q：正则表达式的量词符是什么？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：正则表达式的贪婪模式是什么？"><span class="nav-number">62.</span> <span class="nav-text">Q：正则表达式的贪婪模式是什么？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#正则表达式的修饰符有哪些？"><span class="nav-number">63.</span> <span class="nav-text">正则表达式的修饰符有哪些？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：正则表达式的组匹配是什么？"><span class="nav-number">64.</span> <span class="nav-text">Q：正则表达式的组匹配是什么？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：正则表达式中的非捕获组是什么？"><span class="nav-number">65.</span> <span class="nav-text">Q：正则表达式中的非捕获组是什么？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：正则表达式中的先行断言是什么？"><span class="nav-number">66.</span> <span class="nav-text">Q：正则表达式中的先行断言是什么？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：正则表达式中的先行否定断言是什么？"><span class="nav-number">67.</span> <span class="nav-text">Q：正则表达式中的先行否定断言是什么？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：JSON-stringify-的用法是？"><span class="nav-number">68.</span> <span class="nav-text">Q：JSON.stringify()的用法是？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：JSON-parse-的用法是？"><span class="nav-number">69.</span> <span class="nav-text">Q：JSON.parse()的用法是？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：属性描述对象是什么？"><span class="nav-number">70.</span> <span class="nav-text">Q：属性描述对象是什么？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：理解Object-defineProperty-，Object-defineProperties-？"><span class="nav-number">71.</span> <span class="nav-text">Q：理解Object.defineProperty()，Object.defineProperties()？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：对象的元属性是什么？"><span class="nav-number">72.</span> <span class="nav-text">Q：对象的元属性是什么？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：元属性中的可枚举性（enumerable）是什么？"><span class="nav-number">73.</span> <span class="nav-text">Q：元属性中的可枚举性（enumerable）是什么？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：元属性中的可配置性（configurable）是什么？"><span class="nav-number">74.</span> <span class="nav-text">Q：元属性中的可配置性（configurable）是什么？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：元属性中的可写性（writable）是什么？"><span class="nav-number">75.</span> <span class="nav-text">Q：元属性中的可写性（writable）是什么？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：理解Object-getOwnPropertyNames-？"><span class="nav-number">76.</span> <span class="nav-text">Q：理解Object.getOwnPropertyNames()？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：理解Object-prototype-propertyIsEnumerable-？"><span class="nav-number">77.</span> <span class="nav-text">Q：理解Object.prototype.propertyIsEnumerable()？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：理解存取器（accessor）？"><span class="nav-number">78.</span> <span class="nav-text">Q：理解存取器（accessor）？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：理解对象的拷贝？"><span class="nav-number">79.</span> <span class="nav-text">Q：理解对象的拷贝？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：new-命令的原理？"><span class="nav-number">80.</span> <span class="nav-text">Q：new 命令的原理？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：如何判断函数调用的时候，是否使用new命令？"><span class="nav-number">81.</span> <span class="nav-text">Q：如何判断函数调用的时候，是否使用new命令？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：this的使用场景有哪些？"><span class="nav-number">82.</span> <span class="nav-text">Q：this的使用场景有哪些？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：function-prototype-bind-的理解？"><span class="nav-number">83.</span> <span class="nav-text">Q：function.prototype.bind()的理解？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：function-prototype-bind-的作用？"><span class="nav-number">84.</span> <span class="nav-text">Q：function.prototype.bind()的作用？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：prototype-属性的作用是什么？"><span class="nav-number">85.</span> <span class="nav-text">Q：prototype 属性的作用是什么？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：理解原型链？"><span class="nav-number">86.</span> <span class="nav-text">Q：理解原型链？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：理解constructor-属性？"><span class="nav-number">87.</span> <span class="nav-text">Q：理解constructor 属性？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：理解instanceof-运算符？"><span class="nav-number">88.</span> <span class="nav-text">Q：理解instanceof 运算符？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：理解Object-create-？"><span class="nav-number">89.</span> <span class="nav-text">Q：理解Object.create()？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q；获取原型对象方法的比较？"><span class="nav-number">90.</span> <span class="nav-text">Q；获取原型对象方法的比较？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：理解Object-getOwnPropertyNames-？-1"><span class="nav-number">91.</span> <span class="nav-text">Q：理解Object.getOwnPropertyNames()？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：理解Object-prototype-hasOwnProperty-？"><span class="nav-number">92.</span> <span class="nav-text">Q：理解Object.prototype.hasOwnProperty()？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：in-运算符和-for…in-循环？"><span class="nav-number">93.</span> <span class="nav-text">Q：in 运算符和 for…in 循环？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：对象的拷贝？"><span class="nav-number">94.</span> <span class="nav-text">Q：对象的拷贝？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：JS如何实现多重继承？"><span class="nav-number">95.</span> <span class="nav-text">Q：JS如何实现多重继承？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Q：setTimeout-f-0"><span class="nav-number">96.</span> <span class="nav-text">Q：setTimeout(f, 0)</span></a></li></ol></div>
             
 
           </div>
