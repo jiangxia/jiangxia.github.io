@@ -206,9 +206,50 @@
         }
 
         .card:hover {
-            background: rgba(227, 25, 55, 0.2);
+            background: rgba(255, 255, 255, 0.08) !important;
             transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(227, 25, 55, 0.3);
+            box-shadow: 0 15px 40px rgba(255, 255, 255, 0.1) !important;
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+        }
+
+        /* 覆盖所有红色背景卡片的悬停效果 */
+        div[style*="background: rgba(227, 25, 55"]:hover,
+        .challenge-section .card:hover,
+        .workflow-step:hover,
+        .version-card:hover,
+        div[class="card"][style*="rgba(227, 25, 55"]:hover {
+            background: rgba(255, 255, 255, 0.08) !important;
+            box-shadow: 0 15px 40px rgba(255, 255, 255, 0.1) !important;
+            border-color: rgba(255, 255, 255, 0.2) !important;
+            transform: translateY(-5px);
+        }
+
+        /* 特别处理工作流步骤头部的渐变背景 */
+        div[style*="background: linear-gradient(135deg, rgba(227, 25, 55"]:hover {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%) !important;
+        }
+
+        /* 处理核心任务区域的红色背景 */
+        div[style*="background: rgba(227, 25, 55, 0.05)"]:hover {
+            background: rgba(255, 255, 255, 0.05) !important;
+        }
+
+        /* 全局覆盖：任何包含红色背景的元素悬停时都改为白色 */
+        *[style*="rgba(227, 25, 55"]:hover {
+            background: rgba(255, 255, 255, 0.08) !important;
+            box-shadow: 0 15px 40px rgba(255, 255, 255, 0.1) !important;
+        }
+
+        /* 特殊处理：渐变背景 */
+        *[style*="linear-gradient"][style*="rgba(227, 25, 55"]:hover {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%) !important;
+        }
+
+        /* 特殊处理：低透明度红色背景 */
+        *[style*="rgba(227, 25, 55, 0.03)"]:hover,
+        *[style*="rgba(227, 25, 55, 0.05)"]:hover,
+        *[style*="rgba(227, 25, 55, 0.1)"]:hover {
+            background: rgba(255, 255, 255, 0.08) !important;
         }
 
         .card-icon {
@@ -437,6 +478,23 @@
                 gap: 1rem !important;
                 text-align: center !important;
             }
+
+            /* 创作难点响应式 */
+            .challenge-section div[style*="display: flex"] {
+                flex-direction: column !important;
+                align-items: flex-start !important;
+                text-align: left !important;
+            }
+
+            .challenge-section div[style*="width: 60px"] {
+                margin-bottom: 1rem !important;
+                margin-right: 0 !important;
+            }
+
+            div[style*="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))"] {
+                grid-template-columns: 1fr !important;
+                gap: 1.5rem !important;
+            }
         }
 
         @media (max-width: 1024px) and (min-width: 769px) {
@@ -516,72 +574,218 @@
             <div class="aurora-bg"></div>
             <div class="container">
                 <div class="content">
-                    <div class="large-text highlight">《行易：复兴之路》</div>
-                    <div class="medium-text">The Epic Journey of National Revival</div>
+                    <div class="large-text highlight">《行易：复兴之路》创作难点</div>
+                    <div class="medium-text">The Epic Creation Challenges</div>
+                    <div class="small-text">88万字史诗级作品的四大核心挑战</div>
 
-                    <div class="card-grid">
-                        <div class="card">
-                            <div class="card-icon">📖</div>
-                            <h3 class="card-title">64卦对应建国史</h3>
-                            <p class="card-text">严格按照《易经》64卦顺序，对应1949年建国后的历史阶段</p>
-                        </div>
-                        <div class="card">
-                            <div class="card-icon">👥</div>
-                            <h3 class="card-title">三代人三个时代</h3>
-                            <p class="card-text">黄建国(1949-1978)、黄卫国(1978-2012)、黄明易(2012-未来)</p>
-                        </div>
-                        <div class="card">
-                            <div class="card-icon">☯️</div>
-                            <h3 class="card-title">易经现代化表达</h3>
-                            <p class="card-text">将《易经》从"算命书"还原为"世界观"与"方法论"</p>
-                        </div>
-                        <div class="card">
-                            <div class="card-icon">❤️</div>
-                            <h3 class="card-title">严格价值观体系</h3>
-                            <p class="card-text">家国情怀贯穿始终，展现民族复兴的代际传承、世界百年大变局的思考</p>
-                        </div>
-                    </div>
+                    <!-- 难点层次化展示 -->
+                    <div style="margin-top: 3rem;">
 
-                    <!-- 版本演进展示 -->
-                    <div style="margin: 4rem 0;">
-                        <div class="medium-text highlight" style="text-align: center; margin-bottom: 2rem;">版本演进历程</div>
-                        <div class="small-text" style="text-align: center; margin-bottom: 3rem; opacity: 0.8;">Version Evolution Journey</div>
-
-                        <div style="display: grid; grid-template-columns: 1fr auto 1fr; gap: 2rem; align-items: center; max-width: 1000px; margin: 0 auto;">
-                            <!-- 第一版 -->
-                            <div class="version-card" style="text-align: center;">
-                                <div style="background: rgba(255, 255, 255, 0.05); border-radius: 1rem; padding: 1.5rem; border: 1px solid rgba(255, 255, 255, 0.1);">
-                                    <h4 style="color: var(--tesla-red); margin-bottom: 1rem; font-size: 1.2rem;">第一版</h4>
-                                    <div style="margin-bottom: 1rem;">
-                                        <img src="0、第一版.jpg" alt="第一版设计" style="width: 100%; max-width: 300px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.3); transition: transform 0.3s ease;">
-                                    </div>
-                                    <p style="font-size: 0.9rem; opacity: 0.8; margin: 0;">初始设计概念</p>
+                        <!-- 第一层：易经体例的难度 -->
+                        <div class="challenge-section" style="margin-bottom: 4rem;">
+                            <div style="display: flex; align-items: center; margin-bottom: 2rem;">
+                                <div style="background: var(--tesla-red); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.5rem; margin-right: 2rem; box-shadow: 0 4px 20px rgba(227, 25, 55, 0.4);">1</div>
+                                <div>
+                                    <h3 style="margin: 0; font-size: 1.8rem; color: var(--tesla-red);">易经体例的难度</h3>
+                                    <p style="margin: 0.5rem 0 0 0; opacity: 0.8; font-size: 1.1rem;">The Complexity of I Ching System</p>
                                 </div>
                             </div>
 
-                            <!-- 演进箭头 -->
-                            <div style="text-align: center;">
-                                <div style="font-size: 2rem; color: var(--tesla-red); animation: pulse 2s infinite;">→</div>
-                                <div style="font-size: 0.8rem; margin-top: 0.5rem; opacity: 0.6;">演进</div>
+                            <div class="card" style="background: rgba(227, 25, 55, 0.05); border: 2px solid rgba(227, 25, 55, 0.2);">
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                                    <div>
+                                        <h4 style="color: var(--tesla-red); margin-bottom: 1rem; display: flex; align-items: center;">
+                                            <span style="margin-right: 0.5rem;">📊</span>
+                                            数量级挑战
+                                        </h4>
+                                        <ul style="list-style: none; padding: 0; margin: 0;">
+                                            <li style="margin: 0.8rem 0; display: flex; align-items: flex-start;">
+                                                <span style="color: var(--tesla-red); margin-right: 0.5rem; font-weight: bold;">•</span>
+                                                <span><strong>64卦</strong>：每一卦对应一个历史时期</span>
+                                            </li>
+                                            <li style="margin: 0.8rem 0; display: flex; align-items: flex-start;">
+                                                <span style="color: var(--tesla-red); margin-right: 0.5rem; font-weight: bold;">•</span>
+                                                <span><strong>386爻</strong>：每爻对应历史时期的具体阶段</span>
+                                            </li>
+                                            <li style="margin: 0.8rem 0; display: flex; align-items: flex-start;">
+                                                <span style="color: var(--tesla-red); margin-right: 0.5rem; font-weight: bold;">•</span>
+                                                <span>如何按顺序对应到历史事件，难度极大</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4 style="color: var(--tesla-red); margin-bottom: 1rem; display: flex; align-items: center;">
+                                            <span style="margin-right: 0.5rem;">🔗</span>
+                                            逻辑关系复杂性
+                                        </h4>
+                                        <ul style="list-style: none; padding: 0; margin: 0;">
+                                            <li style="margin: 0.8rem 0; display: flex; align-items: flex-start;">
+                                                <span style="color: var(--tesla-red); margin-right: 0.5rem; font-weight: bold;">•</span>
+                                                <span>64卦整体逻辑相对较弱</span>
+                                            </li>
+                                            <li style="margin: 0.8rem 0; display: flex; align-items: flex-start;">
+                                                <span style="color: var(--tesla-red); margin-right: 0.5rem; font-weight: bold;">•</span>
+                                                <span>6爻之间的逻辑关系更加复杂</span>
+                                            </li>
+                                            <li style="margin: 0.8rem 0; display: flex; align-items: flex-start;">
+                                                <span style="color: var(--tesla-red); margin-right: 0.5rem; font-weight: bold;">•</span>
+                                                <span>易经文字晦涩难懂，需要现代化表达</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div style="grid-column: 1 / -1;">
+                                        <h4 style="color: var(--tesla-red); margin-bottom: 1rem; display: flex; align-items: center;">
+                                            <span style="margin-right: 0.5rem;">💧</span>
+                                            润物无声的表达挑战
+                                        </h4>
+                                        <p style="margin: 0; opacity: 0.9; font-size: 1rem; line-height: 1.6;">
+                                            读者不喜欢说教，如何在小说中以润物无声的方式讲清楚易经的深刻含义，让读者在故事中自然领悟易经智慧，这是一个巨大的创作挑战。
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 第二层：小说构思的难度 -->
+                        <div class="challenge-section" style="margin-bottom: 4rem;">
+                            <div style="display: flex; align-items: center; margin-bottom: 2rem;">
+                                <div style="background: var(--tesla-red); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.5rem; margin-right: 2rem; box-shadow: 0 4px 20px rgba(227, 25, 55, 0.4);">2</div>
+                                <div>
+                                    <h3 style="margin: 0; font-size: 1.8rem; color: var(--tesla-red);">小说构思的难度</h3>
+                                    <p style="margin: 0.5rem 0 0 0; opacity: 0.8; font-size: 1.1rem;">Novel Conception Challenges</p>
+                                </div>
                             </div>
 
-                            <!-- 第二版 -->
-                            <div class="version-card" style="text-align: center;">
-                                <div style="background: rgba(227, 25, 55, 0.1); border-radius: 1rem; padding: 1.5rem; border: 2px solid var(--tesla-red);">
-                                    <h4 style="color: var(--tesla-red); margin-bottom: 1rem; font-size: 1.2rem;">第二版 ✨</h4>
-                                    <div style="margin-bottom: 1rem;">
-                                        <img src="0、第二版.jpg" alt="第二版设计" style="width: 100%; max-width: 300px; border-radius: 8px; box-shadow: 0 4px 20px rgba(227, 25, 55, 0.4); transition: transform 0.3s ease;">
+                            <div class="card" style="background: rgba(227, 25, 55, 0.05); border: 2px solid rgba(227, 25, 55, 0.2);">
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                                    <div>
+                                        <h4 style="color: var(--tesla-red); margin-bottom: 1rem; display: flex; align-items: center;">
+                                            <span style="margin-right: 0.5rem;">🏗️</span>
+                                            结构组织挑战
+                                        </h4>
+                                        <ul style="list-style: none; padding: 0; margin: 0;">
+                                            <li style="margin: 0.8rem 0; display: flex; align-items: flex-start;">
+                                                <span style="color: var(--tesla-red); margin-right: 0.5rem; font-weight: bold;">•</span>
+                                                <span>64卦、386爻如何组织才能让读者理解</span>
+                                            </li>
+                                            <li style="margin: 0.8rem 0; display: flex; align-items: flex-start;">
+                                                <span style="color: var(--tesla-red); margin-right: 0.5rem; font-weight: bold;">•</span>
+                                                <span>历史事件与卦义必须符合，不能牵强附会</span>
+                                            </li>
+                                            <li style="margin: 0.8rem 0; display: flex; align-items: flex-start;">
+                                                <span style="color: var(--tesla-red); margin-right: 0.5rem; font-weight: bold;">•</span>
+                                                <span>横跨100年的时间跨度设计</span>
+                                            </li>
+                                        </ul>
                                     </div>
-                                    <p style="font-size: 0.9rem; opacity: 0.8; margin: 0;">优化后的最终版本</p>
+                                    <div>
+                                        <h4 style="color: var(--tesla-red); margin-bottom: 1rem; display: flex; align-items: center;">
+                                            <span style="margin-right: 0.5rem;">👨‍👩‍👧‍👦</span>
+                                            三代人物设计
+                                        </h4>
+                                        <ul style="list-style: none; padding: 0; margin: 0;">
+                                            <li style="margin: 0.8rem 0; display: flex; align-items: flex-start;">
+                                                <span style="color: var(--tesla-red); margin-right: 0.5rem; font-weight: bold;">•</span>
+                                                <span>三代人如何分配64卦、386爻</span>
+                                            </li>
+                                            <li style="margin: 0.8rem 0; display: flex; align-items: flex-start;">
+                                                <span style="color: var(--tesla-red); margin-right: 0.5rem; font-weight: bold;">•</span>
+                                                <span>每代人的精神内核是什么</span>
+                                            </li>
+                                            <li style="margin: 0.8rem 0; display: flex; align-items: flex-start;">
+                                                <span style="color: var(--tesla-red); margin-right: 0.5rem; font-weight: bold;">•</span>
+                                                <span>代际传承的逻辑设计</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 第三层：价值观的严格把控 -->
+                        <div class="challenge-section" style="margin-bottom: 4rem;">
+                            <div style="display: flex; align-items: center; margin-bottom: 2rem;">
+                                <div style="background: var(--tesla-red); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.5rem; margin-right: 2rem; box-shadow: 0 4px 20px rgba(227, 25, 55, 0.4);">3</div>
+                                <div>
+                                    <h3 style="margin: 0; font-size: 1.8rem; color: var(--tesla-red);">价值观的严格把控</h3>
+                                    <p style="margin: 0.5rem 0 0 0; opacity: 0.8; font-size: 1.1rem;">Strict Value System Control</p>
+                                </div>
+                            </div>
+
+                            <div class="card" style="background: rgba(227, 25, 55, 0.05); border: 2px solid rgba(227, 25, 55, 0.2);">
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                                    <div>
+                                        <h4 style="color: var(--tesla-red); margin-bottom: 1rem; display: flex; align-items: center;">
+                                            <span style="margin-right: 0.5rem;">🇨🇳</span>
+                                            家国情怀表达
+                                        </h4>
+                                        <ul style="list-style: none; padding: 0; margin: 0;">
+                                            <li style="margin: 0.8rem 0; display: flex; align-items: flex-start;">
+                                                <span style="color: var(--tesla-red); margin-right: 0.5rem; font-weight: bold;">•</span>
+                                                <span>体现中国人民从建国后走向伟大复兴的历程</span>
+                                            </li>
+                                            <li style="margin: 0.8rem 0; display: flex; align-items: flex-start;">
+                                                <span style="color: var(--tesla-red); margin-right: 0.5rem; font-weight: bold;">•</span>
+                                                <span>展现一路的艰辛与困难，给读者启发</span>
+                                            </li>
+                                            <li style="margin: 0.8rem 0; display: flex; align-items: flex-start;">
+                                                <span style="color: var(--tesla-red); margin-right: 0.5rem; font-weight: bold;">•</span>
+                                                <span>从爱国家升华为爱人类的境界</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4 style="color: var(--tesla-red); margin-bottom: 1rem; display: flex; align-items: center;">
+                                            <span style="margin-right: 0.5rem;">🌍</span>
+                                            大变局思考
+                                        </h4>
+                                        <ul style="list-style: none; padding: 0; margin: 0;">
+                                            <li style="margin: 0.8rem 0; display: flex; align-items: flex-start;">
+                                                <span style="color: var(--tesla-red); margin-right: 0.5rem; font-weight: bold;">•</span>
+                                                <span>百年未有大变局中的人类思考</span>
+                                            </li>
+                                            <li style="margin: 0.8rem 0; display: flex; align-items: flex-start;">
+                                                <span style="color: var(--tesla-red); margin-right: 0.5rem; font-weight: bold;">•</span>
+                                                <span>国家、民族、个体的关系探讨</span>
+                                            </li>
+                                            <li style="margin: 0.8rem 0; display: flex; align-items: flex-start;">
+                                                <span style="color: var(--tesla-red); margin-right: 0.5rem; font-weight: bold;">•</span>
+                                                <span>易经如何贡献中国智慧</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 第四层：近代史的安全问题 -->
+                        <div class="challenge-section" style="margin-bottom: 4rem;">
+                            <div style="display: flex; align-items: center; margin-bottom: 2rem;">
+                                <div style="background: var(--tesla-red); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.5rem; margin-right: 2rem; box-shadow: 0 4px 20px rgba(227, 25, 55, 0.4);">4</div>
+                                <div>
+                                    <h3 style="margin: 0; font-size: 1.8rem; color: var(--tesla-red);">近代史的安全问题</h3>
+                                    <p style="margin: 0.5rem 0 0 0; opacity: 0.8; font-size: 1.1rem;">Modern History Safety Concerns</p>
+                                </div>
+                            </div>
+
+                            <div class="card" style="background: rgba(227, 25, 55, 0.05); border: 2px solid rgba(227, 25, 55, 0.2);">
+                                <div style="text-align: center;">
+                                    <h4 style="color: var(--tesla-red); margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center;">
+                                        <span style="margin-right: 0.5rem;">⚠️</span>
+                                        政治敏感话题的处理挑战
+                                    </h4>
+                                    <p style="margin: 0; opacity: 0.9; font-size: 1.1rem; line-height: 1.6; max-width: 800px; margin: 0 auto;">
+                                        讲述近代史不可避免会遇到政治敏感的话题，如何在保持历史真实性的同时，既不触碰敏感红线，又能深刻表达主题思想，这是创作过程中的重大考验。需要在艺术表达和政治安全之间找到完美的平衡点。
+                                    </p>
                                 </div>
                             </div>
                         </div>
 
                     </div>
 
-                    <div class="chart-container">
-                        <div id="projectChart" style="width: 100%; height: 100%;"></div>
-                    </div>
+
+
+
                 </div>
             </div>
         </section>
@@ -661,7 +865,42 @@
                             <div class="small-text">智能协作</div>
                         </div>
                     </div>
+   <!-- 版本演进展示 -->
+                    <div style="margin: 4rem 0;">
+                        <div class="medium-text highlight" style="text-align: center; margin-bottom: 2rem;">版本演进历程</div>
+                        <div class="small-text" style="text-align: center; margin-bottom: 3rem; opacity: 0.8;">Version Evolution Journey</div>
 
+                        <div style="display: grid; grid-template-columns: 1fr auto 1fr; gap: 2rem; align-items: center; max-width: 1000px; margin: 0 auto;">
+                            <!-- 第一版 -->
+                            <div class="version-card" style="text-align: center;">
+                                <div style="background: rgba(255, 255, 255, 0.05); border-radius: 1rem; padding: 1.5rem; border: 1px solid rgba(255, 255, 255, 0.1);">
+                                    <h4 style="color: var(--tesla-red); margin-bottom: 1rem; font-size: 1.2rem;">第一版</h4>
+                                    <div style="margin-bottom: 1rem;">
+                                        <img src="0、第一版.jpg" alt="第一版设计" style="width: 100%; max-width: 300px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.3); transition: transform 0.3s ease;">
+                                    </div>
+                                    <p style="font-size: 0.9rem; opacity: 0.8; margin: 0;">初始设计概念</p>
+                                </div>
+                            </div>
+
+                            <!-- 演进箭头 -->
+                            <div style="text-align: center;">
+                                <div style="font-size: 2rem; color: var(--tesla-red); animation: pulse 2s infinite;">→</div>
+                                <div style="font-size: 0.8rem; margin-top: 0.5rem; opacity: 0.6;">演进</div>
+                            </div>
+
+                            <!-- 第二版 -->
+                            <div class="version-card" style="text-align: center;">
+                                <div style="background: rgba(227, 25, 55, 0.1); border-radius: 1rem; padding: 1.5rem; border: 2px solid var(--tesla-red);">
+                                    <h4 style="color: var(--tesla-red); margin-bottom: 1rem; font-size: 1.2rem;">第二版 ✨</h4>
+                                    <div style="margin-bottom: 1rem;">
+                                        <img src="0、第二版.jpg" alt="第二版设计" style="width: 100%; max-width: 300px; border-radius: 8px; box-shadow: 0 4px 20px rgba(227, 25, 55, 0.4); transition: transform 0.3s ease;">
+                                    </div>
+                                    <p style="font-size: 0.9rem; opacity: 0.8; margin: 0;">优化后的最终版本</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
 
                 </div>
             </div>
@@ -1027,7 +1266,7 @@
                         <div class="workflow-details">
 
                             <!-- 第一步 -->
-                            <div class="workflow-step" style="margin-bottom: 3rem; background: rgba(255, 255, 255, 0.02); border-radius: 1rem; border: 1px solid rgba(227, 25, 55, 0.2); overflow: hidden;">
+                            <div class="workflow-step" style="margin-bottom: 3rem; background: rgba(227, 25, 55, 0.03); border-radius: 1rem; border: 1px solid rgba(227, 25, 55, 0.2); overflow: hidden;">
                                 <!-- 步骤头部 -->
                                 <div style="background: linear-gradient(135deg, rgba(227, 25, 55, 0.1) 0%, rgba(227, 25, 55, 0.05) 100%); padding: 1.5rem; border-bottom: 1px solid rgba(227, 25, 55, 0.2);">
                                     <div style="display: flex; align-items: center;">
@@ -1090,7 +1329,7 @@
                             </div>
 
                             <!-- 第二步 -->
-                            <div class="workflow-step" style="margin-bottom: 3rem; background: rgba(255, 255, 255, 0.02); border-radius: 1rem; border: 1px solid rgba(227, 25, 55, 0.2); overflow: hidden;">
+                            <div class="workflow-step" style="margin-bottom: 3rem; background: rgba(255, 255, 255, 0.02); border-radius: 1rem; border: 1px solid rgba(255, 255, 255, 0.1); overflow: hidden;">
                                 <!-- 步骤头部 -->
                                 <div style="background: linear-gradient(135deg, rgba(227, 25, 55, 0.1) 0%, rgba(227, 25, 55, 0.05) 100%); padding: 1.5rem; border-bottom: 1px solid rgba(227, 25, 55, 0.2);">
                                     <div style="display: flex; align-items: center;">
@@ -1153,7 +1392,7 @@
                             </div>
 
                             <!-- 第三步 -->
-                            <div class="workflow-step" style="margin-bottom: 3rem; background: rgba(255, 255, 255, 0.02); border-radius: 1rem; border: 1px solid rgba(227, 25, 55, 0.2); overflow: hidden;">
+                            <div class="workflow-step" style="margin-bottom: 3rem; background: rgba(227, 25, 55, 0.03); border-radius: 1rem; border: 1px solid rgba(227, 25, 55, 0.2); overflow: hidden;">
                                 <!-- 步骤头部 -->
                                 <div style="background: linear-gradient(135deg, rgba(227, 25, 55, 0.1) 0%, rgba(227, 25, 55, 0.05) 100%); padding: 1.5rem; border-bottom: 1px solid rgba(227, 25, 55, 0.2);">
                                     <div style="display: flex; align-items: center;">
@@ -1216,7 +1455,7 @@
                             </div>
 
                             <!-- 第四步 -->
-                            <div class="workflow-step" style="margin-bottom: 3rem; background: rgba(255, 255, 255, 0.02); border-radius: 1rem; border: 1px solid rgba(227, 25, 55, 0.2); overflow: hidden;">
+                            <div class="workflow-step" style="margin-bottom: 3rem; background: rgba(255, 255, 255, 0.02); border-radius: 1rem; border: 1px solid rgba(255, 255, 255, 0.1); overflow: hidden;">
                                 <!-- 步骤头部 -->
                                 <div style="background: linear-gradient(135deg, rgba(227, 25, 55, 0.1) 0%, rgba(227, 25, 55, 0.05) 100%); padding: 1.5rem; border-bottom: 1px solid rgba(227, 25, 55, 0.2);">
                                     <div style="display: flex; align-items: center;">
@@ -1279,7 +1518,7 @@
                             </div>
 
                             <!-- 第五步 -->
-                            <div class="workflow-step" style="margin-bottom: 3rem; background: rgba(255, 255, 255, 0.02); border-radius: 1rem; border: 1px solid rgba(227, 25, 55, 0.2); overflow: hidden;">
+                            <div class="workflow-step" style="margin-bottom: 3rem; background: rgba(227, 25, 55, 0.03); border-radius: 1rem; border: 1px solid rgba(227, 25, 55, 0.2); overflow: hidden;">
                                 <!-- 步骤头部 -->
                                 <div style="background: linear-gradient(135deg, rgba(227, 25, 55, 0.1) 0%, rgba(227, 25, 55, 0.05) 100%); padding: 1.5rem; border-bottom: 1px solid rgba(227, 25, 55, 0.2);">
                                     <div style="display: flex; align-items: center;">
@@ -1342,7 +1581,7 @@
                             </div>
 
                             <!-- 第六步 -->
-                            <div class="workflow-step" style="margin-bottom: 3rem; background: rgba(255, 255, 255, 0.02); border-radius: 1rem; border: 1px solid rgba(227, 25, 55, 0.2); overflow: hidden;">
+                            <div class="workflow-step" style="margin-bottom: 3rem; background: rgba(255, 255, 255, 0.02); border-radius: 1rem; border: 1px solid rgba(255, 255, 255, 0.1); overflow: hidden;">
                                 <!-- 步骤头部 -->
                                 <div style="background: linear-gradient(135deg, rgba(227, 25, 55, 0.1) 0%, rgba(227, 25, 55, 0.05) 100%); padding: 1.5rem; border-bottom: 1px solid rgba(227, 25, 55, 0.2);">
                                     <div style="display: flex; align-items: center;">
@@ -1455,15 +1694,6 @@
                                         </ul>
                                     </div>
 
-                                    <div style="margin-bottom: 2rem;">
-                                        <h5 style="color: #ff6b6b; margin-bottom: 1rem;">低效的交互模式：</h5>
-                                        <ul style="list-style: none; padding: 0;">
-                                            <li style="margin: 0.5rem 0;">• 用户需要记忆复杂的提示词模板</li>
-                                            <li style="margin: 0.5rem 0;">• 每个任务都要重新选择和配置工具</li>
-                                            <li style="margin: 0.5rem 0;">• 缺乏上下文记忆，重复性工作量巨大</li>
-                                            <li style="margin: 0.5rem 0;">• 错误率高，需要频繁调试和修正</li>
-                                        </ul>
-                                    </div>
 
                                     <div>
                                         <h5 style="color: #ff6b6b; margin-bottom: 1rem;">质量控制的噩梦：</h5>
