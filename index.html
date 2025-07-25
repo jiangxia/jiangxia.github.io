@@ -132,7 +132,7 @@
         }
 
         .small-text {
-            font-size: clamp(0.8rem, 1.5vw, 1rem);
+            font-size: clamp(1rem, 1.5vw, 1.2rem);
             font-weight: 300;
             opacity: 0.7;
             font-family: 'Courier New', monospace;
@@ -252,6 +252,18 @@
             background: rgba(255, 255, 255, 0.08) !important;
         }
 
+        /* 确保最小字体大小 */
+        .card p, .card li, .card span,
+        .challenge-section p, .challenge-section li,
+        .workflow-step p, .workflow-step li,
+        .version-card p,
+        div[style*="font-size: 0.8rem"],
+        div[style*="font-size: 0.9rem"],
+        p[style*="font-size: 0.8rem"],
+        p[style*="font-size: 0.9rem"] {
+            font-size: 1rem !important;
+        }
+
         .card-icon {
             font-size: 2rem;
             color: var(--tesla-red);
@@ -265,7 +277,7 @@
         }
 
         .card-text {
-            font-size: 0.9rem;
+            font-size: 1rem;
             opacity: 0.8;
         }
 
@@ -307,7 +319,7 @@
         }
 
         .step-content p {
-            font-size: 0.85rem;
+            font-size: 1rem;
             opacity: 0.8;
             margin-bottom: 0.3rem;
             line-height: 1.4;
@@ -878,14 +890,14 @@
                                     <div style="margin-bottom: 1rem;">
                                         <img src="0、第一版.jpg" alt="第一版设计" style="width: 100%; max-width: 300px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.3); transition: transform 0.3s ease;">
                                     </div>
-                                    <p style="font-size: 0.9rem; opacity: 0.8; margin: 0;">初始设计概念</p>
+                                    <p style="font-size: 1rem; opacity: 0.8; margin: 0;">初始设计概念</p>
                                 </div>
                             </div>
 
                             <!-- 演进箭头 -->
                             <div style="text-align: center;">
                                 <div style="font-size: 2rem; color: var(--tesla-red); animation: pulse 2s infinite;">→</div>
-                                <div style="font-size: 0.8rem; margin-top: 0.5rem; opacity: 0.6;">演进</div>
+                                <div style="font-size: 1rem; margin-top: 0.5rem; opacity: 0.6;">演进</div>
                             </div>
 
                             <!-- 第二版 -->
@@ -895,7 +907,7 @@
                                     <div style="margin-bottom: 1rem;">
                                         <img src="0、第二版.jpg" alt="第二版设计" style="width: 100%; max-width: 300px; border-radius: 8px; box-shadow: 0 4px 20px rgba(227, 25, 55, 0.4); transition: transform 0.3s ease;">
                                     </div>
-                                    <p style="font-size: 0.9rem; opacity: 0.8; margin: 0;">优化后的最终版本</p>
+                                    <p style="font-size: 1rem; opacity: 0.8; margin: 0;">优化后的最终版本</p>
                                 </div>
                             </div>
                         </div>
@@ -949,7 +961,7 @@
                         <div class="card">
                             <div class="card-icon">🔄</div>
                             <h3 class="card-title">六步标准工作流</h3>
-                            <div style="font-size: 0.8rem; margin: 0.5rem 0; font-family: monospace; ">
+                            <div style="font-size: 1rem; margin: 0.5rem 0; font-family: monospace; ">
                                 【世界观设定】→【一句话剧情】→【全景故事线】→【章节规划】→【创作】→【修订】
                             </div>
                         </div>
@@ -1959,7 +1971,7 @@
                             { value: 64, name: '对应卦数', itemStyle: { color: '#ff6b6b' } },
                             { value: 100, name: '历史跨度(年)', itemStyle: { color: '#ff9999' } }
                         ],
-                        label: { color: '#ffffff', fontSize: 12 },
+                        label: { color: '#ffffff', fontSize: 14 },
                         labelLine: { lineStyle: { color: '#ffffff' } }
                     }]
                 });
@@ -1976,12 +1988,12 @@
                     xAxis: {
                         type: 'category',
                         data: ['时间成本', '一致性', '构思难度', '个人困境'],
-                        axisLabel: { color: '#ffffff', fontSize: 10 },
+                        axisLabel: { color: '#ffffff', fontSize: 14 },
                         axisLine: { lineStyle: { color: '#E31937' } }
                     },
                     yAxis: {
                         type: 'value',
-                        axisLabel: { color: '#ffffff', fontSize: 10 },
+                        axisLabel: { color: '#ffffff', fontSize: 14 },
                         axisLine: { lineStyle: { color: '#E31937' } },
                         splitLine: { lineStyle: { color: 'rgba(227, 25, 55, 0.3)' } }
                     },
@@ -2008,17 +2020,17 @@
                     tooltip: { trigger: 'axis' },
                     legend: {
                         data: ['传统创作', 'PromptX系统'],
-                        textStyle: { color: '#ffffff', fontSize: 12 }
+                        textStyle: { color: '#ffffff', fontSize: 14 }
                     },
                     xAxis: {
                         type: 'category',
                         data: ['时间', '错误率', '一致性', '完成度'],
-                        axisLabel: { color: '#ffffff', fontSize: 10 },
+                        axisLabel: { color: '#ffffff', fontSize: 14 },
                         axisLine: { lineStyle: { color: '#E31937' } }
                     },
                     yAxis: {
                         type: 'value',
-                        axisLabel: { color: '#ffffff', fontSize: 10 },
+                        axisLabel: { color: '#ffffff', fontSize: 14 },
                         axisLine: { lineStyle: { color: '#E31937' } },
                         splitLine: { lineStyle: { color: 'rgba(227, 25, 55, 0.3)' } }
                     },
@@ -2065,7 +2077,7 @@
                             { source: '系统总监', target: '文本创作师' },
                             { source: '系统总监', target: '内容优化师' }
                         ],
-                        label: { show: true, color: '#ffffff', fontSize: 10 },
+                        label: { show: true, color: '#ffffff', fontSize: 14 },
                         force: { repulsion: 500 }
                     }]
                 });
@@ -2082,12 +2094,12 @@
                     xAxis: {
                         type: 'category',
                         data: ['世界观', '剧情', '故事线', '章节', '创作', '检查'],
-                        axisLabel: { color: '#ffffff', fontSize: 10 },
+                        axisLabel: { color: '#ffffff', fontSize: 14 },
                         axisLine: { lineStyle: { color: '#E31937' } }
                     },
                     yAxis: {
                         type: 'value',
-                        axisLabel: { color: '#ffffff', fontSize: 10 },
+                        axisLabel: { color: '#ffffff', fontSize: 14 },
                         axisLine: { lineStyle: { color: '#E31937' } },
                         splitLine: { lineStyle: { color: 'rgba(227, 25, 55, 0.3)' } }
                     },
