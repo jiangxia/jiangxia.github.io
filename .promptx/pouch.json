@@ -1,0 +1,63 @@
+{
+  "currentState": "role_activated_with_memory",
+  "stateHistory": [
+    {
+      "from": "initial",
+      "command": "init",
+      "timestamp": "2025-07-25T12:16:37.460Z",
+      "args": [
+        {
+          "workingDirectory": "/Users/huangyanxiang/Desktop/黄明易/1、项目/开发/分享",
+          "ideType": "cursor"
+        }
+      ]
+    },
+    {
+      "from": "initialized",
+      "command": "action",
+      "timestamp": "2025-07-25T12:16:42.077Z",
+      "args": [
+        "frontend-architect"
+      ]
+    },
+    {
+      "from": "role_activated_with_memory",
+      "command": "welcome",
+      "timestamp": "2025-07-25T12:16:50.283Z",
+      "args": []
+    },
+    {
+      "from": "service_discovery",
+      "command": "action",
+      "timestamp": "2025-07-25T12:26:44.020Z",
+      "args": [
+        "noface"
+      ]
+    },
+    {
+      "from": "role_activated_with_memory",
+      "command": "learn",
+      "timestamp": "2025-07-25T12:26:53.203Z",
+      "args": [
+        "@file:///Users/huangyanxiang/Desktop/黄明易/1、项目/开发/.promptx/resource/role/frontend-architect"
+      ]
+    },
+    {
+      "from": "learn_error",
+      "command": "learn",
+      "timestamp": "2025-07-25T12:27:01.609Z",
+      "args": [
+        "@file:///Users/huangyanxiang/Desktop/黄明易/1、项目/开发/.promptx/resource/role/frontend-architect/frontend-architect.role.md"
+      ]
+    },
+    {
+      "from": "learn_error",
+      "command": "action",
+      "timestamp": "2025-07-25T12:28:41.529Z",
+      "args": [
+        "frontend-architect"
+      ]
+    }
+  ],
+  "lastUpdated": "2025-07-25T12:28:41.576Z"
+}
