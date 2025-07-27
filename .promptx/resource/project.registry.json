@@ -4,14 +4,133 @@
   "metadata": {
     "version": "2.0.0",
     "description": "project 级资源注册表",
-    "createdAt": "2025-07-25T12:16:37.483Z",
-    "updatedAt": "2025-07-25T12:16:37.484Z",
-    "resourceCount": 0
+    "createdAt": "2025-07-27T02:53:20.611Z",
+    "updatedAt": "2025-07-27T02:53:20.619Z",
+    "resourceCount": 8
   },
-  "resources": [],
+  "resources": [
+    {
+      "id": "audience-engagement",
+      "source": "project",
+      "protocol": "execution",
+      "name": "Audience Engagement 执行模式",
+      "description": "执行模式，定义具体的行为模式",
+      "reference": "@project://.promptx/resource/role/speech-coach/execution/audience-engagement.execution.md",
+      "metadata": {
+        "createdAt": "2025-07-27T02:53:20.613Z",
+        "updatedAt": "2025-07-27T02:53:20.613Z",
+        "scannedAt": "2025-07-27T02:53:20.613Z",
+        "path": "role/speech-coach/execution/audience-engagement.execution.md"
+      }
+    },
+    {
+      "id": "logical-review",
+      "source": "project",
+      "protocol": "execution",
+      "name": "Logical Review 执行模式",
+      "description": "执行模式，定义具体的行为模式",
+      "reference": "@project://.promptx/resource/role/speech-coach/execution/logical-review.execution.md",
+      "metadata": {
+        "createdAt": "2025-07-27T02:53:20.614Z",
+        "updatedAt": "2025-07-27T02:53:20.614Z",
+        "scannedAt": "2025-07-27T02:53:20.614Z",
+        "path": "role/speech-coach/execution/logical-review.execution.md"
+      }
+    },
+    {
+      "id": "presentation-optimization",
+      "source": "project",
+      "protocol": "execution",
+      "name": "Presentation Optimization 执行模式",
+      "description": "执行模式，定义具体的行为模式",
+      "reference": "@project://.promptx/resource/role/speech-coach/execution/presentation-optimization.execution.md",
+      "metadata": {
+        "createdAt": "2025-07-27T02:53:20.617Z",
+        "updatedAt": "2025-07-27T02:53:20.617Z",
+        "scannedAt": "2025-07-27T02:53:20.617Z",
+        "path": "role/speech-coach/execution/presentation-optimization.execution.md"
+      }
+    },
+    {
+      "id": "speech-coaching-workflow",
+      "source": "project",
+      "protocol": "execution",
+      "name": "Speech Coaching Workflow 执行模式",
+      "description": "执行模式，定义具体的行为模式",
+      "reference": "@project://.promptx/resource/role/speech-coach/execution/speech-coaching-workflow.execution.md",
+      "metadata": {
+        "createdAt": "2025-07-27T02:53:20.618Z",
+        "updatedAt": "2025-07-27T02:53:20.618Z",
+        "scannedAt": "2025-07-27T02:53:20.618Z",
+        "path": "role/speech-coach/execution/speech-coaching-workflow.execution.md"
+      }
+    },
+    {
+      "id": "speech-coach",
+      "source": "project",
+      "protocol": "role",
+      "name": "Speech Coach 角色",
+      "description": "专业角色，提供特定领域的专业能力",
+      "reference": "@project://.promptx/resource/role/speech-coach/speech-coach.role.md",
+      "metadata": {
+        "createdAt": "2025-07-27T02:53:20.618Z",
+        "updatedAt": "2025-07-27T02:53:20.618Z",
+        "scannedAt": "2025-07-27T02:53:20.618Z",
+        "path": "role/speech-coach/speech-coach.role.md"
+      }
+    },
+    {
+      "id": "logical-analysis",
+      "source": "project",
+      "protocol": "thought",
+      "name": "Logical Analysis 思维模式",
+      "description": "思维模式，指导AI的思考方式",
+      "reference": "@project://.promptx/resource/role/speech-coach/thought/logical-analysis.thought.md",
+      "metadata": {
+        "createdAt": "2025-07-27T02:53:20.619Z",
+        "updatedAt": "2025-07-27T02:53:20.619Z",
+        "scannedAt": "2025-07-27T02:53:20.619Z",
+        "path": "role/speech-coach/thought/logical-analysis.thought.md"
+      }
+    },
+    {
+      "id": "speech-psychology",
+      "source": "project",
+      "protocol": "thought",
+      "name": "Speech Psychology 思维模式",
+      "description": "思维模式，指导AI的思考方式",
+      "reference": "@project://.promptx/resource/role/speech-coach/thought/speech-psychology.thought.md",
+      "metadata": {
+        "createdAt": "2025-07-27T02:53:20.619Z",
+        "updatedAt": "2025-07-27T02:53:20.619Z",
+        "scannedAt": "2025-07-27T02:53:20.619Z",
+        "path": "role/speech-coach/thought/speech-psychology.thought.md"
+      }
+    },
+    {
+      "id": "technical-communication",
+      "source": "project",
+      "protocol": "thought",
+      "name": "Technical Communication 思维模式",
+      "description": "思维模式，指导AI的思考方式",
+      "reference": "@project://.promptx/resource/role/speech-coach/thought/technical-communication.thought.md",
+      "metadata": {
+        "createdAt": "2025-07-27T02:53:20.619Z",
+        "updatedAt": "2025-07-27T02:53:20.619Z",
+        "scannedAt": "2025-07-27T02:53:20.619Z",
+        "path": "role/speech-coach/thought/technical-communication.thought.md"
+      }
+    }
+  ],
   "stats": {
-    "totalResources": 0,
-    "byProtocol": {},
-    "bySource": {}
+    "totalResources": 8,
+    "byProtocol": {
+      "execution": 4,
+      "role": 1,
+      "thought": 3
+    },
+    "bySource": {
+      "project": 8
+    }
   }
 }

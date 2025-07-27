@@ -1359,27 +1359,118 @@
             </div>
         </section>
 
-        <!-- Section 8: 设计理念解答 -->
-        <section class="section" id="section-7">
+        <!-- Section 17.5: 实战演示 - 使用女娲创建角色 -->
+        <section class="section" id="section-17-5">
             <div class="aurora-bg"></div>
             <div class="container">
                 <div class="content">
-                    <div class="large-text highlight">设计理念解答</div>
-                    <div class="medium-text">为什么规划要分三个步骤？</div>
-                    <div class="small-text">Design Philosophy: Why Three Planning Steps?</div>
+                    <div class="large-text highlight">实战演示</div>
+                    <div class="medium-text">使用女娲创建世界观设计师</div>
+                    <div class="small-text">Live Demo: Creating World Designer with Nuwa</div>
 
-                    <div class="card" style="margin-top: 3rem; max-width: 800px; margin-left: auto; margin-right: auto; text-align: center;">
-                        <h3 style="color: var(--tesla-red); margin-bottom: 2rem; font-size: 1.5rem;">Q：为什么不能一步到位直接生成章节规划？</h3>
+                    <div style="margin-top: 3rem;">
+                        <!-- 演示说明 -->
+                        <div style="text-align: center; margin-bottom: 3rem;">
+                            <div style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 1rem; border: 1px solid rgba(227, 25, 55, 0.2); max-width: 800px; margin: 0 auto;">
+                                <h3 style="color: var(--tesla-red); margin-bottom: 1rem;">💡 核心理念</h3>
+                                <p style="font-size: 1.1rem; line-height: 1.6; margin: 0;">
+                                    只需要一段简单的提示词，女娲就能帮你创建专业的AI角色<br>
+                                    <span style="color: var(--tesla-red); font-weight: bold;">无需复杂配置，零技术门槛</span>
+                                </p>
+                            </div>
+                        </div>
 
-                        <div style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 1rem; border-left: 4px solid var(--tesla-red);">
-                            <h4 style="color: var(--tesla-red); margin-bottom: 1.5rem; font-size: 1.3rem;">A：基于大模型技术限制的必要设计</h4>
-                            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">
-                                《行易》全景故事线生成了5.2万字，已接近大模型上下文极限。
-                                渐进式设计确保每个层级都有独立的质量检查机会，
-                                避免长文本生成的前后逻辑不一致问题。
-                            </p>
-                            <div style="background: var(--tesla-red); color: white; padding: 1rem; border-radius: 0.5rem; font-weight: 600;">
-                                化繁为简，控制质量
+                        <!-- 三步演示流程 -->
+                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 3rem;">
+                            <!-- 步骤1 -->
+                            <div class="card" style="text-align: center; background: rgba(255, 255, 255, 0.03); border: 2px solid rgba(227, 25, 55, 0.3);">
+                                <div style="background: var(--tesla-red); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.5rem; margin: 0 auto 1.5rem auto; box-shadow: 0 4px 15px rgba(227, 25, 55, 0.4);">1</div>
+                                <h3 style="color: var(--tesla-red); margin-bottom: 1rem;">激活女娲</h3>
+                                <div style="background: rgba(0, 0, 0, 0.3); padding: 1rem; border-radius: 0.5rem; font-family: monospace; margin-bottom: 1rem;">
+
+                                </div>
+                                <p style="font-size: 0.9rem; opacity: 0.8;">启动AI角色创造专家</p>
+                            </div>
+
+                            <!-- 步骤2 -->
+                            <div class="card" style="text-align: center; background: rgba(255, 255, 255, 0.03); border: 2px solid rgba(227, 25, 55, 0.3);">
+                                <div style="background: var(--tesla-red); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.5rem; margin: 0 auto 1.5rem auto; box-shadow: 0 4px 15px rgba(227, 25, 55, 0.4);">2</div>
+                                <h3 style="color: var(--tesla-red); margin-bottom: 1rem;">描述需求</h3>
+                                <div style="background: rgba(0, 0, 0, 0.3); padding: 1rem; border-radius: 0.5rem; font-family: monospace; margin-bottom: 1rem; font-size: 0.8rem;">
+                                    <code style="color: #88ccff;">"我需要一个世界观设计师，<br>专门负责小说的世界观构建，请遵循MECE原则，从‘人-时间-空间’三个角度设定"</code>
+                                </div>
+                                <p style="font-size: 0.9rem; opacity: 0.8;">用自然语言描述角色需求</p>
+                            </div>
+
+                            <!-- 步骤3 -->
+                            <div class="card" style="text-align: center; background: rgba(255, 255, 255, 0.03); border: 2px solid rgba(227, 25, 55, 0.3);">
+                                <div style="background: var(--tesla-red); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.5rem; margin: 0 auto 1.5rem auto; box-shadow: 0 4px 15px rgba(227, 25, 55, 0.4);">3</div>
+                                <h3 style="color: var(--tesla-red); margin-bottom: 1rem;">自动生成</h3>
+                                <div style="background: rgba(0, 0, 0, 0.3); padding: 1rem; border-radius: 0.5rem; margin-bottom: 1rem;">
+                                    <div style="color: #ffaa00;">✨ 角色定义</div>
+                                    <div style="color: #ffaa00;">🧠 专业思维</div>
+                                    <div style="color: #ffaa00;">⚡ 执行技能</div>
+                                    <div style="color: #ffaa00;">📚 知识体系</div>
+                                </div>
+                                <p style="font-size: 0.9rem; opacity: 0.8;">完整的专业角色自动创建</p>
+                            </div>
+                        </div>
+
+                        <!-- 生成结果预览 -->
+                        <div style="background: rgba(255, 255, 255, 0.03); border-radius: 1rem; border: 1px solid rgba(227, 25, 55, 0.2); overflow: hidden;">
+                            <div style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%); padding: 1.5rem; border-bottom: 1px solid rgba(227, 25, 55, 0.2);">
+                                <h3 style="color: var(--tesla-red); margin: 0; display: flex; align-items: center;">
+                                    <span style="margin-right: 0.5rem;">🎭</span>
+                                    生成的世界观设计师角色预览
+                                </h3>
+                            </div>
+                            <div style="padding: 2rem;">
+                                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem;">
+                                    <!-- 左侧：角色定义 -->
+                                    <div>
+                                        <h4 style="color: var(--tesla-red); margin-bottom: 1rem; display: flex; align-items: center;">
+                                            <span style="background: var(--tesla-red); width: 4px; height: 20px; margin-right: 0.5rem; border-radius: 2px;"></span>
+                                            👤 角色定义
+                                        </h4>
+                                        <div style="background: rgba(0, 0, 0, 0.2); padding: 1.5rem; border-radius: 0.5rem; font-family: monospace; font-size: 0.9rem; line-height: 1.6;">
+                                            <div style="color: #88ccff;">专业身份：</div>
+                                            <div style="margin-left: 1rem; color: #ffffff;">小说世界观构建专家</div>
+                                            <br>
+                                            <div style="color: #88ccff;">核心能力：</div>
+                                            <div style="margin-left: 1rem; color: #ffffff;">• MECE三维度构建方法</div>
+                                            <div style="margin-left: 1rem; color: #ffffff;">• 人物-时间-空间系统设计</div>
+                                            <div style="margin-left: 1rem; color: #ffffff;">• 创作规则制定</div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 右侧：专业技能 -->
+                                    <div>
+                                        <h4 style="color: var(--tesla-red); margin-bottom: 1rem; display: flex; align-items: center;">
+                                            <span style="background: var(--tesla-red); width: 4px; height: 20px; margin-right: 0.5rem; border-radius: 2px;"></span>
+                                            ⚡ 专业技能
+                                        </h4>
+                                        <div style="background: rgba(0, 0, 0, 0.2); padding: 1.5rem; border-radius: 0.5rem; font-family: monospace; font-size: 0.9rem; line-height: 1.6;">
+                                            <div style="color: #88ccff;">执行技能：</div>
+                                            <div style="margin-left: 1rem; color: #ffffff;">• 世界观一致性检查</div>
+                                            <div style="margin-left: 1rem; color: #ffffff;">• 人物关系网络设计</div>
+                                            <div style="margin-left: 1rem; color: #ffffff;">• 特别约定制定</div>
+                                            <br>
+                                            <div style="color: #88ccff;">知识体系：</div>
+                                            <div style="margin-left: 1rem; color: #ffffff;">• 文学创作理论</div>
+                                            <div style="margin-left: 1rem; color: #ffffff;">• 历史文化知识</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 底部说明 -->
+                                <div style="margin-top: 2rem; text-align: center; padding: 1.5rem; background: rgba(255, 255, 255, 0.05); border-radius: 0.5rem; border: 1px solid rgba(227, 25, 55, 0.2);">
+                                    <p style="margin: 0; font-size: 1rem; color: var(--tesla-red); font-weight: bold;">
+                                        🎯 就是这么简单！一句话需求 → 专业AI角色
+                                    </p>
+                                    <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem; opacity: 0.8;">
+                                        女娲会自动生成完整的角色定义、思维模式、执行技能和知识体系
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1799,6 +1890,34 @@
             </div>
         </section>
 
+           <!-- Section 8: 设计理念解答 -->
+        <section class="section" id="section-7">
+            <div class="aurora-bg"></div>
+            <div class="container">
+                <div class="content">
+                    <div class="large-text highlight">设计理念解答</div>
+                    <div class="medium-text">为什么规划要分三个步骤？</div>
+                    <div class="small-text">Design Philosophy: Why Three Planning Steps?</div>
+
+                    <div class="card" style="margin-top: 3rem; max-width: 800px; margin-left: auto; margin-right: auto; text-align: center;">
+                        <h3 style="color: var(--tesla-red); margin-bottom: 2rem; font-size: 1.5rem;">Q：为什么不能一步到位直接生成章节规划？</h3>
+
+                        <div style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 1rem; border-left: 4px solid var(--tesla-red);">
+                            <h4 style="color: var(--tesla-red); margin-bottom: 1.5rem; font-size: 1.3rem;">A：基于大模型技术限制的必要设计</h4>
+                            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">
+                                《行易》全景故事线生成了5.2万字，已接近大模型上下文极限。
+                                渐进式设计确保每个层级都有独立的质量检查机会，
+                                避免长文本生成的前后逻辑不一致问题。
+                            </p>
+                            <div style="background: var(--tesla-red); color: white; padding: 1rem; border-radius: 0.5rem; font-weight: 600;">
+                                化繁为简，控制质量
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Section 19: 世界观设定详解 -->
         <section class="section" id="section-19">
             <div class="aurora-bg"></div>
@@ -1868,73 +1987,13 @@
                             </div>
                         </div>
 
-                        <!-- 稳健性对比 -->
-                        <div style="margin-bottom: 4rem;">
-                            <h3 style="color: var(--tesla-red); font-size: 1.8rem; margin-bottom: 2rem; text-align: center;">稳健性对比：工业级 vs 作坊式</h3>
 
-                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;">
-                                <!-- 传统方式的脆弱性 -->
-                                <div class="card" style="background: rgba(255, 255, 255, 0.02);">
-                                    <h4 style="color: #ff6b6b; margin-bottom: 1.5rem;">传统方式的脆弱性</h4>
-                                    <div style="background: rgba(0, 0, 0, 0.3); padding: 1.5rem; border-radius: 0.5rem; font-family: monospace; margin-bottom: 1rem;">
-                                        <p style="margin: 0.5rem 0;">用户提示词 → AI理解 → 直接输出</p>
-                                    </div>
-                                    <ul style="list-style: none; padding: 0;">
-                                        <li style="margin: 0.5rem 0; color: #ff6b6b;">❌ 单点故障：任何环节出错都会影响最终结果</li>
-                                        <li style="margin: 0.5rem 0; color: #ff6b6b;">❌ 质量不稳定：同样的需求可能产生完全不同的结果</li>
-                                        <li style="margin: 0.5rem 0; color: #ff6b6b;">❌ 无法扩展：增加新需求需要重新设计整套流程</li>
-                                        <li style="margin: 0.5rem 0; color: #ff6b6b;">❌ 维护困难：提示词修改影响面不可控</li>
-                                    </ul>
-                                </div>
-
-                                <!-- PromptX的工业级稳健性 -->
-                                <div class="card" style="background: rgba(255, 255, 255, 0.05);">
-                                    <h4 style="color: var(--tesla-red); margin-bottom: 1.5rem;">PromptX的工业级稳健性</h4>
-                                    <div style="background: rgba(255, 255, 255, 0.05); padding: 1.5rem; border-radius: 0.5rem; font-family: monospace; margin-bottom: 1rem;">
-                                        <p style="margin: 0.5rem 0;">用户需求 → 系统总监 → 专业角色 → 质量验证 → 标准输出</p>
-                                    </div>
-                                    <ul style="list-style: none; padding: 0;">
-                                        <li style="margin: 0.5rem 0; color: var(--tesla-red);">✅ 多重保障：每个环节都有独立的质量控制</li>
-                                        <li style="margin: 0.5rem 0; color: var(--tesla-red);">✅ 故障隔离：单个角色问题不影响整体系统</li>
-                                        <li style="margin: 0.5rem 0; color: var(--tesla-red);">✅ 标准化输出：相同需求保证一致的高质量结果</li>
-                                        <li style="margin: 0.5rem 0; color: var(--tesla-red);">✅ 弹性扩展：新增角色不影响现有系统稳定性</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 可用性对比 -->
-                        <div style="margin-bottom: 3rem;">
-                            <h3 style="color: var(--tesla-red); font-size: 1.8rem; margin-bottom: 2rem; text-align: center;">可用性对比：专家级 vs 新手级</h3>
-
-                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;">
-                                <!-- 传统方式的高门槛 -->
-                                <div class="card" style="background: rgba(255, 255, 255, 0.02);">
-                                    <h4 style="color: #ff6b6b; margin-bottom: 1.5rem;">传统方式的高门槛</h4>
-                                    <ul style="list-style: none; padding: 0;">
-                                        <li style="margin: 0.8rem 0;">• <strong>专业知识要求</strong>：需要深度理解提示词工程</li>
-                                        <li style="margin: 0.8rem 0;">• <strong>学习成本高</strong>：每个工具都要单独学习使用方法</li>
-                                        <li style="margin: 0.8rem 0;">• <strong>记忆负担重</strong>：需要记住大量的指令和参数</li>
-                                        <li style="margin: 0.8rem 0;">• <strong>调试复杂</strong>：出错时难以定位和解决问题</li>
-                                    </ul>
-                                </div>
-
-                                <!-- PromptX的零门槛体验 -->
-                                <div class="card" style="background: rgba(255, 255, 255, 0.05);">
-                                    <h4 style="color: var(--tesla-red); margin-bottom: 1.5rem;">PromptX的零门槛体验</h4>
-                                    <ul style="list-style: none; padding: 0;">
-                                        <li style="margin: 0.8rem 0;">• <strong>自然语言交互</strong>："我想设计人物关系" → 自动路由到世界观设计师</li>
-                                        <li style="margin: 0.8rem 0;">• <strong>零配置使用</strong>：无需学习复杂指令，说人话就行</li>
-                                        <li style="margin: 0.8rem 0;">• <strong>智能提示</strong>：系统主动建议下一步操作</li>
-                                        <li style="margin: 0.8rem 0;">• <strong>一键解决</strong>：复杂任务自动分解为简单步骤</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </section>
+
+
 
         <!-- Section 21: Conclusion -->
         <section class="section" id="section-21">
