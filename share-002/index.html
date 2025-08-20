@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PromptX V2.0 - AI创作系统革命</title>
+
+    <!-- TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- FullPage.js -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/fullpage.js@4.0.24/dist/fullpage.min.css" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/fullpage.js@4.0.24/dist/fullpage.min.js"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- ECharts -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --tesla-red: #E31937;
+            --aurora-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans SC', 'Inter', sans-serif;
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .section {
+            background: linear-gradient(135deg, #000 0%, #111 50%, #000 100%);
+            position: relative;
+        }
+
+        .aurora-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center, rgba(231, 25, 55, 0.1) 0%, transparent 70%);
+            animation: aurora 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes aurora {
+            0% { transform: translateY(0px) rotate(0deg); opacity: 0.3; }
+            100% { transform: translateY(-20px) rotate(1deg); opacity: 0.6; }
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 8rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, #fff 0%, var(--tesla-red) 50%, #fff 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+            line-height: 1.1;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 800;
+            color: var(--tesla-red);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .subtitle {
+            font-size: clamp(1.2rem, 2.5vw, 2rem);
+            font-weight: 300;
+            color: #ccc;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .problem-item {
+            background: rgba(231, 25, 55, 0.05);
+            border-left: 4px solid var(--tesla-red);
+            padding: 1.5rem 2rem;
+            margin: 1rem 0;
+            border-radius: 0 10px 10px 0;
+            transform: translateX(-20px);
+            opacity: 0;
+            transition: all 0.6s ease;
+        }
+
+        .problem-item.animate {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .problem-item-compact {
+            display: flex;
+            align-items: center;
+            background: rgba(231, 25, 55, 0.05);
+            border: 1px solid rgba(231, 25, 55, 0.2);
+            border-radius: 10px;
+            padding: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .problem-item-compact:hover {
+            background: rgba(231, 25, 55, 0.1);
+            border-color: var(--tesla-red);
+            transform: translateX(5px);
+        }
+
+        .methodology-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(231, 25, 55, 0.3);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 1rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .methodology-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--tesla-red);
+            box-shadow: 0 20px 40px rgba(231, 25, 55, 0.2);
+        }
+
+        .architecture-pyramid {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            max-width: 500px;
+        }
+
+        .architecture-layer {
+            position: relative;
+            width: 100%;
+            background: linear-gradient(135deg, rgba(231, 25, 55, 0.1) 0%, rgba(231, 25, 55, 0.05) 100%);
+            border: 2px solid var(--tesla-red);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .architecture-layer:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(231, 25, 55, 0.3);
+            border-color: #fff;
+        }
+
+        .layer-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .layer-gradient {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg,
+                rgba(231, 25, 55, 0.1) 0%,
+                rgba(231, 25, 55, 0.05) 50%,
+                rgba(255, 255, 255, 0.02) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .architecture-layer:hover .layer-gradient {
+            opacity: 1;
+        }
+
+        .layer-1 { width: 90%; }
+        .layer-2 { width: 95%; }
+        .layer-3 { width: 100%; }
+
+        .architecture-connector {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            height: 40px;
+            margin: 0.5rem 0;
+        }
+
+        .connector-line {
+            width: 2px;
+            height: 20px;
+            background: linear-gradient(180deg, var(--tesla-red) 0%, transparent 100%);
+            margin-bottom: 5px;
+        }
+
+        .question-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(231, 25, 55, 0.2);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .question-card:hover {
+            border-color: var(--tesla-red);
+            background: rgba(231, 25, 55, 0.08);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(231, 25, 55, 0.2);
+        }
+
+        .question-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg,
+                rgba(231, 25, 55, 0.05) 0%,
+                transparent 50%,
+                rgba(255, 255, 255, 0.02) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .question-card:hover::before {
+            opacity: 1;
+        }
+
+        .question-icon {
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .architecture-layer {
+            opacity: 0;
+            transform: translateY(30px) scale(0.95);
+            transition: all 0.8s ease;
+        }
+
+        .architecture-layer.animate {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .question-card {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .question-card.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .architecture-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(231, 25, 55, 0.3);
+            border-radius: 15px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            backdrop-filter: blur(10px);
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .architecture-card.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .architecture-card:hover {
+            border-color: var(--tesla-red);
+            background: rgba(231, 25, 55, 0.1);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(231, 25, 55, 0.2);
+        }
+
+        .arch-number {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            width: 30px;
+            height: 30px;
+            background: var(--tesla-red);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .role-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .role-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(231, 25, 55, 0.2);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .role-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(231, 25, 55, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .role-card:hover::before {
+            left: 100%;
+        }
+
+        .role-card:hover {
+            border-color: var(--tesla-red);
+            transform: translateY(-5px);
+        }
+
+        .role-card-compact {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(231, 25, 55, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            height: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .role-card-compact:hover {
+            border-color: var(--tesla-red);
+            background: rgba(231, 25, 55, 0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(231, 25, 55, 0.2);
+        }
+
+        .role-card-compact {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .role-card-compact.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .process-comparison {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .process-box {
+            flex: 1;
+            text-align: center;
+        }
+
+        .process-old {
+            opacity: 0.6;
+        }
+
+        .process-new {
+            border: 2px solid var(--tesla-red);
+            border-radius: 15px;
+            padding: 2rem;
+            background: rgba(231, 25, 55, 0.05);
+        }
+
+        .process-box-compact {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .process-box-compact.process-old {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+        }
+
+        .process-box-compact.process-new {
+            border: 2px solid var(--tesla-red);
+            background: rgba(231, 25, 55, 0.05);
+        }
+
+        .process-box-compact:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .process-box-compact {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .process-box-compact.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .vs-icon {
+            font-size: 3rem;
+            color: var(--tesla-red);
+            align-self: center;
+        }
+
+        .highlight-number {
+            font-size: 8rem;
+            font-weight: 900;
+            color: var(--tesla-red);
+            line-height: 1;
+            display: inline-block;
+            text-shadow: 0 0 30px rgba(231, 25, 55, 0.5);
+        }
+
+        .mece-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .mece-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid rgba(231, 25, 55, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .mece-card:hover {
+            border-color: var(--tesla-red);
+            background: rgba(231, 25, 55, 0.05);
+        }
+
+        .chart-container {
+            width: 100%;
+            height: 400px;
+            margin: 2rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .process-comparison {
+                flex-direction: column;
+            }
+
+            .vs-icon {
+                transform: rotate(90deg);
+                margin: 1rem 0;
+            }
+
+            .role-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .role-card-compact {
+                height: 100px;
+                padding: 1rem 0.5rem;
+            }
+
+            .process-box-compact {
+                padding: 1rem;
+            }
+
+            .architecture-card {
+                height: 160px;
+                padding: 1.5rem 1rem;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .highlight-number {
+                font-size: 4rem;
+            }
+
+            .section-title {
+                font-size: clamp(1.8rem, 4vw, 3rem);
+            }
+
+            .subtitle {
+                font-size: clamp(0.9rem, 2vw, 1.2rem);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.6s ease;
+        }
+
+        .slide-in-left.animate {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.6s ease;
+        }
+
+        .slide-in-right.animate {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body>
+    <div id="fullpage">
+        <!-- 封面页 -->
+        <div id="cover" class="section aurora-bg">
+            <div class="flex flex-col justify-center items-center h-screen px-8">
+                <div class="fade-in">
+                    <h1 class="hero-title mb-8">PromptX</h1>
+                    <div class="text-center mb-12">
+                        <h2 class="text-4xl md:text-6xl font-bold text-white mb-4">长篇小说系统</h2>
+                        <h3 class="text-2xl md:text-3xl font-light text-gray-300 mb-8">拟人化AI团队的小说共创新范式</h3>
+                        <p class="text-lg text-gray-400">演讲人：明易</p>
+                    </div>
+                </div>
+                <div class="fade-in" style="animation-delay: 0.5s;">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+                        <div class="text-center">
+                            <i class="fas fa-brain text-4xl text-red-500 mb-4"></i>
+                            <h4 class="text-xl font-semibold">一致性危机突破</h4>
+                            <p class="text-gray-400">百万级长篇小说的角色与情节一致性问题</p>
+                        </div>
+                        <div class="text-center">
+                            <i class="fas fa-users text-4xl text-red-500 mb-4"></i>
+                            <h4 class="text-xl font-semibold">拟人化团队设计</h4>
+                            <p class="text-gray-400">总监+架构师+规划师+写手，4角色精准协作</p>
+                        </div>
+                        <div class="text-center">
+                            <i class="fas fa-layer-group text-4xl text-red-500 mb-4"></i>
+                            <h4 class="text-xl font-semibold">三层架构革命</h4>
+                            <p class="text-gray-400">身份-职责-方法分层，高效运转</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 问题页面 -->
+        <div id="problems" class="section">
+            <div class="flex flex-col justify-center items-center h-screen px-8">
+                <h2 class="section-title fade-in mb-6">为什么要做这次系统重构？</h2>
+                <p class="subtitle fade-in mb-8">Why System Reconstruction?</p>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-6xl w-full">
+                    <!-- 左侧：核心危机 -->
+                    <div class="slide-in-left">
+                        <h3 class="text-2xl font-bold text-red-500 mb-4 text-center">
+                            <i class="fas fa-exclamation-triangle mr-2"></i>核心危机
+                        </h3>
+                        <div class="space-y-3">
+                            <div class="problem-item-compact">
+                                <i class="fas fa-bug text-red-500 mr-3"></i>
+                                <div>
+                                    <strong>一致性危机</strong><br>
+                                    <span class="text-sm text-gray-400">角色在随卦被写死，实际应在28卦</span>
+                                </div>
+                            </div>
+
+                            <div class="problem-item-compact">
+                                <i class="fas fa-ban text-red-500 mr-3"></i>
+                                <div>
+                                    <strong>扩展性噩梦</strong><br>
+                                    <span class="text-sm text-gray-400">流派无法添加，总纲冗余重复</span>
+                                </div>
+                            </div>
+
+                            <div class="problem-item-compact">
+                                <i class="fas fa-shield-alt text-red-500 mr-3"></i>
+                                <div>
+                                    <strong>质量控制幻象</strong><br>
+                                    <span class="text-sm text-gray-400">AI检查无效，大量人工干预</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 右侧：系统问题 -->
+                    <div class="slide-in-right">
+                        <h3 class="text-2xl font-bold text-red-500 mb-4 text-center">
+                            <i class="fas fa-cogs mr-2"></i>系统问题
+                        </h3>
+                        <div class="space-y-3">
+                            <div class="problem-item-compact">
+                                <i class="fas fa-sitemap text-red-500 mr-3"></i>
+                                <div>
+                                    <strong>架构混乱</strong><br>
+                                    <span class="text-sm text-gray-400">5角色职责重叠，流程复杂化</span>
+                                </div>
+                            </div>
+
+                            <div class="problem-item-compact">
+                                <i class="fas fa-weight-hanging text-red-500 mr-3"></i>
+                                <div>
+                                    <strong>总监过载问题</strong><br>
+                                    <span class="text-sm text-gray-400">全能角色导致效率低下</span>
+                                </div>
+                            </div>
+
+                            <div class="problem-item-compact">
+                                <i class="fas fa-route text-red-500 mr-3"></i>
+                                <div>
+                                    <strong>6步流程复杂</strong><br>
+                                    <span class="text-sm text-gray-400">用户难以掌握操作</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 底部统计数据 -->
+                <!-- <div class="fade-in mt-8">
+                    <div class="grid grid-cols-3 gap-8 text-center">
+                        <div>
+                            <div class="text-4xl font-bold text-red-500">6</div>
+                            <div class="text-sm text-gray-400">核心问题</div>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-bold text-red-500">67%</div>
+                            <div class="text-sm text-gray-400">效率损失</div>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-bold text-red-500">V2.0</div>
+                            <div class="text-sm text-gray-400">全新解决方案</div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+
+        <!-- 解决思路页面 -->
+        <div id="solutions" class="section aurora-bg">
+            <div class="flex flex-col justify-center items-center h-screen px-8">
+                <h2 class="section-title fade-in">解决思路：拟人化系统重构</h2>
+
+                <div class="fade-in">
+                    <h3 class="text-3xl font-bold text-center mb-8">核心方法论</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="methodology-card">
+                            <i class="fas fa-user-friends text-4xl text-red-500 mb-4"></i>
+                            <h4 class="text-xl font-bold mb-2">拟人化思维</h4>
+                            <p class="text-gray-300">把AI系统当作团队来设计</p>
+                        </div>
+
+                        <div class="methodology-card">
+                            <i class="fas fa-cut text-4xl text-red-500 mb-4"></i>
+                            <h4 class="text-xl font-bold mb-2">奥卡姆剃刀</h4>
+                            <p class="text-gray-300">用最简方案解决复杂问题</p>
+                        </div>
+
+                        <div class="methodology-card">
+                            <i class="fas fa-puzzle-piece text-4xl text-red-500 mb-4"></i>
+                            <h4 class="text-xl font-bold mb-2">MECE原则</h4>
+                            <p class="text-gray-300">不重叠、不遗漏</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fade-in mt-12">
+                    <h3 class="text-3xl font-bold text-center mb-8">拟人化思维：AI团队设计法</h3>
+                    <div class="bg-gray-800 bg-opacity-50 rounded-lg p-8 max-w-3xl">
+                        <p class="text-xl text-center mb-6">假设你招聘了一个小说创作团队，你要解决哪些问题？</p>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                            <div>
+                                <i class="fas fa-id-card text-3xl text-red-500 mb-4"></i>
+                                <h4 class="text-lg font-bold">身份定位</h4>
+                                <p class="text-gray-300">"我"是谁？</p>
+                            </div>
+                            <div>
+                                <i class="fas fa-tasks text-3xl text-red-500 mb-4"></i>
+                                <h4 class="text-lg font-bold">职责边界</h4>
+                                <p class="text-gray-300">"我"做什么？</p>
+                            </div>
+                            <div>
+                                <i class="fas fa-cogs text-3xl text-red-500 mb-4"></i>
+                                <h4 class="text-lg font-bold">工作方法</h4>
+                                <p class="text-gray-300">"我"如何做？</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 三层架构页面 -->
+        <div id="architecture" class="section">
+            <div class="flex flex-col justify-center items-center h-screen px-8">
+                <h2 class="section-title fade-in mb-4">基于拟人化的三层架构革命</h2>
+                <p class="subtitle fade-in mb-6">Three-Layer Architecture Revolution</p>
+
+                <!-- 核心架构展示 -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-5xl w-full slide-in-left">
+                    <!-- 层次1 -->
+                    <div class="architecture-card">
+                        <div class="arch-number">1</div>
+                        <i class="fas fa-user-tie text-3xl text-red-500 mb-3"></i>
+                        <h3 class="text-xl font-bold mb-2">角色提示词</h3>
+                        <p class="text-sm text-gray-400 mb-2">Role Identity</p>
+                        <p class="text-xs text-gray-500">"我是谁？"</p>
+                    </div>
+
+                    <!-- 层次2 -->
+                    <div class="architecture-card">
+                        <div class="arch-number">2</div>
+                        <i class="fas fa-cogs text-3xl text-red-500 mb-3"></i>
+                        <h3 class="text-xl font-bold mb-2">小说设定</h3>
+                        <p class="text-sm text-gray-400 mb-2">Novel Settings</p>
+                        <p class="text-xs text-gray-500">"我做什么？"</p>
+                    </div>
+
+                    <!-- 层次3 -->
+                    <div class="architecture-card">
+                        <div class="arch-number">3</div>
+                        <i class="fas fa-laptop-code text-3xl text-red-500 mb-3"></i>
+                        <h3 class="text-xl font-bold mb-2">工作台</h3>
+                        <p class="text-sm text-gray-400 mb-2">Workspace</p>
+                        <p class="text-xs text-gray-500">"怎么做？"</p>
+                    </div>
+                </div>
+
+                <!-- 核心理念 -->
+                <div class="fade-in mt-6">
+                    <div class="bg-gray-800 bg-opacity-50 rounded-lg p-4 max-w-3xl text-center">
+                        <h4 class="text-lg font-bold text-red-500 mb-2">拟人化设计理念</h4>
+                        <p class="text-sm">身份定位 → 职责边界 → 执行方法，让AI系统像团队一样高效运转</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 角色精简页面 -->
+        <div id="roles" class="section aurora-bg">
+            <div class="flex flex-col justify-center items-center h-screen px-8">
+                <h2 class="section-title fade-in mb-4">奥卡姆剃刀应用：角色精简重组</h2>
+                <p class="subtitle fade-in mb-6">From 6 Roles → 4 Roles with Clear Boundaries</p>
+
+                <!-- 核心数字展示 -->
+                <div class="fade-in mb-6">
+                    <div class="flex items-center justify-center">
+                        <span class="text-6xl font-bold text-red-500">5</span>
+                        <i class="fas fa-arrow-right text-3xl text-red-500 mx-6"></i>
+                        <span class="text-6xl font-bold text-red-500">4</span>
+                    </div>
+                    <p class="text-xl text-center text-gray-300 mt-2">职责边界清晰，效率大幅提升</p>
+                </div>
+
+                <!-- 角色卡片网格 -->
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl w-full slide-in-right">
+                    <div class="role-card-compact">
+                        <i class="fas fa-crown text-2xl text-red-500 mb-2"></i>
+                        <h4 class="text-lg font-bold">总监</h4>
+                        <p class="text-sm text-gray-400">任务分配<br>质量监控</p>
+                    </div>
+
+                    <div class="role-card-compact">
+                        <i class="fas fa-drafting-compass text-2xl text-red-500 mb-2"></i>
+                        <h4 class="text-lg font-bold">架构师</h4>
+                        <p class="text-sm text-gray-400">世界观<br>三维度构建</p>
+                    </div>
+
+                    <div class="role-card-compact">
+                        <i class="fas fa-map text-2xl text-red-500 mb-2"></i>
+                        <h4 class="text-lg font-bold">规划师</h4>
+                        <p class="text-sm text-gray-400">故事大纲<br>故事概要</p>
+                    </div>
+
+                    <div class="role-card-compact">
+                        <i class="fas fa-pen-fancy text-2xl text-red-500 mb-2"></i>
+                        <h4 class="text-lg font-bold">写手</h4>
+                        <p class="text-sm text-gray-400">小说内容<br>创作</p>
+                    </div>
+                </div>
+
+                <!-- 总监角色革命案例 -->
+                <div class="fade-in mt-6">
+                    <div class="bg-gray-800 bg-opacity-50 rounded-lg p-4 max-w-4xl">
+                        <h3 class="text-lg font-bold text-center text-red-500 mb-3">典型案例：总监角色革命</h3>
+                        <p class="text-center mb-3">
+                            从"全能协调者" → "专业任务分配器+质量监控者"
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="text-center">
+                                <i class="fas fa-random text-xl text-red-500 mb-2"></i>
+                                <h5 class="font-semibold text-sm">智能分配</h5>
+                                <p class="text-xs text-gray-400">意图识别→角色激活→任务传递</p>
+                            </div>
+                            <div class="text-center">
+                                <i class="fas fa-clipboard-check text-xl text-red-500 mb-2"></i>
+                                <h5 class="font-semibold text-sm">质量监控</h5>
+                                <p class="text-xs text-gray-400">发现问题→提出问题→激活解决</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 流程简化页面 -->
+        <div id="process" class="section">
+            <div class="flex flex-col justify-center items-center h-screen px-8">
+                <h2 class="section-title fade-in mb-4">奥卡姆剃刀应用：流程极简化</h2>
+                <p class="subtitle fade-in mb-6">From 6 Steps → 4 Steps, 50% Cognitive Load Reduction</p>
+
+                <!-- 核心数字展示 -->
+                <div class="fade-in mb-6">
+                    <div class="flex items-center justify-center">
+                        <span class="text-6xl font-bold text-red-500">6</span>
+                        <i class="fas fa-arrow-right text-3xl text-red-500 mx-6"></i>
+                        <span class="text-6xl font-bold text-red-500">4</span>
+                    </div>
+                    <p class="text-xl text-center text-gray-300 mt-2">用户认知负担减半</p>
+                </div>
+
+                <!-- 流程对比 -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-6xl w-full slide-in-left">
+                    <!-- 原流程 -->
+                    <div class="process-box-compact process-old">
+                        <h4 class="text-lg font-bold mb-3 text-gray-400 text-center">原流程</h4>
+                        <div class="space-y-1 text-sm text-gray-500">
+                            <div class="p-2 bg-gray-700 bg-opacity-30 rounded">世界观设定</div>
+                            <div class="p-2 bg-gray-700 bg-opacity-30 rounded">一句话剧情</div>
+                            <div class="p-2 bg-gray-700 bg-opacity-30 rounded">全景故事线</div>
+                            <div class="p-2 bg-gray-700 bg-opacity-30 rounded">章节规划</div>
+                            <div class="p-2 bg-gray-700 bg-opacity-30 rounded">创作</div>
+                            <div class="p-2 bg-gray-700 bg-opacity-30 rounded">修订</div>
+                        </div>
+                    </div>
+
+                    <!-- VS -->
+                    <div class="flex items-center justify-center">
+                        <i class="fas fa-chevron-right text-4xl text-red-500 vs-icon"></i>
+                    </div>
+
+                    <!-- 优化后 -->
+                    <div class="process-box-compact process-new">
+                        <h4 class="text-lg font-bold mb-3 text-red-500 text-center">优化后</h4>
+                        <div class="space-y-2">
+                            <div class="p-3 bg-red-500 bg-opacity-20 rounded border border-red-500">小说设定</div>
+                            <div class="p-3 bg-red-500 bg-opacity-20 rounded border border-red-500">故事大纲</div>
+                            <div class="p-3 bg-red-500 bg-opacity-20 rounded border border-red-500">故事概要</div>
+                            <div class="p-3 bg-red-500 bg-opacity-20 rounded border border-red-500">小说内容</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 核心改进说明 -->
+                <div class="fade-in mt-6">
+                    <div class="bg-gray-800 bg-opacity-50 rounded-lg p-3 max-w-md text-center">
+                        <h4 class="text-lg font-bold text-red-500 mb-2">核心改进</h4>
+                        <p class="text-sm">去除中间环节，直达创作核心</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 内容与模板精简页面 -->
+        <div id="templates" class="section aurora-bg">
+            <div class="flex flex-col justify-center items-center h-screen px-8">
+                <h2 class="section-title fade-in">奥卡姆剃刀应用：内容与模板精简</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl slide-in-left">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6 text-center">内容集中化原则</h3>
+                        <div class="space-y-4">
+                            <div class="bg-red-900 bg-opacity-30 p-4 rounded-lg">
+                                <i class="fas fa-times-circle text-red-500 mr-2"></i>
+                                <strong>分散≠简洁</strong>：内容分散导致奥卡姆剃刀原则失效
+                            </div>
+                            <div class="bg-green-900 bg-opacity-30 p-4 rounded-lg">
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                <strong>集中=高效</strong>：相同类型内容集中，认知成本最低
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6 text-center">标准化模板体系</h3>
+                        <div class="space-y-4">
+                            <div class="methodology-card">
+                                <i class="fas fa-file-alt text-2xl text-red-500 mb-2"></i>
+                                <h4 class="font-bold">故事大纲模板</h4>
+                                <p class="text-sm text-gray-300">结构化创作指南</p>
+                            </div>
+                            <div class="methodology-card">
+                                <i class="fas fa-list-alt text-2xl text-red-500 mb-2"></i>
+                                <h4 class="font-bold">故事概要模板</h4>
+                                <p class="text-sm text-gray-300">详细执行模板</p>
+                            </div>
+                            <div class="methodology-card">
+                                <i class="fas fa-desktop text-2xl text-red-500 mb-2"></i>
+                                <h4 class="font-bold">写手工作台</h4>
+                                <p class="text-sm text-gray-300">流程化操作手册</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MECE原则页面 -->
+        <div id="mece" class="section">
+            <div class="flex flex-col justify-center items-center h-screen px-8">
+                <h2 class="section-title fade-in">MECE原则应用：系统性覆盖</h2>
+
+                <div class="mece-grid fade-in">
+                    <div class="mece-card">
+                        <h3 class="text-xl font-bold mb-4 text-red-500">三层架构MECE验证</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <i class="fas fa-user text-red-500 mr-3"></i>
+                                <div>
+                                    <strong>身份层</strong>："我"是谁？→ 角色提示词
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-tasks text-red-500 mr-3"></i>
+                                <div>
+                                    <strong>职责层</strong>："我"做什么？→ 小说设定
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-cogs text-red-500 mr-3"></i>
+                                <div>
+                                    <strong>方法层</strong>："我"如何做？→ 工作台
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mece-card">
+                        <h3 class="text-xl font-bold mb-4 text-red-500">世界观设定MECE验证</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <i class="fas fa-globe text-red-500 mr-3"></i>
+                                <div>
+                                    <strong>What</strong>：故事世界 → 时空框架与设定规则
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-question text-red-500 mr-3"></i>
+                                <div>
+                                    <strong>Why</strong>：故事主题 → 价值观念与思想内核
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-users text-red-500 mr-3"></i>
+                                <div>
+                                    <strong>Who</strong>：故事角色 → 人物关系与成长轨迹
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="meceChart" class="chart-container fade-in"></div>
+            </div>
+        </div>
+
+        <!-- 总结页面 -->
+        <div id="conclusion" class="section aurora-bg">
+            <div class="flex flex-col justify-center items-center h-screen px-8">
+                <h2 class="hero-title fade-in mb-8">PromptX V2.0</h2>
+
+                <div class="fade-in text-center mb-12">
+                    <h3 class="text-3xl font-bold mb-6">拟人化AI团队的小说共创新范式</h3>
+                    <p class="text-xl text-gray-300 max-w-4xl">
+                        从混乱到有序，从复杂到简洁，从工具到团队。
+                        PromptX V2.0不仅解决了长篇小说创作的一致性难题，
+                        更重要的是展示了AI系统设计的全新思维方式。
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 fade-in">
+                    <div class="text-center">
+                        <div class="highlight-number">4</div>
+                        <p class="text-lg">AI角色</p>
+                        <p class="text-gray-400">精准协作</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="highlight-number">3</div>
+                        <p class="text-lg">层架构</p>
+                        <p class="text-gray-400">清晰分工</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="highlight-number">1</div>
+                        <p class="text-lg">个目标</p>
+                        <p class="text-gray-400">完美创作</p>
+                    </div>
+                </div>
+
+                <div class="fade-in mt-12">
+                    <div class="bg-red-500 bg-opacity-20 rounded-full px-8 py-4">
+                        <p class="text-xl font-bold">Thanks for Watching</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 初始化 fullPage.js
+        new fullpage('#fullpage', {
+            autoScrolling: true,
+            scrollHorizontally: true,
+            navigation: true,
+            navigationPosition: 'right',
+            showActiveTooltip: true,
+            slidesNavigation: true,
+            controlArrows: false,
+            verticalCentered: true,
+            sectionsColor: ['#000', '#111', '#000', '#111', '#000', '#111', '#000', '#111'],
+
+            onLeave: function(origin, destination, direction) {
+                // 页面切换时的动画
+                const section = document.querySelector(`#fullpage .section:nth-child(${destination.index + 1})`);
+                const animateElements = section.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .problem-item, .problem-item-compact, .role-card-compact, .process-box-compact, .architecture-card');
+
+                setTimeout(() => {
+                    animateElements.forEach((el, index) => {
+                        setTimeout(() => {
+                            el.classList.add('animate');
+                        }, index * 120);
+                    });
+                }, 300);
+            }
+        });
+
+        // 初始化图表
+        function initCharts() {
+
+            // MECE图表
+            const meceChart = echarts.init(document.getElementById('meceChart'));
+            const meceOption = {
+                backgroundColor: 'transparent',
+                series: [{
+                    name: 'MECE覆盖度',
+                    type: 'pie',
+                    radius: ['40%', '70%'],
+                    data: [
+                        {value: 25, name: '身份层', itemStyle: {color: '#E31937'}},
+                        {value: 25, name: '职责层', itemStyle: {color: '#FF6B6B'}},
+                        {value: 25, name: '方法层', itemStyle: {color: '#FF9F9F'}},
+                        {value: 25, name: '验证层', itemStyle: {color: '#FFCCCC'}}
+                    ],
+                    label: {
+                        color: '#fff',
+                        fontSize: 14
+                    }
+                }]
+            };
+            meceChart.setOption(meceOption);
+        }
+
+        // 页面加载完成后初始化
+        window.addEventListener('load', function() {
+            initCharts();
+
+            // 首页动画
+            const firstPageElements = document.querySelectorAll('#fullpage .section:first-child .fade-in');
+            setTimeout(() => {
+                firstPageElements.forEach((el, index) => {
+                    setTimeout(() => {
+                        el.classList.add('animate');
+                    }, index * 500);
+                });
+            }, 500);
+        });
+
+        // 响应式图表
+        window.addEventListener('resize', function() {
+            const charts = [
+                echarts.getInstanceByDom(document.getElementById('meceChart'))
+            ];
+            charts.forEach(chart => {
+                if (chart) chart.resize();
+            });
+        });
+
+        // 添加自定义样式动态效果
+        document.addEventListener('mousemove', function(e) {
+            const cursor = e.clientX / window.innerWidth;
+            const sections = document.querySelectorAll('.aurora-bg');
+            sections.forEach(section => {
+                section.style.background = `radial-gradient(circle at ${cursor * 100}% 50%, rgba(231, 25, 55, 0.1) 0%, transparent 70%), linear-gradient(135deg, #000 0%, #111 50%, #000 100%)`;
+            });
+        });
+    </script>
+</body>
+</html>
