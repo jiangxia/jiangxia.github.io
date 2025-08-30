@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PromptX小说创作生态 - AI写作革命</title>
+
+    <!-- TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- FullPage.js -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/fullpage.js@4.0.24/dist/fullpage.min.css" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/fullpage.js@4.0.24/dist/fullpage.min.js"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- ECharts -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --tesla-red: #E31937;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans SC', 'Inter', sans-serif;
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .section {
+            background: linear-gradient(135deg, #000 0%, #111 50%, #000 100%);
+            position: relative;
+        }
+
+        .aurora-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center, rgba(231, 25, 55, 0.1) 0%, transparent 70%);
+            animation: aurora 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes aurora {
+            0% { transform: translateY(0px) rotate(0deg); opacity: 0.3; }
+            100% { transform: translateY(-20px) rotate(1deg); opacity: 0.6; }
+        }
+
+        .hero-title {
+            font-size: clamp(4rem, 12vw, 10rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, #fff 0%, var(--tesla-red) 50%, #fff 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+            line-height: 1.1;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 800;
+            color: var(--tesla-red);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .subtitle {
+            font-size: clamp(1.2rem, 2.5vw, 2rem);
+            font-weight: 300;
+            color: #ccc;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .problem-item-compact {
+            display: flex;
+            align-items: center;
+            background: rgba(231, 25, 55, 0.05);
+            border: 1px solid rgba(231, 25, 55, 0.2);
+            border-radius: 10px;
+            padding: 1rem;
+            transition: all 0.3s ease;
+            margin: 0.5rem 0;
+        }
+
+        .problem-item-compact:hover {
+            background: rgba(231, 25, 55, 0.1);
+            border-color: var(--tesla-red);
+            transform: translateX(5px);
+        }
+
+        .role-card-compact {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(231, 25, 55, 0.2);
+            border-radius: 12px;
+            padding: 1rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            height: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .role-card-compact:hover {
+            border-color: var(--tesla-red);
+            background: rgba(231, 25, 55, 0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(231, 25, 55, 0.2);
+        }
+
+        .role-card-large {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(231, 25, 55, 0.2);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .role-card-large:hover {
+            border-color: var(--tesla-red);
+            background: rgba(231, 25, 55, 0.15);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(231, 25, 55, 0.3);
+        }
+
+        .memory-layer {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border: 1px solid rgba(227, 25, 55, 0.1);
+        }
+
+        .stats-number {
+            font-size: clamp(3rem, 8vw, 8rem);
+            font-weight: 900;
+            color: var(--tesla-red);
+            line-height: 0.8;
+        }
+
+        .stats-label {
+            font-size: clamp(0.8rem, 1.5vw, 1.2rem);
+            color: #a0a0a0;
+            margin-top: 0.5rem;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.6s ease;
+        }
+
+        .slide-in-left.animate {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.6s ease;
+        }
+
+        .slide-in-right.animate {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body>
+    <div id="fullpage">
+        <!-- 封面页 -->
+        <div class="section aurora-bg">
+            <div class="flex flex-col justify-center items-center h-screen px-8">
+                <div class="fade-in text-center max-w-6xl">
+                    <h1 class="hero-title mb-6">PromptX</h1>
+                    <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">小说创作生态</h2>
+                    <h3 class="text-xl md:text-2xl font-light text-gray-300 mb-6">AI写作革命的技术突破与实践</h3>
+                    <p class="text-lg text-gray-400 mb-8">演讲者：黄彦湘</p>
+
+                    <div class="grid grid-cols-1 gap-4 max-w-4xl mx-auto text-left">
+                        <div class="flex items-center">
+                            <span class="text-xl font-bold text-red-500 mr-3">1.</span>
+                            <span class="text-lg">88万字史诗《行易：复兴之路》背后的AI写作革命</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-xl font-bold text-red-500 mr-3">2.</span>
+                            <span class="text-lg">一致性危机突破：如何解决百万级长篇小说的角色与情节一致性问题</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-xl font-bold text-red-500 mr-3">3.</span>
+                            <span class="text-lg">拟人化团队设计：总监+架构师+规划师+写手，4角色精准协作</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 宏大构思 -->
+        <div class="section">
+            <div class="flex flex-col justify-center items-center h-screen px-8">
+                <h2 class="section-title fade-in mb-4">一个"疯狂"的构思</h2>
+                <p class="subtitle fade-in mb-6">《行易：复兴之路》的宏大设想</p>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-5xl w-full">
+                    <div class="slide-in-left">
+                        <h3 class="text-2xl font-bold mb-4 text-center text-red-500">
+                            <i class="fas fa-yin-yang mr-2"></i>64卦对应建国史
+                        </h3>
+                        <div class="space-y-3">
+                            <div class="problem-item-compact">
+                                <i class="fas fa-calendar text-red-500 mr-3"></i>
+                                <div>
+                                    <strong>严格按序</strong><br>
+                                    <span class="text-sm text-gray-400">64卦对应1949年建国后历史阶段</span>
+                                </div>
+                            </div>
+                            <div class="problem-item-compact">
+                                <i class="fas fa-users text-red-500 mr-3"></i>
+                                <div>
+                                    <strong>三代传承</strong><br>
+                                    <span class="text-sm text-gray-400">建国初期、改革开放、新时代</span>
+                                </div>
+                            </div>
+                            <div class="problem-item-compact">
+                                <i class="fas fa-clock text-red-500 mr-3"></i>
+                                <div>
+                                    <strong>跨越百年</strong><br>
+                                    <span class="text-sm text-gray-400">从1949年到2050年完整历史</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slide-in-right">
+                        <h3 class="text-2xl font-bold mb-4 text-center text-red-500">
+                            <i class="fas fa-scroll mr-2"></i>易经现代化表达
+                        </h3>
+                        <div class="space-y-3">
+                            <div class="problem-item-compact">
+                                <i class="fas fa-book text-red-500 mr-3"></i>
+                                <div>
+                                    <strong>观念重塑</strong><br>
+                                    <span class="text-sm text-gray-400">从"算命书"到"世界观与方法论"</span>
+                                </div>
+                            </div>
+                            <div class="problem-item-compact">
+                                <i class="fas fa-lightbulb text-red-500 mr-3"></i>
+                                <div>
+                                    <strong>智慧融合</strong><br>
+                                    <span class="text-sm text-gray-400">用现代科学延续传统智慧</span>
+                                </div>
+                            </div>
+                            <div class="problem-item-compact">
+                                <i class="fas fa-heart text-red-500 mr-3"></i>
+                                <div>
+                                    <strong>家国情怀</strong><br>
+                                    <span class="text-sm text-gray-400">华杉风格历史厚重感</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fade-in mt-8 text-center">
+                    <div class="grid grid-cols-3 gap-8 text-center">
+                        <div>
+                            <div class="stats-number">386</div>
+                            <div class="stats-label">章节</div>
+                        </div>
+                        <div>
+                            <div class="stats-number">88</div>
+                            <div class="stats-label">万字</div>
+                        </div>
+                        <div>
+                            <div class="stats-number">64</div>
+                            <div class="stats-label">卦象</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 作品展示 -->
+        <div class="section aurora-bg">
+            <div class="flex flex-col justify-center items-center h-screen px-8">
+                <h2 class="section-title fade-in mb-6">《行易：复兴之路》</h2>
+                <p class="subtitle fade-in mb-8">世界观设定展示</p>
+                
+                <div class="fade-in">
+                    <div class="grid grid-cols-2 gap-8 max-w-7xl mx-auto">
+                        <div class="bg-gray-800 bg-opacity-30 rounded-lg p-4">
+                            <img src="0、第一版.jpg" alt="世界观设定第一版" class="w-full h-96 object-contain rounded">
+                            <p class="text-center text-gray-400 mt-3">世界观设定 - 第一版</p>
+                        </div>
+                        <div class="bg-gray-800 bg-opacity-30 rounded-lg p-4">
+                            <img src="0、第二版.jpg" alt="世界观设定第二版" class="w-full h-96 object-contain rounded">
+                            <p class="text-center text-gray-400 mt-3">世界观设定 - 第二版</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 传统痛点 -->
+        <div class="section">
+            <div class="flex flex-col justify-center items-center h-screen px-8">
+                <h2 class="section-title fade-in mb-4">第一层：传统手工写小说5大痛点</h2>
+                <p class="subtitle fade-in mb-6">Traditional Writing Pain Points</p>
+
+                <div class="grid grid-cols-5 gap-6 max-w-6xl w-full slide-in-left">
+                    <div class="role-card-large">
+                        <i class="fas fa-building text-4xl text-red-500 mb-4"></i>
+                        <h4 class="text-2xl font-bold mb-2">构</h4>
+                        <p class="text-lg text-gray-400">思混乱<br>设定矛盾</p>
+                    </div>
+                    <div class="role-card-large">
+                        <i class="fas fa-snail text-4xl text-red-500 mb-4"></i>
+                        <h4 class="text-2xl font-bold mb-2">慢</h4>
+                        <p class="text-lg text-gray-400">速度慢<br>日产2000字</p>
+                    </div>
+                    <div class="role-card-large">
+                        <i class="fas fa-stop text-4xl text-red-500 mb-4"></i>
+                        <h4 class="text-2xl font-bold mb-2">卡</h4>
+                        <p class="text-lg text-gray-400">经常卡文<br>情节停滞</p>
+                    </div>
+                    <div class="role-card-large">
+                        <i class="fas fa-times text-4xl text-red-500 mb-4"></i>
+                        <h4 class="text-2xl font-bold mb-2">错</h4>
+                        <p class="text-lg text-gray-400">前后矛盾<br>难保一致</p>
+                    </div>
+                    <div class="role-card-large">
+                        <i class="fas fa-heart-broken text-4xl text-red-500 mb-4"></i>
+                        <h4 class="text-2xl font-bold mb-2">累</h4>
+                        <p class="text-lg text-gray-400">容易放弃<br>周期太长</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AI创作痛点 -->
+        <div class="section aurora-bg">
+            <div class="flex flex-col justify-center items-center h-screen px-8">
+                <h2 class="section-title fade-in mb-4">第二层：普通AI创作5大痛点</h2>
+                <p class="subtitle fade-in mb-6">AI Writing Challenges</p>
+
+                <div class="grid grid-cols-5 gap-6 max-w-6xl w-full slide-in-right">
+                    <div class="role-card-large">
+                        <i class="fas fa-pen text-4xl text-red-500 mb-4"></i>
+                        <h4 class="text-2xl font-bold mb-2">写</h4>
+                        <p class="text-lg text-gray-400">提示词工程<br>复杂调教</p>
+                    </div>
+                    <div class="role-card-large">
+                        <i class="fas fa-random text-4xl text-red-500 mb-4"></i>
+                        <h4 class="text-2xl font-bold mb-2">乱</h4>
+                        <p class="text-lg text-gray-400">角色混乱<br>包打天下</p>
+                    </div>
+                    <div class="role-card-large">
+                        <i class="fas fa-unlink text-4xl text-red-500 mb-4"></i>
+                        <h4 class="text-2xl font-bold mb-2">断</h4>
+                        <p class="text-lg text-gray-400">上下文丢失<br>记忆断片</p>
+                    </div>
+                    <div class="role-card-large">
+                        <i class="fas fa-wave-square text-4xl text-red-500 mb-4"></i>
+                        <h4 class="text-2xl font-bold mb-2">飘</h4>
+                        <p class="text-lg text-gray-400">质量不稳<br>忽好忽坏</p>
+                    </div>
+                    <div class="role-card-large">
+                        <i class="fas fa-lock text-4xl text-red-500 mb-4"></i>
+                        <h4 class="text-2xl font-bold mb-2">死</h4>
+                        <p class="text-lg text-gray-400">扩展困难<br>推倒重来</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PromptX解决方案 -->
+        <div class="section">
+            <div class="flex flex-col justify-center items-center h-screen px-8">
+                <h2 class="section-title fade-in mb-4">PromptX系统5大解决方案</h2>
+                <p class="subtitle fade-in mb-6">PromptX System Solutions</p>
+
+                <div class="grid grid-cols-5 gap-4 max-w-6xl w-full slide-in-left">
+                    <div class="role-card-large">
+                        <div class="text-4xl font-bold text-red-500 mb-4">写</div>
+                        <div class="text-center">
+                            <strong class="text-lg">一键生成角色</strong><br>
+                            <span class="text-sm text-gray-400">角色即插即用<br>技术门槛归零</span>
+                        </div>
+                    </div>
+
+                    <div class="role-card-large">
+                        <div class="text-4xl font-bold text-red-500 mb-4">顺</div>
+                        <div class="text-center">
+                            <strong class="text-lg">专业分工协作</strong><br>
+                            <span class="text-sm text-gray-400">4角色精准分工<br>智能路由分配</span>
+                        </div>
+                    </div>
+
+                    <div class="role-card-large">
+                        <div class="text-4xl font-bold text-red-500 mb-4">记</div>
+                        <div class="text-center">
+                            <strong class="text-lg">永久记忆不断片</strong><br>
+                            <span class="text-sm text-gray-400">独立记忆库<br>智能学习偏好</span>
+                        </div>
+                    </div>
+
+                    <div class="role-card-large">
+                        <div class="text-4xl font-bold text-red-500 mb-4">质</div>
+                        <div class="text-center">
+                            <strong class="text-lg">专业标准保质量</strong><br>
+                            <span class="text-sm text-gray-400">三层架构确保稳定<br>标准化工作流</span>
+                        </div>
+                    </div>
+
+                    <div class="role-card-large">
+                        <div class="text-4xl font-bold text-red-500 mb-4">活</div>
+                        <div class="text-center">
+                            <strong class="text-lg">想改就改很灵活</strong><br>
+                            <span class="text-sm text-gray-400">模块化设计<br>热插拔能力</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fade-in mt-8">
+                    <div class="bg-gray-800 bg-opacity-50 rounded-lg p-4 max-w-3xl text-center">
+                        <h4 class="text-2xl font-bold text-red-500 mb-2">核心突破</h4>
+                        <p class="text-lg">从工具到团队，从单点到生态</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 记忆系统 -->
+        <div class="section">
+            <div class="flex flex-col justify-center items-center h-screen px-8">
+                <h2 class="section-title fade-in mb-4">记忆系统原理</h2>
+                <p class="subtitle fade-in mb-6">像人脑一样的三层记忆</p>
+
+                <div class="grid grid-cols-3 gap-6 max-w-5xl w-full slide-in-left mb-6">
+                    <div class="memory-layer">
+                        <div class="text-center mb-3">
+                            <div class="text-4xl font-bold text-red-500">1</div>
+                            <h4 class="text-xl font-bold">对话记忆</h4>
+                            <p class="text-sm text-gray-400">Temporary Memory</p>
+                        </div>
+                        <p class="text-sm text-gray-300 text-center">
+                            当前对话的临时记忆<br>对话结束就消失
+                        </p>
+                    </div>
+
+                    <div class="memory-layer">
+                        <div class="text-center mb-3">
+                            <div class="text-4xl font-bold text-red-500">2</div>
+                            <h4 class="text-xl font-bold">项目记忆</h4>
+                            <p class="text-sm text-gray-400">Project Memory</p>
+                        </div>
+                        <p class="text-sm text-gray-300 text-center">
+                            .promptx/pouch.json<br>项目设定、角色偏好
+                        </p>
+                    </div>
+
+                    <div class="memory-layer">
+                        <div class="text-center mb-3">
+                            <div class="text-4xl font-bold text-red-500">3</div>
+                            <h4 class="text-xl font-bold">全局记忆</h4>
+                            <p class="text-sm text-gray-400">Global Memory</p>
+                        </div>
+                        <p class="text-sm text-gray-300 text-center">
+                            通用偏好配置<br>跨项目复用
+                        </p>
+                    </div>
+                </div>
+
+                <div class="fade-in">
+                    <div class="bg-gray-800 bg-opacity-50 rounded-lg p-6 max-w-5xl text-center">
+                        <h4 class="text-2xl font-bold text-red-500 mb-4">记忆写入触发机制</h4>
+                        <div class="grid grid-cols-2 gap-6 text-left">
+                            <div>
+                                <h5 class="text-lg font-bold text-red-500 mb-2">项目记忆写入</h5>
+                                <ul class="text-sm text-gray-300 space-y-1">
+                                    <li>• AI调用remember工具时</li>
+                                    <li>• 对话结束系统强制检查</li>
+                                    <li>• 用户纠正错误时</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h5 class="text-lg font-bold text-red-500 mb-2">全局记忆写入</h5>
+                                <ul class="text-sm text-gray-300 space-y-1">
+                                    <li>• AI主动选择全局层</li>
+                                    <li>• 发现跨项目通用规律</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="text-lg text-red-500 mt-4 font-bold">这就是为什么PromptX越用越懂你 - AI在主动学习你的工作模式和偏好</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 企业愿景 -->
+        <div class="section aurora-bg">
+            <div class="flex flex-col justify-center items-center h-screen px-8">
+                <h2 class="section-title fade-in mb-4">DEEPRACTICE 理念与愿景</h2>
+                <p class="subtitle fade-in mb-6">让AI触手可及</p>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl w-full">
+                    <div class="slide-in-left">
+                        <div class="fade-in text-center mb-8">
+                            <div class="text-5xl font-bold gradient-text mb-6">
+                                让AI触手可及
+                            </div>
+                        </div>
+
+                        <div class="bg-gray-800 bg-opacity-50 rounded-lg p-6 text-center">
+                            <h4 class="text-3xl font-bold text-red-500 mb-4">使命：让AI触手可及</h4>
+                            <div class="grid grid-cols-3 gap-4 mb-4">
+                                <div class="text-center">
+                                    <i class="fas fa-cut text-2xl text-red-500 mb-2"></i>
+                                    <p class="text-sm font-bold">奥卡姆剃刀</p>
+                                </div>
+                                <div class="text-center">
+                                    <i class="fas fa-balance-scale text-2xl text-red-500 mb-2"></i>
+                                    <p class="text-sm font-bold">矛盾分析</p>
+                                </div>
+                                <div class="text-center">
+                                    <i class="fas fa-users text-2xl text-red-500 mb-2"></i>
+                                    <p class="text-sm font-bold">用户优先</p>
+                                </div>
+                            </div>
+                            <h4 class="text-2xl font-bold text-red-500 mb-3">愿景</h4>
+                            <p class="text-lg">成为AI协作的标准制定者</p>
+                            <p class="text-sm text-gray-400 mt-2">零配置、智能化、协作化</p>
+                        </div>
+                    </div>
+
+                    <div class="slide-in-right flex justify-center items-center">
+                        <div class="text-center">
+                            <img src="image.png" alt="DEEPRACTICE二维码" class="w-full max-w-md h-auto mx-auto rounded-lg shadow-2xl border-4 border-red-500">
+                            <p class="text-2xl font-bold text-red-500 mt-6">扫码了解更多</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FullPage.js JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.21/fullpage.min.js"></script>
+
+    <!-- ECharts CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+
+    <script>
+        // 初始化 fullPage.js
+        new fullpage('#fullpage', {
+            autoScrolling: true,
+            scrollHorizontally: true,
+            navigation: true,
+            navigationPosition: 'right',
+            navigationTooltips: ['封面', '宏大构思', '作品展示', '传统痛点', 'AI痛点', 'PromptX方案', '记忆系统', '企业愿景'],
+            showActiveTooltip: true,
+            scrollingSpeed: 1000,
+            afterLoad: function(origin, destination, direction) {
+                // 动态添加动画类
+                const elements = destination.item.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right');
+                elements.forEach((el, index) => {
+                    setTimeout(() => {
+                        el.classList.add('animate');
+                    }, index * 200);
+                });
+            }
+        });
+
+        // 鼠标跟随极光效果
+        document.addEventListener('mousemove', (e) => {
+            const cursor = e.clientX / window.innerWidth;
+            const sections = document.querySelectorAll('.aurora-bg');
+            sections.forEach(section => {
+                section.style.background = `radial-gradient(circle at ${cursor * 100}% 50%, rgba(231, 25, 55, 0.1) 0%, transparent 70%), linear-gradient(135deg, #000 0%, #111 50%, #000 100%)`;
+            });
+        });
+    </script>
+</body>
+</html>
