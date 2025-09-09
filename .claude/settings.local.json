@@ -1,8 +1,10 @@
 {
   "permissions": {
-    "defaultMode": "acceptEdits",
     "allow": [
-      "WebFetch(domain:deepractice.ai)"
-    ]
+      "WebFetch(domain:deepractice.ai)",
+      "mcp__promptx__action",
+      "mcp__promptx__remember"
+    ],
+    "defaultMode": "acceptEdits"
   }
 }
