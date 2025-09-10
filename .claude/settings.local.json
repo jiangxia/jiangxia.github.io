@@ -9,7 +9,10 @@
       "Bash(gh repo sync:*)",
       "Bash(git config:*)",
       "Bash(echo:*)",
-      "WebFetch(domain:mp.weixin.qq.com)"
+      "WebFetch(domain:mp.weixin.qq.com)",
+      "Bash(git checkout:*)",
+      "Bash(sed:*)",
+      "mcp__promptx__welcome"
     ],
     "defaultMode": "acceptEdits"
   }
