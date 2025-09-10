@@ -12,7 +12,8 @@
       "WebFetch(domain:mp.weixin.qq.com)",
       "Bash(git checkout:*)",
       "Bash(sed:*)",
-      "mcp__promptx__welcome"
+      "mcp__promptx__welcome",
+      "Bash(grep:*)"
     ],
     "defaultMode": "acceptEdits"
   }
