@@ -3,7 +3,13 @@
     "allow": [
       "WebFetch(domain:deepractice.ai)",
       "mcp__promptx__action",
-      "mcp__promptx__remember"
+      "mcp__promptx__remember",
+      "Bash(lsof:*)",
+      "Bash(gh auth:*)",
+      "Bash(gh repo sync:*)",
+      "Bash(git config:*)",
+      "Bash(echo:*)",
+      "WebFetch(domain:mp.weixin.qq.com)"
     ],
     "defaultMode": "acceptEdits"
   }
