@@ -21,8 +21,11 @@
       "Bash(xargs ls:*)",
       "Bash(for dir in ~/.promptx/project/*/)",
       "Bash(ls:*)",
-      "Bash(done)"
+      "Bash(done)",
+      "Bash(git clone:*)",
+      "Bash(mv:*)"
     ],
-    "defaultMode": "acceptEdits"
+    "deny": [],
+    "ask": []
   }
 }
