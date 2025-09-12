@@ -14,7 +14,9 @@
       "Bash(sed:*)",
       "mcp__promptx__welcome",
       "Bash(grep:*)",
-      "mcp__promptx__recall"
+      "mcp__promptx__recall",
+      "mcp__promptx__learn",
+      "mcp__promptx__toolx"
     ],
     "defaultMode": "acceptEdits"
   }
