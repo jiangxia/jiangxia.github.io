@@ -16,7 +16,8 @@
       "Bash(grep:*)",
       "mcp__promptx__recall",
       "mcp__promptx__learn",
-      "mcp__promptx__toolx"
+      "mcp__promptx__toolx",
+      "Read(//Users/huangyanxiang/.promptx/**)"
     ],
     "defaultMode": "acceptEdits"
   }
