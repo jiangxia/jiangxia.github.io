@@ -17,8 +17,11 @@
       "mcp__promptx__recall",
       "mcp__promptx__learn",
       "mcp__promptx__toolx",
-      "Read(//Users/huangyanxiang/.promptx/**)"
+      "Read(//Users/huangyanxiang/.promptx/**)",
+      "Bash(git clone:*)",
+      "Bash(mv:*)"
     ],
-    "defaultMode": "acceptEdits"
+    "deny": [],
+    "ask": []
   }
 }
