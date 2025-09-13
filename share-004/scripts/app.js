@@ -213,8 +213,8 @@ class PPTApp {
         // 清空现有指示器
         indicator.innerHTML = '';
 
-        // 当前只显示已实现的5页指示器
-        const implementedPages = 5; // 当前实现的页面数
+        // 当前只显示已实现的8页指示器
+        const implementedPages = 8; // 当前实现的页面数
         
         // 生成页面指示器
         for (let i = 0; i < implementedPages; i++) {
@@ -260,7 +260,7 @@ class PPTApp {
     updatePageCounter() {
         const counter = document.getElementById('page-counter');
         if (counter) {
-            const implementedPages = 5; // 当前实现的页面数
+            const implementedPages = 8; // 当前实现的页面数
             counter.textContent = `${this.currentPage + 1} / ${implementedPages}`;
         }
     }
@@ -269,7 +269,7 @@ class PPTApp {
      * 跳转到指定页面
      */
     goToPage(pageIndex) {
-        const implementedPages = 5; // 当前实现的页面数
+        const implementedPages = 8; // 当前实现的页面数
         if (pageIndex >= 0 && pageIndex < implementedPages && this.fullpageApi) {
             this.fullpageApi.moveTo(pageIndex + 1);
         }
@@ -360,7 +360,7 @@ class PPTApp {
      * 下一页
      */
     nextPage() {
-        const implementedPages = 5; // 当前实现的页面数
+        const implementedPages = 8; // 当前实现的页面数
         if (this.fullpageApi && this.currentPage < implementedPages - 1) {
             this.fullpageApi.moveSectionDown();
         }
