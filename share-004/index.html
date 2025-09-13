@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI协作能力：大学生未来发展的新维度</title>
+    
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fullpage.js CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.25/fullpage.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.25/fullpage.min.js"></script>
+    
+    <!-- ECharts CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.3/echarts.min.js"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles/main.css">
+    
+    <!-- TailwindCSS Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'tesla-red': '#E31937',
+                        'aurora-purple': '#8B5CF6',
+                        'aurora-blue': '#3B82F6',
+                        'aurora-cyan': '#06B6D4',
+                    },
+                    fontFamily: {
+                        'chinese': ['Noto Sans SC', 'serif'],
+                        'english': ['Inter', 'sans-serif'],
+                    },
+                    fontSize: {
+                        'mega': '6rem',
+                        'super': '4rem',
+                        'huge': '3rem',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-black text-white overflow-hidden">
+    
+    <!-- Navigation Indicator -->
+    <div id="page-indicator" class="fixed top-8 right-8 z-50 flex flex-col space-y-2">
+        <!-- Dynamic page indicators will be generated here -->
+    </div>
+    
+    <!-- Fullpage Container -->
+    <div id="fullpage">
+        
+        <!-- Page 1: Title Page -->
+        <div class="section bg-black relative overflow-hidden">
+            <div class="aurora-gradient absolute inset-0 opacity-30"></div>
+            <div class="relative z-10 h-full flex flex-col items-center justify-center text-center px-8">
+                <h1 class="font-chinese font-black text-mega mb-8 leading-tight">
+                    <span class="text-white">AI</span><span class="text-tesla-red">协作能力</span>
+                </h1>
+                <h2 class="font-chinese font-bold text-huge mb-16 text-gray-200">
+                    大学生未来发展的新维度
+                </h2>
+                <div class="font-english text-xl text-gray-400 uppercase tracking-wider">
+                    AI Collaboration Skills: A New Dimension for Future Development
+                </div>
+            </div>
+        </div>
+        
+        <!-- Page 2: 分享目的 -->
+        <div class="section bg-black relative overflow-hidden">
+            <div class="aurora-gradient absolute inset-0 opacity-20"></div>
+            <div class="relative z-10 h-full flex flex-col items-center justify-center px-8">
+                <h1 class="font-chinese font-black text-super mb-16 text-tesla-red text-center">
+                    分享目的
+                </h1>
+                <div class="max-w-6xl space-y-12">
+                    <div class="purpose-item flex items-start space-x-6">
+                        <div class="text-tesla-red text-6xl font-black">01</div>
+                        <p class="font-chinese font-bold text-2xl leading-relaxed">
+                            <span class="text-tesla-red">AI时代不是威胁</span>，它可能是我们这一代人最大的<span class="text-tesla-red">机会</span>。
+                        </p>
+                    </div>
+                    <div class="purpose-item flex items-start space-x-6">
+                        <div class="text-tesla-red text-6xl font-black">02</div>
+                        <p class="font-chinese font-bold text-2xl leading-relaxed">
+                            <span class="text-tesla-red">打破理论与实践的鸿沟</span>，让AI成为我们真正可用的<span class="text-tesla-red">协作伙伴</span>。
+                        </p>
+                    </div>
+                    <div class="purpose-item flex items-start space-x-6">
+                        <div class="text-tesla-red text-6xl font-black">03</div>
+                        <p class="font-chinese font-bold text-2xl leading-relaxed">
+                            让<span class="text-tesla-red">AI协作</span>成为我们在各种挑战中的<span class="text-tesla-red">核心竞争力</span>。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Page 3: 自我介绍-四重身份 -->
+        <div class="section bg-black relative overflow-hidden">
+            <div class="aurora-gradient absolute inset-0 opacity-20"></div>
+            <div class="relative z-10 h-full flex flex-col items-center justify-center px-8">
+                <h1 class="font-chinese font-black text-super mb-16 text-tesla-red text-center">
+                    自我介绍
+                </h1>
+                <div class="max-w-5xl">
+                    <h2 class="font-chinese font-bold text-huge mb-12 text-center text-white">
+                        四重身份
+                    </h2>
+                    <div class="grid grid-cols-2 gap-8">
+                        <div class="identity-card bg-tesla-red bg-opacity-10 border border-tesla-red border-opacity-30 rounded-2xl p-8 text-center">
+                            <i class="fas fa-code text-tesla-red text-5xl mb-4"></i>
+                            <h3 class="font-chinese font-bold text-xl mb-2">高级软件工程师</h3>
+                        </div>
+                        <div class="identity-card bg-tesla-red bg-opacity-10 border border-tesla-red border-opacity-30 rounded-2xl p-8 text-center">
+                            <i class="fas fa-balance-scale text-tesla-red text-5xl mb-4"></i>
+                            <h3 class="font-chinese font-bold text-xl mb-2">双证律师</h3>
+                        </div>
+                        <div class="identity-card bg-tesla-red bg-opacity-10 border border-tesla-red border-opacity-30 rounded-2xl p-8 text-center">
+                            <i class="fas fa-lightbulb text-tesla-red text-5xl mb-4"></i>
+                            <h3 class="font-chinese font-bold text-xl mb-2">专利代理师</h3>
+                        </div>
+                        <div class="identity-card bg-tesla-red bg-opacity-10 border border-tesla-red border-opacity-30 rounded-2xl p-8 text-center">
+                            <i class="fas fa-users text-tesla-red text-5xl mb-4"></i>
+                            <h3 class="font-chinese font-bold text-xl mb-2">开源社区核心贡献者</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Page 4: 自我介绍-华库律所 -->
+        <div class="section bg-black relative overflow-hidden">
+            <div class="aurora-gradient absolute inset-0 opacity-20"></div>
+            <div class="relative z-10 h-full flex flex-col items-center justify-center px-8">
+                <h1 class="font-chinese font-black text-super mb-16 text-tesla-red text-center">
+                    华库律所
+                </h1>
+                <div class="max-w-6xl">
+                    <div class="text-center mb-12">
+                        <h2 class="font-chinese font-bold text-huge mb-6 text-white">
+                            广东华库律师事务所
+                        </h2>
+                        <p class="font-chinese font-semibold text-2xl text-gray-300 mb-8">
+                            2025年全新创立，法律领域后起之秀
+                        </p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
+                        <!-- 建所理念 -->
+                        <div class="space-y-8">
+                            <h3 class="font-chinese font-bold text-xl text-tesla-red mb-6">三大建所理念</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-12 h-12 bg-tesla-red rounded-full flex items-center justify-center">
+                                        <i class="fas fa-hammer text-white text-xl"></i>
+                                    </div>
+                                    <span class="font-chinese font-bold text-2xl">「匠・律」</span>
+                                </div>
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-12 h-12 bg-tesla-red rounded-full flex items-center justify-center">
+                                        <i class="fas fa-shield-alt text-white text-xl"></i>
+                                    </div>
+                                    <span class="font-chinese font-bold text-2xl">「锋・盾」</span>
+                                </div>
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-12 h-12 bg-tesla-red rounded-full flex items-center justify-center">
+                                        <i class="fas fa-star text-white text-xl"></i>
+                                    </div>
+                                    <span class="font-chinese font-bold text-2xl">「明・信」</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 团队特色 -->
+                        <div class="space-y-8">
+                            <h3 class="font-chinese font-bold text-xl text-tesla-red mb-6">团队特色</h3>
+                            <p class="font-chinese font-semibold text-lg leading-relaxed text-gray-200">
+                                汇聚跨学科背景精英律师团队<br>
+                                <span class="text-tesla-red">（医学、工程等）</span>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- 业务范围 -->
+                    <div class="text-center">
+                        <h3 class="font-chinese font-bold text-xl text-tesla-red mb-6">业务涵盖</h3>
+                        <div class="flex flex-wrap justify-center gap-4">
+                            <span class="bg-tesla-red bg-opacity-20 border border-tesla-red px-6 py-3 rounded-full font-chinese font-semibold">公司事务</span>
+                            <span class="bg-tesla-red bg-opacity-20 border border-tesla-red px-6 py-3 rounded-full font-chinese font-semibold">知识产权</span>
+                            <span class="bg-tesla-red bg-opacity-20 border border-tesla-red px-6 py-3 rounded-full font-chinese font-semibold">诉讼仲裁</span>
+                            <span class="bg-tesla-red bg-opacity-20 border border-tesla-red px-6 py-3 rounded-full font-chinese font-semibold">工程建筑</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Page 5: 普通学长+证件照片+莞工情怀 -->
+        <div class="section bg-black relative overflow-hidden">
+            <div class="aurora-gradient absolute inset-0 opacity-20"></div>
+            <div class="relative z-10 h-full flex flex-col items-center justify-center px-8">
+                <div class="max-w-4xl text-center">
+                    <h1 class="font-chinese font-black text-super mb-16 text-tesla-red">
+                        一个普通的学长
+                    </h1>
+                    
+                    <!-- 证件照片 -->
+                    <div class="mb-16">
+                        <div class="relative inline-block">
+                            <img src="./imgs/证件.png" alt="证件照片" 
+                                 class="max-w-md rounded-2xl shadow-2xl border-4 border-tesla-red border-opacity-50"
+                                 style="max-height: 400px; object-fit: contain;">
+                            <div class="absolute -inset-4 bg-tesla-red opacity-20 rounded-2xl blur-xl"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- 莞工情怀 -->
+                    <div class="space-y-8">
+                        <h2 class="font-chinese font-bold text-huge text-white leading-tight">
+                            <span class="text-tesla-red">四年</span>莞工人，<span class="text-tesla-red">一生</span>莞工情
+                        </h2>
+                        
+                        <div class="font-english text-xl text-gray-400 uppercase tracking-wider">
+                            Four Years at DGUT, Lifetime Connection
+                        </div>
+                        
+                        <!-- 装饰元素 -->
+                        <div class="flex justify-center space-x-8 mt-12">
+                            <div class="w-16 h-1 bg-tesla-red rounded"></div>
+                            <div class="w-8 h-8 border-2 border-tesla-red rounded-full flex items-center justify-center">
+                                <i class="fas fa-heart text-tesla-red text-sm"></i>
+                            </div>
+                            <div class="w-16 h-1 bg-tesla-red rounded"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+    <!-- Custom Scripts -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/animations.js"></script>
+    <script src="scripts/navigation.js"></script>
+    
+</body>
+</html>
