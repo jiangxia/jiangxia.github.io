@@ -213,8 +213,8 @@ class PPTApp {
         // 清空现有指示器
         indicator.innerHTML = '';
 
-        // 当前只显示已实现的8页指示器
-        const implementedPages = 8; // 当前实现的页面数
+        // 当前只显示已实现的10页指示器
+        const implementedPages = 10; // 当前实现的页面数
         
         // 生成页面指示器
         for (let i = 0; i < implementedPages; i++) {
@@ -226,6 +226,7 @@ class PPTApp {
             
             // 点击事件
             dot.addEventListener('click', () => {
+                console.log(`点击指示器，跳转到第 ${i + 1} 页`);
                 this.goToPage(i);
             });
             
@@ -260,7 +261,7 @@ class PPTApp {
     updatePageCounter() {
         const counter = document.getElementById('page-counter');
         if (counter) {
-            const implementedPages = 8; // 当前实现的页面数
+            const implementedPages = 10; // 当前实现的页面数
             counter.textContent = `${this.currentPage + 1} / ${implementedPages}`;
         }
     }
@@ -269,9 +270,13 @@ class PPTApp {
      * 跳转到指定页面
      */
     goToPage(pageIndex) {
-        const implementedPages = 8; // 当前实现的页面数
+        const implementedPages = 10; // 当前实现的页面数
+        console.log(`goToPage调用: pageIndex=${pageIndex}, implementedPages=${implementedPages}, fullpageApi=${!!this.fullpageApi}`);
         if (pageIndex >= 0 && pageIndex < implementedPages && this.fullpageApi) {
+            console.log(`执行跳转到第 ${pageIndex + 1} 页`);
             this.fullpageApi.moveTo(pageIndex + 1);
+        } else {
+            console.log(`跳转失败: 条件不满足`);
         }
     }
 
