@@ -45,7 +45,7 @@
   - _Requirements: 4.1, 5.1_
   - _Prompt: Role: Data Presentation Specialist with expertise in comparative visualization | Task: Create 2 pages showing AI era relevance and comparison table following requirements 4.1 and 5.1, making data easily digestible | Restrictions: Must preserve exact table structure and all data points, ensure mobile readability | Success: Comparison is visually clear, data is compelling, table renders perfectly_
 
-- [ ] 5. AI学习工具链演示制作（共5页）
+- [-] 5. AI学习工具链演示制作（共5页）
   - File: pages/toolchain.html, data/toolchain.json
   - **第11页**: AI学习工具链章节介绍
   - **第12页**: Step 1 - Perplexity极速调研（功能+优势+截图）
