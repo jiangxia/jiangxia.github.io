@@ -1,0 +1,1869 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基于AI角色化的协作框架：拟人化AI协作的方法论创新与实践</title>
+
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- fullpage.js CDN -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/fullpage.js@4.0.20/dist/fullpage.min.css" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/fullpage.js@4.0.20/dist/fullpage.min.js"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+        :root {
+            --tesla-red: #E31937;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #000000;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .section {
+            background: linear-gradient(135deg, #000 0%, #111 50%, #000 100%);
+            position: relative;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 10vw, 8rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, #fff 0%, var(--tesla-red) 50%, #fff 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+            line-height: 0.9;
+            margin: 0 auto;
+            letter-spacing: -0.02em;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, #E31937 0%, rgba(227, 25, 55, 0.8) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle-en {
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            font-weight: 300;
+            color: rgba(227, 25, 55, 0.7);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .content-container {
+            max-width: 90vw;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .fade-in-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .page-number {
+            position: absolute;
+            bottom: 2rem;
+            right: 2rem;
+            font-size: 1.2rem;
+            color: rgba(227, 25, 55, 0.5);
+            font-weight: 600;
+        }
+
+        .role-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(227, 25, 55, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .role-card:hover {
+            border-color: rgba(227, 25, 55, 0.5);
+            background: rgba(227, 25, 55, 0.05);
+        }
+
+        .aurora-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center, rgba(231, 25, 55, 0.1) 0%, transparent 70%);
+            animation: aurora 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes aurora {
+            0% { transform: translateY(0px) rotate(0deg); opacity: 0.3; }
+            100% { transform: translateY(-20px) rotate(1deg); opacity: 0.6; }
+        }
+
+        .point-item {
+            display: flex;
+            align-items: center;
+            padding: 0.3rem 0.5rem;
+            margin: 0.2rem 0;
+            line-height: 1.3;
+        }
+
+        #fp-nav ul li a span {
+            background: rgba(227, 25, 55, 0.8) !important;
+            color: white !important;
+            padding: 4px 8px !important;
+            border-radius: 4px !important;
+            font-size: 12px !important;
+            white-space: nowrap !important;
+            opacity: 0 !important;
+            transition: opacity 0.3s !important;
+        }
+
+        #fp-nav ul li:hover a span {
+            opacity: 1 !important;
+        }
+
+        .speaker-info {
+            background: rgba(227, 25, 55, 0.1);
+            border: 1px solid rgba(227, 25, 55, 0.3);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        .painpoint-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+
+        .painpoint-item {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(227, 25, 55, 0.2);
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .painpoint-number {
+            color: #E31937;
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="fullpage">
+
+        <!-- 第1页：标题页 -->
+        <div class="section aurora-bg" data-anchor="page1">
+            <div class="flex flex-col justify-center items-center h-screen px-8">
+                <div class="fade-in text-center max-w-6xl">
+                    <h1 class="hero-title mb-6">AI协作框架</h1>
+                    <h2 class="text-2xl md:text-3xl font-light text-gray-300 mb-6">拟人化AI协作的方法论创新与实践</h2>
+                    <p class="text-lg text-gray-400 mb-8">演讲者：黄彦湘</p>
+
+                    <div class="grid grid-cols-1 gap-1 max-w-4xl mx-auto text-left">
+                        <div class="point-item">
+                            <span class="text-xl font-bold text-red-500 mr-3">1.</span>
+                            <span class="text-lg">痛点识别：传统小说创作与普通AI协作的系统性问题分析</span>
+                        </div>
+                        <div class="point-item">
+                            <span class="text-xl font-bold text-red-500 mr-3">2.</span>
+                            <span class="text-lg">方法论突破：拟人化AI团队思维 + 三层架构设计原则</span>
+                        </div>
+                        <div class="point-item">
+                            <span class="text-xl font-bold text-red-500 mr-3">3.</span>
+                            <span class="text-lg">工作流设计：基于角色化的标准化协作工作流与角色创建流程</span>
+                        </div>
+                        <div class="point-item">
+                            <span class="text-xl font-bold text-red-500 mr-3">4.</span>
+                            <span class="text-lg">创新探索：首创"角色共创法"——与AI主角对话演绎剧情的全新创作模式</span>
+                        </div>
+                        <div class="point-item">
+                            <span class="text-xl font-bold text-red-500 mr-3">5.</span>
+                            <span class="text-lg">价值升华：从小说创作实践到通用AI协作框架方法论</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">1</div>
+        </div>
+
+        <!-- 第2页：演讲者完整介绍 -->
+        <div class="section" data-anchor="page2">
+            <div class="h-full flex items-center justify-center">
+                <div class="content-container">
+                    <div class="fade-in-up text-center mb-8">
+                        <h1 class="section-title mb-4">演讲者介绍</h1>
+                        <p class="subtitle-en">Speaker Introduction</p>
+                    </div>
+
+                    <div class="max-w-6xl mx-auto">
+                        <div class="fade-in-up speaker-info mb-8">
+                            <h2 class="text-2xl font-bold mb-6 text-red-500">四重身份</h2>
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                                <div class="role-card">
+                                    <i class="fas fa-code text-red-500 text-3xl mb-3"></i>
+                                    <h3 class="font-semibold">高级软件工程师</h3>
+                                </div>
+                                <div class="role-card">
+                                    <i class="fas fa-balance-scale text-red-500 text-3xl mb-3"></i>
+                                    <h3 class="font-semibold">律师</h3>
+                                </div>
+                                <div class="role-card">
+                                    <i class="fas fa-certificate text-red-500 text-3xl mb-3"></i>
+                                    <h3 class="font-semibold">专利代理师</h3>
+                                </div>
+                                <div class="role-card">
+                                    <i class="fas fa-users text-red-500 text-3xl mb-3"></i>
+                                    <h3 class="font-semibold">开源社区贡献者</h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="fade-in-up bg-gray-900 border border-gray-700 rounded-lg p-6">
+                            <div class="flex items-center mb-4">
+                                <i class="fas fa-building text-red-500 text-2xl mr-3"></i>
+                                <h2 class="text-2xl font-bold text-red-500">广东华库律师事务所</h2>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <p class="text-gray-300 mb-4">广东华库律师事务所2025年全新创立，法律领域后起之秀</p>
+                                    <div class="flex items-center space-x-6">
+                                        <div class="flex items-center">
+                                            <span class="text-red-500 mr-2">●</span>
+                                            <span class="font-semibold text-red-400">「匠・律」</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <span class="text-red-500 mr-2">●</span>
+                                            <span class="font-semibold text-red-400">「锋・盾」</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <span class="text-red-500 mr-2">●</span>
+                                            <span class="font-semibold text-red-400">「明・信」</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-gray-300 mb-3">汇聚跨学科背景精英律师团队（医学、工程等）</p>
+                                    <p class="text-gray-300">业务涵盖：公司事务、知识产权、诉讼仲裁、工程建筑等</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">2</div>
+        </div>
+
+        <!-- 第3页：疯狂构思《行易：复兴之路》 -->
+        <div class="section" data-anchor="page3">
+            <div class="h-full flex items-center justify-center">
+                <div class="content-container">
+                    <div class="fade-in-up text-center mb-8">
+                        <h1 class="section-title mb-4">疯狂构思《行易：复兴之路》</h1>
+                        <p class="subtitle-en">A Crazy Vision</p>
+                        <h2 class="text-lg text-gray-300 mt-4">宏大设想</h2>
+                    </div>
+
+                    <div class="max-w-5xl mx-auto">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            <div class="fade-in-up role-card text-center">
+                                <i class="fas fa-yin-yang text-red-500 text-4xl mb-4"></i>
+                                <h3 class="text-xl font-bold mb-3">《易经》体系</h3>
+                                <p class="text-gray-300 text-sm">严格按照64卦、386爻的顺序对应百年建国史</p>
+                            </div>
+                            <div class="fade-in-up role-card text-center">
+                                <i class="fas fa-globe text-red-500 text-4xl mb-4"></i>
+                                <h3 class="text-xl font-bold mb-3">三代家族史</h3>
+                                <p class="text-gray-300 text-sm">三个时代的家族史，展现百年民族复兴的缩影</p>
+                            </div>
+                            <div class="fade-in-up role-card text-center">
+                                <i class="fas fa-globe text-red-500 text-4xl mb-4"></i>
+                                <h3 class="text-xl font-bold mb-3">观念重塑</h3>
+                                <p class="text-gray-300 text-sm">从"算命书"到"世界观与方法论"</p>
+                            </div>
+                        </div>
+
+                        <div class="fade-in-up text-center mt-12">
+                            <div class="bg-gradient-to-r from-red-900 to-red-800 rounded-lg p-8">
+                                <h3 class="text-2xl font-bold mb-4 text-white">核心思考</h3>
+                                <p class="text-gray-200 text-lg">家国情怀贯穿全书，思考中华民族伟大复兴、百年未有大变局等宏大话题</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">3</div>
+        </div>
+
+        <!-- 第4页：传统手工写小说5大痛点 -->
+        <div class="section" data-anchor="page4">
+            <div class="h-full flex items-center justify-center">
+                <div class="content-container">
+                    <div class="fade-in-up text-center mb-8">
+                        <h1 class="section-title mb-4">传统手工写小说5大痛点</h1>
+                        <p class="subtitle-en">Traditional Writing Pain Points</p>
+                    </div>
+
+                    <div class="max-w-6xl mx-auto">
+                        <div class="painpoint-grid">
+                            <div class="fade-in-up painpoint-item">
+                                <div class="painpoint-number">构</div>
+                                <h3 class="text-lg font-bold mb-2">构思混乱</h3>
+                                <p class="text-gray-300 text-sm">世界观设定自相矛盾</p>
+                            </div>
+                            <div class="fade-in-up painpoint-item">
+                                <div class="painpoint-number">慢</div>
+                                <h3 class="text-lg font-bold mb-2">速度慢</h3>
+                                <p class="text-gray-300 text-sm">一天2000字已经很累</p>
+                            </div>
+                            <div class="fade-in-up painpoint-item">
+                                <div class="painpoint-number">卡</div>
+                                <h3 class="text-lg font-bold mb-2">经常卡文</h3>
+                                <p class="text-gray-300 text-sm">不知道情节怎么发展</p>
+                            </div>
+                            <div class="fade-in-up painpoint-item">
+                                <div class="painpoint-number">错</div>
+                                <h3 class="text-lg font-bold mb-2">前后矛盾</h3>
+                                <p class="text-gray-300 text-sm">几十万字很难保持一致</p>
+                            </div>
+                            <div class="fade-in-up painpoint-item">
+                                <div class="painpoint-number">累</div>
+                                <h3 class="text-lg font-bold mb-2">容易放弃</h3>
+                                <p class="text-gray-300 text-sm">长篇创作周期太长</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">4</div>
+        </div>
+
+        <!-- 第5页：普通AI创作5大痛点 -->
+        <div class="section" data-anchor="page5">
+            <div class="h-full flex items-center justify-center">
+                <div class="content-container">
+                    <div class="fade-in-up text-center mb-8">
+                        <h1 class="section-title mb-4">普通AI创作5大痛点</h1>
+                        <p class="subtitle-en">AI Writing Pain Points</p>
+                    </div>
+
+                    <div class="max-w-6xl mx-auto">
+                        <div class="painpoint-grid">
+                            <div class="fade-in-up painpoint-item">
+                                <div class="painpoint-number">写</div>
+                                <h3 class="text-lg font-bold mb-2">提示词工程</h3>
+                                <p class="text-gray-300 text-sm">要学会写复杂提示词</p>
+                            </div>
+                            <div class="fade-in-up painpoint-item">
+                                <div class="painpoint-number">乱</div>
+                                <h3 class="text-lg font-bold mb-2">角色混乱</h3>
+                                <p class="text-gray-300 text-sm">没有专业分工，一个AI包打天下</p>
+                            </div>
+                            <div class="fade-in-up painpoint-item">
+                                <div class="painpoint-number">忘</div>
+                                <h3 class="text-lg font-bold mb-2">上下文丢失</h3>
+                                <p class="text-gray-300 text-sm">AI记不住前面的设定</p>
+                            </div>
+                            <div class="fade-in-up painpoint-item">
+                                <div class="painpoint-number">飘</div>
+                                <h3 class="text-lg font-bold mb-2">质量不稳</h3>
+                                <p class="text-gray-300 text-sm">有时好有时差，难以控制</p>
+                            </div>
+                            <div class="fade-in-up painpoint-item">
+                                <div class="painpoint-number">死</div>
+                                <h3 class="text-lg font-bold mb-2">扩展困难</h3>
+                                <p class="text-gray-300 text-sm">新想法融入要大改重构</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">5</div>
+        </div>
+
+        <!-- 第6页：真实案例《行易》创作危机 -->
+        <div class="section" data-anchor="page6">
+            <div class="h-full flex items-center justify-center">
+                <div class="content-container">
+                    <div class="fade-in-up text-center mb-8">
+                        <h1 class="section-title mb-4">真实案例：《行易》创作中的系统性危机</h1>
+                        <p class="subtitle-en">Real Case Study</p>
+                    </div>
+
+                    <div class="max-w-5xl mx-auto">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            <div class="fade-in-up role-card text-center">
+                                <i class="fas fa-exclamation-triangle text-red-500 text-4xl mb-4"></i>
+                                <h3 class="text-xl font-bold mb-3 text-red-500">一致性危机</h3>
+                                <p class="text-gray-300 text-sm">前后设定矛盾，主角经常性被写"死"</p>
+                            </div>
+                            <div class="fade-in-up role-card text-center">
+                                <i class="fas fa-puzzle-piece text-red-500 text-4xl mb-4"></i>
+                                <h3 class="text-xl font-bold mb-3 text-red-500">扩展性噩梦</h3>
+                                <p class="text-gray-300 text-sm">创作过程新增灵感，无法优雅扩展</p>
+                            </div>
+                            <div class="fade-in-up role-card text-center">
+                                <i class="fas fa-eye text-red-500 text-4xl mb-4"></i>
+                                <h3 class="text-xl font-bold mb-3 text-red-500">质量控制幻象</h3>
+                                <p class="text-gray-300 text-sm">AI自检无效，仍需大量人工干预发现问题</p>
+                            </div>
+                        </div>
+
+                        <div class="fade-in-up text-center mt-12">
+                            <div class="bg-gray-900 border border-red-500 rounded-lg p-8">
+                                <h3 class="text-2xl font-bold mb-4 text-red-500">核心问题</h3>
+                                <p class="text-gray-300 text-lg">传统AI协作方式无法解决复杂创作任务的系统性问题</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">6</div>
+        </div>
+
+        <!-- 第7页：从痛点到方法论突破 -->
+        <div class="section" data-anchor="page7">
+            <div class="h-full flex items-center justify-center">
+                <div class="content-container">
+                    <div class="fade-in-up text-center mb-8">
+                        <h1 class="section-title mb-4">从痛点到方法论突破</h1>
+                        <p class="subtitle-en">From Pain Points to Breakthrough</p>
+                        <h2 class="text-lg text-gray-300 mt-4">我们是如何解决前面提到的这些系统性问题的呢？</h2>
+                    </div>
+
+                    <div class="max-w-6xl mx-auto">
+                        <div class="fade-in-up text-center">
+                            <div class="bg-gradient-to-r from-red-900 to-red-800 rounded-lg p-12">
+                                <i class="fas fa-lightbulb text-white text-6xl mb-8"></i>
+                                <h2 class="text-4xl font-bold mb-6 text-white">核心洞察</h2>
+                                <p class="text-xl text-gray-200 mb-8">
+                                    把AI系统当作专业团队来设计
+                                </p>
+                                <div class="flex justify-center space-x-8">
+                                    <div class="text-center">
+                                        <i class="fas fa-arrow-right text-red-400 text-2xl mb-2"></i>
+                                        <p class="text-gray-200">拟人化思维</p>
+                                    </div>
+                                    <div class="text-center">
+                                        <i class="fas fa-arrow-right text-red-400 text-2xl mb-2"></i>
+                                        <p class="text-gray-200">专业分工</p>
+                                    </div>
+                                    <div class="text-center">
+                                        <i class="fas fa-arrow-right text-red-400 text-2xl mb-2"></i>
+                                        <p class="text-gray-200">系统协作</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">7</div>
+        </div>
+
+        <!-- 第8页：核心设计哲学 - 拟人化AI团队思维 -->
+        <div class="section" data-anchor="page8">
+            <div class="h-full flex items-center justify-center">
+                <div class="content-container">
+                    <div class="fade-in-up text-center mb-8">
+                        <h1 class="section-title mb-4">核心设计哲学：拟人化AI团队思维</h1>
+                        <p class="subtitle-en">Core Design Philosophy</p>
+                        <h2 class="text-lg text-gray-300 mt-4">假设你要招聘一个小说创作团队，你会怎么做？</h2>
+                    </div>
+
+                    <div class="max-w-6xl mx-auto">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                            <div class="fade-in-up bg-red-900/20 border border-red-500/50 rounded-lg p-6">
+                                <div class="flex items-center mb-4">
+                                    <i class="fas fa-times text-red-500 text-2xl mr-3"></i>
+                                    <h3 class="text-xl font-bold text-red-500">传统错误做法</h3>
+                                </div>
+                                <p class="text-gray-300 mb-4">招一个"全能型"编剧，什么都让他干</p>
+                                <div class="space-y-2 text-sm text-gray-400">
+                                    <p>• 累死累活，质量不稳</p>
+                                    <p>• 经常出错，效率低下</p>
+                                    <p>• 单点故障，风险集中</p>
+                                </div>
+                            </div>
+                            <div class="fade-in-up bg-green-900/20 border border-green-500/50 rounded-lg p-6">
+                                <div class="flex items-center mb-4">
+                                    <i class="fas fa-check text-green-500 text-2xl mr-3"></i>
+                                    <h3 class="text-xl font-bold text-green-500">我们的解决方案</h3>
+                                </div>
+                                <p class="text-gray-300 mb-4">组建专业团队，每个人做最擅长的事</p>
+                                <div class="space-y-2 text-sm text-gray-400">
+                                    <p>• 专业分工，效率提升</p>
+                                    <p>• 质量稳定，协作有序</p>
+                                    <p>• 系统思维，可扩展强</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="fade-in-up text-center">
+                            <div class="bg-gray-900 border border-gray-700 rounded-lg p-8">
+                                <h3 class="text-2xl font-bold mb-4 text-red-500">核心原则</h3>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+                                    <div class="flex items-start">
+                                        <i class="fas fa-users text-red-500 text-xl mr-3 mt-1"></i>
+                                        <span class="text-gray-300">把AI系统当作专业团队来设计</span>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <i class="fas fa-id-badge text-red-500 text-xl mr-3 mt-1"></i>
+                                        <span class="text-gray-300">每个AI角色都有明确的职业身份和工作边界</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">8</div>
+        </div>
+
+        <!-- 第9页：4角色专业分工体系（合并页，信息完整） -->
+        <div class="section" data-anchor="page9">
+            <div class="h-full flex items-center justify-center">
+                <div class="content-container">
+                    <div class="fade-in-up text-center mb-6">
+                        <h1 class="section-title mb-4">4角色专业分工体系</h1>
+                        <p class="subtitle-en">Professional Division System</p>
+                    </div>
+
+                    <div class="max-w-7xl mx-auto">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                            <!-- 总监角色 -->
+                            <div class="fade-in-up role-card">
+                                <div class="flex items-center mb-4">
+                                    <i class="fas fa-chess-king text-red-500 text-2xl mr-3"></i>
+                                    <h3 class="text-xl font-bold">总监：任务大脑</h3>
+                                </div>
+                                <div class="space-y-3 text-gray-300 text-sm">
+                                    <div>
+                                        <span class="text-red-500 font-semibold">职责：</span>
+                                        <span>智能分配任务，质量监控</span>
+                                    </div>
+                                    <div>
+                                        <span class="text-red-500 font-semibold">工作方式：</span>
+                                        <span>意图识别→角色激活→任务传递</span>
+                                    </div>
+                                    <div>
+                                        <span class="text-red-500 font-semibold">价值：</span>
+                                        <span>从"全能型"变成"专业高效"</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 架构师角色 -->
+                            <div class="fade-in-up role-card">
+                                <div class="flex items-center mb-4">
+                                    <i class="fas fa-drafting-compass text-red-500 text-2xl mr-3"></i>
+                                    <h3 class="text-xl font-bold">架构师：世界观设计师</h3>
+                                </div>
+                                <div class="space-y-3 text-gray-300 text-sm">
+                                    <div>
+                                        <span class="text-red-500 font-semibold">职责：</span>
+                                        <span>构建完整的故事世界</span>
+                                    </div>
+                                    <div>
+                                        <span class="text-red-500 font-semibold">工作方式：</span>
+                                        <span>What(故事世界)+Why(故事主题)+Who(故事角色)三维构建</span>
+                                    </div>
+                                    <div>
+                                        <span class="text-red-500 font-semibold">价值：</span>
+                                        <span>确保世界观逻辑自洽，不会前后矛盾</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 规划师角色 -->
+                            <div class="fade-in-up role-card">
+                                <div class="flex items-center mb-4">
+                                    <i class="fas fa-map-marked-alt text-red-500 text-2xl mr-3"></i>
+                                    <h3 class="text-xl font-bold">规划师：情节设计师</h3>
+                                </div>
+                                <div class="space-y-3 text-gray-300 text-sm">
+                                    <div>
+                                        <span class="text-red-500 font-semibold">职责：</span>
+                                        <span>设计故事大纲和详细概要</span>
+                                    </div>
+                                    <div>
+                                        <span class="text-red-500 font-semibold">工作方式：</span>
+                                        <span>从整体框架到具体情节的逐层细化</span>
+                                    </div>
+                                    <div>
+                                        <span class="text-red-500 font-semibold">价值：</span>
+                                        <span>让故事有条理，不会卡文或偏题</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 写手角色 -->
+                            <div class="fade-in-up role-card">
+                                <div class="flex items-center mb-4">
+                                    <i class="fas fa-pen-fancy text-red-500 text-2xl mr-3"></i>
+                                    <h3 class="text-xl font-bold">写手：内容创作者</h3>
+                                </div>
+                                <div class="space-y-3 text-gray-300 text-sm">
+                                    <div>
+                                        <span class="text-red-500 font-semibold">职责：</span>
+                                        <span>根据规划专心创作内容</span>
+                                    </div>
+                                    <div>
+                                        <span class="text-red-500 font-semibold">工作方式：</span>
+                                        <span>按照概要和设定进行文字创作</span>
+                                    </div>
+                                    <div>
+                                        <span class="text-red-500 font-semibold">价值：</span>
+                                        <span>专注写作，质量稳定</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">9</div>
+        </div>
+
+        <!-- 第10页：三层架构设计原则 -->
+        <div class="section" data-anchor="page10">
+            <div class="h-full flex items-center justify-center">
+                <div class="content-container">
+                    <div class="fade-in-up text-center mb-8">
+                        <h1 class="section-title mb-4">三层架构设计原则</h1>
+                        <p class="subtitle-en">Three-Layer Architecture Principles</p>
+                        <h2 class="text-lg text-gray-300 mt-4">为什么这样的4角色设计能够有效解决问题？</h2>
+                    </div>
+
+                    <div class="max-w-6xl mx-auto">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                            <div class="fade-in-up text-center">
+                                <div class="role-card h-full">
+                                    <i class="fas fa-user-tie text-red-500 text-4xl mb-4"></i>
+                                    <h3 class="text-xl font-bold mb-3 text-red-500">身份层</h3>
+                                    <p class="text-gray-300 text-sm mb-3">"我"是谁？</p>
+                                    <p class="text-gray-400 text-xs">→ 角色提示词层</p>
+                                    <p class="text-gray-400 text-xs">避免AI角色混乱，每个AI都有清晰的专业定位</p>
+                                </div>
+                            </div>
+                            <div class="fade-in-up text-center">
+                                <div class="role-card h-full">
+                                    <i class="fas fa-tasks text-red-500 text-4xl mb-4"></i>
+                                    <h3 class="text-xl font-bold mb-3 text-red-500">职责层</h3>
+                                    <p class="text-gray-300 text-sm mb-3">"我"做什么？</p>
+                                    <p class="text-gray-400 text-xs">→ 小说设定层</p>
+                                    <p class="text-gray-400 text-xs">明确任务边界，AI知道什么该做什么不该做</p>
+                                </div>
+                            </div>
+                            <div class="fade-in-up text-center">
+                                <div class="role-card h-full">
+                                    <i class="fas fa-cog text-red-500 text-4xl mb-4"></i>
+                                    <h3 class="text-xl font-bold mb-3 text-red-500">方法层</h3>
+                                    <p class="text-gray-300 text-sm mb-3">"我"如何做？</p>
+                                    <p class="text-gray-400 text-xs">→ 工作台层</p>
+                                    <p class="text-gray-400 text-xs">确保工作质量稳定，不再靠运气出好结果</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="fade-in-up bg-gray-900 border border-gray-700 rounded-lg p-8">
+                            <h3 class="text-xl font-bold mb-4 text-red-500">这种分层的优势</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-gray-300">
+                                <div class="flex items-start">
+                                    <i class="fas fa-shield-alt text-red-500 mr-2 mt-1"></i>
+                                    <span>修改一层不影响其他层，系统稳定可控</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-bullseye text-red-500 mr-2 mt-1"></i>
+                                    <span>每层职责单一，问题定位准确快速</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-chart-line text-red-500 mr-2 mt-1"></i>
+                                    <span>可以独立优化每层，持续改进系统</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">10</div>
+        </div>
+
+        <!-- 第11页：奥卡姆剃刀应用 -->
+        <div class="section" data-anchor="page11">
+            <div class="h-full flex items-center justify-center">
+                <div class="content-container">
+                    <div class="fade-in-up text-center mb-8">
+                        <h1 class="section-title mb-4">奥卡姆剃刀：用最简方案解决复杂问题</h1>
+                        <p class="subtitle-en">Occam's Razor Application</p>
+                    </div>
+
+                    <div class="max-w-6xl mx-auto">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+                            <!-- 角色精简 -->
+                            <div class="fade-in-up role-card">
+                                <div class="text-center mb-4">
+                                    <i class="fas fa-user-minus text-red-500 text-3xl mb-2"></i>
+                                    <h3 class="text-xl font-bold text-red-500">角色精简</h3>
+                                    <p class="text-sm text-gray-400">从6个角色→4个角色</p>
+                                </div>
+                                <div class="space-y-2 text-sm">
+                                    <div class="bg-gray-800 p-2 rounded">
+                                        <span class="text-red-500">总监</span> → 任务分配 + 质量监控
+                                    </div>
+                                    <div class="bg-gray-800 p-2 rounded">
+                                        <span class="text-red-500">架构师</span> → 世界观三维度构建
+                                    </div>
+                                    <div class="bg-gray-800 p-2 rounded">
+                                        <span class="text-red-500">规划师</span> → 故事大纲 + 故事概要
+                                    </div>
+                                    <div class="bg-gray-800 p-2 rounded">
+                                        <span class="text-red-500">写手</span> → 小说内容创作
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 流程精简 -->
+                            <div class="fade-in-up role-card">
+                                <div class="text-center mb-4">
+                                    <i class="fas fa-route text-red-500 text-3xl mb-2"></i>
+                                    <h3 class="text-xl font-bold text-red-500">流程精简</h3>
+                                    <p class="text-sm text-gray-400">从6步骤→4步骤</p>
+                                </div>
+                                <div class="space-y-3 text-sm">
+                                    <div>
+                                        <p class="text-gray-400 mb-2">原来：</p>
+                                        <p class="text-xs text-gray-500">世界观设定→一句话剧情→全景故事线→章节规划→创作→修订</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-red-500 mb-2">现在：</p>
+                                        <div class="space-y-1">
+                                            <div class="bg-gray-800 p-1 rounded text-xs">小说设定</div>
+                                            <div class="bg-gray-800 p-1 rounded text-xs">故事大纲</div>
+                                            <div class="bg-gray-800 p-1 rounded text-xs">故事概要</div>
+                                            <div class="bg-gray-800 p-1 rounded text-xs">小说内容</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 内容精简 -->
+                            <div class="fade-in-up role-card">
+                                <div class="text-center mb-4">
+                                    <i class="fas fa-compress-alt text-red-500 text-3xl mb-2"></i>
+                                    <h3 class="text-xl font-bold text-red-500">内容精简</h3>
+                                    <p class="text-sm text-gray-400">集中化管理</p>
+                                </div>
+                                <div class="space-y-3 text-sm">
+                                    <div class="bg-red-900/20 border border-red-500/30 p-3 rounded">
+                                        <p class="text-red-400 mb-1">分散≠简洁</p>
+                                        <p class="text-xs text-gray-400">内容到处都是，找不到</p>
+                                    </div>
+                                    <div class="bg-green-900/20 border border-green-500/30 p-3 rounded">
+                                        <p class="text-green-400 mb-1">集中=高效</p>
+                                        <p class="text-xs text-gray-400">相同类型内容放一起，一目了然</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">11</div>
+        </div>
+
+        <!-- 第12页：MECE原则验证 -->
+        <div class="section" data-anchor="page12">
+            <div class="h-full flex items-center justify-center">
+                <div class="content-container">
+                    <div class="fade-in-up text-center mb-8">
+                        <h1 class="section-title mb-4">MECE原则：不重叠、不遗漏的系统设计</h1>
+                        <p class="subtitle-en">MECE Principle Verification</p>
+                    </div>
+
+                    <div class="max-w-6xl mx-auto">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                            <!-- 三层架构MECE验证 -->
+                            <div class="fade-in-up">
+                                <div class="bg-gray-900 border border-gray-700 rounded-lg p-6">
+                                    <h3 class="text-xl font-bold mb-6 text-red-500 text-center">三层架构MECE验证</h3>
+                                    <div class="space-y-4">
+                                        <div class="flex items-start">
+                                            <div class="bg-red-600 rounded-full w-8 h-8 flex items-center justify-center mr-3 flex-shrink-0">
+                                                <i class="fas fa-brain text-white text-sm"></i>
+                                            </div>
+                                            <div>
+                                                <p class="font-semibold text-red-400">身份层："我是谁？"</p>
+                                                <p class="text-sm text-gray-300">→ 角色提示词（专业身份）</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <div class="bg-red-600 rounded-full w-8 h-8 flex items-center justify-center mr-3 flex-shrink-0">
+                                                <i class="fas fa-bullseye text-white text-sm"></i>
+                                            </div>
+                                            <div>
+                                                <p class="font-semibold text-red-400">职责层："我做什么？"</p>
+                                                <p class="text-sm text-gray-300">→ 小说设定（工作范围）</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <div class="bg-red-600 rounded-full w-8 h-8 flex items-center justify-center mr-3 flex-shrink-0">
+                                                <i class="fas fa-wrench text-white text-sm"></i>
+                                            </div>
+                                            <div>
+                                                <p class="font-semibold text-red-400">方法层："我怎么做？"</p>
+                                                <p class="text-sm text-gray-300">→ 工作台（标准流程）</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 世界观设定MECE验证 -->
+                            <div class="fade-in-up">
+                                <div class="bg-gray-900 border border-gray-700 rounded-lg p-6">
+                                    <h3 class="text-xl font-bold mb-6 text-red-500 text-center">世界观设定MECE验证</h3>
+                                    <div class="space-y-4">
+                                        <div class="flex items-start">
+                                            <div class="bg-green-600 rounded-full w-8 h-8 flex items-center justify-center mr-3 flex-shrink-0">
+                                                <span class="text-white font-bold text-sm">W</span>
+                                            </div>
+                                            <div>
+                                                <p class="font-semibold text-green-400">What：故事世界</p>
+                                                <p class="text-sm text-gray-300">→ 时间地点、设定规则</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <div class="bg-green-600 rounded-full w-8 h-8 flex items-center justify-center mr-3 flex-shrink-0">
+                                                <span class="text-white font-bold text-sm">Y</span>
+                                            </div>
+                                            <div>
+                                                <p class="font-semibold text-green-400">Why：故事主题</p>
+                                                <p class="text-sm text-gray-300">→ 要表达什么思想</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-start">
+                                            <div class="bg-green-600 rounded-full w-8 h-8 flex items-center justify-center mr-3 flex-shrink-0">
+                                                <span class="text-white font-bold text-sm">H</span>
+                                            </div>
+                                            <div>
+                                                <p class="font-semibold text-green-400">Who：故事角色</p>
+                                                <p class="text-sm text-gray-300">→ 人物关系和成长</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="fade-in-up text-center mt-8">
+                            <div class="bg-gradient-to-r from-blue-900 to-purple-900 rounded-lg p-6">
+                                <h3 class="text-xl font-bold mb-2 text-white">MECE原则保证</h3>
+                                <p class="text-gray-200">系统覆盖全面，职责边界清晰，无重叠无遗漏</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">12</div>
+        </div>
+
+        <!-- 第13页：从小说创作到通用AI协作框架 -->
+        <div class="section" data-anchor="page13">
+            <div class="h-full flex items-center justify-center">
+                <div class="content-container">
+                    <div class="fade-in-up text-center mb-8">
+                        <h1 class="section-title mb-4">从小说创作到通用AI协作框架</h1>
+                        <p class="subtitle-en">From Novel Writing to Universal AI Framework</p>
+                    </div>
+
+                    <div class="max-w-6xl mx-auto">
+                        <div class="fade-in-up text-center mb-12">
+                            <div class="bg-gradient-to-r from-red-900 to-red-800 rounded-lg p-8">
+                                <h3 class="text-2xl font-bold mb-4 text-white">核心洞察</h3>
+                                <p class="text-xl text-gray-200">
+                                    复杂的AI协作问题，本质上都是"如何让AI像专业团队一样工作"的问题
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            <div class="fade-in-up role-card text-center">
+                                <i class="fas fa-code text-red-500 text-4xl mb-4"></i>
+                                <h3 class="text-xl font-bold mb-3 text-red-500">软件开发</h3>
+                                <p class="text-gray-300 text-sm">需要架构师设计、程序员编码、测试员验证</p>
+                            </div>
+                            <div class="fade-in-up role-card text-center">
+                                <i class="fas fa-palette text-red-500 text-4xl mb-4"></i>
+                                <h3 class="text-xl font-bold mb-3 text-red-500">产品设计</h3>
+                                <p class="text-gray-300 text-sm">需要产品经理规划、设计师设计、工程师实现</p>
+                            </div>
+                            <div class="fade-in-up role-card text-center">
+                                <i class="fas fa-chart-line text-red-500 text-4xl mb-4"></i>
+                                <h3 class="text-xl font-bold mb-3 text-red-500">商业分析</h3>
+                                <p class="text-gray-300 text-sm">需要数据分析师、业务专家、战略顾问各司其职</p>
+                            </div>
+                        </div>
+
+                        <div class="fade-in-up text-center mt-12">
+                            <div class="bg-gray-900 border border-gray-700 rounded-lg p-8">
+                                <h3 class="text-xl font-bold mb-4 text-red-500">通用方法论发现</h3>
+                                <p class="text-gray-300 text-lg mb-4">
+                                    这套框架不只是适用于小说创作，而是揭示了一套AI协作的通用方法论
+                                </p>
+                                <p class="text-sm text-gray-400">
+                                    任何需要多个AI专业角色协作的场景，都可以用拟人化团队思维来设计
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">13</div>
+        </div>
+
+        <!-- 第14页：通用方法论的更大可能性 -->
+        <div class="section" data-anchor="page14">
+            <div class="h-full flex items-center justify-center">
+                <div class="content-container">
+                    <div class="fade-in-up text-center mb-8">
+                        <h1 class="section-title mb-4">通用方法论的更大可能性</h1>
+                        <p class="subtitle-en">Greater Possibilities of Universal Methodology</p>
+                    </div>
+
+                    <div class="max-w-6xl mx-auto">
+                        <div class="fade-in-up text-center mb-12">
+                            <p class="text-xl text-gray-300 mb-8">
+                                这意味着什么？意味着你在任何工作中，都可以用这种思路：
+                            </p>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                <div class="bg-gray-900 border border-red-500/30 rounded-lg p-6">
+                                    <i class="fas fa-users text-red-500 text-3xl mb-3"></i>
+                                    <p class="text-gray-300">把复杂任务想象成团队工作</p>
+                                </div>
+                                <div class="bg-gray-900 border border-red-500/30 rounded-lg p-6">
+                                    <i class="fas fa-id-badge text-red-500 text-3xl mb-3"></i>
+                                    <p class="text-gray-300">为每个AI分配明确的专业角色</p>
+                                </div>
+                                <div class="bg-gray-900 border border-red-500/30 rounded-lg p-6">
+                                    <i class="fas fa-handshake text-red-500 text-3xl mb-3"></i>
+                                    <p class="text-gray-300">让它们像真实团队一样协作</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="fade-in-up">
+                            <div class="bg-gradient-to-r from-purple-900 to-blue-900 rounded-lg p-8">
+                                <h3 class="text-2xl font-bold mb-6 text-white text-center">基于这个三层理念，更大的可能性</h3>
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                                    <div>
+                                        <i class="fas fa-layer-group text-white text-3xl mb-3"></i>
+                                        <h4 class="text-lg font-semibold text-white mb-2">身份层</h4>
+                                        <p class="text-gray-200 text-sm">定义AI的角色和能力边界</p>
+                                    </div>
+                                    <div>
+                                        <i class="fas fa-cogs text-white text-3xl mb-3"></i>
+                                        <h4 class="text-lg font-semibold text-white mb-2">方法层</h4>
+                                        <p class="text-gray-200 text-sm">规范AI的工作流程和质量标准</p>
+                                    </div>
+                                    <div>
+                                        <i class="fas fa-bullseye text-white text-3xl mb-3"></i>
+                                        <h4 class="text-lg font-semibold text-white mb-2">目标层</h4>
+                                        <p class="text-gray-200 text-sm">明确AI要解决的具体问题</p>
+                                    </div>
+                                </div>
+                                <p class="text-center text-gray-200 text-lg mt-8">
+                                    这种模式可以应用到各种复杂的AI协作场景中，比如软件开发、产品设计、商业分析等
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">14</div>
+        </div>
+
+        <!-- 第15页：什么是主角共创法？ -->
+        <div class="section" data-anchor="page15">
+            <div class="h-full flex items-center justify-center">
+                <div class="content-container">
+                    <div class="fade-in-up text-center mb-8">
+                        <h1 class="section-title mb-4">主角共创法：小说创作的未来模式</h1>
+                        <p class="subtitle-en">Character Co-Creation Method</p>
+                        <h2 class="text-lg text-gray-300 mt-4">什么是主角共创法？（是什么）</h2>
+                    </div>
+
+                    <div class="max-w-6xl mx-auto">
+                        <div class="fade-in-up text-center mb-12">
+                            <div class="bg-gradient-to-r from-red-900 to-red-800 rounded-lg p-8">
+                                <h3 class="text-2xl font-bold mb-4 text-white">一句话解释</h3>
+                                <p class="text-xl text-gray-200">让AI变成一个活生生的角色，和你一起写故事</p>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div class="fade-in-up bg-red-900/20 border border-red-500/50 rounded-lg p-6">
+                                <div class="flex items-center mb-4">
+                                    <i class="fas fa-times text-red-500 text-2xl mr-3"></i>
+                                    <h3 class="text-xl font-bold text-red-500">传统AI写作的痛点</h3>
+                                </div>
+                                <div class="space-y-3 text-gray-300">
+                                    <div class="flex items-start">
+                                        <i class="fas fa-robot text-red-400 mr-2 mt-1"></i>
+                                        <span>冷冰冰的机器回答</span>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <i class="fas fa-heart-broken text-red-400 mr-2 mt-1"></i>
+                                        <span>缺乏情感和温度</span>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <i class="fas fa-ban text-red-400 mr-2 mt-1"></i>
+                                        <span>无法深度互动</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="fade-in-up bg-green-900/20 border border-green-500/50 rounded-lg p-6">
+                                <div class="flex items-center mb-4">
+                                    <i class="fas fa-check text-green-500 text-2xl mr-3"></i>
+                                    <h3 class="text-xl font-bold text-green-500">主角共创法的解决方案</h3>
+                                </div>
+                                <div class="space-y-3 text-gray-300">
+                                    <div class="flex items-start">
+                                        <i class="fas fa-theater-masks text-green-400 mr-2 mt-1"></i>
+                                        <span>AI扮演具体角色</span>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <i class="fas fa-heart text-green-400 mr-2 mt-1"></i>
+                                        <span>有血有肉的对话伙伴</span>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <i class="fas fa-vr-cardboard text-green-400 mr-2 mt-1"></i>
+                                        <span>沉浸式创作体验</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">15</div>
+        </div>
+
+        <!-- 第16页：创作方式的根本改变 -->
+        <div class="section" data-anchor="page16">
+            <div class="h-full flex items-center justify-center">
+                <div class="content-container">
+                    <div class="fade-in-up text-center mb-8">
+                        <h1 class="section-title mb-4">创作方式的根本改变</h1>
+                        <p class="subtitle-en">Fundamental Change in Creative Approach</p>
+                    </div>
+
+                    <div class="max-w-6xl mx-auto">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+
+                            <!-- 传统AI创作模式 -->
+                            <div class="fade-in-up">
+                                <div class="bg-gray-900 border border-gray-700 rounded-lg p-8 text-center">
+                                    <h3 class="text-xl font-bold mb-6 text-red-500">传统AI创作模式</h3>
+                                    <div class="mb-8">
+                                        <div class="bg-gray-800 rounded-lg p-4 mb-4">
+                                            <p class="text-gray-300">你提问 → AI回答 → 你再问 → AI再答</p>
+                                        </div>
+                                        <i class="fas fa-arrow-down text-red-500 text-2xl"></i>
+                                    </div>
+                                    <div class="bg-red-900/20 border border-red-500/30 rounded-lg p-6">
+                                        <i class="fas fa-search text-red-500 text-4xl mb-4"></i>
+                                        <p class="text-gray-300">AI是个"聪明的搜索引擎"</p>
+                                        <p class="text-red-400 text-sm mt-2">冷冰冰的工具关系</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 主角共创法模式 -->
+                            <div class="fade-in-up">
+                                <div class="bg-gray-900 border border-gray-700 rounded-lg p-8 text-center">
+                                    <h3 class="text-xl font-bold mb-6 text-green-500">主角共创法模式</h3>
+                                    <div class="mb-8">
+                                        <div class="bg-gray-800 rounded-lg p-4 mb-4">
+                                            <p class="text-gray-300">你 ↔ AI角色 ↔ 共同创作</p>
+                                        </div>
+                                        <i class="fas fa-arrow-down text-green-500 text-2xl"></i>
+                                    </div>
+                                    <div class="bg-green-900/20 border border-green-500/30 rounded-lg p-6">
+                                        <i class="fas fa-user-friends text-green-500 text-4xl mb-4"></i>
+                                        <p class="text-gray-300">AI是个"活生生的历史人物"</p>
+                                        <p class="text-green-400 text-sm mt-2">热乎乎的伙伴关系</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="fade-in-up text-center mt-12">
+                            <div class="bg-gradient-to-r from-blue-900 to-purple-900 rounded-lg p-6">
+                                <h3 class="text-xl font-bold mb-2 text-white">关键转变</h3>
+                                <p class="text-gray-200">从"使用工具"到"与伙伴协作"的范式转换</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">16</div>
+        </div>
+
+        <!-- 第17页：AI专家四维构建 -->
+        <div class="section" data-anchor="page17">
+            <div class="h-full flex items-center justify-center">
+                <div class="content-container">
+                    <div class="fade-in-up text-center mb-8">
+                        <h1 class="section-title mb-4">AI专家四维构建：打造"完整人格"</h1>
+                        <p class="subtitle-en">Four-Dimensional Expert AI Construction</p>
+                        <h2 class="text-lg text-gray-300 mt-4">主角共创法怎么实现？（怎么实现）</h2>
+                    </div>
+
+                    <div class="max-w-6xl mx-auto">
+                        <div class="fade-in-up text-center mb-12">
+                            <p class="text-lg text-gray-300">基于专家认知科学研究，任何领域的真正专家都具备四个核心维度</p>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                            <div class="fade-in-up role-card">
+                                <div class="flex items-center mb-4">
+                                    <i class="fas fa-id-card text-red-500 text-2xl mr-3"></i>
+                                    <h3 class="text-xl font-bold text-red-500">身份认同</h3>
+                                </div>
+                                <p class="text-gray-300 text-sm">角色的专业身份和背景定位</p>
+                            </div>
+                            <div class="fade-in-up role-card">
+                                <div class="flex items-center mb-4">
+                                    <i class="fas fa-brain text-red-500 text-2xl mr-3"></i>
+                                    <h3 class="text-xl font-bold text-red-500">思维模式</h3>
+                                </div>
+                                <p class="text-gray-300 text-sm">独特的认知框架和价值观</p>
+                            </div>
+                            <div class="fade-in-up role-card">
+                                <div class="flex items-center mb-4">
+                                    <i class="fas fa-tools text-red-500 text-2xl mr-3"></i>
+                                    <h3 class="text-xl font-bold text-red-500">执行能力</h3>
+                                </div>
+                                <p class="text-gray-300 text-sm">专业的工作方法和技能</p>
+                            </div>
+                            <div class="fade-in-up role-card">
+                                <div class="flex items-center mb-4">
+                                    <i class="fas fa-book text-red-500 text-2xl mr-3"></i>
+                                    <h3 class="text-xl font-bold text-red-500">知识体系</h3>
+                                </div>
+                                <p class="text-gray-300 text-sm">完整的专业知识和经验</p>
+                            </div>
+                        </div>
+
+                        <div class="fade-in-up">
+                            <div class="bg-gray-900 border border-gray-700 rounded-lg p-8">
+                                <h3 class="text-xl font-bold mb-6 text-red-500 text-center">为什么这样设计？</h3>
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
+                                    <div class="text-center">
+                                        <i class="fas fa-heart text-red-500 text-2xl mb-2"></i>
+                                        <p class="text-gray-300">四维构建让角色有血有肉</p>
+                                        <p class="text-gray-400 text-xs mt-1">不是简单问答，而是真有个性</p>
+                                    </div>
+                                    <div class="text-center">
+                                        <i class="fas fa-memory text-red-500 text-2xl mb-2"></i>
+                                        <p class="text-gray-300">记忆让关系有温度</p>
+                                        <p class="text-gray-400 text-xs mt-1">不是每次重新介绍，而是老朋友聊天</p>
+                                    </div>
+                                    <div class="text-center">
+                                        <i class="fas fa-magic text-red-500 text-2xl mb-2"></i>
+                                        <p class="text-gray-300">简单但强大</p>
+                                        <p class="text-gray-400 text-xs mt-1">用户只需说"激活某某"，背后技术自动处理</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">17</div>
+        </div>
+
+        <!-- 第18页：四步操作流程 -->
+        <div class="section" data-anchor="page18">
+            <div class="h-full flex items-center justify-center">
+                <div class="content-container">
+                    <div class="fade-in-up text-center mb-8">
+                        <h1 class="section-title mb-4">四步操作流程</h1>
+                        <p class="subtitle-en">Four-Step Operation Process</p>
+                        <h2 class="text-lg text-gray-300 mt-4">怎么使用？（怎么用）</h2>
+                    </div>
+
+                    <div class="max-w-7xl mx-auto">
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+
+                            <!-- 步骤1 -->
+                            <div class="fade-in-up text-center">
+                                <div class="role-card h-full">
+                                    <div class="bg-red-600 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                                        <i class="fas fa-book-open text-white text-2xl"></i>
+                                    </div>
+                                    <h3 class="text-lg font-bold mb-3 text-red-500">📚 收集资料</h3>
+                                    <p class="text-gray-300 text-sm">人物背景、性格特征、专业知识</p>
+                                </div>
+                            </div>
+
+                            <!-- 步骤2 -->
+                            <div class="fade-in-up text-center">
+                                <div class="role-card h-full">
+                                    <div class="bg-red-600 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                                        <i class="fas fa-user-plus text-white text-2xl"></i>
+                                    </div>
+                                    <h3 class="text-lg font-bold mb-3 text-red-500">🎭 角色创建</h3>
+                                    <p class="text-gray-300 text-sm">用四维专家模型构建完整人格</p>
+                                </div>
+                            </div>
+
+                            <!-- 步骤3 -->
+                            <div class="fade-in-up text-center">
+                                <div class="role-card h-full">
+                                    <div class="bg-red-600 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                                        <i class="fas fa-bolt text-white text-2xl"></i>
+                                    </div>
+                                    <h3 class="text-lg font-bold mb-3 text-red-500">⚡ 激活角色</h3>
+                                    <p class="text-gray-300 text-sm">一句话激活，AI立即变身</p>
+                                </div>
+                            </div>
+
+                            <!-- 步骤4 -->
+                            <div class="fade-in-up text-center">
+                                <div class="role-card h-full">
+                                    <div class="bg-red-600 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                                        <i class="fas fa-comments text-white text-2xl"></i>
+                                    </div>
+                                    <h3 class="text-lg font-bold mb-3 text-red-500">💬 共创互动</h3>
+                                    <p class="text-gray-300 text-sm">直接对话，情节自然涌现</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="fade-in-up text-center mt-12">
+                            <div class="flex justify-center items-center space-x-4">
+                                <div class="bg-red-600 rounded-full w-3 h-3"></div>
+                                <i class="fas fa-arrow-right text-red-500 text-xl"></i>
+                                <div class="bg-red-600 rounded-full w-3 h-3"></div>
+                                <i class="fas fa-arrow-right text-red-500 text-xl"></i>
+                                <div class="bg-red-600 rounded-full w-3 h-3"></div>
+                                <i class="fas fa-arrow-right text-red-500 text-xl"></i>
+                                <div class="bg-red-600 rounded-full w-3 h-3"></div>
+                            </div>
+                            <p class="text-gray-300 mt-4">简单四步，从零到一完成AI角色构建与激活</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">18</div>
+        </div>
+
+        <!-- 第19页：四种角色类型 -->
+        <div class="section" data-anchor="page19">
+            <div class="h-full flex items-center justify-center">
+                <div class="content-container">
+                    <div class="fade-in-up text-center mb-8">
+                        <h1 class="section-title mb-4">四种角色类型，各有优势</h1>
+                        <p class="subtitle-en">Four Character Types with Unique Advantages</p>
+                    </div>
+
+                    <div class="max-w-7xl mx-auto">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                            <!-- 历史人物 -->
+                            <div class="fade-in-up role-card">
+                                <div class="flex items-center mb-4">
+                                    <span class="text-2xl mr-3">📚</span>
+                                    <h3 class="text-xl font-bold text-red-500">历史人物（最容易上手）</h3>
+                                </div>
+                                <div class="space-y-3 text-sm">
+                                    <div>
+                                        <span class="text-green-400 font-semibold">优势：</span>
+                                        <span class="text-gray-300">史料现成，省时省力</span>
+                                    </div>
+                                    <div>
+                                        <span class="text-blue-400 font-semibold">特点：</span>
+                                        <span class="text-gray-300">人生要精彩、要有名气、有文化内涵</span>
+                                    </div>
+                                    <div>
+                                        <span class="text-purple-400 font-semibold">举例：</span>
+                                        <span class="text-gray-300">孔子的教育智慧、老子的哲学思想</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 虚构角色 -->
+                            <div class="fade-in-up role-card">
+                                <div class="flex items-center mb-4">
+                                    <span class="text-2xl mr-3">🧙‍♂️</span>
+                                    <h3 class="text-xl font-bold text-red-500">虚构角色（经典好用）</h3>
+                                </div>
+                                <div class="space-y-3 text-sm">
+                                    <div>
+                                        <span class="text-green-400 font-semibold">优势：</span>
+                                        <span class="text-gray-300">角色设定完整，粉丝基础好</span>
+                                    </div>
+                                    <div>
+                                        <span class="text-blue-400 font-semibold">特点：</span>
+                                        <span class="text-gray-300">性格鲜明、背景丰富、受众熟悉</span>
+                                    </div>
+                                    <div>
+                                        <span class="text-purple-400 font-semibold">举例：</span>
+                                        <span class="text-gray-300">夏洛克·福尔摩斯的推理、钢铁侠的科技</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 现代人物 -->
+                            <div class="fade-in-up role-card">
+                                <div class="flex items-center mb-4">
+                                    <span class="text-2xl mr-3">👨‍💼</span>
+                                    <h3 class="text-xl font-bold text-red-500">现代人物（贴近生活）</h3>
+                                </div>
+                                <div class="space-y-3 text-sm">
+                                    <div>
+                                        <span class="text-green-400 font-semibold">优势：</span>
+                                        <span class="text-gray-300">更容易理解，实用性强</span>
+                                    </div>
+                                    <div>
+                                        <span class="text-blue-400 font-semibold">特点：</span>
+                                        <span class="text-gray-300">专业知识强、时代相关、实用价值高</span>
+                                    </div>
+                                    <div>
+                                        <span class="text-purple-400 font-semibold">举例：</span>
+                                        <span class="text-gray-300">乔布斯的创新思维、商业经验、演讲能力</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 原创角色 -->
+                            <div class="fade-in-up role-card">
+                                <div class="flex items-center mb-4">
+                                    <span class="text-2xl mr-3">🎭</span>
+                                    <h3 class="text-xl font-bold text-red-500">原创角色（完全自由）</h3>
+                                </div>
+                                <div class="space-y-3 text-sm">
+                                    <div>
+                                        <span class="text-green-400 font-semibold">优势：</span>
+                                        <span class="text-gray-300">完全按需定制，最符合使用需求</span>
+                                    </div>
+                                    <div>
+                                        <span class="text-blue-400 font-semibold">特点：</span>
+                                        <span class="text-gray-300">完全原创、针对性强、无版权问题</span>
+                                    </div>
+                                    <div>
+                                        <span class="text-orange-400 font-semibold">注意：</span>
+                                        <span class="text-gray-300">需要专门工具辅助创建</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">19</div>
+        </div>
+
+        <!-- 第20页：适用场景全覆盖 -->
+        <div class="section" data-anchor="page20">
+            <div class="h-full flex items-center justify-center">
+                <div class="content-container">
+                    <div class="fade-in-up text-center mb-8">
+                        <h1 class="section-title mb-4">适用场景全覆盖</h1>
+                        <p class="subtitle-en">Comprehensive Application Scenarios</p>
+                        <h2 class="text-lg text-gray-300 mt-4">主角共创法：打破小说类型边界</h2>
+                    </div>
+
+                    <div class="max-w-6xl mx-auto">
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <div class="fade-in-up role-card text-center hover:border-red-500 transition-colors">
+                                <i class="fas fa-scroll text-red-500 text-4xl mb-4"></i>
+                                <h3 class="text-lg font-bold mb-3">历史小说</h3>
+                                <p class="text-gray-300 text-sm">与古代先贤对话，重现历史场景</p>
+                            </div>
+                            <div class="fade-in-up role-card text-center hover:border-red-500 transition-colors">
+                                <i class="fas fa-rocket text-red-500 text-4xl mb-4"></i>
+                                <h3 class="text-lg font-bold mb-3">科幻小说</h3>
+                                <p class="text-gray-300 text-sm">与未来人物交流，探索科技伦理</p>
+                            </div>
+                            <div class="fade-in-up role-card text-center hover:border-red-500 transition-colors">
+                                <i class="fas fa-search text-red-500 text-4xl mb-4"></i>
+                                <h3 class="text-lg font-bold mb-3">悬疑推理</h3>
+                                <p class="text-gray-300 text-sm">与侦探、罪犯多角度推理破案</p>
+                            </div>
+                            <div class="fade-in-up role-card text-center hover:border-red-500 transition-colors">
+                                <i class="fas fa-heart text-red-500 text-4xl mb-4"></i>
+                                <h3 class="text-lg font-bold mb-3">言情小说</h3>
+                                <p class="text-gray-300 text-sm">体验不同视角的情感冲突</p>
+                            </div>
+                            <div class="fade-in-up role-card text-center hover:border-red-500 transition-colors">
+                                <i class="fas fa-heart text-red-500 text-4xl mb-4"></i>
+                                <h3 class="text-lg font-bold mb-3">武侠小说</h3>
+                                <p class="text-gray-300 text-sm">与大侠切磋，感受江湖恩怨</p>
+                            </div>
+                            <div class="fade-in-up role-card text-center hover:border-red-500 transition-colors">
+                                <i class="fas fa-plus text-red-500 text-4xl mb-4"></i>
+                                <h3 class="text-lg font-bold mb-3">更多类型</h3>
+                                <p class="text-gray-300 text-sm">突破传统类型限制，无限创新</p>
+                            </div>
+                        </div>
+
+                        <div class="fade-in-up text-center mt-12">
+                            <div class="bg-gradient-to-r from-red-900 to-red-800 rounded-lg p-6">
+                                <h3 class="text-xl font-bold mb-2 text-white">核心优势</h3>
+                                <p class="text-gray-200">无论哪种类型，都能通过角色对话让创作变得生动有趣</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">20</div>
+        </div>
+
+        <!-- 第21页：实际应用案例 -->
+        <div class="section">
+            <div class="content-container">
+                <div class="fade-in">
+                    <h2 class="hero-title">实际应用案例</h2>
+                    <h3 class="hero-subtitle">江夏世家·黄氏传奇小说</h3>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-16">
+                        <div>
+                            <h4 class="text-3xl font-bold text-red-400 mb-6">项目背景</h4>
+                            <div class="text-gray-300 space-y-4 text-xl">
+                                <p>• <span class="text-white font-semibold">历史题材</span>：五代十国到现代的黄氏家族传奇</p>
+                                <p>• <span class="text-white font-semibold">主角设定</span>：黄峭山公（五代传奇人物）</p>
+                                <p>• <span class="text-white font-semibold">创作挑战</span>：千年历史跨度 + 复杂家族关系</p>
+                                <p>• <span class="text-white font-semibold">目标读者</span>：黄氏后裔 + 历史小说爱好者</p>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4 class="text-3xl font-bold text-red-400 mb-6">实现成果</h4>
+                            <div class="text-gray-300 space-y-4 text-xl">
+                                <p>• <span class="text-white font-semibold">角色塑造</span>：打造立体的黄峭山公AI角色</p>
+                                <p>• <span class="text-white font-semibold">情感共鸣</span>：实现读者与千年祖先的对话</p>
+                                <p>• <span class="text-white font-semibold">历史还原</span>：准确呈现五代十国历史背景</p>
+                                <p>• <span class="text-white font-semibold">文化传承</span>：弘扬中华优秀传统家族文化</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">21</div>
+        </div>
+
+        <!-- 第22页：峭山公角色示例 -->
+        <div class="section">
+            <div class="content-container">
+                <div class="fade-in">
+                    <h2 class="hero-title">峭山公角色示例</h2>
+                    <h3 class="hero-subtitle">AI角色化的完整实现</h3>
+
+                    <div class="bg-gray-900 p-8 rounded-xl border border-red-800 mt-8">
+                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                            <div>
+                                <h4 class="text-2xl font-bold text-red-400 mb-4">身份设定</h4>
+                                <div class="text-gray-300 space-y-2 text-lg">
+                                    <p>• 五代传奇人物</p>
+                                    <p>• 江夏黄氏始祖</p>
+                                    <p>• 武将转教育家</p>
+                                    <p>• 易经哲学大师</p>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h4 class="text-2xl font-bold text-red-400 mb-4">性格特征</h4>
+                                <div class="text-gray-300 space-y-2 text-lg">
+                                    <p>• 深谋远虑</p>
+                                    <p>• 慈祥智慧</p>
+                                    <p>• 文化修养深厚</p>
+                                    <p>• 家族责任感强</p>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h4 class="text-2xl font-bold text-red-400 mb-4">语言风格</h4>
+                                <div class="text-gray-300 space-y-2 text-lg">
+                                    <p>• 古典文雅</p>
+                                    <p>• 温暖亲切</p>
+                                    <p>• 哲理深邃</p>
+                                    <p>• 情理并重</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 text-center">
+                        <p class="text-gray-400 text-lg italic">"我的孩子们，老祖宗用易经智慧为你们指点迷津..."</p>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">22</div>
+        </div>
+
+        <!-- 第23页：对话演示 -->
+        <div class="section">
+            <div class="content-container">
+                <div class="fade-in">
+                    <h2 class="hero-title">对话演示</h2>
+                    <h3 class="hero-subtitle">与AI主角的真实创作对话</h3>
+
+                    <div class="bg-gray-900 p-8 rounded-xl border border-red-800 mt-8">
+                        <div class="space-y-6">
+                            <div class="border-l-4 border-blue-500 pl-6">
+                                <p class="text-blue-300 text-sm mb-2">创作者提问</p>
+                                <p class="text-white text-lg">"峭山公，您当时遣散众子时，心中是什么想法？"</p>
+                            </div>
+
+                            <div class="border-l-4 border-red-500 pl-6">
+                                <p class="text-red-300 text-sm mb-2">峭山公回应</p>
+                                <p class="text-gray-300 text-lg">"孩子，燕雀怡堂而殆，鹪鹩巢林而安。我经历五代乱世，深知聚则为靶，散则永存。这是老祖宗用八十年血与火换来的智慧啊..."</p>
+                            </div>
+
+                            <div class="border-l-4 border-green-500 pl-6">
+                                <p class="text-green-300 text-sm mb-2">创作价值</p>
+                                <p class="text-gray-300 text-lg">✓ 获得第一人称视角的真实情感 &nbsp;&nbsp; ✓ 挖掘历史人物内心世界 &nbsp;&nbsp; ✓ 生成具有时代特色的语言风格</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">23</div>
+        </div>
+
+        <!-- 第24页：技术架构展示 -->
+        <div class="section">
+            <div class="content-container">
+                <div class="fade-in">
+                    <h2 class="hero-title">技术架构展示</h2>
+                    <h3 class="hero-subtitle">PromptX系统的完整实现</h3>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-16">
+                        <div>
+                            <h4 class="text-3xl font-bold text-red-400 mb-6">系统组成</h4>
+                            <div class="space-y-4">
+                                <div class="bg-gray-900 p-4 rounded-lg border border-gray-700">
+                                    <p class="text-white font-semibold text-lg">角色定义系统</p>
+                                    <p class="text-gray-400">personality + principle + knowledge</p>
+                                </div>
+                                <div class="bg-gray-900 p-4 rounded-lg border border-gray-700">
+                                    <p class="text-white font-semibold text-lg">记忆管理系统</p>
+                                    <p class="text-gray-400">engram + recall + 长期记忆</p>
+                                </div>
+                                <div class="bg-gray-900 p-4 rounded-lg border border-gray-700">
+                                    <p class="text-white font-semibold text-lg">工具生态系统</p>
+                                    <p class="text-gray-400">learn + toolx + 扩展能力</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4 class="text-3xl font-bold text-red-400 mb-6">关键特性</h4>
+                            <div class="text-gray-300 space-y-4 text-xl">
+                                <p>• <span class="text-white font-semibold">角色一致性</span>：确保AI保持稳定人格</p>
+                                <p>• <span class="text-white font-semibold">情境感知</span>：根据对话调整回应风格</p>
+                                <p>• <span class="text-white font-semibold">知识整合</span>：历史知识与创作技巧结合</p>
+                                <p>• <span class="text-white font-semibold">情感表达</span>：实现真实的情感共鸣</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">24</div>
+        </div>
+
+        <!-- 第25页：创作成果展示 -->
+        <div class="section">
+            <div class="content-container">
+                <div class="fade-in">
+                    <h2 class="hero-title">创作成果展示</h2>
+                    <h3 class="hero-subtitle">质量与效率的双重提升</h3>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-16">
+                        <div class="text-center">
+                            <div class="text-6xl font-bold text-red-400 mb-4">10万+</div>
+                            <p class="text-2xl font-semibold text-white mb-2">累计创作字数</p>
+                            <p class="text-gray-400">历史小说章节内容</p>
+                        </div>
+
+                        <div class="text-center">
+                            <div class="text-6xl font-bold text-red-400 mb-4">95%</div>
+                            <p class="text-2xl font-semibold text-white mb-2">内容满意度</p>
+                            <p class="text-gray-400">读者反馈评价</p>
+                        </div>
+
+                        <div class="text-center">
+                            <div class="text-6xl font-bold text-red-400 mb-4">5x</div>
+                            <p class="text-2xl font-semibold text-white mb-2">创作效率提升</p>
+                            <p class="text-gray-400">相比传统方式</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-16 bg-gray-900 p-8 rounded-xl border border-red-800">
+                        <h4 class="text-2xl font-bold text-red-400 mb-4 text-center">读者评价摘录</h4>
+                        <div class="text-gray-300 text-lg text-center italic">
+                            "仿佛真的在与千年前的祖先对话，那种穿越时空的震撼无法言喻..."
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">25</div>
+        </div>
+
+        <!-- 第26页：价值突破总结 -->
+        <div class="section">
+            <div class="content-container">
+                <div class="fade-in">
+                    <h2 class="hero-title">价值突破总结</h2>
+                    <h3 class="hero-subtitle">为AI协作开创全新范式</h3>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-16">
+                        <div class="bg-gray-900 p-8 rounded-xl border border-red-800">
+                            <h4 class="text-2xl font-bold text-red-400 mb-4">创作革命</h4>
+                            <div class="text-gray-300 space-y-3 text-lg">
+                                <p>• 从单向指令→双向对话</p>
+                                <p>• 从冰冷工具→情感伙伴</p>
+                                <p>• 从被动执行→主动创造</p>
+                                <p>• 从质量偶然→稳定可控</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-gray-900 p-8 rounded-xl border border-red-800">
+                            <h4 class="text-2xl font-bold text-red-400 mb-4">技术突破</h4>
+                            <div class="text-gray-300 space-y-3 text-lg">
+                                <p>• 三层架构设计原则</p>
+                                <p>• 角色化工作流标准</p>
+                                <p>• AI团队协作框架</p>
+                                <p>• 可复制的方法论</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-gray-900 p-8 rounded-xl border border-red-800">
+                            <h4 class="text-2xl font-bold text-red-400 mb-4">应用前景</h4>
+                            <div class="text-gray-300 space-y-3 text-lg">
+                                <p>• 小说创作→内容创业</p>
+                                <p>• 单一领域→通用协作</p>
+                                <p>• 个人工具→团队标准</p>
+                                <p>• 当前技术→未来基石</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">26</div>
+        </div>
+
+        <!-- 第27页：未来展望 -->
+        <div class="section">
+            <div class="content-container">
+                <div class="fade-in">
+                    <h2 class="hero-title">未来展望</h2>
+                    <h3 class="hero-subtitle">AI协作的无限可能</h3>
+
+                    <div class="mt-16">
+                        <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-xl border border-red-800">
+                            <h4 class="text-3xl font-bold text-red-400 mb-8 text-center">想象一个世界...</h4>
+
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                                <div class="space-y-6 text-gray-300 text-xl">
+                                    <p>• 每个创作者都有专属的AI角色团队</p>
+                                    <p>• 每个企业都有定制化的AI协作框架</p>
+                                    <p>• 每个学习者都有个性化的AI导师角色</p>
+                                    <p>• 每个问题都有专业的AI专家来解决</p>
+                                </div>
+
+                                <div class="space-y-6 text-gray-300 text-xl">
+                                    <p>• AI不再是冰冷的工具，而是有温度的伙伴</p>
+                                    <p>• 创作不再是孤独的旅程，而是协作的盛宴</p>
+                                    <p>• 知识不再是静态的资料，而是活跃的对话</p>
+                                    <p>• 工作不再是重复的劳动，而是创意的释放</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-center mt-12">
+                            <p class="text-2xl text-gray-300 italic">这就是我们正在构建的未来</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">27</div>
+        </div>
+
+        <!-- 第28页：Q&A环节 -->
+        <div class="section">
+            <div class="content-container">
+                <div class="fade-in text-center">
+                    <h2 class="hero-title">Q&A 环节</h2>
+                    <h3 class="hero-subtitle">欢迎提问与交流</h3>
+
+                    <div class="mt-20">
+                        <div class="bg-gray-900 p-12 rounded-xl border border-red-800">
+                            <div class="space-y-8">
+                                <div>
+                                    <i class="fas fa-question-circle text-red-400 text-6xl mb-6"></i>
+                                    <h4 class="text-3xl font-bold text-white mb-4">现在开始提问</h4>
+                                    <p class="text-gray-300 text-xl">关于AI角色化协作的任何问题</p>
+                                </div>
+
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+                                    <div class="text-gray-400">
+                                        <i class="fas fa-cogs text-red-400 text-2xl mb-3"></i>
+                                        <p class="text-lg">技术实现细节</p>
+                                    </div>
+                                    <div class="text-gray-400">
+                                        <i class="fas fa-lightbulb text-red-400 text-2xl mb-3"></i>
+                                        <p class="text-lg">应用场景建议</p>
+                                    </div>
+                                    <div class="text-gray-400">
+                                        <i class="fas fa-handshake text-red-400 text-2xl mb-3"></i>
+                                        <p class="text-lg">合作交流机会</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">28</div>
+        </div>
+
+        <!-- 第29页：联系方式 -->
+        <div class="section">
+            <div class="content-container">
+                <div class="fade-in text-center">
+                    <h2 class="hero-title">联系方式</h2>
+                    <h3 class="hero-subtitle">开启AI协作新时代</h3>
+
+                    <div class="mt-16">
+                        <div class="bg-gray-900 p-12 rounded-xl border border-red-800">
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                                <div>
+                                    <h4 class="text-3xl font-bold text-red-400 mb-8">演讲者信息</h4>
+                                    <div class="space-y-6 text-left">
+                                        <div class="flex items-center">
+                                            <i class="fas fa-user text-red-400 text-2xl mr-4"></i>
+                                            <div>
+                                                <p class="text-white text-xl font-semibold">黄彦湘</p>
+                                                <p class="text-gray-400">deepractice.ai 创始人</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="flex items-center">
+                                            <i class="fas fa-envelope text-red-400 text-2xl mr-4"></i>
+                                            <div>
+                                                <p class="text-white text-xl">邮箱联系</p>
+                                                <p class="text-gray-400">contact@deepractice.ai</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="flex items-center">
+                                            <i class="fas fa-globe text-red-400 text-2xl mr-4"></i>
+                                            <div>
+                                                <p class="text-white text-xl">项目官网</p>
+                                                <p class="text-gray-400">www.deepractice.ai</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <h4 class="text-3xl font-bold text-red-400 mb-8">合作机会</h4>
+                                    <div class="space-y-4 text-left text-gray-300 text-lg">
+                                        <p>• 技术咨询与培训</p>
+                                        <p>• AI角色定制开发</p>
+                                        <p>• 协作框架部署</p>
+                                        <p>• 学术研究合作</p>
+                                        <p>• 产品集成方案</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-12">
+                            <p class="text-2xl text-gray-300">感谢聆听！期待与您携手探索AI协作的无限可能</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">29</div>
+        </div>
+
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // fullpage.js初始化
+        new fullpage('#fullpage', {
+            autoScrolling: true,
+            scrollHorizontally: true,
+            navigation: true,
+            navigationPosition: 'right',
+            navigationTooltips: [
+                '标题页', '演讲者介绍', '疯狂构思', '传统痛点', 'AI痛点', '真实案例', '解决思路',
+                '设计哲学', '4角色体系', '三层架构', '奥卡姆剃刀', 'MECE原则', '通用框架', '应用前景',
+                '主角共创法', '模式对比', '四维构建', '操作流程', '角色类型', '适用场景',
+                '实际案例', '角色示例', '对话演示', '技术架构', '成果展示',
+                '价值突破', '未来展望', 'Q&A环节', '联系方式'
+            ],
+            sectionsColor: Array(29).fill('#000'),
+            scrollingSpeed: 1000,
+            easingcss: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+
+            onLeave: function(origin, destination, direction) {
+                // 页面切换时的动画效果
+                const elements = destination.item.querySelectorAll('.fade-in, .fade-in-up');
+                elements.forEach((el, index) => {
+                    setTimeout(() => {
+                        el.classList.add('active');
+                    }, index * 200);
+                });
+            }
+        });
+
+        // 初始化第一页动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const firstPageElements = document.querySelector('.section').querySelectorAll('.fade-in, .fade-in-up');
+            firstPageElements.forEach((el, index) => {
+                setTimeout(() => {
+                    el.classList.add('active');
+                }, index * 200);
+            });
+        });
+    </script>
+</body>
+</html>
