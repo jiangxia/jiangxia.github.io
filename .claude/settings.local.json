@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__promptx__action",
+      "Bash(claude mcp:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
