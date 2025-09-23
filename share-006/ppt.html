@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI小说协作框架：主角共创法的技术创新与实践突破</title>
+
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- fullpage.js CDN -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/fullpage.js@4.0.20/dist/fullpage.min.css" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/fullpage.js@4.0.20/dist/fullpage.min.js"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+        :root {
+            --tesla-red: #E31937;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #000000;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .section {
+            background: linear-gradient(135deg, #000 0%, #111 50%, #000 100%);
+            position: relative;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 10vw, 8rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, #fff 0%, var(--tesla-red) 50%, #fff 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+            line-height: 0.9;
+            margin: 0 auto;
+            letter-spacing: -0.02em;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, #E31937 0%, rgba(227, 25, 55, 0.8) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle-en {
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            font-weight: 300;
+            color: rgba(227, 25, 55, 0.7);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .content-container {
+            max-width: 90vw;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .fade-in-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .page-number {
+            position: absolute;
+            bottom: 2rem;
+            right: 2rem;
+            font-size: 1.2rem;
+            color: #ffffff;
+            font-weight: 600;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .role-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(227, 25, 55, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .role-card:hover {
+            border-color: rgba(227, 25, 55, 0.5);
+            background: rgba(227, 25, 55, 0.05);
+        }
+
+        .aurora-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center, rgba(231, 25, 55, 0.1) 0%, transparent 70%);
+            animation: aurora 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes aurora {
+            0% { transform: translateY(0px) rotate(0deg); opacity: 0.3; }
+            100% { transform: translateY(-20px) rotate(1deg); opacity: 0.6; }
+        }
+
+        .point-item {
+            display: flex;
+            align-items: center;
+            padding: 0.3rem 0.5rem;
+            margin: 0.2rem 0;
+            line-height: 1.3;
+        }
+
+        #fp-nav ul li a span {
+            background: rgba(255, 255, 255, 0.3) !important;
+            color: white !important;
+            padding: 4px 8px !important;
+            border-radius: 4px !important;
+            font-size: 12px !important;
+            white-space: nowrap !important;
+            opacity: 1 !important;
+            transition: all 0.3s !important;
+        }
+
+        #fp-nav ul li:hover a span {
+            background: rgba(255, 255, 255, 0.6) !important;
+            transform: scale(1.1) !important;
+        }
+
+        .speaker-info {
+            background: rgba(227, 25, 55, 0.1);
+            border: 1px solid rgba(227, 25, 55, 0.3);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        .painpoint-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.5rem;
+        }
+
+        .painpoint-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(227, 25, 55, 0.2);
+            border-radius: 12px;
+            padding: 2rem 1rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .painpoint-item:hover {
+            border-color: var(--tesla-red);
+            background: rgba(227, 25, 55, 0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(227, 25, 55, 0.2);
+        }
+
+        .painpoint-number {
+            color: #E31937;
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .identity-badge {
+            background: rgba(227, 25, 55, 0.1);
+            border: 1px solid rgba(227, 25, 55, 0.3);
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin: 0.25rem;
+            display: inline-block;
+        }
+
+        .law-firm-highlight {
+            color: #E31937;
+            font-weight: 700;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="fullpage">
+
+        <!-- 第1页：封面标题页 -->
+        <div class="section aurora-bg" data-anchor="page1">
+            <div class="flex flex-col justify-center items-center h-screen px-8">
+                <div class="fade-in text-center max-w-6xl">
+                    <h1 class="hero-title mb-6">AI小说协作框架</h1>
+                    <h2 class="text-2xl md:text-3xl font-light text-gray-300 mb-6">主角共创法的技术创新与实践突破</h2>
+                    <p class="text-lg text-gray-400 mb-8">演讲者：黄彦湘</p>
+
+                    <div class="grid grid-cols-1 gap-1 max-w-4xl mx-auto text-left">
+                        <div class="point-item">
+                            <span class="text-xl font-bold text-red-500 mr-3">1.</span>
+                            <span class="text-lg">前情回顾：4角色4流程的基础协作框架</span>
+                        </div>
+                        <div class="point-item">
+                            <span class="text-xl font-bold text-red-500 mr-3">2.</span>
+                            <span class="text-lg">核心突破：首创"主角共创法"——与AI主角共同演绎剧情的创作新模式</span>
+                        </div>
+                        <div class="point-item">
+                            <span class="text-xl font-bold text-red-500 mr-3">3.</span>
+                            <span class="text-lg">技术王炸：一句话生成MCP——鲁班让你告别繁杂的MCP工具查找，快速生成</span>
+                        </div>
+                        <div class="point-item">
+                            <span class="text-xl font-bold text-red-500 mr-3">4.</span>
+                            <span class="text-lg">实战演示：与黄氏先祖峭山公共同演绎黄氏千年传奇史</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">1/22</div>
+        </div>
+
+        <!-- 第2页：自我介绍 -->
+        <div class="section" data-anchor="page2">
+            <div class="h-full flex items-center justify-center">
+                <div class="content-container">
+                    <div class="fade-in-up text-center mb-8">
+                        <h1 class="section-title mb-4">自我介绍</h1>
+                        <p class="subtitle-en">Self Introduction</p>
+                    </div>
+
+                    <div class="max-w-6xl mx-auto">
+                        <div class="fade-in-up speaker-info mb-8">
+                            <h2 class="text-2xl font-bold mb-6 text-red-500">四重身份</h2>
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                                <div class="role-card">
+                                    <i class="fas fa-code text-red-500 text-3xl mb-3"></i>
+                                    <h3 class="font-semibold">高级软件工程师</h3>
+                                </div>
+                                <div class="role-card">
+                                    <i class="fas fa-balance-scale text-red-500 text-3xl mb-3"></i>
+                                    <h3 class="font-semibold">律师</h3>
+                                </div>
+                                <div class="role-card">
+                                    <i class="fas fa-certificate text-red-500 text-3xl mb-3"></i>
+                                    <h3 class="font-semibold">专利代理师</h3>
+                                </div>
+                                <div class="role-card">
+                                    <i class="fas fa-users text-red-500 text-3xl mb-3"></i>
+                                    <h3 class="font-semibold">开源社区贡献者</h3>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-8 text-center">
+                                <div class="flex justify-center space-x-8 mb-6">
+                                    <div class="max-w-xs">
+                                        <img src="assets/律师证.png" alt="律师证" class="w-full h-auto border border-red-500 rounded-lg">
+                                    </div>
+                                    <div class="max-w-xs">
+                                        <img src="assets/专利代理师资格证.jpg" alt="专利代理师资格证" class="w-full h-auto border border-red-500 rounded-lg">
+                                    </div>
+                                </div>
+                                <p class="text-xl font-bold text-red-500">简言之：我是技术人的专属知识产权律师</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">2/22</div>
+        </div>
+
+        <!-- 第3页：广东华库律师事务所 -->
+        <div class="section" data-anchor="page3">
+            <div class="h-full flex items-center justify-center">
+                <div class="content-container">
+                    <div class="fade-in-up text-center mb-8">
+                        <h1 class="section-title mb-4">广东华库律师事务所</h1>
+                        <p class="subtitle-en">Guangdong Huaku Law Firm</p>
+                    </div>
+
+                    <div class="max-w-6xl mx-auto">
+                        <div class="fade-in-up bg-gray-900 border border-gray-700 rounded-lg p-6">
+                            <div class="flex items-center mb-4">
+                                <i class="fas fa-building text-red-500 text-2xl mr-3"></i>
+                                <h2 class="text-2xl font-bold text-red-500">广东华库律师事务所</h2>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <p class="text-gray-300 mb-4">广东华库律师事务所2025年全新创立，法律领域后起之秀</p>
+                                    <div class="flex items-center space-x-6">
+                                        <div class="flex items-center">
+                                            <span class="text-red-500 mr-2">●</span>
+                                            <span class="font-semibold text-red-400">「匠・律」</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <span class="text-red-500 mr-2">●</span>
+                                            <span class="font-semibold text-red-400">「锋・盾」</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <span class="text-red-500 mr-2">●</span>
+                                            <span class="font-semibold text-red-400">「明・信」</span>
+                                        </div>
+                                    </div>
+                                    <p class="text-sm text-gray-400 mt-2">三大建所理念</p>
+                                </div>
+                                <div>
+                                    <p class="text-gray-300 mb-3">汇聚跨学科背景精英律师团队（医学、工程等）</p>
+                                    <p class="text-gray-300">业务涵盖：公司事务、知识产权、诉讼仲裁、工程建筑等</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">3/22</div>
+        </div>
+
+        <!-- 第4页：前情回顾章节标题页 -->
+        <div class="section aurora-bg" data-anchor="page4">
+            <div class="flex flex-col justify-center items-center h-screen px-8">
+                <div class="fade-in text-center max-w-4xl">
+                    <h1 class="hero-title">前情回顾</h1>
+                    <p class="subtitle-en mt-8">Background Review</p>
+                    
+                    <div class="fade-in-up mt-16">
+                        <div class="w-32 h-1 bg-gradient-to-r from-red-600 to-red-400 mx-auto"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">4/22</div>
+        </div>
+
+        <!-- 第5页：传统手工写小说5大痛点 -->
+        <div class="section" data-anchor="page5">
+            <div class="h-full flex items-center justify-center">
+                <div class="content-container">
+                    <div class="fade-in-up text-center mb-8">
+                        <h1 class="section-title mb-4">传统手工写小说5大痛点</h1>
+                        <p class="subtitle-en">Traditional Writing Pain Points</p>
+                    </div>
+                    <div class="max-w-6xl mx-auto">
+                        <div class="painpoint-grid">
+                            <div class="fade-in-up painpoint-item">
+                                <div class="painpoint-number">构</div>
+                                <h3 class="text-lg font-bold mb-2">构思混乱</h3>
+                                <p class="text-gray-300 text-sm">世界观设定自相矛盾</p>
+                            </div>
+                            <div class="fade-in-up painpoint-item">
+                                <div class="painpoint-number">慢</div>
+                                <h3 class="text-lg font-bold mb-2">速度慢</h3>
+                                <p class="text-gray-300 text-sm">一天2000字已经很累</p>
+                            </div>
+                            <div class="fade-in-up painpoint-item">
+                                <div class="painpoint-number">卡</div>
+                                <h3 class="text-lg font-bold mb-2">经常卡文</h3>
+                                <p class="text-gray-300 text-sm">不知道情节怎么发展</p>
+                            </div>
+                            <div class="fade-in-up painpoint-item">
+                                <div class="painpoint-number">错</div>
+                                <h3 class="text-lg font-bold mb-2">前后矛盾</h3>
+                                <p class="text-gray-300 text-sm">几十万字很难保持一致</p>
+                            </div>
+                            <div class="fade-in-up painpoint-item">
+                                <div class="painpoint-number">累</div>
+                                <h3 class="text-lg font-bold mb-2">容易放弃</h3>
+                                <p class="text-gray-300 text-sm">长篇创作周期太长</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">5/22</div>
+        </div>
+
+        <!-- 第6页：普通AI创作5大痛点 -->
+        <div class="section" data-anchor="page6">
+            <div class="h-full flex items-center justify-center">
+                <div class="content-container">
+                    <div class="fade-in-up text-center mb-8">
+                        <h1 class="section-title mb-4">普通AI创作5大痛点</h1>
+                        <p class="subtitle-en">AI Writing Pain Points</p>
+                    </div>
+                    <div class="max-w-6xl mx-auto">
+                        <div class="painpoint-grid">
+                            <div class="fade-in-up painpoint-item">
+                                <div class="painpoint-number">写</div>
+                                <h3 class="text-lg font-bold mb-2">提示词工程</h3>
+                                <p class="text-gray-300 text-sm">要学会写复杂提示词</p>
+                            </div>
+                            <div class="fade-in-up painpoint-item">
+                                <div class="painpoint-number">乱</div>
+                                <h3 class="text-lg font-bold mb-2">角色混乱</h3>
+                                <p class="text-gray-300 text-sm">没有专业分工，一个AI包打天下</p>
+                            </div>
+                            <div class="fade-in-up painpoint-item">
+                                <div class="painpoint-number">忘</div>
+                                <h3 class="text-lg font-bold mb-2">上下文丢失</h3>
+                                <p class="text-gray-300 text-sm">AI记不住前面的设定</p>
+                            </div>
+                            <div class="fade-in-up painpoint-item">
+                                <div class="painpoint-number">飘</div>
+                                <h3 class="text-lg font-bold mb-2">质量不稳</h3>
+                                <p class="text-gray-300 text-sm">有时好有时差，难以控制</p>
+                            </div>
+                            <div class="fade-in-up painpoint-item">
+                                <div class="painpoint-number">死</div>
+                                <h3 class="text-lg font-bold mb-2">扩展困难</h3>
+                                <p class="text-gray-300 text-sm">新想法融入要大改重构</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">6/22</div>
+        </div>
+
+        <!-- 第7页：4角色专业分工体系 -->
+        <div class="section" data-anchor="page7">
+            <div class="h-full flex items-center justify-center">
+                <div class="content-container">
+                    <div class="fade-in-up text-center mb-8">
+                        <h1 class="section-title mb-4">4角色专业分工体系</h1>
+                        <p class="subtitle-en">Professional Role Division System</p>
+                    </div>
+
+                    <div class="max-w-6xl mx-auto">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <!-- 总监 -->
+                            <div class="fade-in-up role-card">
+                                <div class="flex items-center mb-4">
+                                    <i class="fas fa-crown text-red-500 text-2xl mr-3"></i>
+                                    <h3 class="text-xl font-bold text-red-500">总监：任务大脑</h3>
+                                </div>
+                                <div class="space-y-2 text-sm">
+                                    <p><span class="text-red-400 font-semibold">职责：</span>智能分配任务，质量监控</p>
+                                    <p><span class="text-red-400 font-semibold">工作方式：</span>意图识别→角色激活→任务传递</p>
+                                    <p><span class="text-red-400 font-semibold">价值：</span>从"全能型"变成"专业高效"</p>
+                                </div>
+                            </div>
+
+                            <!-- 架构师 -->
+                            <div class="fade-in-up role-card">
+                                <div class="flex items-center mb-4">
+                                    <i class="fas fa-drafting-compass text-red-500 text-2xl mr-3"></i>
+                                    <h3 class="text-xl font-bold text-red-500">架构师：世界观设计师</h3>
+                                </div>
+                                <div class="space-y-2 text-sm">
+                                    <p><span class="text-red-400 font-semibold">职责：</span>构建完整的故事世界</p>
+                                    <p><span class="text-red-400 font-semibold">工作方式：</span>What(故事世界)+Why(故事主题)+Who(故事角色)三维构建</p>
+                                    <p><span class="text-red-400 font-semibold">价值：</span>确保世界观逻辑自洽，不会前后矛盾</p>
+                                </div>
+                            </div>
+
+                            <!-- 规划师 -->
+                            <div class="fade-in-up role-card">
+                                <div class="flex items-center mb-4">
+                                    <i class="fas fa-project-diagram text-red-500 text-2xl mr-3"></i>
+                                    <h3 class="text-xl font-bold text-red-500">规划师：情节设计师</h3>
+                                </div>
+                                <div class="space-y-2 text-sm">
+                                    <p><span class="text-red-400 font-semibold">职责：</span>设计故事大纲和详细概要</p>
+                                    <p><span class="text-red-400 font-semibold">工作方式：</span>从整体框架到具体情节的逐层细化</p>
+                                    <p><span class="text-red-400 font-semibold">价值：</span>让故事有条理，不会卡文或偏题</p>
+                                </div>
+                            </div>
+
+                            <!-- 写手 -->
+                            <div class="fade-in-up role-card">
+                                <div class="flex items-center mb-4">
+                                    <i class="fas fa-pen-fancy text-red-500 text-2xl mr-3"></i>
+                                    <h3 class="text-xl font-bold text-red-500">写手：内容创作者</h3>
+                                </div>
+                                <div class="space-y-2 text-sm">
+                                    <p><span class="text-red-400 font-semibold">职责：</span>根据规划专心创作内容</p>
+                                    <p><span class="text-red-400 font-semibold">工作方式：</span>按照概要和设定进行文字创作</p>
+                                    <p><span class="text-red-400 font-semibold">价值：</span>专注写作，质量稳定</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">7/22</div>
+        </div>
+
+        <!-- 第8页：通用小说创作4流程框架 -->
+        <div class="section" data-anchor="page8">
+            <div class="h-full flex items-center justify-center">
+                <div class="content-container">
+                    <div class="fade-in-up text-center mb-8">
+                        <h1 class="section-title mb-4">通用小说创作4流程框架</h1>
+                        <p class="subtitle-en">Universal Novel Creation Workflow</p>
+                    </div>
+
+                    <div class="max-w-6xl mx-auto">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <!-- 世界观设定 -->
+                            <div class="fade-in-up role-card">
+                                <div class="flex items-center mb-4">
+                                    <div class="text-3xl mr-4">🏛️</div>
+                                    <h3 class="text-xl font-bold text-red-500">1. 世界观设定</h3>
+                                </div>
+                                <div class="space-y-2 text-sm">
+                                    <p><span class="text-red-400 font-semibold">目标：</span>构建小说的基础"宪法"</p>
+                                    <p><span class="text-red-400 font-semibold">核心输出：</span>故事世界 + 故事主题 + 故事角色三维度设定</p>
+                                    <p><span class="text-red-400 font-semibold">工作方法：</span>交互式共创，智能设定生成，一次性完整交付</p>
+                                    <p><span class="text-red-400 font-semibold">质量标准：</span>三维度统一、逻辑自洽、支撑长篇创作需求</p>
+                                </div>
+                            </div>
+
+                            <!-- 故事大纲 -->
+                            <div class="fade-in-up role-card">
+                                <div class="flex items-center mb-4">
+                                    <div class="text-3xl mr-4">📋</div>
+                                    <h3 class="text-xl font-bold text-red-500">2. 故事大纲</h3>
+                                </div>
+                                <div class="space-y-2 text-sm">
+                                    <p><span class="text-red-400 font-semibold">目标：</span>设计完整的故事结构框架</p>
+                                    <p><span class="text-red-400 font-semibold">核心输出：</span>整体故事脉络和章节安排</p>
+                                    <p><span class="text-red-400 font-semibold">工作方法：</span>核心事件设计，冲突主线规划，传承意义提炼</p>
+                                    <p><span class="text-red-400 font-semibold">质量标准：</span>逻辑清晰、节奏合理、主题突出</p>
+                                </div>
+                            </div>
+
+                            <!-- 故事概要 -->
+                            <div class="fade-in-up role-card">
+                                <div class="flex items-center mb-4">
+                                    <div class="text-3xl mr-4">📖</div>
+                                    <h3 class="text-xl font-bold text-red-500">3. 故事概要</h3>
+                                </div>
+                                <div class="space-y-2 text-sm">
+                                    <p><span class="text-red-400 font-semibold">目标：</span>制定详细的情节发展骨架</p>
+                                    <p><span class="text-red-400 font-semibold">核心输出：</span>基于大纲的具体章节概要</p>
+                                    <p><span class="text-red-400 font-semibold">工作方法：</span>事物发展6阶段标准结构（起始-矛盾-冲突-转折-解决-结果）</p>
+                                    <p><span class="text-red-400 font-semibold">质量标准：</span>骨架完整、逻辑流畅、为内容创作提供不可改变的框架</p>
+                                </div>
+                            </div>
+
+                            <!-- 小说内容 -->
+                            <div class="fade-in-up role-card">
+                                <div class="flex items-center mb-4">
+                                    <div class="text-3xl mr-4">✍️</div>
+                                    <h3 class="text-xl font-bold text-red-500">4. 小说内容</h3>
+                                </div>
+                                <div class="space-y-2 text-sm">
+                                    <p><span class="text-red-400 font-semibold">目标：</span>将概要转化为具体的文学作品</p>
+                                    <p><span class="text-red-400 font-semibold">核心输出：</span>完整的章节内容</p>
+                                    <p><span class="text-red-400 font-semibold">工作方法：</span>严格按概要执行，注重文学表达和风格统一</p>
+                                    <p><span class="text-red-400 font-semibold">质量标准：</span>前后衔接、情节合理、文笔流畅、符合设定约束</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">8/22</div>
+        </div>
+
+        <!-- 第9页：主角共创法章节标题页 -->
+        <div class="section aurora-bg" data-anchor="page9">
+            <div class="flex flex-col justify-center items-center h-screen px-8">
+                <div class="fade-in text-center max-w-4xl">
+                    <h1 class="hero-title">主角共创法</h1>
+                    <h2 class="text-2xl md:text-3xl font-light text-gray-300 mt-6">小说创作的未来模式</h2>
+                    <p class="subtitle-en mt-8">Character Co-creation Method</p>
+                    
+                    <div class="fade-in-up mt-16">
+                        <div class="w-32 h-1 bg-gradient-to-r from-red-600 to-red-400 mx-auto"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">9/22</div>
+        </div>
+
+        <!-- 第10页：什么是主角共创法 -->
+        <div class="section" data-anchor="page10">
+            <div class="h-full flex items-center justify-center">
+                <div class="content-container">
+                    <div class="fade-in-up text-center mb-8">
+                        <h1 class="section-title mb-4">什么是主角共创法？</h1>
+                        <p class="subtitle-en">What is Character Co-creation Method?</p>
+                    </div>
+
+                    <div class="max-w-4xl mx-auto text-center">
+                        <div class="fade-in-up speaker-info mb-12">
+                            <h2 class="text-3xl font-bold mb-6 text-red-500">一句话解释</h2>
+                            <p class="text-2xl font-light text-gray-300">让AI变成一个活生生的角色，和你一起写故事。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">10/22</div>
+        </div>
+
+        <!-- 第11页：创作方式的根本改变 -->
+        <div class="section" data-anchor="page11">
+            <div class="h-full flex items-center justify-center">
+                <div class="content-container">
+                    <div class="fade-in-up text-center mb-8">
+                        <h1 class="section-title mb-4">创作方式的根本改变</h1>
+                        <p class="subtitle-en">Fundamental Change in Creation Method</p>
+                    </div>
+
+                    <div class="max-w-6xl mx-auto">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                            <!-- 传统AI创作模式 -->
+                            <div class="fade-in-up">
+                                <div class="bg-gray-900 border border-gray-700 rounded-lg p-6 h-full">
+                                    <h3 class="text-2xl font-bold text-gray-300 mb-6 text-center">传统AI创作模式</h3>
+                                    
+                                    <div class="bg-gray-800 rounded-lg p-4 mb-6">
+                                        <code class="text-green-400 text-lg">
+                                            你提问 → AI回答 → 你再问 → AI再答
+                                        </code>
+                                    </div>
+                                    
+                                    <div class="flex items-center justify-center">
+                                        <div class="text-center">
+                                            <i class="fas fa-robot text-gray-500 text-4xl mb-3"></i>
+                                            <p class="text-gray-400">AI是个"聪明的搜索引擎"</p>
+                                            <p class="text-red-400 font-semibold">冷冰冰的工具关系</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 主角共创法模式 -->
+                            <div class="fade-in-up">
+                                <div class="bg-gradient-to-br from-red-900/30 to-red-800/20 border border-red-500/50 rounded-lg p-6 h-full">
+                                    <h3 class="text-2xl font-bold text-red-400 mb-6 text-center">主角共创法模式</h3>
+                                    
+                                    <div class="bg-red-900/30 rounded-lg p-4 mb-6">
+                                        <code class="text-red-300 text-lg">
+                                            你 ↔ AI角色 ↔ 共同创作
+                                        </code>
+                                    </div>
+                                    
+                                    <div class="flex items-center justify-center">
+                                        <div class="text-center">
+                                            <i class="fas fa-users text-red-500 text-4xl mb-3"></i>
+                                            <p class="text-gray-300">AI是个"活生生的历史人物"</p>
+                                            <p class="text-red-400 font-semibold">热乎乎的伙伴关系</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">11/22</div>
+        </div>
+
+        <!-- 第12页：主角共创法怎么实现 -->
+        <div class="section" data-anchor="page12">
+            <div class="h-full flex items-center justify-center">
+                <div class="content-container">
+                    <div class="fade-in-up text-center mb-8">
+                        <h1 class="section-title mb-4">主角共创法怎么实现？</h1>
+                        <p class="subtitle-en">How to Implement Character Co-creation Method?</p>
+                    </div>
+
+                    <div class="max-w-6xl mx-auto">
+                        <!-- AI专家四维构建 -->
+                        <div class="fade-in-up speaker-info mb-8">
+                            <h2 class="text-2xl font-bold mb-6 text-red-500 text-center">AI专家四维构建：打造"完整人格"</h2>
+                            <p class="text-gray-300 text-center mb-6">基于专家认知科学研究，任何领域的真正专家都具备四个核心维度。我们将这个理论应用到AI角色构建中：</p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="role-card">
+                                    <div class="flex items-center mb-3">
+                                        <i class="fas fa-id-card text-red-500 text-xl mr-3"></i>
+                                        <h3 class="text-lg font-bold text-red-500">身份认同</h3>
+                                    </div>
+                                    <p class="text-gray-300 text-sm">角色的专业身份和背景定位</p>
+                                </div>
+
+                                <div class="role-card">
+                                    <div class="flex items-center mb-3">
+                                        <i class="fas fa-brain text-red-500 text-xl mr-3"></i>
+                                        <h3 class="text-lg font-bold text-red-500">思维模式</h3>
+                                    </div>
+                                    <p class="text-gray-300 text-sm">独特的认知框架和价值观</p>
+                                </div>
+
+                                <div class="role-card">
+                                    <div class="flex items-center mb-3">
+                                        <i class="fas fa-cogs text-red-500 text-xl mr-3"></i>
+                                        <h3 class="text-lg font-bold text-red-500">执行能力</h3>
+                                    </div>
+                                    <p class="text-gray-300 text-sm">专业的工作方法和技能</p>
+                                </div>
+
+                                <div class="role-card">
+                                    <div class="flex items-center mb-3">
+                                        <i class="fas fa-book text-red-500 text-xl mr-3"></i>
+                                        <h3 class="text-lg font-bold text-red-500">知识体系</h3>
+                                    </div>
+                                    <p class="text-gray-300 text-sm">完整的专业知识和经验</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">12/22</div>
+        </div>
+
+        <!-- 第13页：怎么使用 -->
+        <div class="section" data-anchor="page13">
+            <div class="h-full flex items-center justify-center">
+                <div class="content-container">
+                    <div class="fade-in-up text-center mb-8">
+                        <h1 class="section-title mb-4">怎么使用？</h1>
+                        <p class="subtitle-en">How to Use?</p>
+                    </div>
+
+                    <div class="max-w-6xl mx-auto">
+                        <!-- 流程图 -->
+                        <div class="fade-in-up mb-8">
+                            <div class="bg-gray-900 border border-red-500/50 rounded-lg p-6">
+                                <div class="flex items-center justify-center mb-6">
+                                    <code class="text-red-300 text-xl">
+                                        📚 收集资料 → 🎭 角色创建 → ⚡ 激活角色 → 💬 共创互动
+                                    </code>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 详细步骤 -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div class="fade-in-up role-card">
+                                <div class="flex items-center mb-4">
+                                    <div class="text-3xl mr-4">📚</div>
+                                    <h3 class="text-xl font-bold text-red-500">1. 收集资料</h3>
+                                </div>
+                                <p class="text-gray-300">人物背景、性格特征、专业知识</p>
+                            </div>
+
+                            <div class="fade-in-up role-card">
+                                <div class="flex items-center mb-4">
+                                    <div class="text-3xl mr-4">🎭</div>
+                                    <h3 class="text-xl font-bold text-red-500">2. 角色创建</h3>
+                                </div>
+                                <p class="text-gray-300">用四维专家模型构建完整人格</p>
+                            </div>
+
+                            <div class="fade-in-up role-card">
+                                <div class="flex items-center mb-4">
+                                    <div class="text-3xl mr-4">⚡</div>
+                                    <h3 class="text-xl font-bold text-red-500">3. 激活角色</h3>
+                                </div>
+                                <p class="text-gray-300">一句话激活，AI立即变身</p>
+                            </div>
+
+                            <div class="fade-in-up role-card">
+                                <div class="flex items-center mb-4">
+                                    <div class="text-3xl mr-4">💬</div>
+                                    <h3 class="text-xl font-bold text-red-500">4. 共创互动</h3>
+                                </div>
+                                <p class="text-gray-300">直接对话，情节自然涌现</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">13/22</div>
+        </div>
+
+        <!-- 第14页：适用场景全覆盖 -->
+        <div class="section" data-anchor="page14">
+            <div class="h-full flex items-center justify-center">
+                <div class="content-container">
+                    <div class="fade-in-up text-center mb-8">
+                        <h1 class="section-title mb-4">适用场景全覆盖</h1>
+                        <p class="subtitle-en">Universal Application Scenarios</p>
+                    </div>
+
+                    <div class="max-w-6xl mx-auto">
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <div class="fade-in-up role-card text-center">
+                                <i class="fas fa-landmark text-red-500 text-3xl mb-4"></i>
+                                <h3 class="text-lg font-bold text-red-500 mb-3">历史小说</h3>
+                                <p class="text-gray-300 text-sm">与古代先贤对话，重现历史场景</p>
+                            </div>
+
+                            <div class="fade-in-up role-card text-center">
+                                <i class="fas fa-rocket text-red-500 text-3xl mb-4"></i>
+                                <h3 class="text-lg font-bold text-red-500 mb-3">科幻小说</h3>
+                                <p class="text-gray-300 text-sm">与未来人物交流，探索科技伦理</p>
+                            </div>
+
+                            <div class="fade-in-up role-card text-center">
+                                <i class="fas fa-search text-red-500 text-3xl mb-4"></i>
+                                <h3 class="text-lg font-bold text-red-500 mb-3">悬疑推理</h3>
+                                <p class="text-gray-300 text-sm">与侦探、罪犯多角度推理破案</p>
+                            </div>
+
+                            <div class="fade-in-up role-card text-center">
+                                <i class="fas fa-heart text-red-500 text-3xl mb-4"></i>
+                                <h3 class="text-lg font-bold text-red-500 mb-3">言情小说</h3>
+                                <p class="text-gray-300 text-sm">体验不同视角的情感冲突</p>
+                            </div>
+
+                            <div class="fade-in-up role-card text-center">
+                                <i class="fas fa-fist-raised text-red-500 text-3xl mb-4"></i>
+                                <h3 class="text-lg font-bold text-red-500 mb-3">武侠小说</h3>
+                                <p class="text-gray-300 text-sm">与大侠切磋，感受江湖恩怨</p>
+                            </div>
+
+                            <div class="fade-in-up role-card text-center">
+                                <i class="fas fa-ellipsis-h text-red-500 text-3xl mb-4"></i>
+                                <h3 class="text-lg font-bold text-red-500 mb-3">更多题材</h3>
+                                <p class="text-gray-300 text-sm">只要有角色，就能共创</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">14/22</div>
+        </div>
+
+        <!-- 第15页：实践案例：《江夏世家》 -->
+        <div class="section" data-anchor="page15">
+            <div class="h-full flex items-center justify-center">
+                <div class="content-container">
+                    <div class="fade-in-up text-center mb-8">
+                        <h1 class="section-title mb-4">实践案例：《江夏世家》</h1>
+                        <p class="subtitle-en">Practical Case: Jiangxia Family</p>
+                    </div>
+
+                    <div class="max-w-6xl mx-auto">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <!-- 黄峭山公其人其事 -->
+                            <div class="fade-in-up">
+                                <div class="speaker-info">
+                                    <h3 class="text-xl font-bold text-red-500 mb-4">黄峭山公其人其事</h3>
+                                    <p class="text-gray-300 mb-4">
+                                        黄峭山公（872-953年），唐末五代传奇人物。80岁时做出惊世决策：将21子中18子分派全国，仅留3长子守祖业。
+                                    </p>
+                                    <p class="text-gray-300">
+                                        此举让黄氏成为中华最大姓氏之一，《遣子诗》至今是全球黄氏精神纽带。
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- 《江夏世家》的创作突破 -->
+                            <div class="fade-in-up">
+                                <div class="speaker-info">
+                                    <h3 class="text-xl font-bold text-red-500 mb-4">《江夏世家》的创作突破</h3>
+                                    <p class="text-gray-300 mb-4">
+                                        让千年先祖"复活"对话，读者从"了解历史"变为"参与历史"。
+                                    </p>
+                                    <p class="text-red-400 font-semibold">
+                                        与AI主角共同演绎剧情，在对话中推进故事发展，开创全新的小说创作模式。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">15/22</div>
+        </div>
+
+    </div>
+
+    <!-- 初始化脚本 -->
+    <script>
+        // fullpage.js配置
+        new fullpage('#fullpage', {
+            autoScrolling: true,
+            scrollHorizontally: true,
+            navigation: true,
+            navigationTooltips: ['封面', '自我介绍', '华库律所', '前情回顾', '传统痛点', 'AI痛点', '4角色体系', '4流程框架', '主角共创法', '共创法介绍', '创作方式改变', '怎么实现', '怎么使用', '适用场景', '实践案例'],
+            sectionsColor: ['#000', '#000', '#000', '#000', '#000', '#000', '#000', '#000', '#000', '#000', '#000', '#000', '#000', '#000', '#000'],
+            scrollingSpeed: 1000,
+            easingcss: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+            onLeave: function(origin, destination, direction) {
+                // 离开页面时重置动画
+                const currentSection = origin.item;
+                const elements = currentSection.querySelectorAll('.fade-in-up');
+                elements.forEach(el => {
+                    el.classList.remove('active');
+                });
+            },
+            afterLoad: function(origin, destination, direction) {
+                // 进入页面时触发动画
+                const currentSection = destination.item;
+                const elements = currentSection.querySelectorAll('.fade-in-up');
+                
+                elements.forEach((el, index) => {
+                    setTimeout(() => {
+                        el.classList.add('active');
+                    }, index * 200);
+                });
+            }
+        });
+        
+        // 页面加载完成后初始化第一页动画
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                const firstPageElements = document.querySelector('.section[data-anchor="page1"]').querySelectorAll('.fade-in');
+                firstPageElements.forEach((el, index) => {
+                    setTimeout(() => {
+                        el.classList.add('active');
+                    }, index * 300);
+                });
+            }, 500);
+        });
+    </script>
+</body>
+</html>
