@@ -3,7 +3,11 @@
     "allow": [
       "mcp__promptx__action",
       "Bash(claude mcp:*)",
-      "mcp__promptx__discover"
+      "mcp__promptx__discover",
+      "Read(//Users/huangyanxiang/.promptx/resource/role/ppt-writer/**)",
+      "mcp__promptx__recall",
+      "Bash(open \"/Users/huangyanxiang/Desktop/黄明易/1、项目/开发/jiangxia.github.io.git/share-007/index.html\")",
+      "mcp__promptx__remember"
     ],
     "deny": [],
     "ask": []

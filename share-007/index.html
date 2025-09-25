@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI小说创作新范式：SAGA与SOUL方法论实践突破</title>
+
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- fullpage.js CDN -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/fullpage.js@4.0.20/dist/fullpage.min.css" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/fullpage.js@4.0.20/dist/fullpage.min.js"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+        :root {
+            --tesla-red: #E31937;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #000000;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .section {
+            background: linear-gradient(135deg, #000 0%, #111 50%, #000 100%);
+            position: relative;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 10vw, 8rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, #fff 0%, var(--tesla-red) 50%, #fff 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+            line-height: 0.9;
+            margin: 0 auto;
+            letter-spacing: -0.02em;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, #E31937 0%, rgba(227, 25, 55, 0.8) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle-en {
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            font-weight: 300;
+            color: rgba(227, 25, 55, 0.7);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .content-container {
+            max-width: 90vw;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .fade-in-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .page-number {
+            position: absolute;
+            bottom: 2rem;
+            right: 2rem;
+            font-size: 1.2rem;
+            color: #ffffff;
+            font-weight: 600;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .role-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(227, 25, 55, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .role-card:hover {
+            border-color: rgba(227, 25, 55, 0.5);
+            background: rgba(227, 25, 55, 0.05);
+        }
+
+        .aurora-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center, rgba(231, 25, 55, 0.1) 0%, transparent 70%);
+            animation: aurora 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes aurora {
+            0% { transform: translateY(0px) rotate(0deg); opacity: 0.3; }
+            100% { transform: translateY(-20px) rotate(1deg); opacity: 0.6; }
+        }
+
+        .point-item {
+            display: flex;
+            align-items: center;
+            padding: 0.3rem 0.5rem;
+            margin: 0.2rem 0;
+            line-height: 1.3;
+        }
+
+        #fp-nav ul li a span {
+            background: rgba(255, 255, 255, 0.3) !important;
+            color: white !important;
+            padding: 4px 8px !important;
+            border-radius: 4px !important;
+            font-size: 12px !important;
+            white-space: nowrap !important;
+            opacity: 1 !important;
+            transition: all 0.3s !important;
+        }
+
+        #fp-nav ul li:hover a span {
+            background: rgba(255, 255, 255, 0.6) !important;
+            transform: scale(1.1) !important;
+        }
+
+        .speaker-info {
+            background: rgba(227, 25, 55, 0.1);
+            border: 1px solid rgba(227, 25, 55, 0.3);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        .identity-badge {
+            background: rgba(227, 25, 55, 0.1);
+            border: 1px solid rgba(227, 25, 55, 0.3);
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin: 0.25rem;
+            display: inline-block;
+        }
+
+        .method-highlight {
+            color: #E31937;
+            font-weight: 700;
+            font-size: 1.2em;
+        }
+
+        /* 简化的媒体播放器样式 */
+        .simple-media {
+            margin: 2rem 0;
+        }
+
+        .simple-media video {
+            width: 100%;
+            height: auto;
+            background: #000;
+            max-height: 400px;
+        }
+
+        .simple-media audio {
+            width: 100%;
+            height: 40px;
+            background: transparent;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="fullpage">
+
+        <!-- 第1页：封面标题页 -->
+        <div class="section aurora-bg" data-anchor="page1">
+            <div class="flex flex-col justify-center items-center h-screen px-8">
+                <div class="fade-in text-center max-w-6xl">
+                    <h1 class="hero-title mb-6">AI小说创作新范式</h1>
+                    <h2 class="text-2xl md:text-3xl font-light text-gray-300 mb-6">SAGA与SOUL方法论实践突破</h2>
+                    <p class="text-lg text-gray-400 mb-8">演讲者：黄彦湘</p>
+
+                    <div class="grid grid-cols-1 gap-1 max-w-4xl mx-auto text-left">
+                        <div class="point-item">
+                            <span class="text-xl font-bold text-red-500 mr-3">1.</span>
+                            <span class="text-lg"><span class="method-highlight">SAGA方法论</span>：4角色4流程的系统化创作框架与实战应用</span>
+                        </div>
+                        <div class="point-item">
+                            <span class="text-xl font-bold text-red-500 mr-3">2.</span>
+                            <span class="text-lg"><span class="method-highlight">SOUL方法论</span>：主角共创的温度化协作模式与突破实践</span>
+                        </div>
+                        <div class="point-item">
+                            <span class="text-xl font-bold text-red-500 mr-3">3.</span>
+                            <span class="text-lg"><span class="method-highlight">一句话生成MCP工具</span>：智能工具生成器的技术创新与演示</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">1/10</div>
+        </div>
+
+        <!-- 第2页：自我介绍 -->
+        <div class="section" data-anchor="page2">
+            <div class="h-full flex items-center justify-center">
+                <div class="content-container">
+                    <div class="fade-in-up text-center mb-8">
+                        <h1 class="section-title mb-4">自我介绍</h1>
+                        <p class="subtitle-en">Self Introduction</p>
+                    </div>
+
+                    <div class="max-w-6xl mx-auto">
+                        <div class="fade-in-up speaker-info mb-8">
+                            <h2 class="text-2xl font-bold mb-6 text-red-500">四重身份</h2>
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                                <div class="role-card">
+                                    <i class="fas fa-code text-red-500 text-3xl mb-3"></i>
+                                    <h3 class="font-semibold">高级软件工程师</h3>
+                                </div>
+                                <div class="role-card">
+                                    <i class="fas fa-balance-scale text-red-500 text-3xl mb-3"></i>
+                                    <h3 class="font-semibold">律师</h3>
+                                </div>
+                                <div class="role-card">
+                                    <i class="fas fa-certificate text-red-500 text-3xl mb-3"></i>
+                                    <h3 class="font-semibold">专利代理师</h3>
+                                </div>
+                                <div class="role-card">
+                                    <i class="fas fa-users text-red-500 text-3xl mb-3"></i>
+                                    <h3 class="font-semibold">开源社区贡献者</h3>
+                                </div>
+                            </div>
+
+                            <div class="mt-8 text-center">
+                                <div class="flex justify-center space-x-8 mb-6">
+                                    <div class="max-w-xs">
+                                        <img src="assets/ME-律师证.png" alt="律师证" class="w-full h-auto border border-red-500 rounded-lg max-h-40">
+                                    </div>
+                                    <div class="max-w-xs">
+                                        <img src="assets/ME-专利代理师资格证.jpg" alt="专利代理师资格证" class="w-full h-auto border border-red-500 rounded-lg max-h-40">
+                                    </div>
+                                </div>
+                                <p class="text-xl font-bold text-red-500">AI时代技术人的专属知识产权律师</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">2/10</div>
+        </div>
+
+        <!-- 第3页：广东华库律师事务所 -->
+        <div class="section" data-anchor="page3">
+            <div class="h-full flex items-center justify-center">
+                <div class="content-container">
+                    <div class="fade-in-up text-center mb-8">
+                        <h1 class="section-title mb-4">广东华库律师事务所</h1>
+                        <p class="subtitle-en">Guangdong Huaku Law Firm</p>
+                    </div>
+
+                    <div class="max-w-6xl mx-auto">
+                        <div class="fade-in-up bg-gray-900 border border-gray-700 rounded-lg p-6">
+                            <div class="flex items-center mb-4">
+                                <i class="fas fa-building text-red-500 text-2xl mr-3"></i>
+                                <h2 class="text-2xl font-bold text-red-500">广东华库律师事务所</h2>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <p class="text-gray-300 mb-4">广东华库律师事务所2025年全新创立，法律领域后起之秀</p>
+                                    <div class="flex items-center space-x-6">
+                                        <div class="flex items-center">
+                                            <span class="text-red-500 mr-2">●</span>
+                                            <span class="font-semibold text-red-400">「匠・律」</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <span class="text-red-500 mr-2">●</span>
+                                            <span class="font-semibold text-red-400">「锋・盾」</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <span class="text-red-500 mr-2">●</span>
+                                            <span class="font-semibold text-red-400">「明・信」</span>
+                                        </div>
+                                    </div>
+                                    <p class="text-sm text-gray-400 mt-2">三大建所理念</p>
+                                </div>
+                                <div>
+                                    <p class="text-gray-300 mb-3">汇聚跨学科背景精英律师团队（医学、工程等）</p>
+                                    <p class="text-gray-300">业务涵盖：公司事务、知识产权、诉讼仲裁、工程建筑等</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">3/10</div>
+        </div>
+
+        <!-- 第4页：SAGA方法论章节标题页 -->
+        <div class="section aurora-bg" data-anchor="page4">
+            <div class="flex flex-col justify-center items-center h-screen px-8">
+                <div class="fade-in text-center max-w-4xl">
+                    <h1 class="hero-title" style="font-size: clamp(2.5rem, 6vw, 5rem);">首创SAGA方法论</h1>
+                    <h2 class="text-2xl md:text-3xl font-light text-gray-300 mt-6">组建你的AI超级创作团队</h2>
+                    <p class="subtitle-en mt-8">SAGA Methodology</p>
+
+                    <div class="fade-in-up mt-16">
+                        <div class="w-32 h-1 bg-gradient-to-r from-red-600 to-red-400 mx-auto"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">4/10</div>
+        </div>
+
+        <!-- 第5页：SAGA方法论是什么 -->
+        <div class="section" data-anchor="page5">
+            <div class="h-full flex items-center justify-center">
+                <div class="content-container">
+                    <div class="fade-in-up text-center mb-6">
+                        <h1 class="section-title mb-4">SAGA方法论是什么？</h1>
+                        <p class="subtitle-en">What is SAGA Methodology?</p>
+                    </div>
+
+                    <div class="max-w-6xl mx-auto">
+                        <div class="fade-in-up speaker-info mb-6 text-center">
+                            <h2 class="text-2xl font-bold mb-4 text-red-500">SAGA = Setting → Architecture → Generation → Assessment</h2>
+                            <p class="text-lg font-light text-gray-300 mb-3">SAGA方法论是AI协作小说创作的标准化<span class="method-highlight">工作流</span></p>
+                            <p class="text-sm text-gray-300">通过4个专业AI角色的协作分工，让任何人都能创作出史诗级长篇小说。</p>
+                        </div>
+
+                        <div class="fade-in-up grid grid-cols-4 gap-4">
+                            <div class="role-card text-center">
+                                <div class="text-3xl font-bold text-red-500 mb-2">S</div>
+                                <h3 class="text-lg font-bold text-red-500 mb-1">Setting</h3>
+                                <h4 class="text-sm font-semibold text-white mb-1">设定阶段</h4>
+                                <p class="text-xs text-gray-300">构建小说的"宪法"级基础设定</p>
+                            </div>
+
+                            <div class="role-card text-center">
+                                <div class="text-3xl font-bold text-red-500 mb-2">A</div>
+                                <h3 class="text-lg font-bold text-red-500 mb-1">Architecture</h3>
+                                <h4 class="text-sm font-semibold text-white mb-1">架构阶段</h4>
+                                <p class="text-xs text-gray-300">设计完整的故事结构和发展脉络</p>
+                            </div>
+
+                            <div class="role-card text-center">
+                                <div class="text-3xl font-bold text-red-500 mb-2">G</div>
+                                <h3 class="text-lg font-bold text-red-500 mb-1">Generation</h3>
+                                <h4 class="text-sm font-semibold text-white mb-1">生成阶段</h4>
+                                <p class="text-xs text-gray-300">产出高质量的小说内容</p>
+                            </div>
+
+                            <div class="role-card text-center">
+                                <div class="text-3xl font-bold text-red-500 mb-2">A</div>
+                                <h3 class="text-lg font-bold text-red-500 mb-1">Assessment</h3>
+                                <h4 class="text-sm font-semibold text-white mb-1">评估阶段</h4>
+                                <p class="text-xs text-gray-300">确保输出质量和设定一致性</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">5/10</div>
+        </div>
+
+        <!-- 第6页：SAGA方法论详解 -->
+        <div class="section" data-anchor="page6">
+            <div class="h-full flex items-center justify-center">
+                <div class="content-container">
+                    <div class="fade-in-up text-center mb-6">
+                        <h1 class="section-title mb-4">SAGA方法论详解</h1>
+                        <p class="subtitle-en">SAGA Methodology Details</p>
+                    </div>
+
+                    <div class="max-w-6xl mx-auto">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Setting阶段 -->
+                            <div class="fade-in-up role-card">
+                                <div class="flex items-center mb-3">
+                                    <div class="text-2xl font-bold text-red-500 mr-3">S</div>
+                                    <h3 class="text-xl font-bold text-red-500">Setting（设定阶段）</h3>
+                                </div>
+                                <div class="text-sm space-y-1">
+                                    <p><span class="text-red-400 font-semibold">负责角色：</span>架构师</p>
+                                    <p><span class="text-red-400 font-semibold">核心任务：</span>构建小说的"宪法"级基础设定</p>
+                                    <div class="mt-2 space-y-1 text-xs text-gray-300">
+                                        <p>• 故事世界设定：时空框架、世界规则</p>
+                                        <p>• 故事主题设定：核心价值观、文化传承</p>
+                                        <p>• 故事角色设定：主角配置、人物关系</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Architecture阶段 -->
+                            <div class="fade-in-up role-card">
+                                <div class="flex items-center mb-3">
+                                    <div class="text-2xl font-bold text-red-500 mr-3">A</div>
+                                    <h3 class="text-xl font-bold text-red-500">Architecture（架构阶段）</h3>
+                                </div>
+                                <div class="text-sm space-y-1">
+                                    <p><span class="text-red-400 font-semibold">负责角色：</span>规划师</p>
+                                    <p><span class="text-red-400 font-semibold">核心任务：</span>设计完整的故事结构和发展脉络</p>
+                                    <div class="mt-2 space-y-1 text-xs text-gray-300">
+                                        <p>• 故事大纲：整体结构框架，章节划分</p>
+                                        <p>• 故事概要：详细剧情骨架，情节脉络</p>
+                                        <p>• 节奏控制：起承转合设计，高潮安排</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Generation阶段 -->
+                            <div class="fade-in-up role-card">
+                                <div class="flex items-center mb-3">
+                                    <div class="text-2xl font-bold text-red-500 mr-3">G</div>
+                                    <h3 class="text-xl font-bold text-red-500">Generation（生成阶段）</h3>
+                                </div>
+                                <div class="text-sm space-y-1">
+                                    <p><span class="text-red-400 font-semibold">负责角色：</span>写手</p>
+                                    <p><span class="text-red-400 font-semibold">核心任务：</span>产出高质量的小说内容</p>
+                                    <div class="mt-2 space-y-1 text-xs text-gray-300">
+                                        <p>• 章节内容创作：文学表达、情感共鸣</p>
+                                        <p>• 风格统一把控：语言风格、叙述视角</p>
+                                        <p>• 内容修订润色：结构优化、文字打磨</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Assessment阶段 -->
+                            <div class="fade-in-up role-card">
+                                <div class="flex items-center mb-3">
+                                    <div class="text-2xl font-bold text-red-500 mr-3">A</div>
+                                    <h3 class="text-xl font-bold text-red-500">Assessment（评估阶段）</h3>
+                                </div>
+                                <div class="text-sm space-y-1">
+                                    <p><span class="text-red-400 font-semibold">负责角色：</span>总监</p>
+                                    <p><span class="text-red-400 font-semibold">核心任务：</span>确保输出质量和设定一致性</p>
+                                    <div class="mt-2 space-y-1 text-xs text-gray-300">
+                                        <p>• 智能任务分配：意图识别、角色路由</p>
+                                        <p>• 质量系统监控：设定一致性、逻辑连贯性</p>
+                                        <p>• 问题发现处理：批判性分析、问题定位</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">6/10</div>
+        </div>
+
+        <!-- 第7页：SAGA三层品控体系 -->
+        <div class="section" data-anchor="page7">
+            <div class="h-full flex items-center justify-center">
+                <div class="content-container">
+                    <div class="fade-in-up text-center mb-8">
+                        <h1 class="section-title mb-4">SAGA三层品控体系</h1>
+                        <p class="subtitle-en">Three-Layer Quality Control System</p>
+                    </div>
+
+                    <div class="max-w-6xl mx-auto">
+                        <div class="grid grid-cols-1 gap-8">
+                            <!-- 第一层：设定宪法 -->
+                            <div class="fade-in-up role-card">
+                                <div class="flex items-center mb-4">
+                                    <div class="text-3xl mr-4">🏛️</div>
+                                    <h3 class="text-2xl font-bold text-red-500">第一层：设定宪法</h3>
+                                </div>
+                                <div class="space-y-2 text-lg">
+                                    <p class="text-gray-300">• 核心设定固化为"宪法"级约束</p>
+                                    <p class="text-gray-300">• AI输出强制遵守，源头杜绝逻辑漂移</p>
+                                </div>
+                            </div>
+
+                            <!-- 第二层：专业分工 -->
+                            <div class="fade-in-up role-card">
+                                <div class="flex items-center mb-4">
+                                    <div class="text-3xl mr-4">⚙️</div>
+                                    <h3 class="text-2xl font-bold text-red-500">第二层：专业分工</h3>
+                                </div>
+                                <div class="space-y-2 text-lg">
+                                    <p class="text-gray-300">• 4角色独立运作，职责边界清晰</p>
+                                    <p class="text-gray-300">• 变更需求精准定位，系统稳定性强</p>
+                                </div>
+                            </div>
+
+                            <!-- 第三层：人工把关 -->
+                            <div class="fade-in-up role-card">
+                                <div class="flex items-center mb-4">
+                                    <div class="text-3xl mr-4">👤</div>
+                                    <h3 class="text-2xl font-bold text-red-500">第三层：人工把关</h3>
+                                </div>
+                                <div class="space-y-2 text-lg">
+                                    <p class="text-gray-300">• <span class="method-highlight">人类掌控决策权</span>：每道工序必须人工审核</p>
+                                    <p class="text-gray-300">• <span class="method-highlight">AI负责分析评估</span>：总监提供质量建议</p>
+                                    <p class="text-gray-300">• 流水线式质量管控，环环相扣</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">7/10</div>
+        </div>
+
+        <!-- 第8页：SAGA实践案例 -->
+        <div class="section" data-anchor="page8">
+            <div class="h-full flex items-center justify-center">
+                <div class="content-container">
+                    <div class="fade-in-up text-center mb-8">
+                        <h1 class="section-title mb-4">SAGA实践案例</h1>
+                        <p class="subtitle-en">SAGA Practice Case</p>
+                    </div>
+
+                    <div class="max-w-6xl mx-auto">
+                        <div class="fade-in-up speaker-info mb-8">
+                            <h2 class="text-2xl font-bold mb-6 text-red-500 text-center">一个"疯狂"的构思《行易：复兴之路》的宏大设想</h2>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                <div class="space-y-4">
+                                    <div class="flex items-start space-x-3">
+                                        <span class="text-red-500 mt-1">•</span>
+                                        <span class="text-gray-300">严格按照《易经》64卦、386爻的顺序对应百年建国史</span>
+                                    </div>
+                                    <div class="flex items-start space-x-3">
+                                        <span class="text-red-500 mt-1">•</span>
+                                        <span class="text-gray-300"><span class="method-highlight">三代人</span>三个时代的家族史，展现百年民族复兴的缩影</span>
+                                    </div>
+                                    <div class="flex items-start space-x-3">
+                                        <span class="text-red-500 mt-1">•</span>
+                                        <span class="text-gray-300">将《易经》从算命书还原为<span class="method-highlight">世界观</span>，家国情怀贯穿全书</span>
+                                    </div>
+                                    <div class="flex items-start space-x-3">
+                                        <span class="text-red-500 mt-1">•</span>
+                                        <span class="text-gray-300">思考中华民族伟大复兴、百年未有大变局等宏大话题</span>
+                                    </div>
+                                </div>
+
+                                <div class="flex justify-center items-center">
+                                    <div class="max-w-sm">
+                                        <img src="assets/SAGA-《行易》第二版二维码.png" alt="行易二维码" class="w-full h-auto border border-red-500 rounded-lg">
+                                        <p class="text-center text-sm text-gray-400 mt-2">扫码了解《行易：复兴之路》</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">8/11</div>
+        </div>
+
+        <!-- 第9页：演示 - 小说项目 -->
+        <div class="section" data-anchor="page9">
+            <div class="h-full flex items-center justify-center">
+                <div class="content-container">
+                    <div class="fade-in-up text-center mb-8">
+                        <h1 class="section-title mb-4">演示 - 小说项目</h1>
+                        <p class="subtitle-en">Novel Project Demonstration</p>
+                    </div>
+
+                    <div class="max-w-3xl mx-auto">
+                        <div class="fade-in-up">
+                            <img src="assets/SAGA-小说项目.png" alt="小说项目演示" class="w-4/5 mx-auto h-auto rounded-lg border border-red-500/50">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">9/11</div>
+        </div>
+
+        <!-- 第10页：演示 - 创作文章 -->
+        <div class="section" data-anchor="page10">
+            <div class="h-full flex items-center justify-center">
+                <div class="content-container">
+                    <div class="fade-in-up text-center mb-12">
+                        <h1 class="section-title mb-4">演示 - 创作文章</h1>
+                        <p class="subtitle-en">Article Creation Demonstration</p>
+                    </div>
+
+                    <div class="max-w-4xl mx-auto">
+                        <div class="simple-media">
+                            <!-- 视频 -->
+                            <video src="assets/SAGA-创作第34篇文章演示.mp4" controls preload="metadata">
+                                <p class="text-gray-300">您的浏览器不支持视频播放。</p>
+                            </video>
+                            
+                            <!-- 音频 -->
+                            <audio src="assets/SAGA-第34篇文章成果演示.mp3" controls preload="metadata">
+                                <p class="text-gray-300">您的浏览器不支持音频播放。</p>
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">10/11</div>
+        </div>
+
+        <!-- 第11页：SAGA适用场景分析 -->
+        <div class="section aurora-bg" data-anchor="page11">
+            <div class="flex flex-col justify-center items-center h-screen px-8">
+                <div class="fade-in text-center max-w-6xl">
+                    <h1 class="hero-title" style="font-size: clamp(2rem, 5vw, 4rem);">SAGA适用场景分析</h1>
+                    <p class="subtitle-en mt-8">SAGA Application Scenarios</p>
+
+                    <div class="fade-in-up mt-12">
+                        <div class="speaker-info">
+                            <h2 class="text-3xl font-bold mb-6 text-red-500">🎯 SAGA擅长：有框架的创作</h2>
+
+                            <div class="mt-8">
+                                <h3 class="text-2xl font-bold mb-6 text-white">🤔 新挑战：无框架怎么办？</h3>
+
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+                                    <div>
+                                        <h4 class="text-lg font-bold text-red-400 mb-3">核心问题：</h4>
+                                        <div class="space-y-2 text-gray-300">
+                                            <p>❌ AI天然发散，缺乏聚焦</p>
+                                            <p>❌ 传统AI不了解你的剧情</p>
+                                            <p>❌ 发散结果往往不满意</p>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <h4 class="text-lg font-bold text-red-400 mb-3">关键洞察：</h4>
+                                        <div class="bg-red-900/30 rounded-lg p-4">
+                                            <p class="text-red-300 font-semibold text-center">
+                                                谁最了解历史小说？主角自己！
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-number">11/11</div>
+        </div>
+
+    </div>
+
+    <!-- 初始化脚本 -->
+    <script>
+        // fullpage.js配置
+        new fullpage('#fullpage', {
+            autoScrolling: true,
+            scrollHorizontally: true,
+            navigation: true,
+            navigationTooltips: ['封面', '自我介绍', '华库律所', 'SAGA方法论', 'SAGA是什么', 'SAGA详解', '三层品控', '实践案例', 'AI协作演示', '创作文章演示', '适用场景'],
+            sectionsColor: ['#000', '#000', '#000', '#000', '#000', '#000', '#000', '#000', '#000', '#000', '#000'],
+            scrollingSpeed: 1000,
+            easingcss: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+            onLeave: function(origin, destination, direction) {
+                // 离开页面时重置动画
+                const currentSection = origin.item;
+                const elements = currentSection.querySelectorAll('.fade-in-up');
+                elements.forEach(el => {
+                    el.classList.remove('active');
+                });
+            },
+            afterLoad: function(origin, destination, direction) {
+                // 进入页面时触发动画
+                const currentSection = destination.item;
+                const elements = currentSection.querySelectorAll('.fade-in-up');
+
+                elements.forEach((el, index) => {
+                    setTimeout(() => {
+                        el.classList.add('active');
+                    }, index * 200);
+                });
+            }
+        });
+
+        // 页面加载完成后初始化第一页动画
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                const firstPageElements = document.querySelector('.section[data-anchor="page1"]').querySelectorAll('.fade-in');
+                firstPageElements.forEach((el, index) => {
+                    setTimeout(() => {
+                        el.classList.add('active');
+                    }, index * 300);
+                });
+            }, 500);
+        });
+    </script>
+</body>
+</html>
