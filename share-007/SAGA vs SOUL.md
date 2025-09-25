@@ -328,6 +328,10 @@ Deepractice 深度实践 致力于成为AI时代的标准制定者，基于开�
 * 🌐 **官网**：deepractice.ai
 * 💻 **GitHub**：[https://github.com/Deepractice](https://github.com/Deepractice)
 
+---
+
+## 更好内容请看公众号文章
+![文章](assets/公众号SAGA跟SOUL的截图.jpg)
 
 ---
 
