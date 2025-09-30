@@ -18,7 +18,8 @@
       "Read(//Users/huangyanxiang/.promptx/resource/tool/pages-to-markdown/**)",
       "Bash(node:*)",
       "Read(//Users/huangyanxiang/.promptx/**)",
-      "Bash(\"/Users/huangyanxiang/Desktop/黄明易/1、项目/开发/jiangxia.github.io.git/convert_v2.sh\")"
+      "Bash(\"/Users/huangyanxiang/Desktop/黄明易/1、项目/开发/jiangxia.github.io.git/convert_v2.sh\")",
+      "Bash(git checkout:*)"
     ],
     "deny": [],
     "ask": []
